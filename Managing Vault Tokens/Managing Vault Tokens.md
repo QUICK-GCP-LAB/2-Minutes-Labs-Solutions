@@ -1,0 +1,23 @@
+# Managing Vault Tokens || [GSP1006](https://www.cloudskillsboost.google/focuses/32201?parent=catalog) ||
+
+## Solution [here]()
+
+* *In Cloud Shell, Use Below Commands to Execute Shell File.*
+
+```
+curl -LO https://raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Managing%20Vault%20Tokens/gsp1006.sh
+
+sudo chmod +x gsp1006.sh
+
+./gsp1006.sh
+```
+
+### Congratulations 🎉 for Completing the Lab !
+
+##### *You Have Successfully Demonstrated Your Skills And Determination.*
+
+#### *Well done!*
+
+#### Don't Forget to Join the [Telegram Channel](https://t.me/QuickGcpLab) & [Discussion group](https://t.me/QuickGcpLabChats)
+
+# [QUICK GCP LAB](https://www.youtube.com/@quickgcplab)
