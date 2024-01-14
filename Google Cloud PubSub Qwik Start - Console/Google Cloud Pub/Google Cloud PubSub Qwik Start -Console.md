@@ -2,6 +2,7 @@
 
 ## Solution [here]()
 
+### Run the following Commands in CloudShell
 ```
 gcloud pubsub topics create myTopic
 gcloud  pubsub subscriptions create --topic myTopic mySubscription
