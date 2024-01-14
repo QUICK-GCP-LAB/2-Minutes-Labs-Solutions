@@ -1,6 +1,6 @@
 gsutil mb -l us -b on gs://$DEVSHELL_PROJECT_ID
 
-echo "Awesome Lab Solution " > sample.txt
+echo "Awesome Lab Solution" > sample.txt
 
 gsutil cp sample.txt gs://$DEVSHELL_PROJECT_ID
 
