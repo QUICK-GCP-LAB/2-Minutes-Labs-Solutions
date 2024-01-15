@@ -46,6 +46,12 @@ gcloud compute firewall-rules create network-1-allow-ssh-icmp \
 
 gcloud compute instances create server-1 --machine-type=e2-medium --zone $ZONE_1 --subnet subnet-a
 
+echo "${GREEN}${BOLD}
+
+Task 1. Set up a Global VPC environment Complete
+
+${RESET}"
+
 gcloud compute networks create vpn-network-2 --subnet-mode custom
 
 gcloud compute networks subnets create subnet-b \
@@ -64,6 +70,12 @@ gcloud compute instances create server-2 --machine-type=e2-medium --zone $ZONE_2
 
 echo "${GREEN}${BOLD}
 
+Task 2. Set up a simulated on-premises environment Complete
+
+${RESET}"
+
+echo "${YELLOW}${BOLD}
+
 Reserve two static IP addresses
 
 ${RESET}"
@@ -76,7 +88,7 @@ IP_ADDRESS_1=$(gcloud compute addresses describe vpn-1-static-ip --region=$REGIO
 
 IP_ADDRESS_2=$(gcloud compute addresses describe vpn-2-static-ip --region=$REGION_2 --format="get(address)")
 
-echo "${GREEN}${BOLD}
+echo "${YELLOW}${BOLD}
 
 Create the vpn-1 gateway and tunnel1to2
 
@@ -94,7 +106,7 @@ gcloud compute vpn-tunnels create tunnel1to2 --project=$DEVSHELL_PROJECT_ID --re
 
 gcloud compute routes create tunnel1to2-route-1 --project=$DEVSHELL_PROJECT_ID --network=vpn-network-1 --priority=1000 --destination-range=192.168.1.0/24 --next-hop-vpn-tunnel=tunnel1to2 --next-hop-vpn-tunnel-region=$REGION_1
 
-echo "${GREEN}${BOLD}
+echo "${YELLOW}${BOLD}
 
 Create the vpn-2 gateway and tunnel2to1
 
@@ -113,6 +125,12 @@ gcloud compute vpn-tunnels create tunnel2to1 --project=$DEVSHELL_PROJECT_ID --re
 gcloud compute routes create tunnel2to1-route-1 --project=$DEVSHELL_PROJECT_ID --network=vpn-network-2 --priority=1000 --destination-range=10.1.1.0/24 --next-hop-vpn-tunnel=tunnel2to1 --next-hop-vpn-tunnel-region=$REGION_2
 
 echo "${GREEN}${BOLD}
+
+Task 4. Create the VPN gateways and tunnels
+
+${RESET}"
+
+echo "${RED}${BOLD}
 
 Congratulations for Completing the Lab !!!
 
