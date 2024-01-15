@@ -62,11 +62,11 @@ gcloud compute routes create tunnel1to2-route-1 --project=$DEVSHELL_PROJECT_ID -
 
 gcloud compute target-vpn-gateways create vpn-2 --project=$DEVSHELL_PROJECT_ID --region=$REGION_2 --network=vpn-network-2
 
-gcloud compute forwarding-rules create vpn-2-rule-esp --project=$DEVSHELL_PROJECT_ID --region=$REGION_2 --peer-address=$IP_ADDRESS_2 --ip-protocol=ESP --target-vpn-gateway=vpn-2
+gcloud compute forwarding-rules create vpn-2-rule-esp --project=$DEVSHELL_PROJECT_ID --region=$REGION_2 --address=$IP_ADDRESS_2 --ip-protocol=ESP --target-vpn-gateway=vpn-2
 
 gcloud compute forwarding-rules create vpn-2-rule-udp500 --project=$DEVSHELL_PROJECT_ID --region=$REGION_2 --address=$IP_ADDRESS_2 --ip-protocol=UDP --ports=500 --target-vpn-gateway=vpn-2
 
-gcloud compute forwarding-rules create vpn-2-rule-udp4500 --project=$DEVSHELL_PROJECT_ID --region=$REGION_2 --peer-address=$IP_ADDRESS_2 --ip-protocol=UDP --ports=4500 --target-vpn-gateway=vpn-2
+gcloud compute forwarding-rules create vpn-2-rule-udp4500 --project=$DEVSHELL_PROJECT_ID --region=$REGION_2 --address=$IP_ADDRESS_2 --ip-protocol=UDP --ports=4500 --target-vpn-gateway=vpn-2
 
 gcloud compute vpn-tunnels create tunnel2to1 --project=$DEVSHELL_PROJECT_ID --region=$REGION_2 --peer-address=$IP_ADDRESS_1 --shared-secret=gcprocks --ike-version=2 --local-traffic-selector=0.0.0.0/0 --remote-traffic-selector=0.0.0.0/0 --target-vpn-gateway=vpn-2
 
