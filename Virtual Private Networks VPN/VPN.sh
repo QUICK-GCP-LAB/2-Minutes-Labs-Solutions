@@ -1,3 +1,31 @@
+BLACK=`tput setaf 0`
+RED=`tput setaf 1`
+GREEN=`tput setaf 2`
+YELLOW=`tput setaf 3`
+BLUE=`tput setaf 4`
+MAGENTA=`tput setaf 5`
+CYAN=`tput setaf 6`
+WHITE=`tput setaf 7`
+
+BG_BLACK=`tput setab 0`
+BG_RED=`tput setab 1`
+BG_GREEN=`tput setab 2`
+BG_YELLOW=`tput setab 3`
+BG_BLUE=`tput setab 4`
+BG_MAGENTA=`tput setab 5`
+BG_CYAN=`tput setab 6`
+BG_WHITE=`tput setab 7`
+
+BOLD=`tput bold`
+RESET=`tput sgr0`
+#----------------------------------------------------start--------------------------------------------------#
+
+echo "${YELLOW}${BOLD}
+
+Starting Execution 
+
+${RESET}"
+
 export REGION_1="${ZONE_1%-*}"
 
 export REGION_2="${ZONE_2%-*}"
@@ -34,7 +62,11 @@ gcloud compute firewall-rules create network-2-allow-ssh-icmp \
 
 gcloud compute instances create server-2 --machine-type=e2-medium --zone $ZONE_2 --subnet subnet-b
 
-#Reserve two static IP addresses
+echo "${GREEN}${BOLD}
+
+Reserve two static IP addresses
+
+${RESET}"
 
 gcloud compute addresses create vpn-1-static-ip --project=$DEVSHELL_PROJECT_ID --region=$REGION_1
 
@@ -44,7 +76,11 @@ IP_ADDRESS_1=$(gcloud compute addresses describe vpn-1-static-ip --region=$REGIO
 
 IP_ADDRESS_2=$(gcloud compute addresses describe vpn-2-static-ip --region=$REGION_2 --format="get(address)")
 
-#Create the vpn-1 gateway and tunnel1to2
+echo "${GREEN}${BOLD}
+
+Create the vpn-1 gateway and tunnel1to2
+
+${RESET}"
 
 gcloud compute target-vpn-gateways create vpn-1 --project=$DEVSHELL_PROJECT_ID --region=$REGION_1 --network=vpn-network-1
 
@@ -58,7 +94,11 @@ gcloud compute vpn-tunnels create tunnel1to2 --project=$DEVSHELL_PROJECT_ID --re
 
 gcloud compute routes create tunnel1to2-route-1 --project=$DEVSHELL_PROJECT_ID --network=vpn-network-1 --priority=1000 --destination-range=192.168.1.0/24 --next-hop-vpn-tunnel=tunnel1to2 --next-hop-vpn-tunnel-region=$REGION_1
 
-#Create the vpn-2 gateway and tunnel2to1
+echo "${GREEN}${BOLD}
+
+Create the vpn-2 gateway and tunnel2to1
+
+${RESET}"
 
 gcloud compute target-vpn-gateways create vpn-2 --project=$DEVSHELL_PROJECT_ID --region=$REGION_2 --network=vpn-network-2
 
@@ -71,3 +111,11 @@ gcloud compute forwarding-rules create vpn-2-rule-udp4500 --project=$DEVSHELL_PR
 gcloud compute vpn-tunnels create tunnel2to1 --project=$DEVSHELL_PROJECT_ID --region=$REGION_2 --peer-address=$IP_ADDRESS_1 --shared-secret=gcprocks --ike-version=2 --local-traffic-selector=0.0.0.0/0 --remote-traffic-selector=0.0.0.0/0 --target-vpn-gateway=vpn-2
 
 gcloud compute routes create tunnel2to1-route-1 --project=$DEVSHELL_PROJECT_ID --network=vpn-network-2 --priority=1000 --destination-range=10.1.1.0/24 --next-hop-vpn-tunnel=tunnel2to1 --next-hop-vpn-tunnel-region=$REGION_2
+
+echo "${GREEN}${BOLD}
+
+Congratulations for Completing the Lab !!!
+
+${RESET}"
+
+#-----------------------------------------------------end----------------------------------------------------------#
