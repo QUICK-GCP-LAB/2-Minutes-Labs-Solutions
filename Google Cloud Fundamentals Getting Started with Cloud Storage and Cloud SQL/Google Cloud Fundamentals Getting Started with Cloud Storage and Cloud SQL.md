@@ -1,6 +1,6 @@
 # [Google Cloud Fundamentals: Getting Started with Cloud Storage and Cloud SQL ](https://www.cloudskillsboost.google/games/4770/labs/31090)
 
-## Solution [here]()
+## Solution [here](https://youtu.be/eG52SUB-iVw)
 
 ### Run the following Commands in CloudShell
 ```
