@@ -1,6 +1,6 @@
 # [Virtual Private Networks (VPN)](https://www.cloudskillsboost.google/games/4770/labs/31092)
 
-## Solution [here]()
+## Solution [here](https://youtu.be/53EMmNwm9cw)
 
 ### Run the following Commands in CloudShell
 ```
