@@ -1,6 +1,6 @@
 # Deploying Google Kubernetes Engine || [GSP096](https://www.cloudskillsboost.google/games/4770/labs/31087) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/7QoTY8RnWA0)
 
 ### Run the following Commands in CloudShell
 ```
