@@ -71,8 +71,8 @@ gsutil mb -l $REGION gs://$DEVSHELL_PROJECT_ID-bucket
 
 gcloud pubsub topics create $TOPIC_NAME
 
-mkdir gsp323
-cd gsp323
+mkdir gsp315
+cd gsp315
 
 cat > index.js <<'EOF_END'
 const functions = require('@google-cloud/functions-framework');
