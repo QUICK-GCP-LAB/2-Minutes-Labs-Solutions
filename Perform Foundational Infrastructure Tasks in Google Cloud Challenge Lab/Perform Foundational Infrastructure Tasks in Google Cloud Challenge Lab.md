@@ -1,6 +1,6 @@
 # Perform Foundational Infrastructure Tasks in Google Cloud: Challenge Lab || [GSP315](https://www.cloudskillsboost.google/focuses/10379?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/SpkxoPZ-EvQ)
 
 ### Run the following Commands in CloudShell
 ```
