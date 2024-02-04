@@ -64,6 +64,12 @@ gcloud projects add-iam-policy-binding $DEVSHELL_PROJECT_ID \
     --member=serviceAccount:service-$PROJECT_NUMBER@gcp-sa-pubsub.iam.gserviceaccount.com \
     --role=roles/iam.serviceAccountTokenCreator
 
+echo "${GREEN}${BOLD}
+
+If ERROR, ignore it
+
+${RESET}"
+
 sleep 20
 
 
@@ -181,8 +187,6 @@ gcloud projects add-iam-policy-binding $PROJECT_ID \
   --role=roles/pubsub.publisher
 
 
-
-
 # Your existing deployment command
 deploy_function() {
     gcloud functions deploy $FUNCTION_NAME \
@@ -195,6 +199,12 @@ deploy_function() {
     --source . \
     --quiet
 }
+
+echo "${GREEN}${BOLD}
+
+If ERROR, ignore it
+
+${RESET}"
 
 # Variables
 SERVICE_NAME="$FUNCTION_NAME"
