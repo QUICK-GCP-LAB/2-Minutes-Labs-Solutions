@@ -1,6 +1,6 @@
 #  [Cloud Storage](https://www.cloudskillsboost.google/focuses/19083?parent=catalog)
 
-## Solution [here]()
+## Solution [here](https://youtu.be/jFRATMptdyI)
 
 ### Run the following Commands in CloudShell on Project 1
 
