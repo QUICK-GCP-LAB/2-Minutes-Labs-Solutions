@@ -34,7 +34,7 @@ gsutil mb -p $DEVSHELL_PROJECT_ID -c STANDARD -l $REGION -b on gs://$DEVSHELL_PR
 
 gsutil uniformbucketlevelaccess set off gs://$DEVSHELL_PROJECT_ID-2
 
-echo "subscribe to quicklab" > test.txt
+echo "Awesome Solution by quick gcp lab" > test.txt
 
 gsutil cp test.txt gs://$DEVSHELL_PROJECT_ID-2
 
