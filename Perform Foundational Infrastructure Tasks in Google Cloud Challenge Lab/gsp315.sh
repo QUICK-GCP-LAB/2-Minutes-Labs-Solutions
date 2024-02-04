@@ -200,11 +200,6 @@ deploy_function() {
     --quiet
 }
 
-echo "${GREEN}${BOLD}
-
-If ERROR, ignore it
-
-${RESET}"
 
 # Variables
 SERVICE_NAME="$FUNCTION_NAME"
@@ -213,6 +208,12 @@ SERVICE_NAME="$FUNCTION_NAME"
 while true; do
   # Run the deployment command
   deploy_function
+
+echo "${GREEN}${BOLD}
+
+If ERROR, ignore it
+
+${RESET}"
 
   # Check if Cloud Run service is created
   if gcloud run services describe $SERVICE_NAME --region $REGION &> /dev/null; then
