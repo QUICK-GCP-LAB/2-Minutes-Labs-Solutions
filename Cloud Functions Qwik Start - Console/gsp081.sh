@@ -92,8 +92,6 @@ echo "${GREEN}${BOLD}If "${RED}${BOLD}ERROR${RESET}", ignore it${RESET}"
 
 DATA=$(printf 'Nice to Meet You !' | base64) && gcloud functions call GCFunction --region=$REGION --data '{"data":"'$DATA'"}'
 
-echo "${GREEN}${BOLD}If "${RED}${BOLD}ERROR${RESET}", ignore it${RESET}"
-
 sleep 60
 
 sleep 30
