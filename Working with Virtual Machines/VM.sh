@@ -77,9 +77,9 @@ export YOUR_BUCKET_NAME=$PROJECT_ID
 echo $YOUR_BUCKET_NAME
 gcloud storage buckets create gs://$YOUR_BUCKET_NAME-minecraft-backup
 echo YOUR_BUCKET_NAME=$YOUR_BUCKET_NAME >> ~/.profile
-sudo curl https://raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Working%20with%20Virtual%20Machines/bash.sh --output bash.sh
-sudo chmod 755 /home/minecraft/bash.sh
-. /home/minecraft/bash.sh
+sudo curl https://raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Working%20with%20Virtual%20Machines/backup.sh --output backup.sh
+sudo chmod 755 /home/minecraft/backup.sh
+. /home/minecraft/backup.sh
 EOF_END
 
 gcloud compute scp prepare_disk.sh mc-server:/tmp --project=$DEVSHELL_PROJECT_ID --zone=$ZONE --quiet
