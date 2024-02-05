@@ -54,9 +54,9 @@ EOF_END
 
 gsutil mb -p $DEVSHELL_PROJECT_ID gs://$DEVSHELL_PROJECT_ID
 
-sleep 30
-
 export PROJECT_NUMBER=$(gcloud projects describe $DEVSHELL_PROJECT_ID --format="json(projectNumber)" --quiet | jq -r '.projectNumber')
+
+sleep 30
 
 # Set the service account email
 SERVICE_ACCOUNT="service-$PROJECT_NUMBER@gcf-admin-robot.iam.gserviceaccount.com"
@@ -78,6 +78,7 @@ else
   echo "IAM binding created for service account: $SERVICE_ACCOUNT with role roles/artifactregistry.reader"
 fi
 
+echo "${GREEN}${BOLD}If "${RED}${BOLD}ERROR${RESET}", ignore it${RESET}"
 
 gcloud functions deploy GCFunction \
   --region=$REGION \
@@ -87,11 +88,13 @@ gcloud functions deploy GCFunction \
   --allow-unauthenticated \
   --max-instances=5
 
+echo "${GREEN}${BOLD}If "${RED}${BOLD}ERROR${RESET}", ignore it${RESET}"
 
 DATA=$(printf 'Nice to Meet You !' | base64) && gcloud functions call GCFunction --region=$REGION --data '{"data":"'$DATA'"}'
 
+echo "${GREEN}${BOLD}If "${RED}${BOLD}ERROR${RESET}", ignore it${RESET}"
 
-sleep 50
+sleep 60
 
 sleep 30
 
