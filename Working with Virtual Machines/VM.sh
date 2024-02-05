@@ -20,11 +20,7 @@ BOLD=`tput bold`
 RESET=`tput sgr0`
 #----------------------------------------------------start--------------------------------------------------#
 
-echo "${YELLOW}${BOLD}
-
-Starting Execution 
-
-${RESET}"
+echo "${YELLOW}${BOLD}Starting${RESET}" "${GREEN}${BOLD}Execution${RESET}"
 
 export REGION="${ZONE%-*}"
 
@@ -90,10 +86,6 @@ gcloud compute instances add-metadata mc-server \
     --metadata project-id=$DEVSHELL_PROJECT_ID,startup-script-url=https://storage.googleapis.com/cloud-training/archinfra/mcserver/startup.sh,shutdown-script-url=https://storage.googleapis.com/cloud-training/archinfra/mcserver/shutdown.sh \
     --zone=$ZONE
 
-echo "${RED}${BOLD}
-
-Congratulations for Completing the Lab !!!
-
-${RESET}"
+echo "${RED}${BOLD}Congratulations${RESET}" "${WHITE}${BOLD}for${RESET}" "${GREEN}${BOLD}Completing the Lab !!!${RESET}"
 
 #-----------------------------------------------------end----------------------------------------------------------#
