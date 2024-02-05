@@ -1,4 +1,4 @@
-# Cloud Storage: Qwik Start - Cloud Console || [GSP315](https://www.cloudskillsboost.google/focuses/1760?parent=catalog) ||
+# Cloud Storage: Qwik Start - Cloud Console || [GSP073](https://www.cloudskillsboost.google/focuses/1760?parent=catalog) ||
 
 ## Solution [here]()
 
