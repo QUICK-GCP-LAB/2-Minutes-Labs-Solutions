@@ -17,9 +17,6 @@ sudo chmod +x shell-1.sh
 ### Run the following Commands in `2nd` CloudShell
 
 ```
-export REGION=
-```
-```
 curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Implementing%20Least%20Privilege%20IAM%20Policy%20Bindings%20in%20Cloud%20Run%20%5BAPPRUN%5D/shell-2.sh
 
 sudo chmod +x shell-2.sh
