@@ -1,6 +1,6 @@
 # [Working with Virtual Machines](https://www.cloudskillsboost.google/focuses/19095?parent=catalog)
 
-## Solution [here]()
+## Solution [here](https://youtu.be/bzzccLvbFH8)
 
 ### Run the following Commands in CloudShell
 ```
