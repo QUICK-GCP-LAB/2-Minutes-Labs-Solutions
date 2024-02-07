@@ -1,6 +1,6 @@
 # [Implementing Least Privilege IAM Policy Bindings in Cloud Run APPRUN](https://www.cloudskillsboost.google/course_templates/559?locale=en)
 
-## Solution [here]()
+## Solution [here](https://youtu.be/frJIvlWAE4Q)
 
 ### Run the following Commands in `1st` CloudShell
 
