@@ -1,4 +1,4 @@
-# [Working with the Google Cloud Console and Cloud Shell](https://www.cloudskillsboost.google/focuses/59871?locale=pt_PT&parent=catalog) ||
+# [Working with the Google Cloud Console and Cloud Shell](https://www.cloudskillsboost.google/focuses/59871?locale=pt_PT&parent=catalog)
 
 ## Solution [here]()
 
