@@ -1,4 +1,4 @@
-# VPC Networking || [GSP081](https://www.cloudskillsboost.google/games/4794/labs/31302) ||
+# [VPC Networking](https://www.cloudskillsboost.google/games/4794/labs/31302) ||
 
 ## Solution [here]()
 
