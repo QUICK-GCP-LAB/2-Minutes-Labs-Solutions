@@ -1,0 +1,21 @@
+# [Predict Bike Trip Duration with a Regression Model in BQML 2.5](https://www.cloudskillsboost.google/games/4794/labs/31313)
+
+## Solution [here]()
+
+### Run the following Commands in CloudShell
+```
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Predict%20Bike%20Trip%20Duration%20with%20a%20Regression%20Model%20in%20BQML%202.5/RegressionModel.sh
+
+sudo chmod +x RegressionModel.sh
+
+./RegressionModel.sh
+```
+### Congratulations 🎉 for completing the Lab !
+
+##### *You Have Successfully Demonstrated Your Skills And Determination.*
+
+#### *Well done!*
+
+#### Don't Forget to Join the [Telegram Channel](https://t.me/QuickGcpLab) & [Discussion group](https://t.me/QuickGcpLabChats)
+
+# [QUICK GCP LAB](https://www.youtube.com/@quickgcplab)
