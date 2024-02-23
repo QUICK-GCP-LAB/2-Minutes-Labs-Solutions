@@ -1,6 +1,6 @@
 # [Working with the Google Cloud Console and Cloud Shell](https://www.cloudskillsboost.google/focuses/59871?locale=pt_PT&parent=catalog)
 
-## Solution [here]()
+## Solution [here](https://youtu.be/aoJ5r1yPbpk)
 
 ### Run the following Commands in CloudShell
 ```
