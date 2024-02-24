@@ -65,6 +65,6 @@ gsutil mb -p $(gcloud config get-value project) \
   -l $(gcloud config get-value run/region) \
   gs://${BUCKET_NAME}/
 
-echo "${RED}${BOLD}Congratulations${RESET}" "${WHITE}${BOLD}for${RESET}" "${GREEN}${BOLD}Completing the Lab !!!${RESET}"
+echo "${RED}${BOLD}Now${RESET}" "${WHITE}${BOLD}Enable${RESET}" "${GREEN}${BOLD}Audit Logs !!!${RESET}"
 
 #-----------------------------------------------------end----------------------------------------------------------#
