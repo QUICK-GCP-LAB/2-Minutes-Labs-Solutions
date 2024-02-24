@@ -65,6 +65,10 @@ gsutil mb -p $(gcloud config get-value project) \
   -l $(gcloud config get-value run/region) \
   gs://${BUCKET_NAME}/
 
+echo "Hello World" > random.txt
+
+gsutil cp random.txt gs://${BUCKET_NAME}/random.txt
+
 echo "${RED}${BOLD}Now${RESET}" "${WHITE}${BOLD}Enable${RESET}" "${GREEN}${BOLD}Audit Logs !!!${RESET}"
 
 #-----------------------------------------------------end----------------------------------------------------------#

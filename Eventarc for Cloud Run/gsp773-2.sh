@@ -22,10 +22,6 @@ RESET=`tput sgr0`
 
 echo "${YELLOW}${BOLD}Starting${RESET}" "${GREEN}${BOLD}Execution${RESET}"
 
-echo "Hello World" > random.txt
-
-gsutil cp random.txt gs://${BUCKET_NAME}/random.txt
-
 gcloud beta eventarc attributes types describe google.cloud.audit.log.v1.written
 
 gcloud beta eventarc triggers create trigger-auditlog \
