@@ -59,6 +59,8 @@ export TOPIC_ID=$(gcloud eventarc triggers describe trigger-pubsub \
 
 gcloud pubsub topics publish ${TOPIC_ID} --message="Hello there"
 
+gcloud eventarc triggers delete trigger-pubsub
+
 export BUCKET_NAME=$(gcloud config get-value project)-cr-bucket
 
 gsutil mb -p $(gcloud config get-value project) \
