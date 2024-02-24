@@ -22,6 +22,8 @@ RESET=`tput sgr0`
 
 echo "${YELLOW}${BOLD}Starting${RESET}" "${GREEN}${BOLD}Execution${RESET}"
 
+gcloud eventarc triggers delete trigger-pubsub
+
 gcloud beta eventarc attributes types describe google.cloud.audit.log.v1.written
 
 gcloud beta eventarc triggers create trigger-auditlog \
