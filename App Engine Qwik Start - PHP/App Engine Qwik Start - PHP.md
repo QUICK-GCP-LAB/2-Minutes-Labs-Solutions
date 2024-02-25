@@ -7,11 +7,11 @@
 export REGION=
 ```
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/App%20Engine%20Qwik%20Start%20-%20Java/gsp068.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/App%20Engine%20Qwik%20Start%20-%20PHP/gsp069.sh
 
-sudo chmod +x gsp068.sh
+sudo chmod +x gsp069.sh
 
-./gsp068.sh
+./gsp069.sh
 ```
 
 ### Congratulations 🎉 for completing the Lab !
