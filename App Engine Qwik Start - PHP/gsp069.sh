@@ -32,7 +32,7 @@ cd php-docs-samples/appengine/standard/helloworld
 
 sleep 30
 
-gcloud app deploy --region=$REGION
+gcloud app deploy
 
 gcloud app browse
 
