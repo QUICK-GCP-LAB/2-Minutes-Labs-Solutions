@@ -1,4 +1,4 @@
-# Creating a Virtual Machine || [GSP773](https://www.cloudskillsboost.google/focuses/15657?parent=catalog) ||
+# Eventarc for Cloud Run || [GSP773](https://www.cloudskillsboost.google/focuses/15657?parent=catalog) ||
 
 ## Solution [here]()
 
