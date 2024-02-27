@@ -1,6 +1,6 @@
 # Creating a Looker Modeled Query and Working with Quick Start || [GSP984](https://www.cloudskillsboost.google/focuses/22176?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/zVI1mZtyO8A)
 
 ### Paste the following In the training_ecommerce.model file
 ```
