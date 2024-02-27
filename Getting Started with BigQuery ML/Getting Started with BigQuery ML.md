@@ -1,6 +1,6 @@
 # Getting Started with BigQuery ML || [GSP247](https://www.cloudskillsboost.google/focuses/2157?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/H-b-C1P8K2U)
 
 ### Run the following Commands in CloudShell
 
