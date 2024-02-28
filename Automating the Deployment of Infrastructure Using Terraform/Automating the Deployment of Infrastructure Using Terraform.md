@@ -1,4 +1,4 @@
-# [Automating the Deployment of Infrastructure Using Terraform ](https://www.cloudskillsboost.google/focuses/19098?parent=catalog) ||
+# [Automating the Deployment of Infrastructure Using Terraform ](https://www.cloudskillsboost.google/focuses/19098?parent=catalog)
 
 ## Solution [here]()
 
