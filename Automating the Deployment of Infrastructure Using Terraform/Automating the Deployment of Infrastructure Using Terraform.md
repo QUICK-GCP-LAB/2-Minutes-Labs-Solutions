@@ -1,6 +1,6 @@
 # [Automating the Deployment of Infrastructure Using Terraform ](https://www.cloudskillsboost.google/focuses/19098?parent=catalog)
 
-## Solution [here]()
+## Solution [here](https://youtu.be/M6CKigU4BBM)
 
 ### Run the following Commands in CloudShell
 ```
