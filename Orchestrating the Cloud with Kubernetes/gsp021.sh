@@ -22,8 +22,6 @@ RESET=`tput sgr0`
 
 echo "${YELLOW}${BOLD}Starting${RESET}" "${GREEN}${BOLD}Execution${RESET}"
 
-export ZONE=
-
 gcloud config set compute/zone $ZONE
 
 gcloud container clusters create io
