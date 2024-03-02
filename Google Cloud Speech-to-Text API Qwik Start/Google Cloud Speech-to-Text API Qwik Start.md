@@ -1,6 +1,6 @@
 # Google Cloud Speech-to-Text API: Qwik Start || [GSP119](https://www.cloudskillsboost.google/focuses/588?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/bx-D7ypXnWM)
 
 ### Run the following Commands in CloudShell
 ```
