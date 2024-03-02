@@ -22,20 +22,22 @@ RESET=`tput sgr0`
 
 echo "${YELLOW}${BOLD}Starting${RESET}" "${GREEN}${BOLD}Execution${RESET}"
 
-cat > request.json <<EOF
+cat > request.json <<EOF_END
 {
-  "config": {
-      "encoding":"FLAC",
-      "languageCode": "en-US"
-  },
-  "audio": {
-      "uri":"gs://cloud-samples-tests/speech/brooklyn.flac"
+    "config": {
+        "encoding":"FLAC",
+        "languageCode": "en-US"
+    },
+    "audio": {
+        "uri":"gs://cloud-samples-tests/speech/brooklyn.flac"
+    }
   }
-}
-EOF
+EOF_END
+
 
 curl -s -X POST -H "Content-Type: application/json" --data-binary @request.json \
 "https://speech.googleapis.com/v1/speech:recognize?key=${API_KEY}"
+
 
 curl -s -X POST -H "Content-Type: application/json" --data-binary @request.json \
 "https://speech.googleapis.com/v1/speech:recognize?key=${API_KEY}" > result.json
