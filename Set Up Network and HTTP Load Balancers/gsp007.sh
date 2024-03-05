@@ -73,6 +73,8 @@ echo "${GREEN}${BOLD}Task 2. Create multiple web server instances Completed${RES
 gcloud compute addresses create network-lb-ip-1 \
   --region $REGION
 
+gcloud compute http-health-checks create basic-check
+
   gcloud compute target-pools create www-pool \
   --region $REGION --http-health-check basic-check
 
