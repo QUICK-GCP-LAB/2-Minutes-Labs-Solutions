@@ -1,6 +1,6 @@
 # Set Up Network and HTTP Load Balancers || [GSP007](https://www.cloudskillsboost.google/focuses/12007?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/g5K47lEpK4M)
 
 ### Run the following Commands in CloudShell
 ```
