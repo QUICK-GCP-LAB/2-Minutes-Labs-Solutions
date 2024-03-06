@@ -1,6 +1,6 @@
 # Deploy Your Website on Cloud Run || [GSP659](https://www.cloudskillsboost.google/focuses/10445?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/bxYJmsZj384)
 
 ### Run the following Commands in CloudShell
 ```
