@@ -22,7 +22,7 @@ RESET=`tput sgr0`
 
 echo "${YELLOW}${BOLD}Starting${RESET}" "${GREEN}${BOLD}Execution${RESET}"
 
-export REGION=${ZONE::-2}
+export REGION="${ZONE%-*}"
 
 gcloud config set compute/zone $ZONE
 
@@ -68,32 +68,28 @@ gcloud config set compute/zone $ZONE
 gcloud compute firewall-rules create www-firewall-network-lb \
     --target-tags network-lb-tag --allow tcp:80
 
-echo "${GREEN}${BOLD}Task 2. Create multiple web server instances Completed${RESET}"
+gcloud compute instances list
 
 gcloud compute addresses create network-lb-ip-1 \
   --region $REGION
 
 gcloud compute http-health-checks create basic-check
 
-  gcloud compute target-pools create www-pool \
+gcloud compute target-pools create www-pool \
   --region $REGION --http-health-check basic-check
 
-  gcloud compute target-pools add-instances www-pool \
+gcloud compute target-pools add-instances www-pool \
     --instances www1,www2,www3
 
-    gcloud compute forwarding-rules create www-rule \
+gcloud compute forwarding-rules create www-rule \
     --region  $REGION \
     --ports 80 \
     --address network-lb-ip-1 \
     --target-pool www-pool
 
-    echo "${GREEN}${BOLD}Task 3. Configure the load balancing service Completed${RESET}"
+IPADDRESS=$(gcloud compute forwarding-rules describe www-rule --region $REGION --format="json" | jq -r .IPAddress)
 
-    gcloud compute forwarding-rules describe www-rule --region $REGION
-
-    IPADDRESS=$(gcloud compute forwarding-rules describe www-rule --region $REGION --format="json" | jq -r .IPAddress)
-
-    gcloud compute instance-templates create lb-backend-template \
+gcloud compute instance-templates create lb-backend-template \
    --region=$REGION \
    --network=default \
    --subnet=default \
@@ -112,10 +108,10 @@ gcloud compute http-health-checks create basic-check
      tee /var/www/html/index.html
      systemctl restart apache2'
 
-     gcloud compute instance-groups managed create lb-backend-group \
+gcloud compute instance-groups managed create lb-backend-group \
    --template=lb-backend-template --size=2 --zone=$ZONE
 
-   gcloud compute firewall-rules create fw-allow-health-check \
+gcloud compute firewall-rules create fw-allow-health-check \
   --network=default \
   --action=allow \
   --direction=ingress \
@@ -123,40 +119,39 @@ gcloud compute http-health-checks create basic-check
   --target-tags=allow-health-check \
   --rules=tcp:80
 
-  gcloud compute addresses create lb-ipv4-1 \
+gcloud compute addresses create lb-ipv4-1 \
   --ip-version=IPV4 \
   --global
 
-  gcloud compute addresses describe lb-ipv4-1 \
+gcloud compute addresses describe lb-ipv4-1 \
   --format="get(address)" \
   --global
 
-  gcloud compute health-checks create http http-basic-check \
+gcloud compute health-checks create http http-basic-check \
   --port 80
 
-  gcloud compute backend-services create web-backend-service \
+gcloud compute backend-services create web-backend-service \
   --protocol=HTTP \
   --port-name=http \
   --health-checks=http-basic-check \
   --global
 
-  gcloud compute backend-services add-backend web-backend-service \
+gcloud compute backend-services add-backend web-backend-service \
   --instance-group=lb-backend-group \
   --instance-group-zone=$ZONE \
   --global
 
-  gcloud compute url-maps create web-map-http \
+gcloud compute url-maps create web-map-http \
     --default-service web-backend-service
 
-    gcloud compute target-http-proxies create http-lb-proxy \
+gcloud compute target-http-proxies create http-lb-proxy \
     --url-map web-map-http
 
-    gcloud compute forwarding-rules create http-content-rule \
+gcloud compute forwarding-rules create http-content-rule \
    --address=lb-ipv4-1\
    --global \
    --target-http-proxy=http-lb-proxy \
    --ports=80
-
    echo "${GREEN}${BOLD}Task 5. Create an HTTP load balancer Completed${RESET}"
 
    echo "${RED}${BOLD}Congratulations${RESET}" "${WHITE}${BOLD}for${RESET}" "${GREEN}${BOLD}Completing the Lab !!!${RESET}"
