@@ -4,9 +4,6 @@
 
 ### Run the following Commands in CloudShell
 ```
-export API_KEY=
-```
-```
 curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Cloud%20Natural%20Language%20API%20Qwik%20Start/gsp097.sh
 
 sudo chmod +x gsp097.sh

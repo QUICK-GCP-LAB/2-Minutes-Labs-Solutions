@@ -22,23 +22,19 @@ RESET=`tput sgr0`
 
 echo "${YELLOW}${BOLD}Starting${RESET}" "${GREEN}${BOLD}Execution${RESET}"
 
-cat > request.json <<EOF_END
-{
-    "config": {
-        "encoding":"FLAC",
-        "languageCode": "en-US"
-    },
-    "audio": {
-        "uri":"gs://cloud-samples-tests/speech/brooklyn.flac"
-    }
-  }
-EOF_END
+export GOOGLE_CLOUD_PROJECT=$(gcloud config get-value core/project)
 
-curl -s -X POST -H "Content-Type: application/json" --data-binary @request.json \
-"https://speech.googleapis.com/v1/speech:recognize?key=${API_KEY}"
+gcloud iam service-accounts create my-natlang-sa \
+  --display-name "my natural language service account"
 
-curl -s -X POST -H "Content-Type: application/json" --data-binary @request.json \
-"https://speech.googleapis.com/v1/speech:recognize?key=${API_KEY}" > result.json
+  gcloud iam service-accounts keys create ~/key.json \
+  --iam-account my-natlang-sa@${GOOGLE_CLOUD_PROJECT}.iam.gserviceaccount.com
+
+  export GOOGLE_APPLICATION_CREDENTIALS="/home/USER/key.json"
+
+  sleep 10
+
+  gcloud ml language analyze-entities --content="Michelangelo Caravaggio, Italian painter, is known for 'The Calling of Saint Matthew'." > result.json
 
 echo "${RED}${BOLD}Congratulations${RESET}" "${WHITE}${BOLD}for${RESET}" "${GREEN}${BOLD}Completing the Lab !!!${RESET}"
 
