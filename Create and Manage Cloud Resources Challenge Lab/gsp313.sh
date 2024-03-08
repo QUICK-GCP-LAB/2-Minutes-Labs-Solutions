@@ -26,7 +26,7 @@ gcloud compute instances create $INSTANCE \
     --zone=$ZONE \
     --machine-type=e2-micro
 
-echo "${WHITE}${BOLD}Task 1. Create a project jumphost instance${RESET}" "${GREEN}${BOLD}Completed${RESET}"
+echo "${RED}${BOLD}Task 1. ${RESET}""${WHITE}${BOLD}Create a project jumphost instance${RESET}" "${GREEN}${BOLD}Completed${RESET}"
 
 gcloud container clusters create nucleus-backend \
     --num-nodes=1 \
@@ -42,7 +42,7 @@ kubectl expose deployment hello-server \
           --type=LoadBalancer \
           --port $PORT_NO
 
-echo "${WHITE}${BOLD}Task 2. Create a Kubernetes service cluster${RESET}" "${GREEN}${BOLD}Completed${RESET}"
+echo "${RED}${BOLD}Task 2. ${RESET}""${WHITE}${BOLD}Create a Kubernetes service cluster${RESET}" "${GREEN}${BOLD}Completed${RESET}"
 
 cat << EOF > startup.sh
 #! /bin/bash
@@ -98,7 +98,7 @@ gcloud compute forwarding-rules create $FIREWALL \
 
 gcloud compute forwarding-rules list
 
-echo "${WHITE}${BOLD}Task 3. Set up an HTTP load balancer${RESET}" "${GREEN}${BOLD}Completed${RESET}"
+echo "${RED}${BOLD}Task 3. ${RESET}""${WHITE}${BOLD}Set up an HTTP load balancer${RESET}" "${GREEN}${BOLD}Completed${RESET}"
 
 echo "${YELLOW}${BOLD}Note:${RESET}" "${MAGENTA}${BOLD}You may need to wait for ${RESET}" "${RED}${BOLD} 5 to 7 minutes ${RESET}""${MAGENTA}${BOLD} to get the score for this task.${RESET}"
 
