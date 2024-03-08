@@ -1,6 +1,6 @@
 # Pub/Sub: Qwik Start - Python || [GSP094](https://www.cloudskillsboost.google/focuses/2775?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/4FTZPTfREHs)
 
 ### Run the following Commands in CloudShell
 ```
