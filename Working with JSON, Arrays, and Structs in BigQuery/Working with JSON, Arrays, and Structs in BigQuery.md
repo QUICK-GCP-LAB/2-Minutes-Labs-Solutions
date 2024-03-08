@@ -1,6 +1,6 @@
 # Working with JSON, Arrays, and Structs in BigQuery || [GSP416](https://www.cloudskillsboost.google/focuses/3696?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/pRQPv0mvqX8)
 
 ### Run the following Commands in CloudShell
 ```

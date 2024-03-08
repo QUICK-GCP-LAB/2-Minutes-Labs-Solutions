@@ -1,6 +1,6 @@
 # Create an Internal Load Balancer || [GSP216](https://www.cloudskillsboost.google/focuses/1250?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/iYsUETBO7zg)
 
 ### Run the following Commands in CloudShell
 ```
