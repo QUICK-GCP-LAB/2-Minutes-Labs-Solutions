@@ -1,6 +1,6 @@
 # Cloud Natural Language API: Qwik Start || [GSP097](https://www.cloudskillsboost.google/focuses/582?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/cnmag49ro24)
 
 ### Run the following Commands in CloudShell
 ```
