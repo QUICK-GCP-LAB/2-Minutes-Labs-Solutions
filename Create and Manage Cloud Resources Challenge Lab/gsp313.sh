@@ -98,9 +98,9 @@ gcloud compute forwarding-rules create $FIREWALL \
 
 gcloud compute forwarding-rules list
 
-echo "${RED}${BOLD}Task 3. ${RESET}""${WHITE}${BOLD}Set up an HTTP load balancer${RESET}" "${GREEN}${BOLD}Completed${RESET}"
+echo "${RED}${BOLD}Task 3. ${RESET}""${WHITE}${BOLD}Set up an HTTP load balancer${RESET}""${GREEN}${BOLD}Completed${RESET}"
 
-echo "${YELLOW}${BOLD}Note:${RESET}" "${MAGENTA}${BOLD}You may need to wait for ${RESET}" "${RED}${BOLD}5 to 7 minutes${RESET}""${MAGENTA}${BOLD} to get the score for this task.${RESET}"
+echo "${YELLOW}${BOLD}Note:${RESET}""${MAGENTA}${BOLD}You may need to wait for ${RESET}""${RED}${BOLD}5 to 7 minutes${RESET}""${MAGENTA}${BOLD} to get the score for this task.${RESET}"
 
 echo "${RED}${BOLD}Congratulations${RESET}" "${WHITE}${BOLD}for${RESET}" "${GREEN}${BOLD}Completing the Lab !!!${RESET}"
 
