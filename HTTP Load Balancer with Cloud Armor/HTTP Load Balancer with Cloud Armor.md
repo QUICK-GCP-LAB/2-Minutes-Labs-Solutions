@@ -1,4 +1,4 @@
-# Create and Manage Cloud Resources: Challenge Lab || [GSP313](https://www.cloudskillsboost.google/focuses/10258?parent=catalog) ||
+# HTTP Load Balancer with Cloud Armor || [GSP215](https://www.cloudskillsboost.google/focuses/1232?parent=catalog) ||
 
 ## Solution [here]()
 
