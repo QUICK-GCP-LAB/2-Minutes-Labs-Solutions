@@ -1,6 +1,7 @@
 # HTTP Load Balancer with Cloud Armor || [GSP215](https://www.cloudskillsboost.google/focuses/1232?parent=catalog) ||
 
 ## Solution [here]()
+
 ### Run the following Commands in CloudShell
 ```
 export REGION1=
