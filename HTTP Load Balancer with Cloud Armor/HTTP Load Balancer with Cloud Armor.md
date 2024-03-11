@@ -15,7 +15,6 @@ sudo chmod +x gsp215.sh
 
 ./gsp215.sh
 ```
-* *Note: You may need to wait for `5 to 7` `minutes` to get the score for this task.*
 
 ### Congratulations 🎉 for completing the Challenge Lab !
 
