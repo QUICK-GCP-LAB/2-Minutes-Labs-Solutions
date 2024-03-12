@@ -5,11 +5,14 @@
 ### Run the following Commands in CloudShell
 
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Exploring%20NCAA%20Data%20with%20BigQuery/gsp160.sh
+export ZONE=
+```
+```
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Terraform%20Fundamentals/gsp156.sh
 
-sudo chmod +x gsp160.sh
+sudo chmod +x gsp156.sh
 
-./gsp160.sh
+./gsp156.sh
 ```
 
 ### Congratulations 🎉 for completing the Challenge Lab !
