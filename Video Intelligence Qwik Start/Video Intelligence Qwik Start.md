@@ -1,4 +1,4 @@
-# Video Intelligence: Qwik Start || [GSP750](https://www.cloudskillsboost.google/focuses/603?parent=catalog) ||
+# Video Intelligence: Qwik Start || [GSP154](https://www.cloudskillsboost.google/focuses/603?parent=catalog) ||
 
 ## Solution [here]()
 
