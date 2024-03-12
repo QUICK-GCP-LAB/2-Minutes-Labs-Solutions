@@ -5,13 +5,12 @@
 ### Run the following Commands in CloudShell
 
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Create%20and%20Manage%20Cloud%20Resources%20Challenge%20Lab/gsp313.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Exploring%20NCAA%20Data%20with%20BigQuery/gsp160.sh
 
-sudo chmod +x gsp313.sh
+sudo chmod +x gsp160.sh
 
-./gsp313.sh
+./gsp160.sh
 ```
-
 
 ### Congratulations 🎉 for completing the Challenge Lab !
 
