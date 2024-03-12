@@ -1,4 +1,4 @@
-# Managing Terraform State || [GSP752](https://www.cloudskillsboost.google/focuses/15845?parent=catalog) ||
+# Managing Deployments Using Kubernetes Engine || [GSP053](https://www.cloudskillsboost.google/focuses/639?parent=catalog) ||
 
 ## Solution [here]()
 
@@ -7,11 +7,11 @@
 export REGION=
 ```
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Managing%20Terraform%20State/gsp752.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Managing%20Deployments%20Using%20Kubernetes%20Engine/gsp053.sh
 
-sudo chmod +x gsp752.sh
+sudo chmod +x gsp053.sh
 
-./gsp752.sh
+./gsp053.sh
 ```
 
 ### Congratulations 🎉 for completing the Lab !
