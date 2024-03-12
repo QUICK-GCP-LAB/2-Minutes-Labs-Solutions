@@ -1,4 +1,4 @@
-# Infrastructure as Code with Terraform || [GSP750](https://www.cloudskillsboost.google/focuses/15842?parent=catalog) ||
+# Interact with Terraform Modules || [GSP751](https://www.cloudskillsboost.google/focuses/15836?parent=catalog) ||
 
 ## Solution [here]()
 
