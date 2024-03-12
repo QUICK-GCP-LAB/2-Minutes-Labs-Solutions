@@ -4,7 +4,7 @@
 
 ### Run the following Commands in CloudShell
 ```
-export REGION=
+export ZONE=
 ```
 ```
 curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Managing%20Deployments%20Using%20Kubernetes%20Engine/gsp053.sh

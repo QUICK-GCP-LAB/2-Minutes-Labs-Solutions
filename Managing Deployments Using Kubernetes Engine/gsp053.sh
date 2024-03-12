@@ -22,52 +22,72 @@ RESET=`tput sgr0`
 
 echo "${YELLOW}${BOLD}Starting${RESET}" "${GREEN}${BOLD}Execution${RESET}"
 
-cat > main.tf <<EOF_END
+gcloud config set compute/zone $ZONE
 
-provider "google" {
-  project     = "$DEVSHELL_PROJECT_ID"
-  region      = "$REGION"
-}
-resource "google_storage_bucket" "test-bucket-for-state" {
-  name        = "$DEVSHELL_PROJECT_ID"
-  location    = "US"
-  uniform_bucket_level_access = true
-}
+gsutil -m cp -r gs://spls/gsp053/orchestrate-with-kubernetes .
 
-terraform {
-  backend "local" {
-    path = "terraform/state/terraform.tfstate"
-  }
-}
-EOF_END
+cd orchestrate-with-kubernetes/kubernetes
 
-terraform init
+gcloud container clusters create bootcamp \
+  --machine-type e2-small \
+  --num-nodes 3 \
+  --scopes "https://www.googleapis.com/auth/projecthosting,storage-rw"
 
-terraform apply --auto-approve
+sed -i 's/image: "kelseyhightower\/auth:2.0.0"/image: "kelseyhightower\/auth:1.0.0"/' deployments/auth.yaml
 
-cat > main.tf <<EOF_END
+kubectl create -f deployments/auth.yaml
 
-provider "google" {
-  project     = "$DEVSHELL_PROJECT_ID"
-  region      = "$REGION"
-}
-resource "google_storage_bucket" "test-bucket-for-state" {
-  name        = "$DEVSHELL_PROJECT_ID"
-  location    = "US"
-  uniform_bucket_level_access = true
-}
+kubectl get deployments
 
-terraform {
-  backend "gcs" {
-    bucket  = "$DEVSHELL_PROJECT_ID"
-    prefix  = "terraform/state"
-  }
-}
-EOF_END
+kubectl get pods
 
-yes | terraform init -migrate-state
+kubectl create -f services/auth.yaml
 
-gsutil label ch -l "key:value" gs://$DEVSHELL_PROJECT_ID
+kubectl create -f deployments/hello.yaml
+
+kubectl create -f services/hello.yaml
+
+kubectl create secret generic tls-certs --from-file tls/
+
+kubectl create configmap nginx-frontend-conf --from-file=nginx/frontend.conf
+
+kubectl create -f deployments/frontend.yaml
+
+kubectl create -f services/frontend.yaml
+
+kubectl get services frontend
+
+sleep 10
+
+kubectl scale deployment hello --replicas=5
+
+kubectl get pods | grep hello- | wc -l
+
+kubectl scale deployment hello --replicas=3
+
+kubectl get pods | grep hello- | wc -l
+
+sed -i 's/image: "kelseyhightower\/auth:1.0.0"/image: "kelseyhightower\/auth:2.0.0"/' deployments/hello.yaml
+
+kubectl get replicaset
+
+kubectl rollout history deployment/hello
+
+kubectl get pods -o jsonpath --template='{range .items[*]}{.metadata.name}{"\t"}{"\t"}{.spec.containers[0].image}{"\n"}{end}'
+
+kubectl rollout resume deployment/hello
+
+kubectl rollout status deployment/hello
+
+kubectl rollout undo deployment/hello
+
+kubectl rollout history deployment/hello
+
+kubectl get pods -o jsonpath --template='{range .items[*]}{.metadata.name}{"\t"}{"\t"}{.spec.containers[0].image}{"\n"}{end}'
+
+kubectl create -f deployments/hello-canary.yaml
+
+kubectl get deployments
 
 echo "${RED}${BOLD}Congratulations${RESET}" "${WHITE}${BOLD}for${RESET}" "${GREEN}${BOLD}Completing the Lab !!!${RESET}"
 
