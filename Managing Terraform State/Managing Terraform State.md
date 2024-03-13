@@ -1,6 +1,6 @@
 # Managing Terraform State || [GSP752](https://www.cloudskillsboost.google/focuses/15845?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/RA9V6L3baAE)
 
 ### Run the following Commands in CloudShell
 ```
