@@ -1,6 +1,6 @@
 # Deploy, Scale, and Update Your Website on Google Kubernetes Engine || [GSP663](https://www.cloudskillsboost.google/focuses/10470?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/N5NEBsxjMOI)
 
 ### Run the following Commands in CloudShell
 ```
