@@ -1,6 +1,6 @@
 # Managing Deployments Using Kubernetes Engine || [GSP053](https://www.cloudskillsboost.google/focuses/639?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/4QDSScBKvwE)
 
 ### Run the following Commands in CloudShell
 ```
