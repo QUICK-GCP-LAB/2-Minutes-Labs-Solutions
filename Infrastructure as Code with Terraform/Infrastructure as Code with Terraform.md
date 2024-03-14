@@ -1,6 +1,6 @@
 # Infrastructure as Code with Terraform || [GSP750](https://www.cloudskillsboost.google/focuses/15842?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/u6B0Vaoe9T0)
 
 ### Run the following Commands in CloudShell
 
