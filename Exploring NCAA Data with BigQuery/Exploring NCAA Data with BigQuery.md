@@ -1,6 +1,6 @@
 # Exploring NCAA Data with BigQuery || [GSP160](https://www.cloudskillsboost.google/focuses/624?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/wQjcc05ukUk)
 
 ### Run the following Commands in CloudShell
 
