@@ -1,6 +1,6 @@
 # Video Intelligence: Qwik Start || [GSP154](https://www.cloudskillsboost.google/focuses/603?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/GEGu_Gc1HAw)
 
 ### Run the following Commands in CloudShell
 
