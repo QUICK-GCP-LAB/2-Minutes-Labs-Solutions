@@ -1,6 +1,6 @@
 # Terraform Fundamentals || [GSP156](https://www.cloudskillsboost.google/focuses/1208?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/qjpt7hElKjw)
 
 ### Run the following Commands in CloudShell
 
