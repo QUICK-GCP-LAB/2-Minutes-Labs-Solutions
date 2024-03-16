@@ -6,8 +6,6 @@
 
 ```
 export DATASET=
-
-export LOCATION=
 ```
 ```
 curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Arcade%20Hero%20Enter%20the%20BigQuery/arc121-bigquery.sh
