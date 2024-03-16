@@ -22,7 +22,7 @@ RESET=`tput sgr0`
 
 echo "${YELLOW}${BOLD}Starting${RESET}" "${GREEN}${BOLD}Execution${RESET}"
 
-bq --location=$LOCATION mk --dataset $DEVSHELL_PROJECT_ID:$DATASET
+bq --location=US mk --dataset $DEVSHELL_PROJECT_ID:$DATASET
 
 echo "${RED}${BOLD}Congratulations${RESET}" "${WHITE}${BOLD}for${RESET}" "${GREEN}${BOLD}Completing the Lab !!!${RESET}"
 
