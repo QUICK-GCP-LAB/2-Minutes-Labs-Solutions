@@ -10,8 +10,6 @@ export DATASET1=
 export DATASET2=
 
 export TABLE=
-
-export LOCATION=
 ```
 ```
 curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Arcade%20Hero%20Enter%20the%20BigQuery%20Table/arc130.sh
