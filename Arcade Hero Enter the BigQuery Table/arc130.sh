@@ -22,9 +22,9 @@ RESET=`tput sgr0`
 
 echo "${YELLOW}${BOLD}Starting${RESET}" "${GREEN}${BOLD}Execution${RESET}"
 
-bq --location=$LOCATION mk --dataset $DEVSHELL_PROJECT_ID:$DATASET1
+bq --location=US mk --dataset $DEVSHELL_PROJECT_ID:$DATASET1
 
-bq --location=$LOCATION mk --dataset $DEVSHELL_PROJECT_ID:$DATASET2
+bq --location=US mk --dataset $DEVSHELL_PROJECT_ID:$DATASET2
 
 bq mk --table $DEVSHELL_PROJECT_ID:$DATASET2.$TABLE
 
