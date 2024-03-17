@@ -1,6 +1,6 @@
 # Arcade Hero: Enter the Firewall Target Tag || [ARC142](https://www.cloudskillsboost.google/focuses/85631?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/JB8McsKVFKk)
 
 ### Run the following Commands in CloudShell
 
