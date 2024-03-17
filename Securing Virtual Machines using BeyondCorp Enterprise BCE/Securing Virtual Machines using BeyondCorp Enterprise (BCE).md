@@ -8,7 +8,7 @@
 export ZONE=
 ```
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Securing%20Virtual%20Machines%20using%20BeyondCorp%20Enterprise%20(BCE)/gsp1036.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Securing%20Virtual%20Machines%20using%20BeyondCorp%20Enterprise%20BCE/gsp1036.sh
 
 sudo chmod +x arc121-gsp1036.sh
 
