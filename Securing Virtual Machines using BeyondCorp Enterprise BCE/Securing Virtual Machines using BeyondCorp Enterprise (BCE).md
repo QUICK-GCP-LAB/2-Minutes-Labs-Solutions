@@ -1,6 +1,6 @@
 # Securing Virtual Machines using BeyondCorp Enterprise (BCE) || [GSP1036](https://www.cloudskillsboost.google/focuses/40544?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/7880xXUOg34)
 
 ### Run the following Commands in CloudShell
 
