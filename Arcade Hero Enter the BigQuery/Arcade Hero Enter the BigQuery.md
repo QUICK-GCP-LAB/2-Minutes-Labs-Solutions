@@ -1,6 +1,6 @@
 # Arcade Hero: Enter the BigQuery || [ARC121-BIGQUERY](https://www.cloudskillsboost.google/focuses/83835?&parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/_PcvWI6TA4I)
 
 ### Run the following Commands in CloudShell
 
