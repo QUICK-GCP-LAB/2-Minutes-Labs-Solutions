@@ -22,6 +22,8 @@ RESET=`tput sgr0`
 
 echo "${YELLOW}${BOLD}Starting${RESET}" "${GREEN}${BOLD}Execution${RESET}"
 
+gcloud services enable iap.googleapis.com
+
 gcloud compute instances create linux-iap \
     --project=$DEVSHELL_PROJECT_ID \
     --zone=$ZONE \
