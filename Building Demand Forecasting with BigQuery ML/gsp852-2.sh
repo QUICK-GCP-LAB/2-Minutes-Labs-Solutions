@@ -59,3 +59,5 @@ bq query --use_legacy_sql=false \
      ''', HORIZON, CONFIDENCE_LEVEL)"
 
 echo "${RED}${BOLD}Congratulations${RESET}" "${WHITE}${BOLD}for${RESET}" "${GREEN}${BOLD}Completing the Lab !!!${RESET}"
+
+#-----------------------------------------------------end----------------------------------------------------------#
