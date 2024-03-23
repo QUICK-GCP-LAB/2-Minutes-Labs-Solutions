@@ -1,4 +1,4 @@
-# Building Demand Forecasting with BigQuery ML || [GSP1036](https://www.cloudskillsboost.google/focuses/16547?parent=catalog) ||
+# Building Demand Forecasting with BigQuery ML || [GSP852](https://www.cloudskillsboost.google/focuses/16547?parent=catalog) ||
 
 ## Solution [here](https://youtu.be/7880xXUOg34)
 
