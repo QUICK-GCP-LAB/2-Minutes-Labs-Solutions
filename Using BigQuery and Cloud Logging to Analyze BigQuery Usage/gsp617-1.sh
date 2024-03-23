@@ -22,6 +22,8 @@ RESET=`tput sgr0`
 
 echo "${YELLOW}${BOLD}Starting${RESET}" "${GREEN}${BOLD}Execution${RESET}"
 
+bq mk bq_logs
+
 bq query --location=us --use_legacy_sql=false --use_cache=false \
 'SELECT current_date'
 
