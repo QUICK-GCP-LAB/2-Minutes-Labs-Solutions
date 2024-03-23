@@ -24,7 +24,7 @@ sudo chmod +x gsp617-1.sh
 * Select sink service: `BigQuery dataset`.
 * Select Bigquery dataset (Destination): `bq_logs` (The dataset you setup previously)
 * Leave the rest of the options at the default settings.
-* Click CREATE SINK*.
+* *Click `CREATE SINK`*.
 
 ### Run again the following Commands in CloudShell
 
