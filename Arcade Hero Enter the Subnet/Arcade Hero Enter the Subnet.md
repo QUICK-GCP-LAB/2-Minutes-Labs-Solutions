@@ -1,6 +1,6 @@
 # Arcade Hero: Enter the Subnet || [ARC127](https://www.cloudskillsboost.google/focuses/85625?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/j9E1mATzmgo)
 
 ### Run the following Commands in CloudShell
 
