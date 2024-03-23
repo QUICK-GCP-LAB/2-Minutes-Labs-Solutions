@@ -22,11 +22,6 @@ RESET=`tput sgr0`
 
 echo "${YELLOW}${BOLD}Starting${RESET}" "${GREEN}${BOLD}Execution${RESET}"
 
-bq mk bq_logs
-
-gcloud logging sinks create JobComplete bigquery.googleapis.com/projects/$DEVSHELL_PROJECT_ID/datasets/bq_logs --log-filter='resource.type="bigquery_resource"
-protoPayload.methodName="jobservice.jobcompleted"'
-
 bq query --location=us --use_legacy_sql=false --use_cache=false \
 'SELECT fullName, AVG(CL.numberOfYears) avgyears
  FROM `qwiklabs-resources.qlbqsamples.persons_living`, UNNEST(citiesLived) as CL
@@ -50,30 +45,6 @@ bq query --location=us --use_legacy_sql=false --use_cache=false \
  LIMIT 10'
 
 sleep 120
-
-bq query --location=us --use_legacy_sql=false --use_cache=false \
-'SELECT fullName, AVG(CL.numberOfYears) avgyears
- FROM `qwiklabs-resources.qlbqsamples.persons_living`, UNNEST(citiesLived) as CL
- GROUP BY fullname'
-
-bq query --location=us --use_legacy_sql=false --use_cache=false \
-'select month, avg(mean_temp) as avgtemp from `qwiklabs-resources.qlweather_geo.gsod`
- where station_number = 947680
- and year = 2010
- group by month
- order by month'
-
-bq query --location=us --use_legacy_sql=false --use_cache=false \
-'select CONCAT(departure_airport, "-", arrival_airport) as route, count(*) as numberflights
- from `bigquery-samples.airline_ontime_data.airline_id_codes` ac,
- `qwiklabs-resources.qlairline_ontime_data.flights` fl
- where ac.code = fl.airline_code
- and regexp_contains(ac.airline ,  r"Alaska")
- group by 1
- order by 2 desc
- LIMIT 10'
-
- sleep 60
 
 bq query --use_legacy_sql=false "
 CREATE OR REPLACE VIEW
