@@ -34,7 +34,6 @@ cd ~/monolith-to-microservices
 
 nvm install --lts
 
-
 cd monolith-to-microservices/
 
 cat > startup-script.sh <<EOF_START
@@ -75,14 +74,11 @@ supervisorctl reread
 supervisorctl update
 EOF_START
 
-cd ~
-
 gsutil cp ~/monolith-to-microservices/startup-script.sh gs://fancy-store-$DEVSHELL_PROJECT_ID
 
 cd ~
 rm -rf monolith-to-microservices/*/node_modules
 gsutil -m cp -r monolith-to-microservices gs://fancy-store-$DEVSHELL_PROJECT_ID/
-
 
 gcloud compute instances create backend \
     --zone=$ZONE \
@@ -102,13 +98,11 @@ REACT_APP_PRODUCTS_URL=http://$EXTERNAL_IP_BACKEND:8082/api/products
 EOF
 
 cd ~
-
 cd ~/monolith-to-microservices/react-app
 npm install && npm run-script build
 
 cd ~
 rm -rf monolith-to-microservices/*/node_modules
-
 gsutil -m cp -r monolith-to-microservices gs://fancy-store-$DEVSHELL_PROJECT_ID/
 
 gcloud compute instances create frontend \
@@ -116,7 +110,6 @@ gcloud compute instances create frontend \
     --machine-type=e2-standard-2 \
     --tags=frontend \
     --metadata=startup-script-url=https://storage.googleapis.com/fancy-store-$DEVSHELL_PROJECT_ID/startup-script.sh
-
 
 gcloud compute firewall-rules create fw-fe \
     --allow tcp:8080 \
@@ -142,7 +135,7 @@ gcloud compute instance-templates create fancy-be \
 
 gcloud compute instance-templates list
 
-gcloud compute instances delete --quiet backend --zone=$ZONE
+gcloud compute instances delete backend --zone=$ZONE
 
 gcloud compute instance-groups managed create fancy-fe-mig \
     --zone=$ZONE \
@@ -244,7 +237,6 @@ gcloud compute url-maps add-path-matcher fancy-map \
    --path-matcher-name orders \
    --path-rules "/api/orders=fancy-be-orders,/api/products=fancy-be-products"
 
-
 gcloud compute target-http-proxies create fancy-proxy \
   --url-map fancy-map
 
@@ -257,33 +249,18 @@ cd ~/monolith-to-microservices/react-app/
 
 gcloud compute forwarding-rules list --global
 
-export EXTERNAL_IP_FANCY=$(gcloud compute instances describe fancy-http-rule --zone=$ZONE --format='get(networkInterfaces[0].accessConfigs[0].natIP)')
-
-cd monolith-to-microservices/react-app
-
-cat > .env <<EOF
-REACT_APP_ORDERS_URL=http://$EXTERNAL_IP_BACKEND:8081/api/orders
-REACT_APP_PRODUCTS_URL=http://$EXTERNAL_IP_BACKEND:8082/api/products
-
-REACT_APP_ORDERS_URL=http://$EXTERNAL_IP_FANCY/api/orders
-REACT_APP_PRODUCTS_URL=http://$EXTERNAL_IP_FANCY/api/products
-EOF
-
-cd ~
-
 cd ~/monolith-to-microservices/react-app
-
 npm install && npm run-script build
 
 cd ~
-
 rm -rf monolith-to-microservices/*/node_modules
-
 gsutil -m cp -r monolith-to-microservices gs://fancy-store-$DEVSHELL_PROJECT_ID/
 
 gcloud compute instance-groups managed rolling-action replace fancy-fe-mig \
     --zone=$ZONE \
     --max-unavailable 100%
+
+sleep 180
 
 gcloud compute instance-groups managed set-autoscaling \
   fancy-fe-mig \
@@ -313,8 +290,9 @@ gcloud compute instance-groups managed rolling-action start-update fancy-fe-mig 
   --zone=$ZONE \
   --version template=fancy-fe-new
 
-cd ~/monolith-to-microservices/react-app/src/pages/Home
+sleep 180
 
+cd ~/monolith-to-microservices/react-app/src/pages/Home
 mv index.js.new index.js
 
 cat ~/monolith-to-microservices/react-app/src/pages/Home/index.js
