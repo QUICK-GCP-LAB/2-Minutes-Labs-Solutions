@@ -29,7 +29,7 @@ GROUP BY
  trip_date
 ```
 
-* Select SAVE RESULTS .
+* Select `SAVE RESULTS` .
 
 * In the dropdown menu, select `BigQuery Table`.
 
