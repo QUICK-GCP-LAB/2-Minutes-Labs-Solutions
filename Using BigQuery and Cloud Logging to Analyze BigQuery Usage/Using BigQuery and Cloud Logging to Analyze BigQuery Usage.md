@@ -8,7 +8,7 @@
 bq mk bq_logs
 ```
 
-1. In the Cloud console, select `Navigation menu` > `Logging` > `Logs Explorer`.
+1. Click here to go to [Logs Explorer](https://console.cloud.google.com/logs/query?_ga=2.234090203.434727323.1711191791-1746730280.1711191644)
 
 2. In Resource, select `BigQuery`, then `click Apply`.
 
