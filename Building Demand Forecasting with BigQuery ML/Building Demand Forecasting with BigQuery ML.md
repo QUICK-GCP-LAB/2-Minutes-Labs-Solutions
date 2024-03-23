@@ -28,6 +28,17 @@ GROUP BY
  start_station_id,
  trip_date
 ```
+
+* Select SAVE RESULTS .
+
+* In the dropdown menu, select `BigQuery Table`.
+
+* For Dataset select `bqmlforecast`.
+
+* Add a Table name `training_data` .
+
+* Click *EXPORT*.
+
 ### Run again the following Commands in CloudShell
 
 ```
