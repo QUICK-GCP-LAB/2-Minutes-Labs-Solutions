@@ -49,7 +49,7 @@ bq query --location=us --use_legacy_sql=false --use_cache=false \
  order by 2 desc
  LIMIT 10'
 
-sleep 360
+sleep 120
 
 bq query --use_legacy_sql=false \
 'CREATE OR REPLACE VIEW
@@ -73,7 +73,7 @@ FROM
   `$DEVSHELL_PROJECT_ID.cloudaudit_googleapis_com_data_access_*`
 ORDER BY
   startTime'
-  
+
 echo "${RED}${BOLD}Congratulations${RESET}" "${WHITE}${BOLD}for${RESET}" "${GREEN}${BOLD}Completing the Lab !!!${RESET}"
 
 #-----------------------------------------------------end----------------------------------------------------------#
