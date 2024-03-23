@@ -5,7 +5,11 @@
 ### Run the following Commands in CloudShell
 
 ```
-bq mk bq_logs
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Using%20BigQuery%20and%20Cloud%20Logging%20to%20Analyze%20BigQuery%20Usage/gsp617-1.sh
+
+sudo chmod +x gsp617-1.sh
+
+./gsp617-1.sh
 ```
 
 1. Click here to go to [Logs Explorer](https://console.cloud.google.com/logs/query?_ga=2.234090203.434727323.1711191791-1746730280.1711191644)
@@ -25,11 +29,11 @@ bq mk bq_logs
 ### Run again the following Commands in CloudShell
 
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Using%20BigQuery%20and%20Cloud%20Logging%20to%20Analyze%20BigQuery%20Usage/gsp617.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Using%20BigQuery%20and%20Cloud%20Logging%20to%20Analyze%20BigQuery%20Usage/gsp617-2.sh
 
-sudo chmod +x gsp617.sh
+sudo chmod +x gsp617-2.sh
 
-./gsp617.sh
+./gsp617-2.sh
 ```
 
 ### Congratulations 🎉 for completing the Challenge Lab !
