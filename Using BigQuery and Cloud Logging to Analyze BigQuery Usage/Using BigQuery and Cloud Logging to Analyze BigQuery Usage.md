@@ -8,13 +8,13 @@
 bq mk bq_logs
 ```
 
-1. In the Cloud console, select Navigation menu > Logging > Logs Explorer.
+1. In the Cloud console, select `Navigation menu` > `Logging` > `Logs Explorer`.
 
-2. In Resource, select BigQuery, then click Apply.
+2. In Resource, select `BigQuery`, then `click Apply`.
 
-3. Scroll back up to the header of the entry, click on jobcompleted and choose Show matching entries.
+3. Scroll back up to the header of the entry, click on `jobcompleted` and choose Show matching entries.
 
-4. Now, click Run query button in the top right.
+4. Now, click `Run query` button in the top right.
 
 * Sink name: `JobComplete` and click NEXT.
 * Select sink service: `BigQuery dataset`.
