@@ -1,6 +1,6 @@
 # Building Demand Forecasting with BigQuery ML || [GSP852](https://www.cloudskillsboost.google/focuses/16547?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/pu56M19UBZk)
 
 ### Run the following Commands in CloudShell
 
