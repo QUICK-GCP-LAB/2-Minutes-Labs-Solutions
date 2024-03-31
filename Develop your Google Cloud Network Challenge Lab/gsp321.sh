@@ -115,7 +115,7 @@ kubectl create secret generic cloudsql-instance-credentials \
     --from-file key.json
 
 
-echo "${RED}${BOLD}Task 1. ${RESET}""${WHITE}${BOLD}Prepare the Kubernetes cluster${RESET}" "${GREEN}${BOLD}Completed${RESET}"
+echo "${RED}${BOLD}Task 6. ${RESET}""${WHITE}${BOLD}Prepare the Kubernetes cluster${RESET}" "${GREEN}${BOLD}Completed${RESET}"
 
 INSTANCE_ID=$(gcloud sql instances describe griffin-dev-db --format='value(connectionName)')
 
