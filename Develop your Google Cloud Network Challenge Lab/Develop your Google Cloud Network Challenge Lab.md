@@ -1,15 +1,11 @@
-# Create and Manage Cloud Resources: Challenge Lab || [GSP313](https://www.cloudskillsboost.google/focuses/10258?parent=catalog) ||
+# Develop your Google Cloud Network: Challenge Lab || [GSP321](https://www.cloudskillsboost.google/focuses/10603?parent=catalog) ||
 
-## Solution [here](https://youtu.be/X9qYc_62-ac)
+## Solution [here]()
 
 ### Run the following Commands in CloudShell
 
 ### Assign Veriables
 ```
-export INSTANCE=
-export PORT_NO=
-export FIREWALL=
-export REGION=
 export ZONE=
 ```
 ```
