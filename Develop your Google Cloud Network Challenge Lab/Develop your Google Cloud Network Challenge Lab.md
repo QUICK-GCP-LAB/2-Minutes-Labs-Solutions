@@ -16,9 +16,9 @@ sudo chmod +x gsp321.sh
 ```
 ### Task 8. Enable monitoring
 
-1. In Google Cloud Console, go to `Kubernetes Engine` -> `Services and Ingress` -> 
-2. Copy `endpoint`'s (`wordpress`) `IP address`.
-3. In Google Cloud Console, go to `Monitoring` -> `Uptime Checks` -> `+ CREATE UPTIME CHECK`. 
+1. Go to [Services and Ingress](https://console.cloud.google.com/kubernetes/discovery)
+2. Copy `endpoint's`(wordpress) `IP address`.
+3. Then go to -> [Uptime Checks](https://console.cloud.google.com/monitoring/uptime) -> `+ CREATE UPTIME CHECK`. 
 4. Fill in the details as provided below : 
 
 * Hostname : `endpoint's IP address` (without http and port number)
