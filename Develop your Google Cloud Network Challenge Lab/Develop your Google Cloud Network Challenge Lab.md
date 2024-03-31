@@ -25,7 +25,7 @@ sudo chmod +x gsp321.sh
 
 * Hostname : `endpoint's IP address` (without http and port number)
 
-* Path : /
+* Path : `/`
 
 * Title: `Wordpress Uptime`
 
