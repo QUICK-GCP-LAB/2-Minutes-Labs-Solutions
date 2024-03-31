@@ -21,10 +21,15 @@ sudo chmod +x gsp321.sh
 3. In Google Cloud Console, go to `Monitoring` -> `Uptime Checks` -> `+ CREATE UPTIME CHECK`. 
 4. Fill in the details as provided below:
 
-* Target: Hostname : `endpoint's IP address` (without http and port number)
-Path : /
-• Title: `Wordpress Uptime`
-Leave everything as default. Click `Next` -> `Next` -> `Create`
+* Target: 
+
+* Hostname : `endpoint's IP address` (without http and port number)
+
+* Path : /
+
+* Title: `Wordpress Uptime`
+
+5. Leave everything as default. Click `Next` -> `Next` -> `Create`
 
 ### Congratulations 🎉 for completing the Challenge Lab !
 
