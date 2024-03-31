@@ -201,7 +201,7 @@ for USER in $USERS; do
   fi
 done
 
-echo "${RED}${BOLD}Task 7. ${RESET}""${WHITE}${BOLD}Create a WordPress deployment${RESET}" "${GREEN}${BOLD}Completed${RESET}"
+echo "${RED}${BOLD}Task 9. ${RESET}""${WHITE}${BOLD}Provide access for an additional engineer${RESET}" "${GREEN}${BOLD}Completed${RESET}"
 
 echo "${RED}${BOLD}Congratulations${RESET}" "${WHITE}${BOLD}for${RESET}" "${GREEN}${BOLD}Completing the Lab !!!${RESET}"
 

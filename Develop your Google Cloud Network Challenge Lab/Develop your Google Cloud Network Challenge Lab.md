@@ -4,18 +4,27 @@
 
 ### Run the following Commands in CloudShell
 
-### Assign Veriables
 ```
 export ZONE=
 ```
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Create%20and%20Manage%20Cloud%20Resources%20Challenge%20Lab/gsp313.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Develop%20your%20Google%20Cloud%20Network%20Challenge%20Lab/gsp321.sh
 
-sudo chmod +x gsp313.sh
+sudo chmod +x gsp321.sh
 
-./gsp313.sh
+./gsp321.sh
 ```
-* *Note: You may need to wait for `5 to 7` `minutes` to get the score for this task.*
+### Task 8. Enable monitoring
+
+1. In Google Cloud Console, go to `Kubernetes Engine` -> `Services and Ingress` -> 
+2. Copy `endpoint`'s (`wordpress`) `IP address`.
+3. In Google Cloud Console, go to `Monitoring` -> `Uptime Checks` -> `+ CREATE UPTIME CHECK`. 
+4. Fill in the details as provided below:
+
+* Target: Hostname : `endpoint's IP address` (without http and port number)
+Path : /
+• Title: `Wordpress Uptime`
+Leave everything as default. Click `Next` -> `Next` -> `Create`
 
 ### Congratulations 🎉 for completing the Challenge Lab !
 
