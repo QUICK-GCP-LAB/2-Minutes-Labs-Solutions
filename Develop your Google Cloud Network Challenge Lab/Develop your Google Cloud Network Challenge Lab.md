@@ -1,6 +1,6 @@
 # Develop your Google Cloud Network: Challenge Lab || [GSP321](https://www.cloudskillsboost.google/focuses/10603?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/DlltA4VWsRs)
 
 ### Run the following Commands in CloudShell
 
