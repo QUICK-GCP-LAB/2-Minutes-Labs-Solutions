@@ -5,11 +5,11 @@
 ### Run the following Commands in CloudShell
 
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Google%20Cloud%20Packet%20Mirroring%20with%20OpenSource%20IDS/gsp474.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Google%20Cloud%20Storage%20-%20Bucket%20Lock/gsp297.sh
 
-sudo chmod +x gsp474.sh
+sudo chmod +x gsp297.sh
 
-./gsp474.sh
+./gsp297.sh
 ```
 
 ### Congratulations 🎉 for completing the Lab !
