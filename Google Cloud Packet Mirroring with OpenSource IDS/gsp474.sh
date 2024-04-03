@@ -27,12 +27,12 @@ export REGION="${ZONE%-*}"
 gcloud compute networks create dm-stamford \
 --subnet-mode=custom
 
-gcloud compute networks subnets create dm-stamford-us-west1 \
+gcloud compute networks subnets create dm-stamford-$REGION \
 --range=172.21.0.0/24 \
 --network=dm-stamford \
 --region=$REGION
 
-gcloud compute networks subnets create dm-stamford-us-west1-ids \
+gcloud compute networks subnets create dm-stamford-$REGION-ids \
 --range=172.21.1.0/24 \
 --network=dm-stamford \
 --region=$REGION
@@ -64,7 +64,7 @@ gcloud compute firewall-rules create fw-dm-stamford-iapproxy \
 --rules=tcp:22,icmp \
 --source-ranges=35.235.240.0/20
 
-gcloud compute routers create router-stamford-nat-us-west1 \
+gcloud compute routers create router-stamford-nat-$REGION \
 --region=$REGION \
 --network=dm-stamford
 
