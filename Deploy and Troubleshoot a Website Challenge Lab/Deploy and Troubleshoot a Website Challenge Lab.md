@@ -9,11 +9,11 @@ export INSTANCE=
 export ZONE=
 ```
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Build%20and%20Execute%20MySQL%20PostgreSQL%20and%20SQLServer%20to%20Data%20Catalog%20Connectors/gsp814.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Deploy%20and%20Troubleshoot%20a%20Website%20Challenge%20Lab/gsp101.sh
 
-sudo chmod +x gsp814.sh
+sudo chmod +x gsp101.sh
 
-./gsp814.sh
+./gsp101.sh
 ```
 
 ### Congratulations 🎉 for completing the Challenge Lab !
