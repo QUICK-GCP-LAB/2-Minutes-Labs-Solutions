@@ -1,6 +1,6 @@
 # Deploy and Troubleshoot a Website: Challenge Lab || [GSP101](https://www.cloudskillsboost.google/focuses/1734?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/CLUkxtEuv68)
 
 ### Run the following Commands in CloudShell
 
