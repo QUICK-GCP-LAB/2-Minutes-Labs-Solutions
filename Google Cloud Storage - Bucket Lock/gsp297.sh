@@ -36,6 +36,8 @@ gsutil ls -L "gs://$BUCKET/dummy_transactions"
 
 gsutil retention lock "gs://$BUCKET/"
 
+sleep 30
+
 gsutil retention temp set "gs://$BUCKET/dummy_transactions"
 
 gsutil rm "gs://$BUCKET/dummy_transactions"
