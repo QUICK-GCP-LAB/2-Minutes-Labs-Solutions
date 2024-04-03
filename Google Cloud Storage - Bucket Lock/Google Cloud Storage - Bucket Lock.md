@@ -1,12 +1,9 @@
-# Develop your Google Cloud Network: Challenge Lab || [GSP474](https://www.cloudskillsboost.google/focuses/14864?parent=catalog) ||
+# Google Cloud Storage - Bucket Lock || [GSP297](https://www.cloudskillsboost.google/focuses/3483?parent=catalog) ||
 
 ## Solution [here]()
 
 ### Run the following Commands in CloudShell
 
-```
-export ZONE=
-```
 ```
 curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Google%20Cloud%20Packet%20Mirroring%20with%20OpenSource%20IDS/gsp474.sh
 
