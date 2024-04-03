@@ -1,4 +1,4 @@
-# Develop your Google Cloud Network: Challenge Lab || [GSP321](https://www.cloudskillsboost.google/focuses/14864?parent=catalog) ||
+# Develop your Google Cloud Network: Challenge Lab || [GSP474](https://www.cloudskillsboost.google/focuses/14864?parent=catalog) ||
 
 ## Solution [here]()
 
