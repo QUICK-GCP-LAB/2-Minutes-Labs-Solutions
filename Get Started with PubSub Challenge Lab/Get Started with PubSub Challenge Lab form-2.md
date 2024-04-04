@@ -16,7 +16,7 @@ sudo chmod +x form_2.sh
 
 ### Task 3. Create a trigger cloud function with Pub/Sub topic
 
-* Go to Cloud Function [here](https://console.cloud.google.com/functions/add)
+* Go to Cloud Function from [here](https://console.cloud.google.com/functions/add)
 
 * `Now Follow Video Instructions`
 
