@@ -1,6 +1,6 @@
 # Google Cloud Storage - Bucket Lock || [GSP297](https://www.cloudskillsboost.google/focuses/3483?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/ROLigBsAx3A)
 
 ### Run the following Commands in CloudShell
 
