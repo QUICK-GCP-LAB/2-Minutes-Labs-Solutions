@@ -7,9 +7,6 @@
 ### Run the following Commands in CloudShell
 
 ```
-export LOCATION=
-```
-```
 curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Get%20Started%20with%20PubSub%20Challenge%20Lab/form_2.sh
 
 sudo chmod +x form_2.sh
@@ -19,7 +16,9 @@ sudo chmod +x form_2.sh
 
 ### Task 3. Create a trigger cloud function with Pub/Sub topic
 
+* Go to Cloud Function [here](https://console.cloud.google.com/functions/add)
 
+* `Now Follow Video Instructions`
 
 ### Congratulations 🎉 for completing the Lab !
 
