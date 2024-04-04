@@ -13,9 +13,8 @@ sudo chmod +x gsp898.sh
 
 ./gsp898.sh
 ```
-* *Note: You may need to wait for `5 to 7` `minutes` to get the score for this task.*
 
-### Congratulations 🎉 for completing the Challenge Lab !
+### Congratulations 🎉 for completing the Lab !
 
 ##### *You Have Successfully Demonstrated Your Skills And Determination.*
 
