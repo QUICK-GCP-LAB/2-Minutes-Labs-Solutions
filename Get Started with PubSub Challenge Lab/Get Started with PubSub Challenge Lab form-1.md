@@ -1,6 +1,6 @@
 # Get Started with Pub/Sub: Challenge Lab || [ARC113](https://www.cloudskillsboost.google/focuses/63246?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here] (https://youtu.be/RDLyWHXnr0s)
 
 # For Get Started with Pub/Sub: Challenge Lab `form-1`
 
