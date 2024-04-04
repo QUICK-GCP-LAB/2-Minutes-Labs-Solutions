@@ -21,6 +21,7 @@ RESET=`tput sgr0`
 #----------------------------------------------------start--------------------------------------------------#
 
 echo "${YELLOW}${BOLD}Starting${RESET}" "${GREEN}${BOLD}Execution${RESET}"
+
 export MSG_BODY='Hello World!'
 
 gcloud pubsub topics create cloud-pubsub-topic

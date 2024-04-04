@@ -7,14 +7,14 @@
 ### Run the following Commands in CloudShell
 
 ```
-export ZONE=
+export LOCATION=
 ```
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Google%20Cloud%20Packet%20Mirroring%20with%20OpenSource%20IDS/gsp474.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Get%20Started%20with%20PubSub%20Challenge%20Lab/form_1.sh
 
-sudo chmod +x gsp474.sh
+sudo chmod +x form_1.sh
 
-./gsp474.sh
+./form_1.sh
 ```
 
 ### Congratulations 🎉 for completing the Lab !
