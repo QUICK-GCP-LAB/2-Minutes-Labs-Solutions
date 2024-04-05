@@ -98,10 +98,10 @@ gsutil defstorageclass set ARCHIVE gs://$BUCKET-bucket-ops
 
 
 # Main script block
-echo "${BLUE}${BOLD}"
+echo "${WHITE}${BOLD}"
 
 # Get the form number from user input
-read -p "Enter the Form number (1, 2, or 3): " form_number
+read -p "Enter lab given Form number (1, 2, or 3): " form_number
 
 # Execute the appropriate function based on the selected form number
 case $form_number in
