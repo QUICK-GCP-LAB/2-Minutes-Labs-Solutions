@@ -24,6 +24,8 @@ RESET=`tput sgr0`
 
 echo "${YELLOW}${BOLD}Starting${RESET}" "${GREEN}${BOLD}Execution${RESET}"
 
+gcloud services enable run.googleapis.com
+
 gcloud pubsub topics create $DEVSHELL_PROJECT_ID-topic
 
 gcloud  pubsub subscriptions create --topic $DEVSHELL_PROJECT_ID-topic $DEVSHELL_PROJECT_ID-topic-sub
