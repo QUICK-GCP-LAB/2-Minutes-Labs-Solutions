@@ -8,11 +8,11 @@
 export ZONE=
 ```
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Monitor%20and%20Manage%20Google%20Cloud%20Resources%20Challenge%20Lab/arc101.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Cloud%20Logging%20on%20Kubernetes%20Engine/gsp483.sh
 
-sudo chmod +x arc101.sh
+sudo chmod +x gsp483.sh
 
-./arc101.sh
+./gsp483.sh
 ```
 
 ### Congratulations 🎉 for completing the Lab !
