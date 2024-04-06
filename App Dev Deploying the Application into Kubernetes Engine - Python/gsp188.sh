@@ -128,7 +128,6 @@ spec:
 
 EOF_CP
 
-
 cat > backend-deployment.yaml <<EOF_CP
 # Copyright 2017 Google Inc.
 #
@@ -172,7 +171,6 @@ spec:
             value: $GCLOUD_BUCKET
 
 EOF_CP
-
 
 kubectl create -f ./frontend-deployment.yaml
 
