@@ -227,3 +227,7 @@ gcloud functions deploy $FUNCTION_NAME \
 wget https://storage.googleapis.com/cloud-training/arc101/travel.jpg
 
 gsutil cp travel.jpg gs://$BUCKET_NAME
+
+echo "${RED}${BOLD}Congratulations${RESET}" "${WHITE}${BOLD}for${RESET}" "${GREEN}${BOLD}Completing the Lab !!!${RESET}"
+
+#-----------------------------------------------------end----------------------------------------------------------#
