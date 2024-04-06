@@ -1,6 +1,6 @@
 # Cloud Logging on Kubernetes Engine || [GSP483](https://www.cloudskillsboost.google/focuses/10910?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/nqAg0wjU5I0)
 
 ### Run the following Commands in CloudShell
 
