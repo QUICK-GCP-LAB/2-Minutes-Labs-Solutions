@@ -27,15 +27,15 @@ echo "${YELLOW}${BOLD}Starting${RESET}" "${GREEN}${BOLD}Execution${RESET}"
 
 export REGION="${ZONE%-*}"
 
+gcloud config set compute/zone $ZONE
+
+gcloud config set compute/region $REGION
+
 gcloud config set project $DEVSHELL_PROJECT_ID
 
 git clone https://github.com/GoogleCloudPlatform/gke-logging-sinks-demo
 
 cd gke-logging-sinks-demo
-
-gcloud config set compute/zone $ZONE
-
-gcloud config set compute/region $REGION
 
 sed -i 's/  version = "~> 2.11.0"/  version = "~> 2.19.0"/g' terraform/provider.tf
 
