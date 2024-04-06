@@ -1,4 +1,4 @@
-# Cloud Logging on Kubernetes Engine || [GSP483](https://www.cloudskillsboost.google/focuses/10910?parent=catalog) ||
+# Google Cloud SDK: Qwik Start - Redhat/Centos || [GSP122](https://www.cloudskillsboost.google/focuses/986?parent=catalog) ||
 
 ## Solution [here]()
 
@@ -8,11 +8,11 @@
 export ZONE=
 ```
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Cloud%20Logging%20on%20Kubernetes%20Engine/gsp483.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Google%20Cloud%20SDK%20Qwik%20Start%20-%20RedhatCentos/gsp122.sh
 
-sudo chmod +x gsp483.sh
+sudo chmod +x gsp122.sh
 
-./gsp483.sh
+./gsp122.sh
 ```
 
 ### Congratulations 🎉 for completing the Lab !
