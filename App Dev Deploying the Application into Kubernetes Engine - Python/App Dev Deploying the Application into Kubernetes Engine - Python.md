@@ -1,6 +1,6 @@
 # App Dev: Deploying the Application into Kubernetes Engine - Python || [GSP188](https://www.cloudskillsboost.google/focuses/1073?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/ITLdXsePsMM)
 
 ### Run the following Commands in CloudShell
 
