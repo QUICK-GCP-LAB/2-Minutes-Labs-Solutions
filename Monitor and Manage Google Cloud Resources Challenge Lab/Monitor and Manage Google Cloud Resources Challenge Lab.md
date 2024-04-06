@@ -9,7 +9,7 @@ export BUCKET_NAME=
 export TOPIC_NAME=
 export FUNCTION_NAME=
 export REGION=
-export SECOND_USER=
+export BUCKET_USER=
 ```
 ```
 curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Getting%20Started%20with%20API%20Gateway%20Challenge%20Lab/arc109.sh

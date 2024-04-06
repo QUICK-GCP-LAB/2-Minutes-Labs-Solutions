@@ -28,7 +28,7 @@ gcloud config set compute/region $REGION
 
 gsutil mb -p $DEVSHELL_PROJECT_ID gs://$BUCKET_NAME
 
-gcloud projects add-iam-policy-binding $DEVSHELL_PROJECT_ID --member=user:$SECOND_USER --role=roles/storage.objectViewer
+gcloud projects add-iam-policy-binding $DEVSHELL_PROJECT_ID --member=user:$BUCKET_USER --role=roles/storage.objectViewer
 
 gcloud pubsub topics create $TOPIC_NAME
 
