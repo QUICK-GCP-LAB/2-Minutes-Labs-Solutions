@@ -1,6 +1,6 @@
 # Monitor and Manage Google Cloud Resources: Challenge Lab || [ARC101](https://www.cloudskillsboost.google/focuses/60441?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/S_CtfMWkgy4)
 
 ### Run the following Commands in CloudShell
 
