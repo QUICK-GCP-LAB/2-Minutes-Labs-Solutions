@@ -1,6 +1,6 @@
 # Get Started with Cloud Storage: Challenge Lab || [ARC113](https://www.cloudskillsboost.google/focuses/62706?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/5XhxAXn-qlc)
 
 ### Run the following Commands in CloudShell
 
