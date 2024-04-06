@@ -1,18 +1,18 @@
-# App Dev: Deploying the Application into Kubernetes Engine - Python || [GSP188](https://www.cloudskillsboost.google/focuses/1073?parent=catalog) ||
+# Getting Started with API Gateway: Challenge Lab || [ARC109](https://www.cloudskillsboost.google/focuses/61484?parent=catalog) ||
 
 ## Solution [here]()
 
 ### Run the following Commands in CloudShell
 
 ```
-export ZONE=
+export REGION=
 ```
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/App%20Dev%20Deploying%20the%20Application%20into%20Kubernetes%20Engine%20-%20Python/gsp188.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Getting%20Started%20with%20API%20Gateway%20Challenge%20Lab/arc109.sh
 
-sudo chmod +x gsp188.sh
+sudo chmod +x arc109.sh
 
-./gsp188.sh
+./arc109.sh
 ```
 
 ### Congratulations 🎉 for completing the Lab !
