@@ -8,11 +8,11 @@
 export ZONE=
 ```
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Get%20Started%20with%20Dataplex%20Challenge%20Lab/arc117.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/App%20Dev%20Deploying%20the%20Application%20into%20Kubernetes%20Engine%20-%20Python/gsp188.sh
 
-sudo chmod +x arc117.sh
+sudo chmod +x gsp188.sh
 
-./arc117.sh
+./gsp188.sh
 ```
 
 ### Congratulations 🎉 for completing the Lab !
