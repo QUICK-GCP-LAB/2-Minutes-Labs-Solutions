@@ -1,6 +1,6 @@
 # Get Started with Eventarc: Challenge Lab || [ARC118](https://www.cloudskillsboost.google/focuses/63244?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/nBEGAJMi8t4)
 
 ### Run the following Commands in CloudShell
 
