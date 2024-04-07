@@ -1,6 +1,6 @@
 # Google Cloud SDK: Qwik Start - Redhat/Centos || [GSP122](https://www.cloudskillsboost.google/focuses/986?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/iXzl-wQYizs)
 
 ### Run the following Commands in CloudShell
 
