@@ -36,7 +36,8 @@ sleep 30
 
 gcloud compute ssh lol --zone=$ZONE --quiet --command
 
-"sudo tee -a /etc/yum.repos.d/google-cloud-sdk.repo << EOM
+"# Update YUM with Cloud SDK repo information:
+sudo tee -a /etc/yum.repos.d/google-cloud-sdk.repo << EOM
 [google-cloud-sdk]
 name=Google Cloud SDK
 baseurl=https://packages.cloud.google.com/yum/repos/cloud-sdk-el7-x86_64
@@ -47,6 +48,9 @@ gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg
        https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
 EOM
 
+# The indentation for the 2nd line of gpgkey is important.
+
+# Install the Cloud SDK
 sudo yum install google-cloud-sdk -y && gcloud init --console-only"
 
 echo "${RED}${BOLD}Congratulations${RESET}" "${WHITE}${BOLD}for${RESET}" "${GREEN}${BOLD}Completing the Lab !!!${RESET}"
