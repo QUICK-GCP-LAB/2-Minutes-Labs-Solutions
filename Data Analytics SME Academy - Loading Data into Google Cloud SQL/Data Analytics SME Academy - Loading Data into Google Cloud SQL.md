@@ -8,11 +8,11 @@
 export REGION=
 ```
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Google%20Cloud%20SDK%20Qwik%20Start%20-%20RedhatCentos/gsp122.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Data%20Analytics%20SME%20Academy%20-%20Loading%20Data%20into%20Google%20Cloud%20SQL/gsp196.sh
 
-sudo chmod +x gsp122.sh
+sudo chmod +x gsp196.sh
 
-./gsp122.sh
+./gsp196.sh
 ```
 
 ### Congratulations 🎉 for completing the Lab !
