@@ -34,8 +34,9 @@ gcloud compute instances create lol \
 
 sleep 30
 
-gcloud compute ssh lol --zone=$ZONE --quiet --command "# Update YUM with Cloud SDK repo information:
-sudo tee -a /etc/yum.repos.d/google-cloud-sdk.repo << EOM
+gcloud compute ssh lol --zone=$ZONE --quiet --command
+
+"sudo tee -a /etc/yum.repos.d/google-cloud-sdk.repo << EOM
 [google-cloud-sdk]
 name=Google Cloud SDK
 baseurl=https://packages.cloud.google.com/yum/repos/cloud-sdk-el7-x86_64
