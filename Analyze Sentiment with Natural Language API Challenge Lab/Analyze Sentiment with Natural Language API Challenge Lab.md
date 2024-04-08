@@ -9,11 +9,15 @@ export ZONE=
 export API_KEY=
 ```
 ```
-gcloud compute ssh lab-vm --zone=$ZONE --quiet --command "curl -LO 
+gcloud compute ssh lab-vm --zone=$ZONE --quiet --command "curl -LO https://raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Analyze%20Sentiment%20with%20Natural%20Language%20API%20Challenge%20Lab/arc130.sh
 
 && 
 
-sudo chmod +x techcpsarc130.sh && ./techcpsarc130.sh"
+sudo chmod +x arc130.sh
+
+&& 
+
+./arc130.sh"
 ```
 
 ### Congratulations 🎉 for completing the Lab !
