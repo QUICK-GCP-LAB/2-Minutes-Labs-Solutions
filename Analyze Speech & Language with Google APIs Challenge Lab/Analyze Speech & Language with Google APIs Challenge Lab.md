@@ -8,11 +8,11 @@
 export API_KEY=
 ```
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Google%20Cloud%20SDK%20Qwik%20Start%20-%20RedhatCentos/gsp122.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Analyze%20Speech%20%26%20Language%20with%20Google%20APIs%20Challenge%20Lab/arc114.sh
 
-sudo chmod +x gsp122.sh
+sudo chmod +x arc114.sh
 
-./gsp122.sh
+./arc114.sh
 ```
 
 ### Congratulations 🎉 for completing the Lab !
