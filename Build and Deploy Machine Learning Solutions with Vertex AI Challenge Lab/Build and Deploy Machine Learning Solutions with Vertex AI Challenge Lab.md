@@ -6,7 +6,7 @@
 
 1. Navigate to `Vertex AI` > `Workbench` > `Instances`.
 
-2. Click on the "`Create New`" button.
+2. Click on the `Create New` button.
 
 3. Fill out the form with the following options:
 
