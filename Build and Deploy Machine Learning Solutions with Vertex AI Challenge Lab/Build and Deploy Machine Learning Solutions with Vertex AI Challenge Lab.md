@@ -42,7 +42,7 @@ pip install -U -r requirements.txt --user
 ```
 4. Go to the enclosing folder: *training-data-analyst/quests/vertex-ai/vertex-challenge-lab*.
 
-5. Open the `notebook file vertex-challenge-lab.ipynb`. When asked which kernel to use, select the `TensorFlow 2-11` kernel.
+5. Open the `notebook file` `vertex-challenge-lab.ipynb`. When asked which kernel to use, select the `TensorFlow 2-11` kernel.
 
 6. In the `Setup` section, define your `PROJECT_ID`, `REGION`, and `GCS_BUCKET` variables.
 
