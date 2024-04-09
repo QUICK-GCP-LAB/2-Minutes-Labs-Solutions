@@ -31,7 +31,7 @@
 2. Clone the repo by running this command:
 
 ```
-git clone https://github.com/QUICK-GCP-LAB/training-data-analyst
+git clone https://github.com/QUICK-GCP-LAB/training-data-analyst.git
 ```
 
 3. Install the required packages for the lab:
