@@ -27,7 +27,8 @@
 ### Task 2: Download the challenge notebook
 
 1. In your notebook, click the `terminal`.
-2. Clone the repo by running the command:
+
+2. Clone the repo by running this command:
 
 ```
 git clone https://github.com/QUICK-GCP-LAB/training-data-analyst
