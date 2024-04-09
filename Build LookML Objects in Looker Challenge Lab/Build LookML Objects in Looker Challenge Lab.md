@@ -2,7 +2,7 @@
 
 ## Solution [here]()
 
-1. Create a view file name `order_items_challenge` and paste the following:
+1. Create a .view file name `order_items_challenge` and paste the following:
 
 ```
 view: order_items_challenge {
@@ -45,7 +45,7 @@ view: order_items_challenge {
 }
 ```
 
-2. Create again a view file name `user_details` and paste the following:
+2. Create again a .view file name `user_details` and paste the following:
 
 ```
 # If necessary, uncomment the line below to include explore_source.
@@ -200,7 +200,7 @@ explore: events {
 ```
 6. Again Copy and paste the follwing in `training_ecommerce` model.
 
-4. Add `hours`.
+4. Add `NUM` in `hours`.
 
 ```
 connection: "bigquery_public_data_looker"
@@ -212,7 +212,7 @@ include: "/**/*.dashboard"
 
 datagroup: order_items_challenge_datagroup {
   sql_trigger: SELECT MAX(order_item_id) from order_items ;;
-  max_cache_age: " hours"
+  max_cache_age: "NUM hours"
 }
 
 
@@ -285,7 +285,7 @@ explore: events {
 }
 ```
 
-*NOTE*: after completeing `TASK 4` wait `3 or 4 minuts` to `get score`.
+*NOTE*: After completeing `TASK 4` wait `3 or 4 minuts` to `get score`.
 
 ### Congratulations 🎉 for completing the Lab !
 
