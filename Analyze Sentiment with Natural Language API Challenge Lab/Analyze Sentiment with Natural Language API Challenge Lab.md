@@ -1,6 +1,6 @@
 # Analyze Sentiment with Natural Language API: Challenge Lab || [ARC130](https://www.cloudskillsboost.google/focuses/66586?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/KqEXYzmCo8U)
 
 ### Run the following Commands in CloudShell
 
