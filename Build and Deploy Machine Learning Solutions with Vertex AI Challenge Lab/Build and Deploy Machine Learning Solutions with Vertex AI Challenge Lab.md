@@ -5,7 +5,9 @@
 ### Task 1: Create a Vertex Notebooks instance
 
 1. Navigate to `Vertex AI` > `Workbench` > `Instances`.
+
 2. Click on the "`Create New`" button.
+
 3. Fill out the form with the following options:
 
 * Name: `vertex-ai-challenge`
@@ -13,9 +15,13 @@
 * Zone: Leave the value as default
 
 1. Click on `Environment`.
+
 2. Select `Use a previous version.` In the Version dropdown, select *workbench-instances-v20240214 (M117)*
+
 4. Click `Continue.`
+
 5. Select `e2-standard-4` as the Machine Type.
+
 6. Click `Create.`
 
 ### Task 2: Download the challenge notebook
