@@ -1,6 +1,6 @@
 # Analyze Speech & Language with Google APIs: Challenge Lab || [ARC114](https://www.cloudskillsboost.google/focuses/63851?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/1XeKZdLMODc)
 
 ### Run the following Commands in CloudShell
 
