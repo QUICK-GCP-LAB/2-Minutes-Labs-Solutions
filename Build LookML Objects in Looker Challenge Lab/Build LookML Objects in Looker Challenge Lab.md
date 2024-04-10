@@ -1,6 +1,6 @@
 # Build LookML Objects in Looker: Challenge Lab || [GSP361](https://www.cloudskillsboost.google/focuses/25703?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/PgfPZKWATGo)
 
 1. Create a .view file name `order_items_challenge` and paste the following:
 
