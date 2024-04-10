@@ -46,7 +46,7 @@ pip install -U -r requirements.txt --user
 
 6. In the `Setup` section, define your `PROJECT_ID`, `REGION`, and `GCS_BUCKET` variables.
 
-### For Tasks 3,4,5 & 6 Follow [Video]() Instructions.
+### For Tasks 3,4,5 & 6 Follow [Video](https://youtu.be/5YOvpPtWMnI) Instructions.
 
 * *Note: This training can take around `30-40` minutes to train and deploy the model.*
 
