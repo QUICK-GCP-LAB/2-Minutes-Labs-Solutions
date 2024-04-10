@@ -16,7 +16,7 @@
 
 1. Click on `Environment`.
 
-2. Select `Use a previous version.` In the Version dropdown, select `*workbench-instances-v20240214 (M117)*`
+2. Select `Use a previous version.` In the Version dropdown, select *`workbench-instances-v20240214 (M117)`*
 
 4. Click `Continue.`
 
