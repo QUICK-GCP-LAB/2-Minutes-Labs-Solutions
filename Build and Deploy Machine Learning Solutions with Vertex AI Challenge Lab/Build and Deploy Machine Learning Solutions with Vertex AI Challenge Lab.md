@@ -1,6 +1,6 @@
 # Build and Deploy Machine Learning Solutions with Vertex AI: Challenge Lab || [GSP354](https://www.cloudskillsboost.google/focuses/22019?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/5YOvpPtWMnI)
 
 ### Task 1: Create a Vertex Notebooks instance
 
