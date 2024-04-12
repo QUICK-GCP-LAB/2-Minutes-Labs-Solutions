@@ -2,7 +2,7 @@
 
 ## Solution [here]()
 
-1. Create a .view file name `user_order_lifetime` and paste the following:
+1. Create a `.view` file name `user_order_lifetime` and paste the following:
 
 ```
 view: user_order_lifetime {
