@@ -1,4 +1,4 @@
-# Google Kubernetes Engine Security: Binary Authorization || [GSP483](https://www.cloudskillsboost.google/focuses/57885?locale=tr&parent=catalog&qlcampaign=6b-onair-25) ||
+# Google Kubernetes Engine Security: Binary Authorization || [GSP479](https://www.cloudskillsboost.google/focuses/57885?parent=catalog) ||
 
 ## Solution [here]()
 
@@ -8,11 +8,11 @@
 export ZONE=
 ```
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Cloud%20Logging%20on%20Kubernetes%20Engine/gsp483.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Google%20Kubernetes%20Engine%20Security%20Binary%20Authorization/gsp479.sh
 
-sudo chmod +x gsp483.sh
+sudo chmod +x gsp479.sh
 
-./gsp483.sh
+./gsp479.sh
 ```
 
 ### Congratulations 🎉 for completing the Lab !
