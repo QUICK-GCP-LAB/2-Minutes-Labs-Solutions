@@ -238,7 +238,7 @@ explore: events {
   
 }
 ```
-### For Tasks 3 Follow [Video]() Instructions.
+* ### For Tasks 3 Follow [Video]() Instructions.
 
 ### Congratulations 🎉 for completing the Lab !
 
