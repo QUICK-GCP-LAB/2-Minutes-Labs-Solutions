@@ -2,7 +2,7 @@
 
 ## Solution [here]()
 
-1. Create a .view file name `user_order_lifetime` and paste the following:
+1. Create a `.view` file name `user_order_lifetime` and paste the following:
 
 ```
 view: user_order_lifetime {
@@ -238,7 +238,7 @@ explore: events {
   
 }
 ```
-### For Tasks 3 Follow [Video]() Instructions.
+* ### For Tasks 3 Follow [Video]() Instructions.
 
 ### Congratulations 🎉 for completing the Lab !
 
