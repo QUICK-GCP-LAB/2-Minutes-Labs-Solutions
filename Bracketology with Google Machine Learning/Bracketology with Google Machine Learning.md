@@ -8,11 +8,11 @@
 export ZONE=
 ```
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Implementing%20Canary%20Releases%20of%20TensorFlow%20Model%20Deployments%20with%20Kubernetes%20and%20Anthos%20Service%20Mesh/gsp778.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Bracketology%20with%20Google%20Machine%20Learning/gsp461.sh
 
-sudo chmod +x gsp778.sh
+sudo chmod +x gsp461.sh
 
-./gsp778.sh
+./gsp461.sh
 ```
 
 ### Congratulations 🎉 for completing the Lab !
