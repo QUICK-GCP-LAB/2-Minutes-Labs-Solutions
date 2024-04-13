@@ -33,7 +33,7 @@ sudo chmod +x gsp461.sh
 
 ### Task 4. Create a regression model using soccer data.
 
-* Go to [BigQuery](https://console.cloud.google.com/bigquery) an follow [video]() instructions.
+* Go to [BigQuery](https://console.cloud.google.com/bigquery) and follow [video]() instructions.
 
 ### Congratulations 🎉 for completing the Lab !
 
