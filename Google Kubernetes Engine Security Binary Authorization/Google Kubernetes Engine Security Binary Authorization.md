@@ -1,6 +1,6 @@
 # Google Kubernetes Engine Security: Binary Authorization || [GSP479](https://www.cloudskillsboost.google/focuses/57885?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/cXTA0nxGfLo)
 
 ### Run the following Commands in CloudShell
 
