@@ -1,6 +1,6 @@
 # Troubleshooting Data Models in Looker || [GSP1019](https://www.cloudskillsboost.google/focuses/33371?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/Bhttc3GIF3c)
 
 1. Create a `.view` file name `user_order_lifetime` and paste the following:
 
@@ -238,7 +238,7 @@ explore: events {
   
 }
 ```
-* ### For Tasks 3 Follow [Video]() Instructions.
+* ### For Tasks 3 Follow [Video](https://youtu.be/Bhttc3GIF3c) Instructions.
 
 ### Congratulations 🎉 for completing the Lab !
 
