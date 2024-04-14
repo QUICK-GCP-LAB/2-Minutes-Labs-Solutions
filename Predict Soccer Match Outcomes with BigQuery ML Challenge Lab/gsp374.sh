@@ -27,8 +27,8 @@ echo "${YELLOW}${BOLD}Starting${RESET}" "${GREEN}${BOLD}Execution${RESET}"
 
 export PROJECT_ID=$(gcloud info --format='value(config.project)')
 
-bq load --source_format=NEWLINE_DELIMITED_JSON --autodetect $DEVSHELL_PROJECT_ID:soccer.$EVENT_NAME gs://spls/bq-soccer-analytics/events.json
-bq load --source_format=CSV --autodetect $DEVSHELL_PROJECT_ID:soccer.$TABLE_NAME gs://spls/bq-soccer-analytics/tags2name.csv
+bq load --source_format=NEWLINE_DELIMITED_JSON --autodetect $DEVSHELL_PROJECT_ID:soccer.$EVENT_TABLE gs://spls/bq-soccer-analytics/events.json
+bq load --source_format=CSV --autodetect $DEVSHELL_PROJECT_ID:soccer.$TAG_TABLE gs://spls/bq-soccer-analytics/tags2name.csv
 bq load --autodetect --source_format=NEWLINE_DELIMITED_JSON $DEVSHELL_PROJECT_ID:soccer.competitions gs://spls/bq-soccer-analytics/competitions.json
 bq load --autodetect --source_format=NEWLINE_DELIMITED_JSON $DEVSHELL_PROJECT_ID:soccer.matches gs://spls/bq-soccer-analytics/matches.json
 bq load --autodetect --source_format=NEWLINE_DELIMITED_JSON $DEVSHELL_PROJECT_ID:soccer.teams gs://spls/bq-soccer-analytics/teams.json
@@ -47,7 +47,7 @@ SUM(IF(101 IN UNNEST(tags.id), 1, 0)),
 COUNT(id)
 ) AS PKSuccessRate
 FROM
-\`soccer.$EVENT_NAME\` Events
+\`soccer.$EVENT_TABLE\` Events
 LEFT JOIN
 \`soccer.players\` Players ON
 Events.playerId = Players.wyId
@@ -75,14 +75,14 @@ SELECT
 using "average" field dimensions of 105x68 before combining in 2D dist calc */
 SQRT(
 POW(
-  (100 - positions[ORDINAL(1)].x) * $VALUE_X_1/$VALUE_Y_1,
+  (100 - positions[ORDINAL(1)].x) * $X_1/$Y_1,
   2) +
 POW(
-  (60 - positions[ORDINAL(1)].y) * $VALUE_X_2/$VALUE_Y_2,
+  (60 - positions[ORDINAL(1)].y) * $X_2/$Y_2,
   2)
  ) AS shotDistance
 FROM
-\`soccer.$EVENT_NAME\`
+\`soccer.$EVENT_TABLE\`
 WHERE
 /* Includes both "open play" & free kick shots (including penalties) */
 eventName = 'Shot' OR
@@ -119,7 +119,7 @@ Events.positions[ORDINAL(1)].y) AS shotDistance,
 \`$FUNCTION_2\`(Events.positions[ORDINAL(1)].x,
 Events.positions[ORDINAL(1)].y) AS shotAngle
 FROM
-\`soccer.$EVENT_NAME\` Events
+\`soccer.$EVENT_TABLE\` Events
 LEFT JOIN
 \`soccer.matches\` Matches ON
 Events.matchId = Matches.wyId
@@ -172,7 +172,7 @@ MODEL \`$MODEL_NAME\`,
    \`soccer.$FUNCTION_2\`(Events.positions[ORDINAL(1)].x,
        Events.positions[ORDINAL(1)].y) AS shotAngle
  FROM
-   \`soccer.$EVENT_NAME\` Events
+   \`soccer.$EVENT_TABLE\` Events
  LEFT JOIN
    \`soccer.matches\` Matches ON
        Events.matchId = Matches.wyId
