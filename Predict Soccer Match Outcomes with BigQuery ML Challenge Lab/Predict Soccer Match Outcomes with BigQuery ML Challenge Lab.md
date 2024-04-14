@@ -5,17 +5,17 @@
 ### Run the following Commands in CloudShell
 
 ```
-export EVENT_TABLE=
+export EVENT_NAME=
 
-export TAG_TABLE=
+export TABLE_NAME=
 
-export X1=
+export VALUE_X_1=
 
-export Y1=
+export VALUE_Y_1=
 
-export X2=
+export VALUE_X_2=
 
-export Y2=
+export VALUE_Y_2=
 
 export FUNCTION_1=
 
