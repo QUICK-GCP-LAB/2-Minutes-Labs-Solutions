@@ -1,6 +1,6 @@
 # Predict Soccer Match Outcomes with BigQuery ML: Challenge Lab || [GSP374](https://www.cloudskillsboost.google/focuses/37320?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/YlIV1clKA64)
 
 ### Run the following Commands in CloudShell
 
@@ -33,7 +33,7 @@ sudo chmod +x gsp374.sh
 
 ### Task 4. Create a regression model using soccer data.
 
-* Go to [BigQuery](https://console.cloud.google.com/bigquery) and follow [video]() instructions.
+* Go to [BigQuery](https://console.cloud.google.com/bigquery) and follow [video](https://youtu.be/YlIV1clKA64) instructions.
 
 ### Congratulations 🎉 for completing the Lab !
 
