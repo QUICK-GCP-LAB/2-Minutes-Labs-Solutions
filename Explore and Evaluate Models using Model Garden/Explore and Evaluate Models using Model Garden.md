@@ -1,6 +1,6 @@
 # Explore and Evaluate Models using Model Garden || [GSP1166](https://www.cloudskillsboost.google/focuses/71938?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/TkBlUZDTOTQ)
 
 ### Task 1: Explore Model Garden
 

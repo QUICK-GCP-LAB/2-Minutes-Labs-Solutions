@@ -5,9 +5,6 @@
 ### Run the following Commands in CloudShell
 
 ```
-export ZONE=
-```
-```
 curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Bracketology%20with%20Google%20Machine%20Learning/gsp461.sh
 
 sudo chmod +x gsp461.sh

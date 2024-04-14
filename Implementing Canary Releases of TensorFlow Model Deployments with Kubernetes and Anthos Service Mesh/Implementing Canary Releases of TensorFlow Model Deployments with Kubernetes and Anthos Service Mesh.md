@@ -1,6 +1,6 @@
 # Implementing Canary Releases of TensorFlow Model Deployments with Kubernetes and Anthos Service Mesh || [GSP778](https://www.cloudskillsboost.google/focuses/18471?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/Atl4wA1EpVY)
 
 ### Run the following Commands in CloudShell
 
