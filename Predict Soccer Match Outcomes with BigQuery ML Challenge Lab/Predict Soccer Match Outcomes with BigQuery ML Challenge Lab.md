@@ -24,11 +24,11 @@ export FUNCTION_2=
 export MODEL_NAME=
 ```
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Bracketology%20with%20Google%20Machine%20Learning/gsp461.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Predict%20Soccer%20Match%20Outcomes%20with%20BigQuery%20ML%20Challenge%20Lab/gsp374.sh
 
-sudo chmod +x gsp461.sh
+sudo chmod +x gsp374.sh
 
-./gsp461.sh
+./gsp374.sh
 ```
 
 ### Task 4. Create a regression model using soccer data.
