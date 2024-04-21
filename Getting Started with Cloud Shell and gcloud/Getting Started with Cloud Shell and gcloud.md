@@ -7,11 +7,11 @@
 export ZONE=
 ```
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Creating%20a%20Virtual%20Machine/gsp001.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Getting%20Started%20with%20Cloud%20Shell%20and%20gcloud/gsp002.sh
 
-sudo chmod +x gsp001.sh
+sudo chmod +x gsp002.sh
 
-./gsp001.sh
+./gsp002.sh
 ```
 
 ### Congratulations 🎉 for Completing the Lab !
