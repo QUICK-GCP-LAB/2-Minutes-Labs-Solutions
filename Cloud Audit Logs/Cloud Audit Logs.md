@@ -23,7 +23,7 @@ sudo chmod +x Audit-Logs.sh
 ./Audit-Logs.sh
 ```
 
-1. Go to `Logs Explorer` from here
+1. Go to `Logs Explorer` from [here](https://console.cloud.google.com/logs/query)
 
 2. Click the `Log name` dropdown and use the filter to locate the `activity` log under `CLOUD AUDIT` section and `Apply` it to the query.
 
