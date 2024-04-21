@@ -3,6 +3,8 @@
 ## Solution [here]()
 
 ### Run the following Commands in CloudShell
+
+* Copy ZONE_1, ZONE_2, ZONE_3 from TASK 6
 ```
 export ZONE_1=
 export ZONE_2=
