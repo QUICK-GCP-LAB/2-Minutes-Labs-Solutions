@@ -1,4 +1,4 @@
-# [Creating a Virtual Machine](https://www.cloudskillsboost.google/games/4794/labs/31304)
+# Creating a Virtual Machine || [GSP001](https://www.cloudskillsboost.google/focuses/3563?parent=catalog) ||
 
 ## Solution [here]()
 
