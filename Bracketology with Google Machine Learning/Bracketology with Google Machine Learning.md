@@ -1,6 +1,6 @@
 # Bracketology with Google Machine Learning || [GSP461](https://www.cloudskillsboost.google/focuses/4337?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/sCnIiV_Hm4A)
 
 ### Run the following Commands in CloudShell
 
