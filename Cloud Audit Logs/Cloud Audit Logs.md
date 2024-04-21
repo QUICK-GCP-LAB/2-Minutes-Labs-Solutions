@@ -16,11 +16,11 @@
 export ZONE=
 ```
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Cloud%20Audit%20Logs/Cloud%20Audit%20Logs.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Cloud%20Audit%20Logs/Audit-Logs.sh
 
-sudo chmod +x gsp211.sh
+sudo chmod +x Audit-Logs.sh
 
-./gsp211.sh
+./Audit-Logs.sh
 ```
 
 1. Go to `Logs Explorer` from here
