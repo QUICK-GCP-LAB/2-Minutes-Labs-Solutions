@@ -9,11 +9,11 @@ export ZONE_2=
 export ZONE_3=
 ```
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Multiple%20VPC%20Networks/gsp211.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Networking%20101/gsp016.sh
 
-sudo chmod +x gsp211.sh
+sudo chmod +x gsp016.sh
 
-./gsp211.sh
+./gsp016.sh
 ```
 
 ### Congratulations 🎉 for Completing the Lab !
