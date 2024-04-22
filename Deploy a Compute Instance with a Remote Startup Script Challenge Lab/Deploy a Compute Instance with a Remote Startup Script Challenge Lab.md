@@ -8,11 +8,11 @@
 export ZONE=
 ```
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Cloud%20Audit%20Logs/Audit-Logs.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Deploy%20a%20Compute%20Instance%20with%20a%20Remote%20Startup%20Script%20Challenge%20Lab/gsp301.sh
 
-sudo chmod +x Audit-Logs.sh
+sudo chmod +x gsp301.sh
 
-./Audit-Logs.sh
+./gsp301.sh
 ```
 
 ### Congratulations 🎉 for Completing the Lab !
