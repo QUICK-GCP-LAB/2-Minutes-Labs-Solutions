@@ -1,6 +1,6 @@
 # Getting Started with Cloud Shell and gcloud || [GSP002](https://www.cloudskillsboost.google/focuses/563?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/ay9korKIWzk)
 
 ### Run the following Commands in CloudShell
 ```
