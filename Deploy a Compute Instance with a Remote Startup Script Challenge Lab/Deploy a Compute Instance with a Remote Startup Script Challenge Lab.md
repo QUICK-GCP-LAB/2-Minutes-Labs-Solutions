@@ -1,4 +1,4 @@
-# Deploy a Compute Instance with a Remote Startup Script: Challenge Lab || [GSP301](https://www.cloudskillsboost.google/paths/15/course_templates/99/labs/432519?) ||
+# Deploy a Compute Instance with a Remote Startup Script: Challenge Lab || [GSP301](https://www.cloudskillsboost.google/focuses/1735?parent=catalog) ||
 
 ## Solution [here]()
 
