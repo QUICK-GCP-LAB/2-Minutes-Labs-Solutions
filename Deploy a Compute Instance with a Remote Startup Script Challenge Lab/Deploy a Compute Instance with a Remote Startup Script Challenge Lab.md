@@ -1,6 +1,6 @@
 # Deploy a Compute Instance with a Remote Startup Script: Challenge Lab || [GSP301](https://www.cloudskillsboost.google/focuses/1735?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/ZU2Aw6LPuxs)
 
 ### Run the following Commands in CloudShell
 
