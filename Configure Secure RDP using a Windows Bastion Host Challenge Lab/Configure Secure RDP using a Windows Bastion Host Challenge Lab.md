@@ -8,11 +8,11 @@
 export ZONE=
 ```
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Deploy%20a%20Compute%20Instance%20with%20a%20Remote%20Startup%20Script%20Challenge%20Lab/gsp301.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Configure%20Secure%20RDP%20using%20a%20Windows%20Bastion%20Host%20Challenge%20Lab/gsp303.sh
 
-sudo chmod +x gsp301.sh
+sudo chmod +x gsp303.sh
 
-./gsp301.sh
+./gsp303.sh
 ```
 
 ### Congratulations 🎉 for Completing the Lab !
