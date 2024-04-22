@@ -1,6 +1,6 @@
 # [Cloud Audit Logs](https://www.cloudskillsboost.google/paths/15/course_templates/99/labs/432519?)
 
-## Solution [here]()
+## Solution [here](https://youtu.be/IZatdzjmncM)
 
 1. Got `Audit Logs` from [here](https://console.cloud.google.com/iam-admin/audit)
 
