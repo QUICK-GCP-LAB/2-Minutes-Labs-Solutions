@@ -8,11 +8,11 @@
 export REGION=
 ```
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Configure%20Secure%20RDP%20using%20a%20Windows%20Bastion%20Host%20Challenge%20Lab/gsp303.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Securing%20Google%20Cloud%20with%20CFT%20Scorecard/gsp698.sh
 
-sudo chmod +x gsp303.sh
+sudo chmod +x gsp698.sh
 
-./gsp303.sh
+./gsp698.sh
 ```
 
 ### Congratulations 🎉 for Completing the Lab !
