@@ -23,7 +23,6 @@ RESET=`tput sgr0`
 echo "${YELLOW}${BOLD}Starting${RESET}" "${GREEN}${BOLD}Execution${RESET}"
 
 export GOOGLE_PROJECT=$DEVSHELL_PROJECT_ID
-
 export CAI_BUCKET_NAME=cai-$GOOGLE_PROJECT
 
 gcloud services enable cloudasset.googleapis.com \
