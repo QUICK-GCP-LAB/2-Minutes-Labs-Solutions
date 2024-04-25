@@ -1,6 +1,6 @@
 # Securing Google Cloud with CFT Scorecard || [GSP698](https://www.cloudskillsboost.google/focuses/10437?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/ZugCeiyVQ6o)
 
 ### Run the following Commands in CloudShell
 
