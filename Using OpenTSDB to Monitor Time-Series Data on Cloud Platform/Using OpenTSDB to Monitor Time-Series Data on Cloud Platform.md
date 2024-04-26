@@ -1,4 +1,4 @@
-# Using OpenTSDB to Monitor Time-Series Data on Cloud Platform|| [GSP142](https://www.cloudskillsboost.google/focuses/629?parent=catalog) ||
+# Using OpenTSDB to Monitor Time-Series Data on Cloud Platform || [GSP142](https://www.cloudskillsboost.google/focuses/629?parent=catalog) ||
 
 ## Solution [here]()
 
