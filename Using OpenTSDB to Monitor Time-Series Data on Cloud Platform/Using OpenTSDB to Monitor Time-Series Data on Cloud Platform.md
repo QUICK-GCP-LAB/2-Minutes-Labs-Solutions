@@ -8,7 +8,7 @@
 
 2. Name your instance `bt-opentsdb`
 
-3. Choose Your REGION and ZONE
+3. Choose Your `REGION` and `ZONE`
 
 4. Click `Create`
 
