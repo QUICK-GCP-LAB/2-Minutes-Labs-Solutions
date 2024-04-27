@@ -1,6 +1,6 @@
 # [Creating Databases in Compute Engine](https://www.cloudskillsboost.google/course_templates/145/labs/387200)
 
-## Solution [here]()
+## Solution [here](https://youtu.be/weiXbix17yE)
 
 ### Run the following Commands in CloudShell
 
