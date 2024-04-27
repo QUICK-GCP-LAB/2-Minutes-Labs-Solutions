@@ -28,12 +28,6 @@ git clone https://github.com/GoogleCloudPlatform/opentsdb-bigtable.git
 
 cd opentsdb-bigtable
 
-export BIGTABLE_INSTANCE_ID=bt-opentsdb
-
-gcloud bigtable instances create ${BIGTABLE_INSTANCE_ID} \
-    --cluster-config=id=${BIGTABLE_INSTANCE_ID}-${ZONE},zone=${ZONE},nodes=1 \
-    --display-name=OpenTSDB
-
 gcloud container clusters create opentsdb-cluster \
 --zone=$ZONE \
 --machine-type e2-standard-4 \

@@ -2,6 +2,16 @@
 
 ## Solution [here]()
 
+### Task 2. Creating a Bigtable instance
+
+1. Go to `Bigtable` from [here](https://console.cloud.google.com/bigtable/create-instance)
+
+2. Name your instance `bt-opentsdb`
+
+3. Choose Your REGION and ZONE
+
+4. Click `Create`
+
 ### Run the following Commands in CloudShell
 
 ```
