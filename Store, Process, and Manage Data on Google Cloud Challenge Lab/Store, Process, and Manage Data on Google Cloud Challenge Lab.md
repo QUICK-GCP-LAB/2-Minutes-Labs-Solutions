@@ -12,11 +12,11 @@ export TOPIC=
 export FUNCTION=
 ```
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Implement%20Load%20Balancing%20on%20Compute%20Engine%20Challenge%20Lab/gsp313.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Store%2C%20Process%2C%20and%20Manage%20Data%20on%20Google%20Cloud%20Challenge%20Lab/arc100.sh
 
-sudo chmod +x gsp313.sh
+sudo chmod +x arc100.sh
 
-./gsp313.sh
+./arc100.sh
 ```
 
 ### Congratulations 🎉 for completing the Challenge Lab !
