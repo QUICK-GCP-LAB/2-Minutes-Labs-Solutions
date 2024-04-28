@@ -12,6 +12,10 @@ sudo chmod +x arc125-1.sh
 ./arc125-1.sh
 ```
 
+### Task 2. Upload an image file to a Cloud Storage Bucket
+
+1. Dolwnload Image from [here]()
+
 ### Run again following Commands in CloudShell
 
 ```
