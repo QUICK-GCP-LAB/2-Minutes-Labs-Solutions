@@ -83,6 +83,13 @@ gcloud dataflow jobs run import-sessions --gcs-location gs://dataflow-templates-
 
 gcloud dataflow jobs run import-recommendations --gcs-location gs://dataflow-templates-$REGION/latest/GCS_SequenceFile_to_Cloud_Bigtable --region $REGION --staging-location gs://$DEVSHELL_PROJECT_ID/temp --parameters bigtableProject=$DEVSHELL_PROJECT_ID,bigtableInstanceId=ecommerce-recommendations,bigtableTableId=PersonalizedProducts,sourcePattern=gs://cloud-training/OCBL377/retail-recommendations-00000-of-00001
 
+sleep 120
+
+gcloud bigtable backups delete PersonalizedProducts_7 --instance=ecommerce-recommendations \
+  --cluster=ecommerce-recommendations-c1  --quiet
+
+gcloud bigtable instances delete ecommerce-recommendations --quiet
+
 echo "${RED}${BOLD}Congratulations${RESET}" "${WHITE}${BOLD}for${RESET}" "${GREEN}${BOLD}Completing the Lab !!!${RESET}"
 
 #-----------------------------------------------------end----------------------------------------------------------#
