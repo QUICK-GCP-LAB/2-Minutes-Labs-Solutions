@@ -2,6 +2,16 @@
 
 ## Solution [here]()
 
+### Task 1. Create an API key
+
+1. Go to `Credentials` from [here](https://console.cloud.google.com/apis/credentials)
+
+2. Click`+ CREATE CREDENTIALS`
+
+3. Click `API key`
+
+4. Copy generated `API key`
+
 ### Run the following Commands in CloudShell
 
 ### Assign Veriables
