@@ -1,6 +1,6 @@
 # Using OpenTSDB to Monitor Time-Series Data on Cloud Platform || [GSP142](https://www.cloudskillsboost.google/focuses/629?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/6vnL7IS9CXE)
 
 ### Task 2. Creating a Bigtable instance
 
