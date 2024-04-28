@@ -13,11 +13,11 @@ export REQUEST2=
 export RESPONSE2=
 ```
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Streaming%20Analytics%20into%20BigQuery%20Challenge%20Lab/arc106.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Using%20the%20Google%20Cloud%20Speech%20API%20Challenge%20Lab/arc131.sh
 
-sudo chmod +x arc106.sh
+sudo chmod +x arc131.sh
 
-./arc106.sh
+./arc131.sh
 ```
 
 ### Congratulations 🎉 for completing the Challenge Lab !
