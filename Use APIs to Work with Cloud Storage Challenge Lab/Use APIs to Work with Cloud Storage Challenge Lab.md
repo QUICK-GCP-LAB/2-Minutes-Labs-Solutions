@@ -14,7 +14,9 @@ sudo chmod +x arc125-1.sh
 
 ### Task 2. Upload an image file to a Cloud Storage Bucket
 
-1. Dolwnload Image from [here]()
+1. Dolwnload Image from [here](https://cdn.qwiklabs.com/amN7kZDhflOmMUaM3tiFSjyw5yfXIqOxtrpslYJS2Kg%3D)
+
+2. Save Image as `world.jpeg`
 
 ### Run again following Commands in CloudShell
 
