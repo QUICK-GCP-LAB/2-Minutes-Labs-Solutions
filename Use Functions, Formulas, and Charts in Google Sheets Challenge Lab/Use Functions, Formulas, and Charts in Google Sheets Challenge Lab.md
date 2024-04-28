@@ -6,7 +6,7 @@
 
 2. Download The `SLIDE` File From [here](https://docs.google.com/presentation/d/1ncTJgZDACrxo92dqxLVNc2wlXpY4OavM/edit?usp=sharing&ouid=110411516125283809866&rtpof=true&sd=true)
 
-For More Follow [Video]() Instructions.
+* Now Follow [Video]() Instructions.
 
 ### Congratulations 🎉 for completing the Challenge Lab !
 
