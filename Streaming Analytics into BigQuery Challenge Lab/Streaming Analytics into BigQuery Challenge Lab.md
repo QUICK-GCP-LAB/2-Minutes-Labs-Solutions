@@ -13,11 +13,11 @@ export TOPIC=
 export JOB=
 ```
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Manage%20Bigtable%20on%20Google%20Cloud%20Challenge%20Lab/gsp380.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Streaming%20Analytics%20into%20BigQuery%20Challenge%20Lab/arc106.sh
 
-sudo chmod +x gsp380.sh
+sudo chmod +x arc106.sh
 
-./gsp380.sh
+./arc106.sh
 ```
 
 ### Congratulations 🎉 for completing the Challenge Lab !
