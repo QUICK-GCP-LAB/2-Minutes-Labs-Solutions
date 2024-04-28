@@ -35,11 +35,8 @@ cat > "$REQUEST1" <<EOF
 }
 EOF
 
-
 curl -s -X POST -H "Content-Type: application/json" --data-binary @"$REQUEST1" \
 "https://speech.googleapis.com/v1/speech:recognize?key=$API_KEY" > $RESPONSE1
-
-
 
 cat > "$REQUEST2" <<EOF
 {
@@ -52,8 +49,6 @@ cat > "$REQUEST2" <<EOF
   }
 }
 EOF
-
-
 
 curl -s -X POST -H "Content-Type: application/json" --data-binary @"$REQUEST2" \
 "https://speech.googleapis.com/v1/speech:recognize?key=$API_KEY" > $RESPONSE2
