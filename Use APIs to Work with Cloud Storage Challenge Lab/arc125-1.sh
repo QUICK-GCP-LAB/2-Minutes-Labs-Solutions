@@ -46,6 +46,6 @@ EOF
 # Create bucket2
 curl -X POST -H "Authorization: Bearer $(gcloud auth print-access-token)" -H "Content-Type: application/json" --data-binary @bucket2.json "https://storage.googleapis.com/storage/v1/b?project=$DEVSHELL_PROJECT_ID"
 
-echo "${RED}${BOLD}Now${RESET}" "${WHITE}${BOLD}upload Image here${RESET}" "${GREEN}${BOLD}https://console.cloud.google.com/storage/browser?${RESET}"
+echo "${YELLOW}${BOLD}Now${RESET}" "${WHITE}${BOLD}upload Image here${RESET}" "${GREEN}${BOLD}https://console.cloud.google.com/storage/browser?${RESET}"
 
 #-----------------------------------------------------end----------------------------------------------------------#
