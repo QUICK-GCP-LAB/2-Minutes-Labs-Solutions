@@ -10,11 +10,11 @@ export ZONE=
 export ZONE2=
 ```
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Store%2C%20Process%2C%20and%20Manage%20Data%20on%20Google%20Cloud%20Challenge%20Lab/arc100.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Manage%20Bigtable%20on%20Google%20Cloud%20Challenge%20Lab/gsp380.sh
 
-sudo chmod +x arc100.sh
+sudo chmod +x gsp380.sh
 
-./arc100.sh
+./gsp380.sh
 ```
 
 ### Congratulations 🎉 for completing the Challenge Lab !
