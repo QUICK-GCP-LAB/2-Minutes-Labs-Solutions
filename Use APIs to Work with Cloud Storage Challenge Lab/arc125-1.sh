@@ -46,28 +46,6 @@ EOF
 # Create bucket2
 curl -X POST -H "Authorization: Bearer $(gcloud auth print-access-token)" -H "Content-Type: application/json" --data-binary @bucket2.json "https://storage.googleapis.com/storage/v1/b?project=$DEVSHELL_PROJECT_ID"
 
-# Upload image file to bucket1
-curl -X POST -H "Authorization: Bearer $(gcloud auth print-access-token)" -H "Content-Type: image/jpeg" --data-binary @world.jpeg "https://storage.googleapis.com/upload/storage/v1/b/$DEVSHELL_PROJECT_ID-bucket-1/o?uploadType=media&name=quicklab.jpeg"
-
-# Copy file from bucket1 to bucket2
-curl -X POST -H "Authorization: Bearer $(gcloud auth print-access-token)" -H "Content-Type: application/json" --data '{"destination": "$DEVSHELL_PROJECT_ID-bucket-2"}' "https://storage.googleapis.com/storage/v1/b/$DEVSHELL_PROJECT_ID-bucket-1/o/quicklab.jpeg/copyTo/b/$DEVSHELL_PROJECT_ID-bucket-2/o/quicklab.jpeg"
-
-# Make the object publicly accessible
-cat > public_access.json <<EOF
-{
-  "entity": "allUsers",
-  "role": "READER"
-}
-EOF
-
-curl -X POST --data-binary @public_access.json -H "Authorization: Bearer $(gcloud auth print-access-token)" -H "Content-Type: application/json" "https://storage.googleapis.com/storage/v1/b/$DEVSHELL_PROJECT_ID-bucket-1/o/quicklab.jpeg/acl"
-
-# Delete the object
-curl -X DELETE -H "Authorization: Bearer $(gcloud auth print-access-token)" "https://storage.googleapis.com/storage/v1/b/$DEVSHELL_PROJECT_ID-bucket-1/o/quicklab.jpeg"
-
-# Delete bucket1
-curl -X DELETE -H "Authorization: Bearer $(gcloud auth print-access-token)" "https://storage.googleapis.com/storage/v1/b/$DEVSHELL_PROJECT_ID-bucket-1"
-
-echo "${RED}${BOLD}Congratulations${RESET}" "${WHITE}${BOLD}for${RESET}" "${GREEN}${BOLD}Completing the Lab !!!${RESET}"
+echo "${RED}${BOLD}Now${RESET}" "${WHITE}${BOLD}upload Image here${RESET}" "${GREEN}${BOLD}https://console.cloud.google.com/storage/browser?${RESET}"
 
 #-----------------------------------------------------end----------------------------------------------------------#
