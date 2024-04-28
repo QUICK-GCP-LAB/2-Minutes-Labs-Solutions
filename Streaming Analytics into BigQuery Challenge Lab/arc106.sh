@@ -53,7 +53,7 @@ while true; do
     STATUS=$(gcloud dataflow jobs list --region="$REGION" --format='value(STATE)' | grep Running)
     
     if [ "$STATUS" == "Running" ]; then
-        echo "The Dataflow job is running successfully. then run next command."
+        echo "The Dataflow job is running successfully"
 
         sleep 20
         gcloud pubsub topics publish $TOPIC --message='{"data": "73.4 F"}'
@@ -62,7 +62,7 @@ while true; do
         break
     else
         sleep 30
-        echo "The Dataflow job is not running. please wait..."
+        echo "The Dataflow job is not running please wait..."
     fi
 done
 
@@ -72,7 +72,7 @@ while true; do
     STATUS=$(gcloud dataflow jobs list --region=$REGION --project=$PROJECT_ID --filter="name:$JOB-quickgcplab AND state:Running" --format="value(state)")
     
     if [ "$STATUS" == "Running" ]; then
-        echo "The Dataflow job is running successfully. then run next command."
+        echo "The Dataflow job is running successfully"
 
         sleep 20
         gcloud pubsub topics publish $TOPIC --message='{"data": "73.4 F"}'
@@ -81,7 +81,7 @@ while true; do
         break
     else
         sleep 30
-        echo "The Dataflow job is not running. please wait..."
+        echo "The Dataflow job is not running please wait..."
     fi
 done
 
