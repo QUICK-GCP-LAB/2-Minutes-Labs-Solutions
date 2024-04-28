@@ -62,7 +62,7 @@ while true; do
         break
     else
         sleep 30
-        echo "The Dataflow job (https://console.cloud.google.com/dataflow/jobs?) is not running. please wait..."
+        echo "The Dataflow job is not running. please wait..."
     fi
 done
 
