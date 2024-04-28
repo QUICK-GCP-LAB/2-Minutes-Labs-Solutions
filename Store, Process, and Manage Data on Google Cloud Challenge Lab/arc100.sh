@@ -182,3 +182,7 @@ done
 wget https://storage.googleapis.com/cloud-training/gsp315/map.jpg 
 
 gsutil cp map.jpg gs://$BUCKET
+
+echo "${RED}${BOLD}Congratulations${RESET}" "${WHITE}${BOLD}for${RESET}" "${GREEN}${BOLD}Completing the Lab !!!${RESET}"
+
+#-----------------------------------------------------end----------------------------------------------------------#
