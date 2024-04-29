@@ -144,11 +144,11 @@ export FIREWALL_RULE_NAME_2=
 export FIREWALL_RULE_NAME_3=
 ```
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Using%20the%20Google%20Cloud%20Speech%20API%20Challenge%20Lab/arc131.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Set%20Up%20a%20Google%20Cloud%20Network%20Challenge%20Lab/gsp314.sh
 
-sudo chmod +x arc131.sh
+sudo chmod +x gsp314.sh
 
-./arc131.sh
+./gsp314.sh
 ```
 
 ### Task 4: Troubleshoot and fix a broken GKE cluster
