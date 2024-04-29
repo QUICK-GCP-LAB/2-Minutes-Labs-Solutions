@@ -1,6 +1,6 @@
 # Use APIs to Work with Cloud Storage: Challenge Lab || [ARC125](https://www.cloudskillsboost.google/focuses/65991?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/xauzUJcOKmc)
 
 ### Run the following Commands in CloudShell
 
