@@ -4,8 +4,6 @@
 
 ### Task 1: Migrate a stand-alone PostgreSQL database to a Cloud SQL for PostgreSQL instance
 
-Task 1: Migrate a stand-alone PostgreSQL database to a Cloud SQL for PostgreSQL instance
-
 1. Enable the [Database Migration API](https://console.cloud.google.com/marketplace/product/google/datamigration.googleapis.com) and the [Service Networking API](https://console.cloud.google.com/marketplace/product/google/servicenetworking.googleapis.com)
 
 2. Go to [VM instances](https://console.cloud.google.com/compute/instances)
