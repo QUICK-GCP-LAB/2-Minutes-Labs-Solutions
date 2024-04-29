@@ -118,13 +118,13 @@ ALTER TABLE public.inventory_items ADD PRIMARY KEY(id);
 exit
 ```
 
-Go to [CREATE MIGRATION JOB](https://console.cloud.google.com/dbmigration/migrations/create)
+* Go to [CREATE MIGRATION JOB](https://console.cloud.google.com/dbmigration/migrations/create)
 
-* NOW FOLLOW VIDEO INSTRUCTIONS
+* Now Follow [Video's]() Instructions
 
 ### Task 2: Update permissions and add IAM roles to users
 
-Go to [IAM](https://console.cloud.google.com/iam-admin/iam) and follow video instructions
+* Go to [IAM](https://console.cloud.google.com/iam-admin/iam) and follow [Video's]() instructions
 
 ### Task 3: Create networks and firewalls
 
@@ -153,16 +153,16 @@ sudo chmod +x gsp314.sh
 
 ### Task 4: Troubleshoot and fix a broken GKE cluster
 
-Go to [Create sink](https://console.cloud.google.com/logs/router/sink)
+* Go to [Create sink](https://console.cloud.google.com/logs/router/sink)
 
-* PASTE the following in `Build inclusion filter`
+* Paste the following in `Build inclusion filter`
 
 ```
 resource.type=REPLACE HERE;
 severity=ERROR
 ```
 
-* Go to [IAM](https://console.cloud.google.com/iam-admin/iam)
+* Go to [IAM](https://console.cloud.google.com/iam-admin/iam) and follow [Video's]() instructions
 
 
 ### Congratulations 🎉 for completing the Challenge Lab !
