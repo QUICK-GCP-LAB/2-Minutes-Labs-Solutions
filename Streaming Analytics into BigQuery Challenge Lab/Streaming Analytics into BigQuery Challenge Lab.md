@@ -1,6 +1,6 @@
 # Streaming Analytics into BigQuery: Challenge Lab || [ARC106](https://www.cloudskillsboost.google/focuses/61948?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/21jjrIK5EiQ)
 
 ### Run the following Commands in CloudShell
 
