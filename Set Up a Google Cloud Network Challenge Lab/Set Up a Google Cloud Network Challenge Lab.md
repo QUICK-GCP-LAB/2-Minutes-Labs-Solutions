@@ -1,6 +1,6 @@
 # Set Up a Google Cloud Network: Challenge Lab || [GSP314](https://www.cloudskillsboost.google/focuses/10417?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/kG0HpV05nlk)
 
 ### Task 1: Migrate a stand-alone PostgreSQL database to a Cloud SQL for PostgreSQL instance
 
