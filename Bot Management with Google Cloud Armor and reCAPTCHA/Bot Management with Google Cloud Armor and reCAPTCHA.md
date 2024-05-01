@@ -5,11 +5,14 @@
 ### Run the following Commands in CloudShell
 
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/IAM%20Custom%20Roles/gsp190.sh
+export ZONE=
+```
+```
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Bot%20Management%20with%20Google%20Cloud%20Armor%20and%20reCAPTCHA/gsp877.sh
 
-sudo chmod +x gsp190.sh
+sudo chmod +x gsp877.sh
 
-./gsp190.sh
+./gsp877.sh
 ```
 
 ### Congratulations 🎉 for completing the Lab !
