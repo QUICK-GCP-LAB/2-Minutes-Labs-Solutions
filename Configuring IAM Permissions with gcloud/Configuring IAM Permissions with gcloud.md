@@ -12,9 +12,7 @@ export ZONE=
 ```
 ```
 curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Configuring%20IAM%20Permissions%20with%20gcloud/gsp647-1.sh
-
 sudo chmod +x gsp647-1.sh
-
 ./gsp647-1.sh
 ```
 
@@ -27,9 +25,7 @@ export ZONE=
 ```
 ```
 curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Configuring%20IAM%20Permissions%20with%20gcloud/gsp647-2.sh
-
 sudo chmod +x gsp647-2.sh
-
 ./gsp647-2.sh
 ```
 
@@ -49,9 +45,7 @@ export PROJECT2=
 ```
 ```
 curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Configuring%20IAM%20Permissions%20with%20gcloud/gsp647-3.sh
-
 sudo chmod +x gsp647-3.sh
-
 ./gsp647-3.sh
 ```
 
