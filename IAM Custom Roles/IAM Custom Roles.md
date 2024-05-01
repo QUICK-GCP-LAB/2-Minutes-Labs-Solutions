@@ -2,16 +2,14 @@
 
 ## Solution [here]()
 
-### Assign Veriables
-```
-export REGION=
-```
-```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Loading%20Data%20into%20Cloud%20SQL/gsp196.sh
+### Run the following Commands in CloudShell
 
-sudo chmod +x gsp196.sh
+```
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/IAM%20Custom%20Roles/gsp190.sh
 
-./gsp196.sh
+sudo chmod +x gsp190.sh
+
+./gsp190.sh
 ```
 
 ### Congratulations 🎉 for completing the Challenge Lab !

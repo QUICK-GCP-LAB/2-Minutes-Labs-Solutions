@@ -2,6 +2,8 @@
 
 ## Solution [here]()
 
+### Run the following Commands in CloudShell
+
 ### Assign Veriables
 ```
 export REGION=
