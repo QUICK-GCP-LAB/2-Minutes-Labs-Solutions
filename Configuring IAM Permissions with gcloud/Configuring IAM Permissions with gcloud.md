@@ -11,11 +11,11 @@ export PROJECT_2=
 export ZONE=
 ```
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Using%20the%20Google%20Cloud%20Speech%20API%20Challenge%20Lab/arc131.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Configuring%20IAM%20Permissions%20with%20gcloud/gsp647-1.sh
 
-sudo chmod +x arc131.sh
+sudo chmod +x gsp647-1.sh
 
-./arc131.sh
+./gsp647-1.sh
 ```
 
 ### Run again the following Commands in CloudShell
@@ -26,11 +26,11 @@ sudo chmod +x arc131.sh
 export ZONE=
 ```
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Using%20the%20Google%20Cloud%20Speech%20API%20Challenge%20Lab/arc131.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Configuring%20IAM%20Permissions%20with%20gcloud/gsp647-2.sh
 
-sudo chmod +x arc131.sh
+sudo chmod +x gsp647-2.sh
 
-./arc131.sh
+./gsp647-2.sh
 ```
 
 ### Run again the following Commands in CloudShell
@@ -42,11 +42,11 @@ export USER2=
 export PROJECT2=
 ```
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Using%20the%20Google%20Cloud%20Speech%20API%20Challenge%20Lab/arc131.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Configuring%20IAM%20Permissions%20with%20gcloud/gsp647-3.sh
 
-sudo chmod +x arc131.sh
+sudo chmod +x gsp647-3.sh
 
-./arc131.sh
+./gsp647-3.sh
 ```
 
 ### Congratulations 🎉 for completing the Challenge Lab !
