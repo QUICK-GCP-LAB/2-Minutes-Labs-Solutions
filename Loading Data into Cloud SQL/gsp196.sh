@@ -59,6 +59,7 @@ gcloud sql import sql $INSTANCE_NAME \
     gs://$BUCKET/$SQL_FILE \
     --database=$DATABASE_NAME \
     --quiet
+    
 echo "${YELLOW}${BOLD}NOW${RESET}" "${WHITE}${BOLD}FOLLOW${RESET}" "${GREEN}${BOLD}VIDEO'S INSTRUCTIONS${RESET}"
 
 #-----------------------------------------------------end----------------------------------------------------------#
