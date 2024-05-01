@@ -33,6 +33,12 @@ sudo chmod +x gsp647-2.sh
 ./gsp647-2.sh
 ```
 
+* Now Check Your Progress for `TASK 1` & `TASK 2` and then Follow [Video's]() Instructions.
+
+```
+user2
+```
+
 ### Run again the following Commands in CloudShell
 
 ### Assign Veriables
