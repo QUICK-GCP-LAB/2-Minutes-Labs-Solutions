@@ -118,11 +118,11 @@ exit
 
 * Go to [CREATE MIGRATION JOB](https://console.cloud.google.com/dbmigration/migrations/create)
 
-* Now Follow [Video's]() Instructions
+* Now Follow [Video's](https://youtu.be/kG0HpV05nlk) Instructions
 
 ### Task 2: Update permissions and add IAM roles to users
 
-* Go to [IAM](https://console.cloud.google.com/iam-admin/iam) and follow [Video's]() instructions
+* Go to [IAM](https://console.cloud.google.com/iam-admin/iam) and follow [Video's](https://youtu.be/kG0HpV05nlk) instructions
 
 ### Task 3: Create networks and firewalls
 
@@ -160,7 +160,7 @@ resource.type=REPLACE HERE;
 severity=ERROR
 ```
 
-* Go to [IAM](https://console.cloud.google.com/iam-admin/iam) and follow [Video's]() instructions
+* Go to [IAM](https://console.cloud.google.com/iam-admin/iam) and follow [Video's](https://youtu.be/kG0HpV05nlk) instructions
 
 
 ### Congratulations 🎉 for completing the Challenge Lab !
