@@ -1,6 +1,6 @@
 # Loading Data into Cloud SQL || [GSP196](https://www.cloudskillsboost.google/focuses/1157?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/M5NYVizdI9I)
 
 ### Run the following Commands in CloudShell
 
