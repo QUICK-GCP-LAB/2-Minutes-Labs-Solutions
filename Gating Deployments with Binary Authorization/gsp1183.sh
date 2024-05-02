@@ -360,6 +360,9 @@ docker push $REGION-docker.pkg.dev/${PROJECT_ID}/artifact-scanning-repo/sample-i
 
 CONTAINER_PATH=$REGION-docker.pkg.dev/${PROJECT_ID}/artifact-scanning-repo/sample-image
 
+DIGEST=$(gcloud container images describe ${CONTAINER_PATH}:bad \
+    --format='get(image_summary.digest)')
+
 cat > deploy.yaml << EOM
 apiVersion: v1
 kind: Service
