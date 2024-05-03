@@ -22,6 +22,8 @@ RESET=`tput sgr0`
 
 echo "${YELLOW}${BOLD}Starting${RESET}" "${GREEN}${BOLD}Execution${RESET}"
 
+export PROJECT="$DEVSHELL_PROJECT_ID"
+
 AR_REPO='chef-repo'
 SERVICE_NAME='chef-streamlit-app' 
 gcloud artifacts repositories create "$AR_REPO" --location="$REGION" --repository-format=Docker
