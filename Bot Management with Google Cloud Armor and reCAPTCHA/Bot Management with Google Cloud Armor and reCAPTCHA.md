@@ -1,6 +1,6 @@
 # Bot Management with Google Cloud Armor and reCAPTCHA || [GSP877](https://www.cloudskillsboost.google/focuses/88281?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/D0xHkdiIGWE)
 
 ### Run the following Commands in CloudShell
 
