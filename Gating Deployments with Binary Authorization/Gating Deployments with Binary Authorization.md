@@ -1,6 +1,6 @@
 # Gating Deployments with Binary Authorization || [GSP1183](https://www.cloudskillsboost.google/focuses/83255?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/7INFyriFDlg)
 
 ### Run the following Commands in CloudShell
 
