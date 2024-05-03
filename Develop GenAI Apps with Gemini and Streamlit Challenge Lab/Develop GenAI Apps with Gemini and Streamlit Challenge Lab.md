@@ -1,6 +1,6 @@
 # Develop GenAI Apps with Gemini and Streamlit: Challenge Lab || [GSP517](https://www.cloudskillsboost.google/focuses/87315?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/DwOxKDyh1RU)
 
 * Go to `USER-MANAGE NOTEBOOKS` from [here](https://console.cloud.google.com/vertex-ai/workbench/user-managed)
 
