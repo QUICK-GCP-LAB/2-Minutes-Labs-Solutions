@@ -2,6 +2,8 @@
 
 ## Solution [here]()
 
+* Download `Jupyter` file from [here](https://github.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/blob/main/Develop%20GenAI%20Apps%20with%20Gemini%20and%20Streamlit%20Challenge%20Lab/prompt.ipynb)
+
 ### Run the following Commands in CloudShell
 
 ### Assign Veriable
@@ -10,11 +12,11 @@
 export REGION=
 ```
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Gating%20Deployments%20with%20Binary%20Authorization/gsp1183.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Develop%20GenAI%20Apps%20with%20Gemini%20and%20Streamlit%20Challenge%20Lab/gsp517-1.sh
 
-sudo chmod +x gsp1183.sh
+sudo chmod +x gsp517-1.sh
 
-./gsp1183.sh
+./gsp517-1.sh
 ```
 
 * Now Follow [Video's]() Instructions
@@ -22,11 +24,11 @@ sudo chmod +x gsp1183.sh
 ### Run the following Commands in 
 
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Gating%20Deployments%20with%20Binary%20Authorization/gsp1183.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Develop%20GenAI%20Apps%20with%20Gemini%20and%20Streamlit%20Challenge%20Lab/gsp517-2.sh
 
-sudo chmod +x gsp1183.sh
+sudo chmod +x gsp517-2.sh
 
-./gsp1183.sh
+./gsp517-2.sh
 ```
 
 ### Congratulations 🎉 for completing the Lab !
