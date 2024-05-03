@@ -21,7 +21,7 @@ sudo chmod +x gsp517-1.sh
 
 * Now Follow [Video's]() Instructions
 
-### Run the following Commands in 
+### Run again the following Commands in 
 
 ```
 curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Develop%20GenAI%20Apps%20with%20Gemini%20and%20Streamlit%20Challenge%20Lab/gsp517-2.sh
