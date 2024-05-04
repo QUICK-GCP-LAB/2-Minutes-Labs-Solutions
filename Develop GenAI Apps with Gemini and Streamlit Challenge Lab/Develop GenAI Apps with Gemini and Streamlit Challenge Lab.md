@@ -50,7 +50,7 @@ streamlit run chef.py \
   --server.port 8080
 ```
 
-* Now Follow [Video's]() Instructions
+* Now Follow [Video's](https://youtu.be/DwOxKDyh1RU) Instructions
 
 ### Run again the following Commands in 
 
