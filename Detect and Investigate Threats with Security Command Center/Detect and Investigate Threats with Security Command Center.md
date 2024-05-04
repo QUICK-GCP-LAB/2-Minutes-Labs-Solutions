@@ -2,7 +2,7 @@
 
 ## Solution [here]()
 
-* Go to `Audit Logs` from [here]()
+* Go to `Audit Logs` from [here](https://console.cloud.google.com/iam-admin/audit)
 
 * Asssign the `PERMISSION` for `Cloud Resource Manager API`
 
