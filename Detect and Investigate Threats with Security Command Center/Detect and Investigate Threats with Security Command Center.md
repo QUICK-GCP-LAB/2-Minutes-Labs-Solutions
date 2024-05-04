@@ -12,11 +12,11 @@
 export ZONE=
 ```
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Protect%20Cloud%20Traffic%20with%20BeyondCorp%20Enterprise%20BCE%20Security%20Challenge%20Lab/gsp373.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Detect%20and%20Investigate%20Threats%20with%20Security%20Command%20Center/gsp1125-1.sh
 
-sudo chmod +x gsp373.sh
+sudo chmod +x gsp1125-1.sh
 
-./gsp373.sh
+./gsp1125-1.sh
 ```
 
 ### Run again the following Commands in CloudShell
@@ -26,11 +26,11 @@ export IP=
 export ZONE=
 ```
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Protect%20Cloud%20Traffic%20with%20BeyondCorp%20Enterprise%20BCE%20Security%20Challenge%20Lab/gsp373.sh
+curl -LO https://raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Detect%20and%20Investigate%20Threats%20with%20Security%20Command%20Center/gsp1125-2.sh
 
-sudo chmod +x gsp373.sh
+sudo chmod +x gsp1125-2.sh
 
-./gsp373.sh
+./gsp1125-2.sh
 ```
 
 ### Congratulations 🎉 for completing the Lab !
