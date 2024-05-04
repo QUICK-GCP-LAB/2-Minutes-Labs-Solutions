@@ -2,9 +2,9 @@
 
 ## Solution [here]()
 
-* Go to `Vertex AI` from [here](https://console.cloud.google.com/vertex-ai)
-
 * Download All file from [here](https://drive.google.com/drive/folders/1q5dJzvqlT8tAsjcip2JfzYTXYoJzgnw7?usp=sharing)
+
+* Go to `Vertex AI` from [here](https://console.cloud.google.com/vertex-ai)
 
 * Now Follow [Video's]() Instructions
 
