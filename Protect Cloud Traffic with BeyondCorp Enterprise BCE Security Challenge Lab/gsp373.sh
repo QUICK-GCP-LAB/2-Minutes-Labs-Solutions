@@ -38,6 +38,6 @@ export AUTH_DOMAIN=$(gcloud config get-value project).uc.r.appspot.com
 
 echo $AUTH_DOMAIN
 
-echo "${RED}${BOLD}Congratulations${RESET}" "${WHITE}${BOLD}for${RESET}" "${GREEN}${BOLD}Completing the Lab !!!${RESET}"
+echo "${YELLOW}${BOLD}NOW${RESET}" "${WHITE}${BOLD}FOLLOW${RESET}" "${GREEN}${BOLD}VIDEO'S INSTRUCTIONS${RESET}"
 
 #-----------------------------------------------------end----------------------------------------------------------#

@@ -15,7 +15,7 @@ sudo chmod +x gsp373.sh
 ./gsp373.sh
 ```
 
-* Go to `OAuth Consent` from [here](https://console.cloud.google.com/apis/credentials/consent)
+* Go to `OAuth Consent` from [here](https://console.cloud.google.com/apis/credentials/consent) & `Identity-Aware Proxy` from [here](https://console.cloud.google.com/security/iap)
 
 * Now Follow [Video's]() Instructions
 
