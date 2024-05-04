@@ -15,6 +15,10 @@ sudo chmod +x gsp373.sh
 ./gsp373.sh
 ```
 
+* Go to `OAuth Consent` from [here](https://console.cloud.google.com/apis/credentials/consent)
+
+* Now Follow [Video's]() Instructions
+
 ### Congratulations 🎉 for completing the Lab !
 
 ##### *You Have Successfully Demonstrated Your Skills And Determination.*
