@@ -46,11 +46,6 @@ gcloud iam service-accounts keys create /tmp/sa-key-$i.json \
 --iam-account=sccp-test-sa-$i@$PROJECT_ID.iam.gserviceaccount.com;
 done
 
-sleep 30
-
-bq query --apilog=/dev/null --use_legacy_sql=false  \
-"SELECT finding_id,event_time,finding.category FROM continuous_export_dataset.findings"
-
 export BUCKET_NAME=scc-export-bucket-$DEVSHELL_PROJECT_ID
 
 gcloud storage buckets create gs://$BUCKET_NAME --location=$REGION

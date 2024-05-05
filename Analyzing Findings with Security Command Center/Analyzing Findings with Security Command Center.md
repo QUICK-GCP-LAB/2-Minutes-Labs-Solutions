@@ -29,6 +29,10 @@ sudo chmod +x gsp1164-2.sh
 
 ./gsp1164-2.sh
 ```
+```
+bq query --apilog=/dev/null --use_legacy_sql=false  \
+"SELECT finding_id,event_time,finding.category FROM continuous_export_dataset.findings"
+```
 
 * Now go to `Export findings to Cloud Storage` from [here](https://console.cloud.google.com/security/command-center/export)
 
