@@ -1,6 +1,6 @@
 # Configuring IAM Permissions with gCloud - Azure || [GSP1119](https://www.cloudskillsboost.google/focuses/60391?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/AxnyDGjVLQ4)
 
 ### Run the following Commands in CloudShell
 
