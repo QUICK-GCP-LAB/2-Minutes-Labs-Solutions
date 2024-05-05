@@ -45,7 +45,3 @@ gcloud iam service-accounts create sccp-test-sa-$i;
 gcloud iam service-accounts keys create /tmp/sa-key-$i.json \
 --iam-account=sccp-test-sa-$i@$PROJECT_ID.iam.gserviceaccount.com;
 done
-
-export BUCKET_NAME=scc-export-bucket-$DEVSHELL_PROJECT_ID
-
-gcloud storage buckets create gs://$BUCKET_NAME --location=$REGION

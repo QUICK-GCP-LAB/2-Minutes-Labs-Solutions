@@ -36,7 +36,7 @@ bq query --apilog=/dev/null --use_legacy_sql=false  \
 
 * NOW FOLLOW [VIDEO'S]() INSTRUCTIONS
 
-* Got to `Create a bucket` from[here](https://console.cloud.google.com/storage/create-bucket)
+* Got to `Create a bucket` from [here](https://console.cloud.google.com/storage/create-bucket)
 
 * for BUCKET NAME type `scc-export-bucket-`YOUR_PROJECT_ID
 
