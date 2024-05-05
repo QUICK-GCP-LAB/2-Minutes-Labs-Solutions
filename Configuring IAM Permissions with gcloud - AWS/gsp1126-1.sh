@@ -22,28 +22,11 @@ RESET=`tput sgr0`
 
 echo "${YELLOW}${BOLD}Starting${RESET}" "${GREEN}${BOLD}Execution${RESET}"
 
-gcloud config set compute/zone "$ZONE"
-export ZONE=$(gcloud config get compute/zone)
-gcloud config set compute/region "${ZONE%-*}"
-export REGION=$(gcloud config get compute/region)
-gcloud compute instances create lab-1 --zone=$ZONE
-
-cat << 'EOF' > toggle_zone_script.sh
-#!/bin/bash
-last_char="${ZONE: -1}"
-if [ "$last_char" == "a" ]; then
-    export NZONE="${ZONE%?}b"  
-elif [ "$last_char" == "b" ]; then
-    export NZONE="${ZONE%?}c" 
-elif [ "$last_char" == "c" ]; then
-    export NZONE="${ZONE%?}b"
-elif [ "$last_char" == "d" ]; then
-    export NZONE="${ZONE%?}b"
-fi
-echo "$NZONE"
-EOF
-
-chmod +x toggle_zone_script.sh
-NEWZONE=$(./toggle_zone_script.sh)
-gcloud config set compute/zone $NEWZONE
-gcloud init --no-launch-browser
+export SA=$(gcloud iam service-accounts list | grep -i "compute@developer.gserviceaccount.com" | awk '{print $2}')
+gcloud projects add-iam-policy-binding "$DEVSHELL_PROJECT_ID" \
+    --member="serviceAccount:$SA" \
+    --role="roles/owner"
+gcloud projects add-iam-policy-binding "$PROJECT_ID2" \
+    --member="serviceAccount:$SA" \
+    --role="roles/owner"
+gcloud compute ssh centos-clean --zone=$ZONE --quiet
