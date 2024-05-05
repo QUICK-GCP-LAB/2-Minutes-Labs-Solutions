@@ -46,6 +46,8 @@ gcloud iam service-accounts keys create /tmp/sa-key-$i.json \
 --iam-account=sccp-test-sa-$i@$PROJECT_ID.iam.gserviceaccount.com;
 done
 
+sleep 30
+
 bq query --apilog=/dev/null --use_legacy_sql=false  \
 "SELECT finding_id,event_time,finding.category FROM continuous_export_dataset.findings"
 
