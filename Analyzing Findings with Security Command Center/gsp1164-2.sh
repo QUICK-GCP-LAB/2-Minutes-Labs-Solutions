@@ -26,6 +26,12 @@ export REGION="${ZONE%-*}"
 
 PROJECT_ID=$(gcloud config get project)
 
+
+gcloud compute instances create instance-1 --zone=$ZONE \
+--machine-type e2-micro \
+--scopes=https://www.googleapis.com/auth/cloud-platform
+
+
 bq --location=us-east4 --apilog=/dev/null mk --dataset \
 $PROJECT_ID:continuous_export_dataset
 
