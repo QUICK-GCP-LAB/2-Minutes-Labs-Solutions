@@ -22,6 +22,7 @@ RESET=`tput sgr0`
 
 echo "${YELLOW}${BOLD}Starting${RESET}" "${GREEN}${BOLD}Execution${RESET}"
 
+export REGION="${ZONE%-*}"
 gcloud pubsub subscriptions update export-findings-pubsub-topic-sub --ack-deadline 10
 gcloud compute instances create instance-1 --zone=$ZONE \
 --machine-type e2-micro \
