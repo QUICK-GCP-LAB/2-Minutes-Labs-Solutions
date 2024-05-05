@@ -8,6 +8,7 @@
 export ZONE=
 gcloud compute ssh centos-clean --zone=$ZONE --quiet
 ```
+### Assign Veriables in `SSH`
 ```
 export ZONE=
 export USER2=
