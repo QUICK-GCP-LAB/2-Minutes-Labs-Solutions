@@ -33,6 +33,9 @@ sudo chmod +x gsp1164-2.sh
 bq query --apilog=/dev/null --use_legacy_sql=false  \
 "SELECT finding_id,event_time,finding.category FROM continuous_export_dataset.findings"
 ```
+* Got to `Create a bucket` from[here](https://console.cloud.google.com/storage/create-bucket)
+
+* for BUCKET NAME type `scc-export-bucket-`YOUR_PROJECT_ID
 
 * Now go to `Export findings to Cloud Storage` from [here](https://console.cloud.google.com/security/command-center/export)
 
