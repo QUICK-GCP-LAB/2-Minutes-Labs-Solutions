@@ -1,6 +1,6 @@
 # Detect and Investigate Threats with Security Command Center || [GSP1125](https://www.cloudskillsboost.google/focuses/71932?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/0cPi257X7js)
 
 * Go to `Audit Logs` from [here](https://console.cloud.google.com/iam-admin/audit)
 
