@@ -36,13 +36,31 @@ bq query --apilog=/dev/null --use_legacy_sql=false  \
 
 * Now go to `Export findings to Cloud Storage` from [here](https://console.cloud.google.com/security/command-center/export)
 
+* NOW FOLLOW [VIDEO'S]() INSTRUCTIONS
+
 * Set the filename to `findings.jsonl`
 
 * Go to `BigQuery Studio` from [here](https://console.cloud.google.com/bigquery)
 
 * Set the TABLE NAME to `old_findings`
 
-* NOW FOLLOW [VIDEO'S]() INSTRUCTIONS
+* Now paste in the following schema
+
+```
+[   
+  {
+    "mode": "NULLABLE",
+    "name": "resource",
+    "type": "JSON"
+  },   
+  {
+    "mode": "NULLABLE",
+    "name": "finding",
+    "type": "JSON"
+  }
+]
+```
+
 
 ### Congratulations 🎉 for completing the Lab !
 
