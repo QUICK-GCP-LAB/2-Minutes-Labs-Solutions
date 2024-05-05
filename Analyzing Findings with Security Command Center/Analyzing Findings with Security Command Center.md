@@ -5,9 +5,6 @@
 ### Run the following Commands in CloudShell
 
 ```
-export ZONE=
-```
-```
 curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Analyzing%20Findings%20with%20Security%20Command%20Center/gsp1164-1.sh
 
 sudo chmod +x gsp1164-1.sh
@@ -20,6 +17,10 @@ sudo chmod +x gsp1164-1.sh
 * For the continuous export name, enter in `export-findings-pubsub`.
 
 ### Run again the following Commands in CloudShell
+
+```
+export ZONE=
+```
 
 ```
 curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Analyzing%20Findings%20with%20Security%20Command%20Center/gsp1164-2.sh
