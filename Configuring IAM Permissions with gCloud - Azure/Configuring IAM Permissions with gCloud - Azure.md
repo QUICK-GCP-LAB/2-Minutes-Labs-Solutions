@@ -8,10 +8,6 @@
 export ZONE=
 gcloud compute ssh centos-clean --zone=$ZONE --quiet
 ```
-### Run again the following Commands in CloudShell
-
-### Assign Veriables
-
 ```
 export ZONE=
 export USER2=
