@@ -35,6 +35,8 @@ sudo chmod +x gsp1164-2.sh
 
 * Go to `BigQuery Studio` from [here](https://console.cloud.google.com/bigquery)
 
+* Set the TABLE NAME to `old_findings`
+
 * NOW FOLLOW [VIDEO'S]() INSTRUCTIONS
 
 ### Congratulations 🎉 for completing the Lab !
