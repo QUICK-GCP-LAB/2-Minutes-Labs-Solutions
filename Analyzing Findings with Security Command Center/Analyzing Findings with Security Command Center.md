@@ -1,6 +1,6 @@
 # Analyzing Findings with Security Command Center || [GSP1164](https://www.cloudskillsboost.google/focuses/71931?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/bJmehGefeek)
 
 ### Run the following Commands in CloudShell
 
@@ -34,7 +34,7 @@ bq query --apilog=/dev/null --use_legacy_sql=false  \
 "SELECT finding_id,event_time,finding.category FROM continuous_export_dataset.findings"
 ```
 
-* NOW FOLLOW [VIDEO'S]() INSTRUCTIONS
+* NOW FOLLOW [VIDEO'S](https://youtu.be/bJmehGefeek) INSTRUCTIONS
 
 * Got to `Create a bucket` from [here](https://console.cloud.google.com/storage/create-bucket)
 
