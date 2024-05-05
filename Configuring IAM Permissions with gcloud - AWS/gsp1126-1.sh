@@ -26,7 +26,7 @@ export SA=$(gcloud iam service-accounts list | grep -i "compute@developer.gservi
 gcloud projects add-iam-policy-binding "$DEVSHELL_PROJECT_ID" \
     --member="serviceAccount:$SA" \
     --role="roles/owner"
-gcloud projects add-iam-policy-binding "$PROJECT_ID2" \
+gcloud projects add-iam-policy-binding "$PROJECT2" \
     --member="serviceAccount:$SA" \
     --role="roles/owner"
 gcloud compute ssh centos-clean --zone=$ZONE --quiet
