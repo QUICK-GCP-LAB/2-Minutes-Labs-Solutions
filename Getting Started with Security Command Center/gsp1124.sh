@@ -21,10 +21,7 @@ RESET=`tput sgr0`
 #----------------------------------------------------start--------------------------------------------------#
 
 echo "${YELLOW}${BOLD}
-
 Starting Execution 
-
-
 ${RESET}"
 #gcloud auth list
 #gcloud config list project
@@ -61,17 +58,13 @@ gcloud scc muteconfigs create muting-pga-findings \
 
 
 echo "${GREEN}${BOLD}
-
 Task 3 Analyze and fix SCC vulnerability findings 1st Completed
-
 ${RESET}"
 
 gcloud compute networks create scc-lab-net --subnet-mode=auto
 
 echo "${GREEN}${BOLD}
-
 Task 3 Analyze and fix SCC vulnerability findings 2nd Completed
-
 ${RESET}"
 
 gcloud compute firewall-rules update default-allow-rdp --source-ranges=35.235.240.0/20
@@ -80,11 +73,9 @@ gcloud compute firewall-rules update default-allow-rdp --source-ranges=35.235.24
 gcloud compute firewall-rules update default-allow-ssh --source-ranges=35.235.240.0/20
 
 echo "${GREEN}${BOLD}
-
 Task 3 Analyze and fix SCC vulnerability findings 3rd Completed
 
 Congratulations for Completing the Lab !!!
-
 ${RESET}"
 
 #-----------------------------------------------------end----------------------------------------------------------#
