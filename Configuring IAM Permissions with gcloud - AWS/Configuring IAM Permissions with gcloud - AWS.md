@@ -1,6 +1,6 @@
-# Configuring IAM Permissions with gcloud - AWS || [GSP1126](https://www.cloudskillsboost.google/focuses/7678?parent=catalog) ||
+# Configuring IAM Permissions with gcloud - AWS || [GSP1126](https://www.cloudskillsboost.google/focuses/60386?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/KR1dpJvDv4o)
 
 ### Run the following Commands in CloudShell
 
