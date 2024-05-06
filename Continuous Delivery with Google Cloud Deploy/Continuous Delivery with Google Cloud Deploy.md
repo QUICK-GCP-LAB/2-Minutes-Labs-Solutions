@@ -8,11 +8,11 @@
 export ZONE=
 ```
 ```
-curl -LO https://raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Getting%20Started%20with%20Security%20Command%20Center/Shell%20Script%20File/GSP1124/gsp1124.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Continuous%20Delivery%20with%20Google%20Cloud%20Deploy/gsp1079.sh
 
-sudo chmod +x gsp1124.sh
+sudo chmod +x gsp1079.sh
 
-./gsp1124.sh
+./gsp1079.sh
 ```
 
 ### Congratulations 🎉 for Completing the Lab !
