@@ -1,6 +1,6 @@
 # Configuring Networks via gcloud || [GSP630](https://www.cloudskillsboost.google/focuses/7140?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/vlzjNYvN73Y)
 
 ### Run the following Commands in CloudShell
 
