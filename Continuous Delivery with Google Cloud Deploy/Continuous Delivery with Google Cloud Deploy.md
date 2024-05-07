@@ -1,6 +1,6 @@
 # Continuous Delivery with Google Cloud Deploy || [GSP1079](https://www.cloudskillsboost.google/focuses/52828?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/M_a7ckaUpcg)
 
 ### Run the following Commands in CloudShell
 
