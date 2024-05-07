@@ -1,4 +1,4 @@
-# BigQuery Soccer Data Analysis || [GSP849](https://www.cloudskillsboost.google/focuses/23118?parent=catalog) ||
+# BigQuery Soccer Data Ingestion || [GSP848](https://www.cloudskillsboost.google/focuses/23114?parent=catalog) ||
 
 ## Solution [here]()
 
