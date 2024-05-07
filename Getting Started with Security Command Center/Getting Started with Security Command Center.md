@@ -1,6 +1,6 @@
 # Getting Started with Security Command Center || [GSP1124](https://www.cloudskillsboost.google/focuses/71933?parent=catalog) ||
 
-## Solution [here](https://youtu.be/s4qkzkCCe08)
+## Solution [here](https://youtu.be/FrPPKBSbrgI)
 
 ### Task 3. Analyze and fix SCC vulnerability findings
 
