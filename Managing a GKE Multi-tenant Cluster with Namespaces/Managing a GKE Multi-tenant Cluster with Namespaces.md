@@ -8,11 +8,11 @@
 export ZONE=
 ```
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/BigQuery%20Soccer%20Data%20Ingestion/gsp848.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Managing%20a%20GKE%20Multi-tenant%20Cluster%20with%20Namespaces/gsp766.sh
 
-sudo chmod +x gsp848.sh
+sudo chmod +x gsp766.sh
 
-./gsp848.sh
+./gsp766.sh
 ```
 
 ### Congratulations 🎉 for Completing the Lab !
