@@ -8,11 +8,11 @@
 export REGION=
 ```
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Managing%20a%20GKE%20Multi-tenant%20Cluster%20with%20Namespaces/gsp766.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Stream%20Processing%20with%20Cloud%20PubSub%20and%20Dataflow%20Qwik%20Start/gsp903.sh
 
-sudo chmod +x gsp766.sh
+sudo chmod +x gsp903.sh
 
-./gsp766.sh
+./gsp903.sh
 ```
 
 ### Congratulations 🎉 for Completing the Lab !
