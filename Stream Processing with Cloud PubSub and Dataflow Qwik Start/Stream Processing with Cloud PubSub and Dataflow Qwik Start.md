@@ -1,6 +1,6 @@
 # Stream Processing with Cloud Pub/Sub and Dataflow: Qwik Start || [GSP903](https://www.cloudskillsboost.google/focuses/18457?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/yt181cgOEt8)
 
 ### Run the following Commands in CloudShell
 
