@@ -7,9 +7,9 @@
 ### Task 1. Total confirmed cases
 
 ```
-bq query --use_legacy_sql=false 'SELECT sum(cumulative_confirmed) as total_cases_worldwide
+SELECT sum(cumulative_confirmed) as total_cases_worldwide
 FROM `bigquery-public-data.covid19_open_data.covid19_open_data`
-WHERE date='YYYY-MM-DD''
+WHERE date='YYYY-MM-DD'
 ```
 ### Task 2. Worst affected areas
 
