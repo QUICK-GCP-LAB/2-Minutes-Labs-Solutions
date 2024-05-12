@@ -1,6 +1,6 @@
 # BigQuery Soccer Data Ingestion || [GSP848](https://www.cloudskillsboost.google/focuses/23114?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/UPAYeY5imvw)
 
 ### Run the following Commands in CloudShell
 
