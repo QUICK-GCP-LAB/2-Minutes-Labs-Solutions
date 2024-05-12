@@ -1,6 +1,6 @@
 # BigQuery Machine Learning using Soccer Data || [GSP851](https://www.cloudskillsboost.google/focuses/23293?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/8Y09SYa9U0o)
 
 ### Run the following Commands in CloudShell
 
