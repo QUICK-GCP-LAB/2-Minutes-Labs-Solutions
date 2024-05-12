@@ -1,6 +1,6 @@
 # Derive Insights from BigQuery Data: Challenge Lab || [GSP787](https://www.cloudskillsboost.google/focuses/11988?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/OokfGn267II)
 
 #### Run the following Queries in BigQuery Editor
 
