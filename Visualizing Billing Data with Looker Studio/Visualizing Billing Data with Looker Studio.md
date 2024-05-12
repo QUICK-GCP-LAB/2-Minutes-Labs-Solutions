@@ -1,6 +1,6 @@
 # Visualizing Billing Data with Looker Studio || [GSP622](https://www.cloudskillsboost.google/focuses/7115?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/O_jhdptIQxw)
 
 ### Run the following Commands in CloudShell
 
