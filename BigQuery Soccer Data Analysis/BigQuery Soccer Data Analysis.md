@@ -5,11 +5,11 @@
 ### Run the following Commands in CloudShell
 
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/BigQuery%20Machine%20Learning%20using%20Soccer%20Data/gsp851.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/BigQuery%20Soccer%20Data%20Analysis/gsp849.sh
 
-sudo chmod +x gsp851.sh
+sudo chmod +x gsp849.sh
 
-./gsp851.sh
+./gsp849.sh
 ```
 
 ### Congratulations 🎉 for Completing the Lab !
