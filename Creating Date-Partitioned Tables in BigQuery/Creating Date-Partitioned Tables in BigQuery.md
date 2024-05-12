@@ -1,6 +1,6 @@
 # Creating Date-Partitioned Tables in BigQuery || [GSP414](https://www.cloudskillsboost.google/focuses/3694?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/ErE6S6m9R50)
 
 ### Run the following Commands in CloudShell
 
