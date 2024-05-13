@@ -5,11 +5,11 @@
 ### Run the following Commands in CloudShell
 
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/BigQuery%20Soccer%20Data%20Analysis/gsp849.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Creating%20Permanent%20Tables%20and%20Access-Controlled%20Views%20in%20BigQuery/gsp410.sh
 
-sudo chmod +x gsp849.sh
+sudo chmod +x gsp410.sh
 
-./gsp849.sh
+./gsp410.sh
 ```
 
 ### Congratulations 🎉 for Completing the Lab !
