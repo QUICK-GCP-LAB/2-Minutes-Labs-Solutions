@@ -8,11 +8,11 @@
 export ZONE=
 ```
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Creating%20Permanent%20Tables%20and%20Access-Controlled%20Views%20in%20BigQuery/gsp410.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Awwvision%20Cloud%20Vision%20API%20from%20a%20Kubernetes%20Cluster/gsp066.sh
 
-sudo chmod +x gsp410.sh
+sudo chmod +x gsp066.sh
 
-./gsp410.sh
+./gsp066.sh
 ```
 
 ### Congratulations 🎉 for Completing the Lab !
