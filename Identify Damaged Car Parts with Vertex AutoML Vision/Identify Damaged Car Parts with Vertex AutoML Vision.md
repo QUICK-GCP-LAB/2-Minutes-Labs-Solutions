@@ -8,11 +8,30 @@
 export REGION=
 ```
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Awwvision%20Cloud%20Vision%20API%20from%20a%20Kubernetes%20Cluster/gsp066.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Identify%20Damaged%20Car%20Parts%20with%20Vertex%20AutoML%20Vision/gsp972-1.sh
 
-sudo chmod +x gsp066.sh
+sudo chmod +x gsp972-1.sh
 
-./gsp066.sh
+./gsp972-1.sh
+```
+
+* #### *NOW FOLLOW VIDEO'S INSTRUCTIONS*
+
+* Go to `Vertex AI` from [here](https://console.cloud.google.com/vertex-ai)
+
+* Go to `Cloud Run` from [here](https://console.cloud.google.com/run)
+
+### Run again the following Commands in CloudShell
+
+```
+AUTOML_PROXY=
+```
+```
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Identify%20Damaged%20Car%20Parts%20with%20Vertex%20AutoML%20Vision/gsp972-2.sh
+
+sudo chmod +x gsp972-2.sh
+
+./gsp972-2.sh
 ```
 
 ### Congratulations 🎉 for Completing the Lab !
