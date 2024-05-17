@@ -15,13 +15,10 @@ sudo chmod +x gsp1076-1.sh
 ./gsp1076-1.sh
 ```
 
-* #### *NOW FOLLOW VIDEO'S INSTRUCTIONS*
+* *NOW FOLLOW VIDEO'S INSTRUCTIONS*
 
 ### Run again the following Commands in CloudShell
 
-```
-export AUTOML_PROXY=
-```
 ```
 curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Working%20with%20Artifact%20Registry/gsp1076-2.sh
 
