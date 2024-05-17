@@ -25,7 +25,7 @@ RESET=`tput sgr0`
 
 echo "${YELLOW}${BOLD}Starting${RESET}" "${GREEN}${BOLD}Execution${RESET}"
 
-INPUT_DATA_FILE=payload.json
+export INPUT_DATA_FILE=payload.json
 
 cat > payload.json <<EOF
 {
