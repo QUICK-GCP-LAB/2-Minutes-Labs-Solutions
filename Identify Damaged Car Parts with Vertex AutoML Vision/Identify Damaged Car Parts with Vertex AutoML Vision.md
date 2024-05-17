@@ -28,7 +28,7 @@ sudo chmod +x gsp972-1.sh
 ### Run again the following Commands in CloudShell
 
 ```
-AUTOML_PROXY=
+export AUTOML_PROXY=
 ```
 ```
 curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Identify%20Damaged%20Car%20Parts%20with%20Vertex%20AutoML%20Vision/gsp972-2.sh
