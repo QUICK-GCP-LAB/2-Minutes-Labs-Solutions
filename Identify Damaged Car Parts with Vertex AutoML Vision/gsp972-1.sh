@@ -25,6 +25,9 @@ RESET=`tput sgr0`
 
 echo "${YELLOW}${BOLD}Starting${RESET}" "${GREEN}${BOLD}Execution${RESET}"
 
+export PROJECT_ID=$DEVSHELL_PROJECT_ID
+export BUCKET=$PROJECT_ID
+
 gsutil mb -p $PROJECT_ID \
     -c standard    \
     -l $REGION \
