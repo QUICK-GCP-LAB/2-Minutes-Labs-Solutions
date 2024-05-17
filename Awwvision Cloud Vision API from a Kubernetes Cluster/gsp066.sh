@@ -30,6 +30,8 @@ gcloud container clusters create awwvision \
 
 gcloud container clusters get-credentials awwvision
 
+kubectl cluster-info
+
 sudo apt-get install -y virtualenv
 
 python3 -m venv venv
@@ -42,15 +44,13 @@ cd cloud-vision/python/awwvision
 
 make all
 
-sleep 40
+kubectl get pods
+
+sleep 5 
 
 kubectl get pods
 
-sleep 10
-
 kubectl get deployments -o wide
-
-sleep 10
 
 kubectl get svc awwvision-webapp
 
