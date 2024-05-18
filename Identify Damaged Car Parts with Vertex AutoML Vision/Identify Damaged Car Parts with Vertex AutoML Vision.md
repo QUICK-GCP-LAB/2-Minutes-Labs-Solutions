@@ -1,6 +1,6 @@
 # Identify Damaged Car Parts with Vertex AutoML Vision || [GSP972](https://www.cloudskillsboost.google/focuses/22020?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/pcA7W2sOK9M)
 
 ### Run the following Commands in CloudShell
 
