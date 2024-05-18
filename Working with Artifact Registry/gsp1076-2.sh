@@ -25,6 +25,8 @@ RESET=`tput sgr0`
 
 echo "${YELLOW}${BOLD}Starting${RESET}" "${GREEN}${BOLD}Execution${RESET}"
 
+export REGION="${ZONE%-*}"
+
 gcloud artifacts repositories create container-dev-java-repo \
     --repository-format=maven \
     --location=$REGION \
