@@ -1,6 +1,6 @@
 # Creating a Data Transformation Pipeline with Cloud Dataprep || [GSP430](https://www.cloudskillsboost.google/focuses/4415?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/zDn_rbPfsMQ)
 
 ### Run the following Commands in CloudShell
 
