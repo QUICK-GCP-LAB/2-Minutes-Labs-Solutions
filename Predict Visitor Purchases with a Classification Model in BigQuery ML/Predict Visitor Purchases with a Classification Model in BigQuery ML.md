@@ -5,15 +5,15 @@
 ### Run the following Commands in CloudShell
 
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Creating%20a%20Data%20Transformation%20Pipeline%20with%20Cloud%20Dataprep/gsp430.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Predict%20Visitor%20Purchases%20with%20a%20Classification%20Model%20in%20BigQuery%20ML/gsp229.sh
 
-sudo chmod +x gsp430.sh
+sudo chmod +x gsp229.sh
 
-./gsp430.sh
+./gsp229.sh
 ```
 * Go to BigQuery from [here](https://console.cloud.google.com/bigquery)
 
-* *Copy and paste the following query into the BigQuery Editor:*
+* *Copy and paste the following query into the `BigQuery Editor`:*
 
 ```
 #standardSQL
