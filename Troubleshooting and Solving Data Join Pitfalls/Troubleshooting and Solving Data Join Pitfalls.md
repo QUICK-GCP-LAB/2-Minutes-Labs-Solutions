@@ -5,11 +5,11 @@
 ### Run the following Commands in CloudShell
 
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Dataflow%20Qwik%20Start%20-%20Templates/gsp192.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Troubleshooting%20and%20Solving%20Data%20Join%20Pitfalls/gsp412.sh
 
-sudo chmod +x gsp192.sh
+sudo chmod +x gsp412.sh
 
-./gsp192.sh
+./gsp412.sh
 ```
 
 ### Congratulations 🎉 for Completing the Lab !
