@@ -2,7 +2,7 @@
 
 ## Solution [here](https://youtu.be/cnmag49ro24)
 
-### Run the following Commands in CloudShell
+### Run the following Commands in SSH
 ```
 curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Cloud%20Natural%20Language%20API%20Qwik%20Start/gsp097.sh
 
