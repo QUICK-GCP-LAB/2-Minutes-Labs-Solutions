@@ -1,6 +1,6 @@
 # Creating a Data Warehouse Through Joins and Unions || [GSP413](https://www.cloudskillsboost.google/focuses/3640?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/MmNNWH9-yJk)
 
 ### Run the following Commands in CloudShell
 
