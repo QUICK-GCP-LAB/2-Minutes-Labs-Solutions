@@ -1,6 +1,6 @@
 # Dataprep: Qwik Start || [GSP105](https://www.cloudskillsboost.google/focuses/584?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/2kPx-wFaxDM)
 
 ### Run the following Commands in CloudShell
 
