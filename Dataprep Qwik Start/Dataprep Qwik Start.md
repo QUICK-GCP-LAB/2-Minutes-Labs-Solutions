@@ -5,11 +5,11 @@
 ### Run the following Commands in CloudShell
 
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Working%20with%20Artifact%20Registry/gsp1076-1.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Dataprep%20Qwik%20Start/gsp105.sh
 
-sudo chmod +x gsp1076-1.sh
+sudo chmod +x gsp105.sh
 
-./gsp1076-1.sh
+./gsp105.sh
 ```
 
 * Go to Dataprep from [here](https://console.cloud.google.com/dataprep)
