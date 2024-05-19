@@ -1,6 +1,6 @@
 # Awwvision: Cloud Vision API from a Kubernetes Cluster || [GSP066](https://www.cloudskillsboost.google/focuses/1241?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/6z47q_JfW7A)
 
 ### Run the following Commands in CloudShell
 
