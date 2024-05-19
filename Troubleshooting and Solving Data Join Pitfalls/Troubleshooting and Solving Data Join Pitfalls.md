@@ -1,6 +1,6 @@
 # Troubleshooting and Solving Data Join Pitfalls || [GSP412](https://www.cloudskillsboost.google/focuses/3638?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/7GEtTBGYgZ8)
 
 ### Run the following Commands in CloudShell
 
