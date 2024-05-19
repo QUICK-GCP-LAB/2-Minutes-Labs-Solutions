@@ -1,6 +1,6 @@
 # Predict Visitor Purchases with a Classification Model in BigQuery ML || [GSP229](https://www.cloudskillsboost.google/focuses/1794?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/Bq-AW9aIFaA)
 
 ### Run the following Commands in CloudShell
 
