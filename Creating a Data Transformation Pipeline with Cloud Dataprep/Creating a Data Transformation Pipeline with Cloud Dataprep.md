@@ -12,9 +12,9 @@ sudo chmod +x gsp430.sh
 ./gsp430.sh
 ```
 
-* Download File from [here](https://github.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/raw/main/Creating%20a%20Data%20Transformation%20Pipeline%20with%20Cloud%20Dataprep/flow_Ecommerce_Analytics_Pipeline.zip)
-
 * Go to Dataprep from [here](https://console.cloud.google.com/dataprep)
+
+* Download File from [here](https://github.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/raw/main/Creating%20a%20Data%20Transformation%20Pipeline%20with%20Cloud%20Dataprep/flow_Ecommerce_Analytics_Pipeline.zip)
 
 * NOW FOLLOW VIDEO'S INSTRUCTIONS
 
