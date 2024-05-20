@@ -261,7 +261,7 @@ explore: +order_items {
 ```
 ### Task 3. Extend a view
 
-* create a `.view` file & replace the following, change the `.view` file name with `VIEW_NAME`:
+* Create a `.view` file & replace the following, change the `.view` file name with `VIEW_NAME`:
 ```
 view: VIEW_NAME {
 extension: required
