@@ -163,7 +163,7 @@ view: order_items {
 }
 ```
 
-* Replace the following in `training_ecommerce.model` & Change `NAME_DATAGROUP` with your given NAME in Instruction.
+* Replace the following in `training_ecommerce.model` & Change `NAME_DATAGROUP` with your `NAME` in Instruction.
 
 ```
 connection: "bigquery_public_data_looker"
@@ -261,7 +261,7 @@ explore: +order_items {
 ```
 ### Task 3. Extend a view
 
-* Replace the following and change the view file name with VIEW_NAME:
+* Creat a `.view` file & replace the following, change the `.view` file name with `VIEW_NAME`:
 ```
 view: VIEW_NAME {
 extension: required
@@ -300,7 +300,7 @@ sql: ${TABLE}.longitude ;;
 ```
 ### Task 4. Group similar fields in views
 
-Replace following in `user.view` & change the GROUP_NAME
+* Replace the following in `user.view` & change the `GROUP_NAME`.
 
 ```
 view: users {
@@ -406,9 +406,7 @@ view: users {
   }
 }
 ```
-### Task 4. Group similar fields in views
-
-Replace following in `products.view` & change the GROUP_NAME
+* Replace the following in `products.view` & change the GROUP_NAME
 ```
 view: products {
   sql_table_name: `cloud-training-demos.looker_ecomm.products`
