@@ -4,6 +4,8 @@
 
 * Go to `Create repository` from [here](https://console.cloud.google.com/artifacts/create-repo?)
 
+### NOW FOLLW VIDEO'S INSTRUCIONS
+
 ### Congratulations 🎉 for completing the Lab !
 
 ##### *You Have Successfully Demonstrated Your Skills And Determination.*
