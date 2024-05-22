@@ -8,11 +8,11 @@
 export ZONE=
 ```
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Predict%20Visitor%20Purchases%20with%20a%20Classification%20Model%20in%20BigQuery%20ML/gsp229.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Creating%20and%20Populating%20a%20Bigtable%20Instance/gsp1054.sh
 
-sudo chmod +x gsp229.sh
+sudo chmod +x gsp1054.sh
 
-./gsp229.sh
+./gsp1054.sh
 ```
 * Go to `Create job from template` from [here](https://console.cloud.google.com/dataflow/createjob?)
 
