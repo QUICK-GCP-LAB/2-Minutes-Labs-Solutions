@@ -9,11 +9,11 @@ export REPO=
 export REGION=
 ```
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Arcade%20Hero%20Enter%20the%20Artifact%20Registry%20Python/arc153.sh
+curl -LO https://raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Arcade%20Hero%20Enter%20the%20Artifact%20Registry%20APT/arc154.sh
 
-sudo chmod +x arc153.sh
+sudo chmod +x arc154.sh
 
-./arc153.sh
+./arc154.sh
 ```
 
 ### Congratulations 🎉 for completing the Lab !
