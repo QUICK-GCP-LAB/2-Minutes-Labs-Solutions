@@ -4,7 +4,7 @@
 
 * Go to `Create repository` from [here](https://console.cloud.google.com/artifacts/create-repo?)
 
-### NOW FOLLW VIDEO'S INSTRUCIONS
+### NOW FOLLOW VIDEO'S INSTRUCIONS
 
 ### Congratulations 🎉 for completing the Lab !
 
