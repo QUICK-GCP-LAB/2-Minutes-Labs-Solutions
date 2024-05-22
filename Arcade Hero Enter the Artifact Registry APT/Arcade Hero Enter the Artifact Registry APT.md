@@ -1,4 +1,4 @@
-# Arcade Hero: Enter the Artifact Registry Python || [ARC153](https://www.cloudskillsboost.google/focuses/89733?parent=catalog) ||
+# Arcade Hero: Enter the Artifact Registry APT || [ARC154](https://www.cloudskillsboost.google/focuses/89727?parent=catalog) ||
 
 ## Solution [here]()
 
