@@ -48,7 +48,7 @@ cbt read test-sessions
 
 echo "${YELLOW}${BOLD}NOW${RESET}" "${WHITE}${BOLD}Check Your Progress${RESET}""${GREEN}${BOLD} For Task 3${RESET}"
 
-Sleep 120
+sleep 120
 
 cbt deletetable test-sessions
 
