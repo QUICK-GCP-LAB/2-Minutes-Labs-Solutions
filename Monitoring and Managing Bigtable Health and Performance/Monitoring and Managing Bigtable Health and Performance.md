@@ -3,7 +3,10 @@
 ## Solution [here]()
 
 ### Run the following Commands in CloudShell
-
+```
+export ZONE=
+```
+Check [here](https://console.cloud.google.com/bigtable/instances/sandiego?) and use another `ZONE` for `sandiego-traffic-sensors-c2` 
 ```
 curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Monitoring%20and%20Managing%20Bigtable%20Health%20and%20Performance/gsp1056.sh
 
