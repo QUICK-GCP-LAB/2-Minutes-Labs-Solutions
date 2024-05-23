@@ -6,7 +6,6 @@
 ```
 export LOCATION=
 ```
-Check [here](https://console.cloud.google.com/bigtable/instances/sandiego?) and use another `ZONE` for `sandiego-traffic-sensors-c2` 
 ```
 curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Ingesting%20FHIR%20Data%20with%20the%20Healthcare%20API/gsp457.sh
 
