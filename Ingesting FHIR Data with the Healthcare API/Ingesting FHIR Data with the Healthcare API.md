@@ -8,11 +8,11 @@ export LOCATION=
 ```
 Check [here](https://console.cloud.google.com/bigtable/instances/sandiego?) and use another `ZONE` for `sandiego-traffic-sensors-c2` 
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Monitoring%20and%20Managing%20Bigtable%20Health%20and%20Performance/gsp1056.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Ingesting%20FHIR%20Data%20with%20the%20Healthcare%20API/gsp457.sh
 
-sudo chmod +x gsp1056.sh
+sudo chmod +x gsp457.sh
 
-./gsp1056.sh
+./gsp457.sh
 ```
 
 * Go to `DATASET` from [here](https://console.cloud.google.com/healthcare/browser?)
