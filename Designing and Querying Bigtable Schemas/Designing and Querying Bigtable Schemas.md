@@ -1,6 +1,6 @@
 # Designing and Querying Bigtable Schemas || [GSP1053](https://www.cloudskillsboost.google/focuses/58496?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/e4qb0jg6Wdc)
 
 ### Run the following Commands in CloudShell
 
