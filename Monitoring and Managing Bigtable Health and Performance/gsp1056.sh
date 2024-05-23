@@ -25,6 +25,12 @@ RESET=`tput sgr0`
 
 echo "${YELLOW}${BOLD}Starting${RESET}" "${GREEN}${BOLD}Execution${RESET}"
 
+gcloud bigtable clusters update sandiego-traffic-sensors-c1 \
+--instance=sandiego \
+--autoscaling-min-nodes=1 \
+--autoscaling-max-nodes=3 \
+--autoscaling-cpu-target=60
+
 gcloud bigtable backups create current_conditions_30 --instance=sandiego \
   --cluster=sandiego-traffic-sensors-c1 \
   --table=current_conditions \
@@ -38,6 +44,6 @@ gcloud bigtable instances tables restore \
 --destination-instance=sandiego \
 --project=$DEVSHELL_PROJECT_ID
 
-echo "${YELLOW}${BOLD}NOW${RESET}" "${WHITE}${BOLD}FOLLOW${RESET}" "${GREEN}${BOLD}VIDEO'S INSTRUCTIONS${RESET}"
+echo "${RED}${BOLD}Congratulations${RESET}" "${WHITE}${BOLD}for${RESET}" "${GREEN}${BOLD}Completing the Lab !!!${RESET}"
 
 #-----------------------------------------------------end----------------------------------------------------------#
