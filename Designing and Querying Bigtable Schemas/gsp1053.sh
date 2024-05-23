@@ -46,7 +46,7 @@ cbt ls test-sessions
 
 cbt read test-sessions
 
-Now Check Your Progress For Task 3
+echo "${YELLOW}${BOLD}NOW${RESET}" "${WHITE}${BOLD}Check Your Progress${RESET}""${GREEN}${BOLD} For Task 3${RESET}"
 
 Sleep 120
 
