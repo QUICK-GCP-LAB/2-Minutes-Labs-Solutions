@@ -1,6 +1,6 @@
 # Creating and Populating a Bigtable Instance || [GSP1054](https://www.cloudskillsboost.google/focuses/58495?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/uZDCSjKTwC8)
 
 ### Run the following Commands in CloudShell
 
