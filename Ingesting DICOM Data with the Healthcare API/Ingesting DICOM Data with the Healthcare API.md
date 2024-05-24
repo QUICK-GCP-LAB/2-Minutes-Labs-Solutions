@@ -1,6 +1,6 @@
 # Ingesting DICOM Data with the Healthcare API || [GSP615](https://www.cloudskillsboost.google/focuses/6132?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/4cP8PMHnykk)
 
 ### Run the following Commands in CloudShell
 ```
