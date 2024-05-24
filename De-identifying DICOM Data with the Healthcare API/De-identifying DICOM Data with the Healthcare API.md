@@ -1,6 +1,6 @@
 # De-identifying DICOM Data with the Healthcare API || [GSP626](https://www.cloudskillsboost.google/focuses/6920?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/lIBzejSxSsM)
 
 ### Run the following Commands in CloudShell
 ```
