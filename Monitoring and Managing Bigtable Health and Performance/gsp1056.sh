@@ -31,7 +31,13 @@ gcloud bigtable clusters update sandiego-traffic-sensors-c1 \
 --autoscaling-max-nodes=3 \
 --autoscaling-cpu-target=60
 
-gcloud bigtable clusters create sandiego-traffic-sensors-c2 --instance=sandiego-traffic-sensors-c1 --zone=$ZONE
+gcloud bigtable clusters create sandiego-traffic-sensors-c2 --instance=sandiego --zone=$ZONE
+
+gcloud bigtable clusters update sandiego-traffic-sensors-c2 \
+--instance=sandiego \
+--autoscaling-min-nodes=1 \
+--autoscaling-max-nodes=3 \
+--autoscaling-cpu-target=60
 
 gcloud bigtable backups create current_conditions_30 --instance=sandiego \
   --cluster=sandiego-traffic-sensors-c1 \
