@@ -1,6 +1,6 @@
 # Streaming HL7 to FHIR Data with Dataflow and the Healthcare API || [GSP894](https://www.cloudskillsboost.google/focuses/18252?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/UQQd8sRmJbI)
 
 ### Run the following Commands in CloudShell
 ```
