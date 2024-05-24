@@ -1,4 +1,4 @@
-# De-identifying DICOM Data with the Healthcare API || [GSP894](https://www.cloudskillsboost.google/focuses/18252?parent=catalog) ||
+# Streaming HL7 to FHIR Data with Dataflow and the Healthcare API || [GSP894](https://www.cloudskillsboost.google/focuses/18252?parent=catalog) ||
 
 ## Solution [here]()
 
