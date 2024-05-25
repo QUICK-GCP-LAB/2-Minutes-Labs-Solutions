@@ -46,7 +46,7 @@ jupyter nbconvert --to notebook --execute speech_adaptation.ipynb
 EOF_END
 
 export REGION="${ZONE%-*}"
-export NOTEBOOK_NAME="quicklab-jupyter"
+export NOTEBOOK_NAME="awesome-jupyter"
 export MACHINE_TYPE="e2-standard-2"
 export STARTUP_SCRIPT_URL="gs://$DEVSHELL_PROJECT_ID/startup-script.sh"
 
