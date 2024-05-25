@@ -7,11 +7,11 @@
 * Go to `Credentials` from [here](https://console.cloud.google.com/apis/credentials?)
 
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Extract%2C%20Analyze%2C%20and%20Translate%20Text%20from%20Images%20with%20the%20Cloud%20ML%20APIs/gsp075.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Detect%20Labels%2C%20Faces%2C%20and%20Landmarks%20in%20Images%20with%20the%20Cloud%20Vision%20API/gsp037.sh
 
-sudo chmod +x gsp075.sh
+sudo chmod +x gsp037.sh
 
-./gsp075.sh
+./gsp037.sh
 ```
 
 ### Congratulations 🎉 for Completing the Lab !
