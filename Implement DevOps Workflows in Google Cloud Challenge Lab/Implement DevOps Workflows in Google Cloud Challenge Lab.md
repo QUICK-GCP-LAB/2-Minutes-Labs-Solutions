@@ -8,11 +8,11 @@
 export ZONE=
 ```
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Measuring%20and%20Improving%20Speech%20Accuracy/gsp758.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Implement%20DevOps%20Workflows%20in%20Google%20Cloud%20Challenge%20Lab/gsp330.sh
 
-sudo chmod +x gsp758.sh
+sudo chmod +x gsp330.sh
 
-./gsp758.sh
+./gsp330.sh
 ```
 
 ### Congratulations 🎉 for Completing the Lab !
