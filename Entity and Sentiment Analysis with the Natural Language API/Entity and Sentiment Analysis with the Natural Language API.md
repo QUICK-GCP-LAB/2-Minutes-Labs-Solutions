@@ -11,11 +11,11 @@ export ZONE=
 * Got `VM instances` from [here](https://console.cloud.google.com/compute/instances?)
 
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Detect%20Labels%2C%20Faces%2C%20and%20Landmarks%20in%20Images%20with%20the%20Cloud%20Vision%20API/gsp037.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Entity%20and%20Sentiment%20Analysis%20with%20the%20Natural%20Language%20API/gsp038.sh
 
-sudo chmod +x gsp037.sh
+sudo chmod +x gsp038.sh
 
-./gsp037.sh
+./gsp038.sh
 ```
 
 ### Congratulations 🎉 for Completing the Lab !
