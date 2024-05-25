@@ -10,15 +10,12 @@ export LOCAL=
 export BQ_ROLE=
 export STORAGE_ROLE=
 ```
-
-* Got `VM instances` from [here](https://console.cloud.google.com/compute/instances?)
-
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Entity%20and%20Sentiment%20Analysis%20with%20the%20Natural%20Language%20API/gsp038.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Use%20Machine%20Learning%20APIs%20on%20Google%20Cloud%20Challenge%20Lab/gsp329.sh
 
-sudo chmod +x gsp038.sh
+sudo chmod +x gsp329.sh
 
-./gsp038.sh
+./gsp329.sh
 ```
 
 ### Congratulations 🎉 for Completing the Lab !
