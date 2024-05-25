@@ -1,15 +1,15 @@
-# Summarize Text using SQL and LLMs in BigQuery ML || [GSP835](https://www.cloudskillsboost.google/focuses/74646?parent=catalog) ||
+# Measuring and Improving Speech Accuracy || [GSP758](https://www.cloudskillsboost.google/focuses/13597?parent=catalog) ||
 
 ## Solution [here]()
 
 ### Run the following Commands in CloudShell
 
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Summarize%20Text%20using%20SQL%20and%20LLMs%20in%20BigQuery%20ML/gsp835.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Measuring%20and%20Improving%20Speech%20Accuracy/gsp758.sh
 
-sudo chmod +x gsp835.sh
+sudo chmod +x gsp758.sh
 
-./gsp835.sh
+./gsp758.sh
 ```
 
 ### Congratulations 🎉 for Completing the Lab !
