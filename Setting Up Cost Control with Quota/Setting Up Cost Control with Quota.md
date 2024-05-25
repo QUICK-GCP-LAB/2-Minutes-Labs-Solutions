@@ -5,14 +5,11 @@
 ### Run the following Commands in CloudShell
 
 ```
-export ZONE=
-```
-```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Implement%20DevOps%20Workflows%20in%20Google%20Cloud%20Challenge%20Lab/gsp330.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Setting%20Up%20Cost%20Control%20with%20Quota/gsp651.sh
 
-sudo chmod +x gsp330.sh
+sudo chmod +x gsp651.sh
 
-./gsp330.sh
+./gsp651.sh
 ```
 
 ### Congratulations 🎉 for Completing the Lab !
