@@ -56,11 +56,11 @@ gcloud dataplex assets create orders-curated-dataset \
 --resource-name=projects/$PROJECT_ID/datasets/orders \
 --discovery-enabled 
 
-gcloud dataplex assets delete orders-curated-dataset --location=$REGION --zone=orders-curated-zone --lake=ecommerce 
+gcloud dataplex assets delete orders-curated-dataset --location=$REGION --zone=orders-curated-zone --lake=ecommerce --quiet
 
-gcloud dataplex zones delete orders-curated-zone --location=$REGION --lake=ecommerce
+gcloud dataplex zones delete orders-curated-zone --location=$REGION --lake=ecommerce --quiet
 
-gcloud dataplex lakes delete ecommerce --location=$REGION
+gcloud dataplex lakes delete ecommerce --location=$REGION --quiet
 
 echo "${RED}${BOLD}Congratulations${RESET}" "${WHITE}${BOLD}for${RESET}" "${GREEN}${BOLD}Completing the Lab !!!${RESET}"
 
