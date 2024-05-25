@@ -1,6 +1,6 @@
 # Summarize Text using SQL and LLMs in BigQuery ML || [GSP835](https://www.cloudskillsboost.google/focuses/74646?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/KcYJiZYL1ZM)
 
 ### Run the following Commands in CloudShell
 
