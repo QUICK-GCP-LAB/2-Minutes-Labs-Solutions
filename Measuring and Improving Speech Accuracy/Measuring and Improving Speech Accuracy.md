@@ -15,6 +15,16 @@ sudo chmod +x gsp758.sh
 ./gsp758.sh
 ```
 
+* Go to `Workbench` from [here](https://console.cloud.google.com/vertex-ai/workbench/user-managed?)
+
+### Run the following Commands in Notebook Terminal
+
+```
+gsutil cp gs://spls/gsp758/notebook/measuring-accuracy.ipynb .
+gsutil cp gs://spls/gsp758/notebook/speech_adaptation.ipynb .
+gsutil cp gs://spls/gsp758/notebook/simple_wer_v2.py .
+```
+
 ### Congratulations 🎉 for Completing the Lab !
 
 ##### *You Have Successfully Demonstrated Your Skills And Determination.*
