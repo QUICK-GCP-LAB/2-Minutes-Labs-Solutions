@@ -1,0 +1,23 @@
+# Detect Labels, Faces, and Landmarks in Images with the Cloud Vision API || [GSP037](https://www.cloudskillsboost.google/focuses/1841?parent=catalog) ||
+
+## Solution [here]()
+
+### Run the following Commands in CloudShell
+
+```
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Extract%2C%20Analyze%2C%20and%20Translate%20Text%20from%20Images%20with%20the%20Cloud%20ML%20APIs/gsp075.sh
+
+sudo chmod +x gsp075.sh
+
+./gsp075.sh
+```
+
+### Congratulations 🎉 for Completing the Lab !
+
+##### *You Have Successfully Demonstrated Your Skills And Determination.*
+
+#### *Well done!*
+
+#### Don't Forget to Join the [Telegram Channel](https://t.me/QuickGcpLab) & [Discussion group](https://t.me/QuickGcpLabChats)
+
+# [QUICK GCP LAB](https://www.youtube.com/@quickgcplab)
