@@ -1,6 +1,6 @@
 # APIs Explorer: Cloud Storage || [GSP421](https://www.cloudskillsboost.google/focuses/3632?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/E2ztBJM9ycY)
 
 ### Run the following Commands in CloudShell
 
