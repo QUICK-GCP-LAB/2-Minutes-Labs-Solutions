@@ -68,7 +68,7 @@ functions.cloudEvent('memories-thumbnail-maker', cloudEvent => {
   const bucketName = event.bucket;
   const size = "64x64"
   const bucket = gcs.bucket(bucketName);
-  const topicName = "memories-topic-374";
+  const topicName = "wild-topic-551";
   const pubsub = new PubSub();
   if ( fileName.search("64x64_thumbnail") == -1 ){
     // doesn't have a thumbnail, get the filename extension
