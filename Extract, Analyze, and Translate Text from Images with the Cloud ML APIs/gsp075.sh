@@ -35,7 +35,7 @@ export PROJECT_ID=$(gcloud config list --format 'value(core.project)')
 
 gsutil mb -p $PROJECT_ID -c regional -l us-central1 gs://$PROJECT_ID
 
-curl -O https://github.com/siddharth7000/practice/blob/main/sign.jpg
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Extract%2C%20Analyze%2C%20and%20Translate%20Text%20from%20Images%20with%20the%20Cloud%20ML%20APIs/sign.jpg
 
 gsutil cp sign.jpg gs://$PROJECT_ID/sign.jpg
 
