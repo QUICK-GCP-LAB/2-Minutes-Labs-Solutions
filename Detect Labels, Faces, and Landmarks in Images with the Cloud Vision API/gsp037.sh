@@ -35,13 +35,17 @@ export PROJECT_ID=$(gcloud config list --format 'value(core.project)')
 
 gsutil mb gs://$PROJECT_ID
 
-git clone https://github.com/siddharth7000/practice.git
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Detect%20Labels%2C%20Faces%2C%20and%20Landmarks%20in%20Images%20with%20the%20Cloud%20Vision%20API/city.png
 
-gsutil cp practice/donuts.png gs://$PROJECT_ID
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Detect%20Labels%2C%20Faces%2C%20and%20Landmarks%20in%20Images%20with%20the%20Cloud%20Vision%20API/donuts.png
 
-gsutil cp practice/selfie.png gs://$PROJECT_ID
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Detect%20Labels%2C%20Faces%2C%20and%20Landmarks%20in%20Images%20with%20the%20Cloud%20Vision%20API/selfie.png
 
-gsutil cp practice/city.png gs://$PROJECT_ID
+gsutil cp donuts.png gs://$PROJECT_ID
+
+gsutil cp selfie.png gs://$PROJECT_ID
+
+gsutil cp city.png gs://$PROJECT_ID
 
 gsutil acl ch -u AllUsers:R gs://$PROJECT_ID/donuts.png
 
