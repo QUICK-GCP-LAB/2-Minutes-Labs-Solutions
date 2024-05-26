@@ -25,9 +25,9 @@ RESET=`tput sgr0`
 
 echo "${YELLOW}${BOLD}Starting${RESET}" "${GREEN}${BOLD}Execution${RESET}"
 
-gcloud alpha services api-keys create --display-name="CloudHustlers" 
+gcloud alpha services api-keys create --display-name="awesome" 
 
-KEY_NAME=$(gcloud alpha services api-keys list --format="value(name)" --filter "displayName=CloudHustlers")
+KEY_NAME=$(gcloud alpha services api-keys list --format="value(name)" --filter "displayName=awesome")
 
 API_KEY=$(gcloud alpha services api-keys get-key-string $KEY_NAME --format="value(keyString)")
 
@@ -71,7 +71,7 @@ touch translation-request.json
 
 tee translation-request.json <<EOF
 {
-  "q": "My Name is CLOUDHUSTLER",	
+  "q": "My Name is MD_SOHRAB",	
   "target": "en"
 }
 EOF
