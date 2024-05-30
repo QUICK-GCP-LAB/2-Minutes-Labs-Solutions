@@ -4,7 +4,7 @@
 
 * Go to `Vertex AI` from [here](https://console.cloud.google.com/vertex-ai?)
 
-* Download `Jupyter` file from [here]()
+* Download `Jupyter` file from [here](https://github.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/blob/main/Explore%20Generative%20AI%20with%20the%20Vertex%20AI%20Gemini%20API%20Challenge%20Lab/gemini-explorer-challenge.ipynb)
 
 * Now Follow [Video's]() Instructions
 
