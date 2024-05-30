@@ -1,6 +1,6 @@
 # Dataplex: Qwik Start - Command Line || [GSP1144](https://www.cloudskillsboost.google/focuses/62708?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/GVKNYbTUDIU)
 
 ### Run the following Commands in CloudShell
 
