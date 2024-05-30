@@ -1,6 +1,6 @@
 # Detect Labels, Faces, and Landmarks in Images with the Cloud Vision API || [GSP037](https://www.cloudskillsboost.google/focuses/1841?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/JZdS9HsOwXI)
 
 ### Run the following Commands in CloudShell
 
