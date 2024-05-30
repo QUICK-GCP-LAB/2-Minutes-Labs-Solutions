@@ -1,6 +1,6 @@
 # Entity and Sentiment Analysis with the Natural Language API || [GSP038](https://www.cloudskillsboost.google/focuses/1843?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/t4zprxScLbE)
 
 ### Run the following Commands in CloudShell
 
