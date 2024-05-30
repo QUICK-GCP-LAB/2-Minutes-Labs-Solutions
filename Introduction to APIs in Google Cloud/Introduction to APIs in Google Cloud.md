@@ -1,6 +1,6 @@
 # Introduction to APIs in Google Cloud || [GSP294](https://www.cloudskillsboost.google/focuses/3473?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/OUxSJ02OmTs)
 
 ### Run the following Commands in CloudShell
 
