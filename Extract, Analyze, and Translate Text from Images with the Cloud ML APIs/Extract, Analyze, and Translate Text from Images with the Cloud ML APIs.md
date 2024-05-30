@@ -1,6 +1,6 @@
 # Extract, Analyze, and Translate Text from Images with the Cloud ML APIs || [GSP075](https://www.cloudskillsboost.google/focuses/1836?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/kkWNyq0fr9o)
 
 ### Run the following Commands in CloudShell
 
