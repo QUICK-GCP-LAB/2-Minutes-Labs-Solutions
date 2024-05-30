@@ -1,6 +1,6 @@
 # Use Machine Learning APIs on Google Cloud: Challenge Lab || [GSP329](https://www.cloudskillsboost.google/focuses/12704?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/lusvywJCSVI)
 
 ### Run the following Commands in CloudShell
 
