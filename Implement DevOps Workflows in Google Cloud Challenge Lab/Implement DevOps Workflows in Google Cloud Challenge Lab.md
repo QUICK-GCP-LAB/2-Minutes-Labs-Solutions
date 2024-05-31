@@ -1,6 +1,6 @@
 # Implement DevOps Workflows in Google Cloud: Challenge Lab || [GSP330](https://www.cloudskillsboost.google/focuses/13287?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/23qiqbirU08)
 
 ### Run the following Commands in CloudShell
 
