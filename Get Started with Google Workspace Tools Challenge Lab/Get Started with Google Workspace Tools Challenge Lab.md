@@ -24,9 +24,9 @@ Product Architect
 
 ### Task 2. Add out-of-office dates to your calendar
 
-1. Go to [Google Calendar](https://calendar.google.com), then click the first day that you're away from work.
+1. Go to [Google Calendar](https://calendar.google.com).
 
-2. Click `Out of office`.
+2. Click `Create` in the top left, and then select `out-of-office` from dropdown.
 
 3. Name this `OOO Orientation`.
 
