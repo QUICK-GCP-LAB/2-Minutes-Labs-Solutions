@@ -12,7 +12,7 @@
 
 4. In the Signature defaults section, use the dropdown menu under `For New Emails Use` and select `quickgcplab`.
 
-* paste the following
+* Paste the following
 
 ```
 Jake Smith
