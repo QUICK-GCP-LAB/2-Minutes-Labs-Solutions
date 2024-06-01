@@ -62,7 +62,7 @@ Product Architect
 
 3. In the upper left corner, click `New` > `Google Sheets` > `Blank Spreadsheet`.
 
-4. Name The Sheet as `Project Task Sheet`
+4. Rename your spreadsheet: click `Untitled spreadsheet` and enter `Project Task Sheet`
 
 * Paste The Followings
 
