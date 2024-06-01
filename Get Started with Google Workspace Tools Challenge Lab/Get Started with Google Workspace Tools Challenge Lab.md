@@ -12,7 +12,7 @@
 
 4. In the Signature defaults section, use the dropdown menu under `For New Emails Use` and select `quickgcplab`.
 
-paste the following
+* paste the following
 
 ```
 Jake Smith
@@ -24,7 +24,7 @@ Product Architect
 
 ### Task 2. Add out-of-office dates to your calendar
 
-1. Go to `calendar` from [here](https://calendar.google.com/calendar?authuser=0), then click the first day that you're away from work.
+1. Go to [Google Calendar](https://calendar.google.com)., then click the first day that you're away from work.
 
 2. Click `Out of office`.
 
@@ -58,7 +58,7 @@ Product Architect
 
 ### Task 5. Create and share a task spreadsheet
 
-1. Download Sheet file from here
+1. Download `Sheet` file from [here](https://github.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/raw/main/Get%20Started%20with%20Google%20Workspace%20Tools%20Challenge%20Lab/Project%20Task%20Sheet.xlsx)
 
 2. Open `Google Drive`.
 
