@@ -58,13 +58,29 @@ Product Architect
 
 ### Task 5. Create and share a task spreadsheet
 
-1. Download `Sheet` file from [here](https://github.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/raw/main/Get%20Started%20with%20Google%20Workspace%20Tools%20Challenge%20Lab/Project%20Task%20Sheet.xlsx)
-
 2. Open `Google Drive`.
 
-3. In the upper left corner, click `New` > `File Upload`.
+3. In the upper left corner, click `New` > `Google Sheets` > `Blank Spreadsheet`.
 
-4. Choose `Project Task Sheet` from your computer to add it to Drive.
+4. Name The Sheet as `Project Task Sheet`
+
+* Paste The Followings
+
+```
+Tasks
+```
+```
+Owner
+```
+```
+Priority
+```
+```
+Status
+```
+```
+Comments
+```
 
 5. Using the same `Project Task Sheet` file, in Sheets, in the upper right, select `Share`.
 
