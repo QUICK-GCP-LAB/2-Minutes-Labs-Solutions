@@ -1,4 +1,4 @@
-# Get Started with Google Workspace Tools: Challenge Lab || [GSP376](https://www.cloudskillsboost.google/focuses/39167?parent=catalog) ||
+# Employing Best Practices for Improving the Usability of LookML Projects || [GSP1020](https://www.cloudskillsboost.google/focuses/33369?parent=catalog) ||
 
 ## Solution [here]()
 
@@ -129,7 +129,6 @@ view: order_items {
       /NULLIF(${total_revenue}, 0) ;;
   }
 
-
   measure: average_sale_price {
     type: average
     sql: ${sale_price} ;;
@@ -141,7 +140,6 @@ view: order_items {
     type: count
     drill_fields: [detail*]
   }
-
 
   measure: order_count {
     type: count_distinct
@@ -160,7 +158,6 @@ view: order_items {
     filters: [status: "Complete"]
     value_format_name: usd
   }
-
 
   # ----- Sets of fields for drilling ------
   set: detail {
@@ -229,8 +226,6 @@ view: users {
     sql: ${TABLE}.zip ;;
   }
 
-
-
   dimension_group: created {
     type: time
     timeframes: [
@@ -265,14 +260,10 @@ view: users {
     sql: ${TABLE}.last_name ;;
   }
 
-
-
   dimension: traffic_source {
     type: string
     sql: ${TABLE}.traffic_source ;;
   }
-
-
 
   measure: count {
     type: count
