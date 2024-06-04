@@ -38,16 +38,3 @@ sleep 120
 gcloud compute ssh --zone "$ZONE" "web-server" --project "$DEVSHELL_PROJECT_ID" --quiet --command 'sudo apt-get update && sudo apt-get install apache2 -y && echo "<!doctype html><html><body><h1>Hello World!</h1></body></html>" | sudo tee /var/www/html/index.html'
 
 bq mk bq_vpcflows
-
-export MY_SERVER=$(gcloud compute instances describe web-server --zone "$ZONE" --format='get(networkInterfaces[0].accessConfigs[0].natIP)')
-
-echo -e "\033[1;34mhttps://console.cloud.google.com/net-security/firewall-manager/firewall-policies/details/allow-http-ssh?project=\033[0m\033[1;34m$DEVSHELL_PROJECT_ID\033[0m"
-
-echo -e "\033[1m\033[34mhttps://console.cloud.google.com/logs/query?_ga=2.159612541.1373851212.1717364279-1768117806.1717363789&_gac=1.212068896.1717364364.EAIaIQobChMIx4iR4fC9hgMV4A6DAx1fJjJvEAAYAiAAEgKTZvD_BwE\033[0m"
-
-export MY_SERVER=$(gcloud compute instances describe web-server --zone "$ZONE" --format='get(networkInterfaces[0].accessConfigs[0].natIP)')
-export MY_SERVER=$(gcloud compute instances describe web-server --zone "$ZONE" --format='get(networkInterfaces[0].accessConfigs[0].natIP)')
-
-echo "${RED}${BOLD}Congratulations${RESET}" "${WHITE}${BOLD}for${RESET}" "${GREEN}${BOLD}Completing the Lab !!!${RESET}"
-
-#-----------------------------------------------------end----------------------------------------------------------#
