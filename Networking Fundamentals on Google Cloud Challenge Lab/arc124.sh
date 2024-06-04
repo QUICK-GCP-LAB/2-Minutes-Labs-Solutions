@@ -136,7 +136,6 @@ gcloud compute backend-services add-backend web-backend-service \
   --instance-group-zone=$ZONE \
   --global
 
-
 gcloud compute url-maps create web-map-http \
     --default-service web-backend-service
 
