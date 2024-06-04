@@ -7,11 +7,11 @@
 export ZONE=
 ```
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Ingesting%20FHIR%20Data%20with%20the%20Healthcare%20API/gsp457.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/VPC%20Networking%20Fundamentals/gsp210.sh
 
-sudo chmod +x gsp457.sh
+sudo chmod +x gsp210.sh
 
-./gsp457.sh
+./gsp210.sh
 ```
 
 ### Congratulations 🎉 for Completing the Lab !
