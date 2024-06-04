@@ -7,11 +7,11 @@
 export ZONE=
 ```
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/VPC%20Networking%20Fundamentals/gsp210.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Networking%20Fundamentals%20on%20Google%20Cloud%20Challenge%20Lab/arc124.sh
 
-sudo chmod +x gsp210.sh
+sudo chmod +x arc124.sh
 
-./gsp210.sh
+./arc124.sh
 ```
 
 ### Congratulations 🎉 for Completing the Lab !
