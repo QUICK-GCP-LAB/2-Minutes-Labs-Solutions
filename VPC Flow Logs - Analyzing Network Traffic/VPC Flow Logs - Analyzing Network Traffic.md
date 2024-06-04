@@ -18,6 +18,8 @@ sudo chmod +x gsp212-1.sh
 
 * Go to `Create sink` from [here](https://console.cloud.google.com/logs/router/sink?)
 
+* For `Sink Name`, type orpaste `vpc-flows` 
+
 * Paste the following in `Build inclusion filter` and Change PROJECT_ID
 
 ```
