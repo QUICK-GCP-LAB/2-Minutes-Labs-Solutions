@@ -20,7 +20,7 @@ sudo chmod +x gsp212-1.sh
 
 * For `Sink Name`, type or paste `vpc-flows` 
 
-* Paste the following in `Build inclusion filter` and Change PROJECT_ID
+* Paste the following in `Build inclusion filter` and Change `PROJECT_ID`
 
 ```
 resource.type="gce_subnetwork"
