@@ -25,7 +25,7 @@ RESET=`tput sgr0`
 
 echo "${YELLOW}${BOLD}Starting${RESET}" "${GREEN}${BOLD}Execution${RESET}"
 
-export MY_SERVER=$(gcloud compute instances describe web-server --zone=europe-west1-c \
+export MY_SERVER=$(gcloud compute instances describe web-server --zone=$ZONE \
   --format='get(networkInterfaces[0].accessConfigs[0].natIP)')
 
 for ((i=1;i<=50;i++)); do curl $MY_SERVER; done
