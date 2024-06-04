@@ -27,7 +27,7 @@ resource.type="gce_subnetwork"
 log_name="projects/PROJECT_ID/logs/compute.googleapis.com%2Fvpc_flows"
 ```
 
-### Again run the following Commands in CloudShell
+### Run again the following Commands in CloudShell
 
 ```
 curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/VPC%20Flow%20Logs%20-%20Analyzing%20Network%20Traffic/gsp212-2.sh
