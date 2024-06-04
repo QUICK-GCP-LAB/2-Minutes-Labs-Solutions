@@ -50,9 +50,9 @@ gcloud compute firewall-rules create vpc-demo-allow-ssh-icmp \
     --network vpc-demo \
     --allow tcp:22,icmp
 
-gcloud compute instances create vpc-demo-instance1 --zone $ZONE_1 --subnet vpc-demo-subnet1
+gcloud compute instances create vpc-demo-instance1 --zone $ZONE --subnet vpc-demo-subnet1
 
-gcloud compute instances create vpc-demo-instance2 --zone $ZONE_2 --subnet vpc-demo-subnet2
+gcloud compute instances create vpc-demo-instance2 --zone $ZONE_1 --subnet vpc-demo-subnet2
 
 gcloud compute networks create on-prem --subnet-mode custom
 
@@ -68,7 +68,7 @@ gcloud compute firewall-rules create on-prem-allow-ssh-icmp \
     --network on-prem \
     --allow tcp:22,icmp
 
-gcloud compute instances create on-prem-instance1 --zone $ZONE_3 --subnet on-prem-subnet1
+gcloud compute instances create on-prem-instance1 --zone $ZONE_2 --subnet on-prem-subnet1
 
 gcloud beta compute vpn-gateways create vpc-demo-vpn-gw1 --network vpc-demo --region $REGION_1
 
