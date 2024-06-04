@@ -7,11 +7,11 @@
 export ZONE=
 ```
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/VPC%20Networking%20Cloud%20HA-VPN/gsp619.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/VPC%20Flow%20Logs%20-%20Analyzing%20Network%20Traffic/gsp212.sh
 
-sudo chmod +x gsp619.sh
+sudo chmod +x gsp212.sh
 
-./gsp619.sh
+./gsp212.sh
 ```
 
 ### Congratulations 🎉 for Completing the Lab !
