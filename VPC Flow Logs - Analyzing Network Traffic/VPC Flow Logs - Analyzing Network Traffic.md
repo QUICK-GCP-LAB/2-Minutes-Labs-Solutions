@@ -30,11 +30,10 @@ log_name="projects/PROJECT_ID/logs/compute.googleapis.com%2Fvpc_flows"
 ### Run again the following Commands in CloudShell
 
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/VPC%20Flow%20Logs%20-%20Analyzing%20Network%20Traffic/gsp212-2.sh
+export MY_SERVER=$(gcloud compute instances describe web-server --zone=$ZONE \
+  --format='get(networkInterfaces[0].accessConfigs[0].natIP)')
 
-sudo chmod +x gsp212-2.sh
-
-./gsp212-2.sh
+for ((i=1;i<=50;i++)); do curl $MY_SERVER; done
 ```
 
 ### Congratulations 🎉 for Completing the Lab !
