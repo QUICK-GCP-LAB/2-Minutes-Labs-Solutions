@@ -1,6 +1,6 @@
 # Networking Fundamentals on Google Cloud: Challenge Lab || [ARC124](https://www.cloudskillsboost.google/focuses/65382?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/am608gmgOGY)
 
 ### Run the following Commands in CloudShell
 ```
