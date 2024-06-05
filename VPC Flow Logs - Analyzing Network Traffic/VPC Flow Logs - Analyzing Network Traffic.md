@@ -1,6 +1,6 @@
 # VPC Flow Logs - Analyzing Network Traffic || [GSP212](https://www.cloudskillsboost.google/focuses/1236?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/CG6ra5LPDvE)
 
 ### Run the following Commands in CloudShell
 ```
