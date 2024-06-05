@@ -1,6 +1,6 @@
 # VPC Networking Fundamentals || [GSP210](https://www.cloudskillsboost.google/focuses/1229?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/3ELq-ite3YI)
 
 ### Run the following Commands in CloudShell
 ```
