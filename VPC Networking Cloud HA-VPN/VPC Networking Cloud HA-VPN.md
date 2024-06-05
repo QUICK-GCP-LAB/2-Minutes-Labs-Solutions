@@ -1,6 +1,6 @@
 # VPC Networking: Cloud HA-VPN || [GSP619](https://www.cloudskillsboost.google/focuses/6270?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/kZIfqsIP5YA)
 
 ### Run the following Commands in CloudShell
 ```
