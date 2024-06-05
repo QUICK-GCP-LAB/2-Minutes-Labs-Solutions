@@ -7,11 +7,11 @@
 export ZONE=
 ```
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/VPC%20Flow%20Logs%20-%20Analyzing%20Network%20Traffic/gsp212-1.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/VPC%20Flow%20Logs%20-%20Analyzing%20Network%20Traffic/gsp212.sh
 
-sudo chmod +x gsp212-1.sh
+sudo chmod +x gsp212.sh
 
-./gsp212-1.sh
+./gsp212.sh
 ```
 
 * Go to `allow-http-ssh` Firewall from [here](https://console.cloud.google.com/net-security/firewall-manager/firewall-policies/details/allow-http-ssh?)
