@@ -39,6 +39,18 @@ gcloud compute firewall-rules create internal-ssh-ingress --allow=tcp:22 --sourc
  
 gcloud compute instances add-tags juice-shop --tags=$INT_NET_TAG --zone=$ZONE
 
+sleep 30
+
+cat > prepare_disk.sh <<'EOF_END'
+
+gcloud compute ssh juice-shop --internal-ip
+
+EOF_END
+
+gcloud compute scp prepare_disk.sh bastion:/tmp --project=$DEVSHELL_PROJECT_ID --zone=$ZONE --quiet
+
+gcloud compute ssh bastion --project=$DEVSHELL_PROJECT_ID --zone=$ZONE --quiet --command="bash /tmp/prepare_disk.sh"
+
 echo "${RED}${BOLD}Congratulations${RESET}" "${WHITE}${BOLD}for${RESET}" "${GREEN}${BOLD}Completing the Lab !!!${RESET}"
 
 #-----------------------------------------------------end----------------------------------------------------------#
