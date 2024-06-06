@@ -47,7 +47,9 @@ sleep 30
 
 cat > prepare_disk.sh <<'EOF_END'
 
-gcloud compute ssh juice-shop --internal-ip
+export ZONE=$(gcloud compute instances list juice-shop --format 'csv[no-heading](zone)')
+
+gcloud compute ssh juice-shop --internal-ip --zone=$ZONE --quiet
 
 EOF_END
 
