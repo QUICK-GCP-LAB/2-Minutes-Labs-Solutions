@@ -1,6 +1,6 @@
 # [Serverless Data Processing with Dataflow - Monitoring, Logging and Error Reporting for Dataflow Jobs](https://www.cloudskillsboost.google/course_templates/264/labs/438183)
 
-## Solution [here]()
+## Solution [here](https://youtu.be/H09U7ipc_oA)
 
 ### Run the following Commands in CloudShell
 ```
