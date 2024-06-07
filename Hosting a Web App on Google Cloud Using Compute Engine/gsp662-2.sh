@@ -34,8 +34,6 @@ gcloud compute forwarding-rules list --global
 
 export EXTERNAL_IP_FANCY=$(gcloud compute forwarding-rules describe fancy-http-rule --global --format='get(IPAddress)')
 
-cd monolith-to-microservices/react-app
-
 cat > .env <<EOF
 REACT_APP_ORDERS_URL=http://$EXTERNAL_IP_BACKEND:8081/api/orders
 REACT_APP_PRODUCTS_URL=http://$EXTERNAL_IP_BACKEND:8082/api/products
