@@ -7,7 +7,7 @@
 ```
 export PROJECT_ID_2=
 export ZONE=
-export ZONE_1=
+export ZONE_2=
 ```
 ```
 curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/VPC%20Network%20Peering/gsp193.sh

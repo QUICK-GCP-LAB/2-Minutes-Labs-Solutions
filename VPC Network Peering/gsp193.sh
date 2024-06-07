@@ -29,7 +29,7 @@ export PROJECT_ID=$DEVSHELL_PROJECT_ID
 
 export REGION_1="${ZONE%-*}"
 
-export REGION_2="${ZONE_1%-*}"
+export REGION_2="${ZONE_2%-*}"
 
 gcloud config set project $PROJECT_ID
 
@@ -53,7 +53,7 @@ gcloud compute networks subnets create network-b-subnet --network network-b \
     --range 10.8.0.0/16 --region $REGION_2
 
 # Create the VM instance
-gcloud compute instances create vm-b --zone $ZONE_1 --network network-b --subnet network-b-subnet --machine-type e2-small
+gcloud compute instances create vm-b --zone $ZONE_2 --network network-b --subnet network-b-subnet --machine-type e2-small
 
 # Enable SSH and ICMP firewall rules
 gcloud compute firewall-rules create network-b-fw --network network-b --allow tcp:22,icmp
