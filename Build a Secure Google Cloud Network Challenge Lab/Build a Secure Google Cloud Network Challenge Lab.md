@@ -1,6 +1,6 @@
 # Build a Secure Google Cloud Network: Challenge Lab || [GSP322](https://www.cloudskillsboost.google/focuses/12068?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/RngyN_xCw3c)
 
 ### Run the following Commands in CloudShell
 ```
