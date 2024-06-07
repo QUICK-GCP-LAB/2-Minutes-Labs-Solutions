@@ -6,17 +6,15 @@
 
 ```
 export 2ND_PROJECT_ID=
-
 export ZONE=
-
 export ZONE_1=
 ```
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Cloud%20CDN/gsp217.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/VPC%20Network%20Peering/gsp193.sh
 
-sudo chmod +x gsp217.sh
+sudo chmod +x gsp193.sh
 
-./gsp217.sh
+./gsp193.sh
 ```
 
 ### Congratulations 🎉 for Completing the Lab !
