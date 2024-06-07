@@ -5,7 +5,7 @@
 ### Run the following Commands in CloudShell
 
 ```
-export 2ND_PROJECT_ID=
+export PROJECT_ID_2=
 export ZONE=
 export ZONE_1=
 ```
