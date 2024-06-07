@@ -22,6 +22,12 @@ RESET=`tput sgr0`
 
 echo "${YELLOW}${BOLD}Starting${RESET}" "${GREEN}${BOLD}Execution${RESET}"
 
+export REGION="${ZONE%-*}"
+
+gcloud config set compute/zone $ZONE
+
+gcloud config set compute/region $REGION
+
 gcloud services enable compute.googleapis.com
 
 gsutil mb gs://fancy-store-$DEVSHELL_PROJECT_ID
@@ -74,6 +80,8 @@ supervisorctl reread
 supervisorctl update
 EOF_START
 
+cd ~
+
 gsutil cp ~/monolith-to-microservices/startup-script.sh gs://fancy-store-$DEVSHELL_PROJECT_ID
 
 cd ~
@@ -98,11 +106,13 @@ REACT_APP_PRODUCTS_URL=http://$EXTERNAL_IP_BACKEND:8082/api/products
 EOF
 
 cd ~
+
 cd ~/monolith-to-microservices/react-app
 npm install && npm run-script build
 
 cd ~
 rm -rf monolith-to-microservices/*/node_modules
+
 gsutil -m cp -r monolith-to-microservices gs://fancy-store-$DEVSHELL_PROJECT_ID/
 
 gcloud compute instances create frontend \
@@ -135,7 +145,7 @@ gcloud compute instance-templates create fancy-be \
 
 gcloud compute instance-templates list
 
-gcloud compute instances delete backend --zone=$ZONE
+gcloud compute instances delete --quiet backend --zone=$ZONE
 
 gcloud compute instance-groups managed create fancy-fe-mig \
     --zone=$ZONE \
@@ -237,6 +247,7 @@ gcloud compute url-maps add-path-matcher fancy-map \
    --path-matcher-name orders \
    --path-rules "/api/orders=fancy-be-orders,/api/products=fancy-be-products"
 
+
 gcloud compute target-http-proxies create fancy-proxy \
   --url-map fancy-map
 
@@ -244,70 +255,5 @@ gcloud compute forwarding-rules create fancy-http-rule \
   --global \
   --target-http-proxy fancy-proxy \
   --ports 80
-
-cd ~/monolith-to-microservices/react-app/
-
-gcloud compute forwarding-rules list --global
-
-cd ~/monolith-to-microservices/react-app
-npm install && npm run-script build
-
-cd ~
-rm -rf monolith-to-microservices/*/node_modules
-gsutil -m cp -r monolith-to-microservices gs://fancy-store-$DEVSHELL_PROJECT_ID/
-
-gcloud compute instance-groups managed rolling-action replace fancy-fe-mig \
-    --zone=$ZONE \
-    --max-unavailable 100%
-
-sleep 180
-
-gcloud compute instance-groups managed set-autoscaling \
-  fancy-fe-mig \
-  --zone=$ZONE \
-  --max-num-replicas 2 \
-  --target-load-balancing-utilization 0.60
-
-gcloud compute instance-groups managed set-autoscaling \
-  fancy-be-mig \
-  --zone=$ZONE \
-  --max-num-replicas 2 \
-  --target-load-balancing-utilization 0.60
-
-gcloud compute backend-services update fancy-fe-frontend \
-    --enable-cdn --global
-
-gcloud compute instances set-machine-type frontend \
-  --zone=$ZONE \
-  --machine-type e2-small
-
-gcloud compute instance-templates create fancy-fe-new \
-    --region=$REGION \
-    --source-instance=frontend \
-    --source-instance-zone=$ZONE
-
-gcloud compute instance-groups managed rolling-action start-update fancy-fe-mig \
-  --zone=$ZONE \
-  --version template=fancy-fe-new
-
-sleep 180
-
-cd ~/monolith-to-microservices/react-app/src/pages/Home
-mv index.js.new index.js
-
-cat ~/monolith-to-microservices/react-app/src/pages/Home/index.js
-
-cd ~/monolith-to-microservices/react-app
-npm install && npm run-script build
-
-cd ~
-rm -rf monolith-to-microservices/*/node_modules
-gsutil -m cp -r monolith-to-microservices gs://fancy-store-$DEVSHELL_PROJECT_ID/
-
-gcloud compute instance-groups managed rolling-action replace fancy-fe-mig \
-  --zone=$ZONE \
-  --max-unavailable=100%
-
-echo "${RED}${BOLD}Congratulations${RESET}" "${WHITE}${BOLD}for${RESET}" "${GREEN}${BOLD}Completing the Lab !!!${RESET}"
 
 #-----------------------------------------------------end----------------------------------------------------------#
