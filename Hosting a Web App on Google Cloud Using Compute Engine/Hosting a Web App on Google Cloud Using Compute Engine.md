@@ -14,7 +14,7 @@ sudo chmod +x gsp662-1.sh
 ./gsp662-1.sh
 ```
 
-* *NOTE*: Check All Score Upto `Task 6`
+* #### NOTE : Check All Score Upto `Task 6`
 
 ### Run again the following Commands in CloudShell
 
