@@ -2,7 +2,7 @@
 
 ## Solution [here](https://youtu.be/frJIvlWAE4Q)
 
-### Run the following Commands in `1st` CloudShell
+### Run the following Commands in CloudShell
 
 ```
 export REGION=
