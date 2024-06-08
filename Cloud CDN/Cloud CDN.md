@@ -1,6 +1,6 @@
 # Cloud CDN || [GSP217](https://www.cloudskillsboost.google/focuses/1251?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/_p_89iiyNPs)
 
 ### Run the following Commands in CloudShell
 
