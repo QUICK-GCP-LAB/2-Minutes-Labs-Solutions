@@ -22,7 +22,7 @@ RESET=`tput sgr0`
 
 echo "${YELLOW}${BOLD}Starting${RESET}" "${GREEN}${BOLD}Execution${RESET}"
 
-cat > app.py <<EOF_END
+cat > app.py <<EOF_CP
 import flask
 app = flask.Flask(__name__)
 input_string = ""
@@ -53,7 +53,8 @@ def output():
 
 if __name__ == '__main__':
   app.run(host='0.0.0.0', port=8080)
-EOF_END
+EOF_CP
+
 
 python3 app.py
 
