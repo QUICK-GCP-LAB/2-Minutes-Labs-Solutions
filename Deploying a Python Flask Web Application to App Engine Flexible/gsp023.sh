@@ -28,15 +28,15 @@ cd flex_and_vision
 
 export PROJECT_ID=$(gcloud config get-value project)
 
-gcloud iam service-accounts create lol \
-  --display-name "My lol Service Account"
+gcloud iam service-accounts create awesome \
+  --display-name "My awesome Service Account"
 
 gcloud projects add-iam-policy-binding ${PROJECT_ID} \
---member serviceAccount:lol@${PROJECT_ID}.iam.gserviceaccount.com \
+--member serviceAccount:awesome@${PROJECT_ID}.iam.gserviceaccount.com \
 --role roles/owner
 
 gcloud iam service-accounts keys create ~/key.json \
---iam-account lol@${PROJECT_ID}.iam.gserviceaccount.com
+--iam-account awesome@${PROJECT_ID}.iam.gserviceaccount.com
 
 export GOOGLE_APPLICATION_CREDENTIALS="/home/${USER}/key.json"
 
