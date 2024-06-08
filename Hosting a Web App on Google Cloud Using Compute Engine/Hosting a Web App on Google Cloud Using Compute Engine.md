@@ -1,6 +1,6 @@
 # Hosting a Web App on Google Cloud Using Compute Engine || [GSP662](https://www.cloudskillsboost.google/focuses/11952?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/um0RpF0k070)
 
 ### Run the following Commands in CloudShell
 ```
