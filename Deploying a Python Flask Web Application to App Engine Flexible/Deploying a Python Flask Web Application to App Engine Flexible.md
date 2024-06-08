@@ -5,11 +5,11 @@
 ### Run the following Commands in CloudShell
 
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Identify%20Application%20Vulnerabilities%20with%20Security%20Command%20Center/shell-1.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Deploying%20a%20Python%20Flask%20Web%20Application%20to%20App%20Engine%20Flexible/gsp023.sh
 
-sudo chmod +x shell-1.sh
+sudo chmod +x gsp023.sh
 
-./shell-1.sh
+./gsp023.sh
 ```
 * Download Image from [here](https://raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Deploying%20a%20Python%20Flask%20Web%20Application%20to%20App%20Engine%20Flexible/City%20of%20Joy.jpg)
 
