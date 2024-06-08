@@ -1,4 +1,4 @@
-# Build a Serverless Web App with Firebase [GSP643](https://www.cloudskillsboost.google/focuses/8391?parent=catalog)
+# Build a Serverless Web App with Firebase || [GSP643](https://www.cloudskillsboost.google/focuses/8391?parent=catalog) ||
 
 ## Solution [here]()
 
