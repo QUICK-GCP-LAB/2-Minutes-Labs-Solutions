@@ -1,6 +1,6 @@
 # VPC Network Peering || [GSP193](https://www.cloudskillsboost.google/focuses/964?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/FkOHmlSXZXg)
 
 ### Run the following Commands in CloudShell
 
