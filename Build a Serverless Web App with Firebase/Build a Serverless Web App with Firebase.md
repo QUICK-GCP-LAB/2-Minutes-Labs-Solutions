@@ -16,6 +16,8 @@ gcloud firestore databases create --region=$REGION
 
 ### NOW FOLLOW VIDEOS'S INSTRUCTION
 
+* Register your app name as `Pet Theory`
+
 * For Collection ID Paste the Following
 
 ```
