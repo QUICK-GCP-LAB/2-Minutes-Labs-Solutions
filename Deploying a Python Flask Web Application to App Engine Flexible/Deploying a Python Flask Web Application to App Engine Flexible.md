@@ -1,6 +1,6 @@
 # Deploying a Python Flask Web Application to App Engine Flexible || [GSP023](https://www.cloudskillsboost.google/focuses/3339?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/a0OuDLEgVic)
 
 ### Run the following Commands in CloudShell
 

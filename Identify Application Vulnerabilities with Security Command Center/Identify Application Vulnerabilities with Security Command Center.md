@@ -1,6 +1,6 @@
 # [Identify Application Vulnerabilities with Security Command Center](https://www.cloudskillsboost.google/focuses/71934?parent=catalog)
 
-## Solution [here]()
+## Solution [here](https://youtu.be/uBscsgvn4AI)
 
 ### Run the following Commands in CloudShell
 ```
