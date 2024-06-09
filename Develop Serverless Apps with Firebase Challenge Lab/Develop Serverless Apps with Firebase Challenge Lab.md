@@ -1,4 +1,4 @@
-# App Engine: Qwik Start - Go || [GSP070](https://www.cloudskillsboost.google/focuses/2754?parent=catalog) ||
+# Develop Serverless Apps with Firebase: Challenge Lab || [GSP344](https://www.cloudskillsboost.google/focuses/14677?parent=catalog) ||
 
 ## Solution [here]()
 
