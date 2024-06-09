@@ -7,11 +7,11 @@
 export REGION=
 ```
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/App%20Engine%20Qwik%20Start%20-%20Go/gsp070.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Develop%20Serverless%20Apps%20with%20Firebase%20Challenge%20Lab/gsp344.sh
 
-sudo chmod +x gsp070.sh
+sudo chmod +x gsp344.sh
 
-./gsp070.sh
+./gsp344.sh
 ```
 
 ### Congratulations 🎉 for completing the Lab !
