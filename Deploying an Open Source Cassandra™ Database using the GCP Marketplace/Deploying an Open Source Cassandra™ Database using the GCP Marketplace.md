@@ -50,7 +50,7 @@ SELECT * FROM space_flights.catalog WHERE spacecraft_name = 'vostok2';
 exit
 ```
 
-### Congratulations 🎉 for completing the Challenge Lab !
+### Congratulations 🎉 for completing the Lab !
 
 ##### *You Have Successfully Demonstrated Your Skills And Determination.*
 

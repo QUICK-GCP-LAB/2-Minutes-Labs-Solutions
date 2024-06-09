@@ -13,7 +13,7 @@ sudo chmod +x gsp023.sh
 ```
 * Download Image from [here](https://raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Deploying%20a%20Python%20Flask%20Web%20Application%20to%20App%20Engine%20Flexible/Sundar.jpg)
 
-### Congratulations 🎉 for completing the Challenge Lab !
+### Congratulations 🎉 for completing the Lab !
 
 ##### *You Have Successfully Demonstrated Your Skills And Determination.*
 
