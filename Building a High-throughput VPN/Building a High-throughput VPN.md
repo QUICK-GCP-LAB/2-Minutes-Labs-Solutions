@@ -1,6 +1,6 @@
 # Building a High-throughput VPN || [GSP062](https://www.cloudskillsboost.google/focuses/641?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/B9aD3ntjxHs)
 
 ### Run the following Commands in CloudShell
 
