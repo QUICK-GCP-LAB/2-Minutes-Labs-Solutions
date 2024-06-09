@@ -11,9 +11,9 @@ gcloud compute ssh --zone "us-central1-f" "cassandra-1-vm" --project "$DEVSHELL_
 ```
 ```
 export PSW=
+```
+```
 export USER=cassandra
-```
-```
 cqlsh -u $USER -p $PSW
 ```
 ```
