@@ -7,10 +7,7 @@
 ### Run the following Commands in CloudShell
 
 ```
-export ZONE=
-```
-```
-gcloud compute ssh --zone "$ZONE" "cassandra-1-vm" --project "$DEVSHELL_PROJECT_ID" --quiet
+gcloud compute ssh --zone "us-central1-f" "cassandra-1-vm" --project "$DEVSHELL_PROJECT_ID" --quiet
 ```
 ```
 export PSW=
