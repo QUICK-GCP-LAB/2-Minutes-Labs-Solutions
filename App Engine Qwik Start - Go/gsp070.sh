@@ -33,7 +33,7 @@ git clone https://github.com/GoogleCloudPlatform/golang-samples.git
 cd golang-samples/appengine/go11x/helloworld
 
 sudo apt-get install google-cloud-sdk-app-engine-go
-gcloud app deploy --region=$REGION
+gcloud app deploy
 
 echo "${RED}${BOLD}Congratulations${RESET}" "${WHITE}${BOLD}for${RESET}" "${GREEN}${BOLD}Completing the Lab !!!${RESET}"
 
