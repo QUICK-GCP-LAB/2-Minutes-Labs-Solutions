@@ -20,7 +20,7 @@ BOLD=`tput bold`
 RESET=`tput sgr0`
 #----------------------------------------------------start--------------------------------------------------#
 
-echo "${YELLOW}${BOLD}Starting${RESET}" "${GREEN}${BOLD}Execution${RESET}"
+echo "${BG_MAGENTA}${BOLD}Starting Execution${RESET}"
 
 gsutil cp gs://$DEVSHELL_PROJECT_ID/echo-web-v2.tar.gz .
 tar -xzvf echo-web-v2.tar.gz
@@ -35,6 +35,6 @@ kubectl expose deployment echo-web --type=LoadBalancer --port 80 --target-port 8
 
 kubectl scale deploy echo-web --replicas=2
 
-echo "${RED}${BOLD}Congratulations${RESET}" "${WHITE}${BOLD}for${RESET}" "${GREEN}${BOLD}Completing the Lab !!!${RESET}"
+echo "${BG_RED}${BOLD}Congratulations For Completing The Lab !!!${RESET}"
 
 #-----------------------------------------------------end----------------------------------------------------------#
