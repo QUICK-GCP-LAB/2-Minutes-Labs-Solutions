@@ -9,11 +9,11 @@ export ZONE=
 export ZONE_1=
 ```
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Deploying%20a%20Python%20Flask%20Web%20Application%20to%20App%20Engine%20Flexible/gsp023.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Building%20a%20High-throughput%20VPN/gsp062.sh
 
-sudo chmod +x gsp023.sh
+sudo chmod +x gsp062.sh
 
-./gsp023.sh
+./gsp062.sh
 ```
 
 ### Congratulations 🎉 for completing the Challenge Lab !
