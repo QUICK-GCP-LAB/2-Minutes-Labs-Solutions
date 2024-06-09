@@ -1,6 +1,6 @@
 # Develop Serverless Apps with Firebase: Challenge Lab || [GSP344](https://www.cloudskillsboost.google/focuses/14677?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/h_qDV3M1RVI)
 
 ### Run the following Commands in CloudShell
 ```
