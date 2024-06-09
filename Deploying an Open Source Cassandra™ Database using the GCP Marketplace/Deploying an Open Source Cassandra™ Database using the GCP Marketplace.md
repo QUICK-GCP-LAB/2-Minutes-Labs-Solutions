@@ -1,6 +1,6 @@
 # Deploying an Open Source Cassandra™ Database using the GCP Marketplace || [GSP704](https://www.cloudskillsboost.google/focuses/10538?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/2zZmSJTX9Ps)
 
 * Go to `Apache Cassandra packaged by Bitnami` from [here](https://console.cloud.google.com/marketplace/product/bitnami-launchpad/cassandra?)
 
