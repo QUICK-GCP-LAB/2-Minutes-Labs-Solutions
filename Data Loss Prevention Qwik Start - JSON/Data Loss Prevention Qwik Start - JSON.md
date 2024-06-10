@@ -5,11 +5,11 @@
 ### Run the following Commands in CloudShell
 
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Scale%20Out%20and%20Update%20a%20Containerized%20Application%20on%20a%20Kubernetes%20Cluster%20Challenge%20Lab/gsp305.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Data%20Loss%20Prevention%20Qwik%20Start%20-%20JSON/gsp107.sh
 
-sudo chmod +x gsp305.sh
+sudo chmod +x gsp107.sh
 
-./gsp305.sh
+./gsp107.sh
 ```
 
 ### Congratulations 🎉 for completing the Lab !
