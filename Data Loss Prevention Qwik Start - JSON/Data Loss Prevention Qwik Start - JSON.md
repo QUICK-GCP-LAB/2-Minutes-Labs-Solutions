@@ -1,6 +1,6 @@
 # Data Loss Prevention: Qwik Start - JSON || [GSP107](https://www.cloudskillsboost.google/focuses/600?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/mzdOs6AG7QQ)
 
 ### Run the following Commands in CloudShell
 
