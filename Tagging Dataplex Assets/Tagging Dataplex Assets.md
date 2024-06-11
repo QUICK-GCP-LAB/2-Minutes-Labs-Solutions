@@ -15,8 +15,6 @@ sudo chmod +x gsp1145.sh
 ./gsp1145.sh
 ```
 
-* Go to `Dataplex Search` from [here](https://console.cloud.google.com/dataplex/search?)
-
 ### Congratulations 🎉 for Completing the Lab !
 
 ##### *You Have Successfully Demonstrated Your Skills And Determination.*
