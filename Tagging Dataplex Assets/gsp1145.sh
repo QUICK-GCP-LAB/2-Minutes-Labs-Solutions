@@ -27,19 +27,22 @@ echo "${YELLOW}${BOLD}Starting${RESET}" "${GREEN}${BOLD}Execution${RESET}"
 
 gcloud services enable dataplex.googleapis.com
 
-
 gcloud services enable datacatalog.googleapis.com
 
 gcloud dataplex lakes create orders-lake \
-   --location=$REGION \
-   --display-name="Orders Lake"
+  --location=$REGION \
+  --display-name="Orders Lake"
 
 gcloud dataplex zones create customer-curated-zone \
     --location=$REGION \
     --lake=orders-lake \
     --display-name="Customer Curated Zone" \
+    --resource-location-type=SINGLE_REGION \
     --type=CURATED \
-    --resource-location-type=SINGLE_REGION
+    --discovery-enabled \
+    --discovery-schedule="0 * * * *"
+
+bq mk --location=$REGION --dataset customers
 
 gcloud dataplex assets create customer-details-dataset \
 --location=$REGION \
@@ -47,7 +50,10 @@ gcloud dataplex assets create customer-details-dataset \
 --zone=customer-curated-zone \
 --display-name="Customer Details Dataset" \
 --resource-type=BIGQUERY_DATASET \
---resource-name=projects/$DEVSHELL_PROJECT_ID/datasets/customers
+--resource-name=projects/$DEVSHELL_PROJECT_ID/datasets/customers \
+--discovery-enabled
+
+gcloud data-catalog tag-templates create protected_data_template --location=$REGION --field=id=protected_data_flag,display-name="Protected Data Flag",type='enum(YES|NO)' --display-name="Protected Data Template"
 
 echo "${RED}${BOLD}Congratulations${RESET}" "${WHITE}${BOLD}for${RESET}" "${GREEN}${BOLD}Completing the Lab !!!${RESET}"
 
