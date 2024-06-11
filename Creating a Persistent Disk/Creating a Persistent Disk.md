@@ -1,6 +1,6 @@
 # Creating a Persistent Disk || [GSP004](https://www.cloudskillsboost.google/focuses/1753?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/oUnQLeuEDs8)
 
 ### Run the following Commands in CloudShell
 
