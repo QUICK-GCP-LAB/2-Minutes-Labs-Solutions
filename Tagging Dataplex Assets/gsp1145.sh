@@ -42,8 +42,6 @@ gcloud dataplex zones create customer-curated-zone \
     --discovery-enabled \
     --discovery-schedule="0 * * * *"
 
-bq mk --location=$REGION --dataset customers
-
 gcloud dataplex assets create customer-details-dataset \
 --location=$REGION \
 --lake=orders-lake \
