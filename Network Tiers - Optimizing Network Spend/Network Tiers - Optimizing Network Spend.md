@@ -8,11 +8,11 @@
 export ZONE=
 ```
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Creating%20a%20Persistent%20Disk/gsp004.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Network%20Tiers%20-%20Optimizing%20Network%20Spend/gsp219.sh
 
-sudo chmod +x gsp004.sh
+sudo chmod +x gsp219.sh
 
-./gsp004.sh
+./gsp219.sh
 ```
 
 ### Congratulations 🎉 for completing the Lab !
