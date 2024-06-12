@@ -8,11 +8,11 @@
 export REGION=
 ```
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Tagging%20Dataplex%20Assets/gsp1145.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Implementing%20Security%20in%20Dataplex/gsp1157.sh
 
-sudo chmod +x gsp1145.sh
+sudo chmod +x gsp1157.sh
 
-./gsp1145.sh
+./gsp1157.sh
 ```
 
 ### Congratulations 🎉 for Completing the Lab !
