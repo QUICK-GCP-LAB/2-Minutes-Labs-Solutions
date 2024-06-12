@@ -8,11 +8,11 @@
 export REGION=
 ```
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Implementing%20Security%20in%20Dataplex/gsp1157.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Assessing%20Data%20Quality%20with%20Dataplex/gsp1158.sh
 
-sudo chmod +x gsp1157.sh
+sudo chmod +x gsp1158.sh
 
-./gsp1157.sh
+./gsp1158.sh
 ```
 
 * Go to `BigQuery` from [here](https://console.cloud.google.com/bigquery?)
@@ -25,7 +25,7 @@ sudo chmod +x gsp1157.sh
   LIMIT 50
 ```
 
-* Go to `Create task` [here](https://console.cloud.google.com/dataplex/process/create-task/data-quality?)
+* Go to `Create task` from [here](https://console.cloud.google.com/dataplex/process/create-task/data-quality?)
 
 
 ### Congratulations 🎉 for Completing the Lab !
