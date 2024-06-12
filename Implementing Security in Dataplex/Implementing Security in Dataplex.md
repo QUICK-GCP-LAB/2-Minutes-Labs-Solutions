@@ -1,6 +1,6 @@
-# Tagging Dataplex Assets || [GSP1145](https://www.cloudskillsboost.google/focuses/62711?parent=catalog) ||
+# Implementing Security in Dataplex || [GSP1157](https://www.cloudskillsboost.google/focuses/67213?parent=catalog) ||
 
-## Solution [here](https://youtu.be/s-3nNkkocdo)
+## Solution [here]()
 
 ### Run the following Commands in CloudShell
 
