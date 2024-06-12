@@ -15,7 +15,7 @@ sudo chmod +x gsp1055-1.sh
 ./gsp1055-1.sh
 ```
 
-### Run the following Commands in 2nd CloudShell tab
+### Run the following Commands in `2nd` CloudShell tab
 
 ```
 curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Streaming%20Data%20to%20Bigtable/gsp1055-2.sh
