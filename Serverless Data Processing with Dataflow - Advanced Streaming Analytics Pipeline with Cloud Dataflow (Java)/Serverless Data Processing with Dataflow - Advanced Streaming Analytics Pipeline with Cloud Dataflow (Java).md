@@ -13,6 +13,12 @@ curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/S
 source quickgcplab.sh
 ```
 
+* If you do not get a message, then run the below command until you get a message.
+
+```
+gsutil cat $BUCKET/*/*
+```
+
 ### Congratulations 🎉 for Completing the Lab !
 
 ##### *You Have Successfully Demonstrated Your Skills And Determination.*
