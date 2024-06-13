@@ -324,14 +324,15 @@ bash generate_streaming_events.sh true
 
 sleep 30
 
-gcloud pubsub topics publish my_topic --message "Congratulations for"
-
-gcloud pubsub topics publish my_topic --message "Completing the Lab !"
+gcloud pubsub topics publish my_topic --message "Awesome Lab"
 
 export PROJECT_ID=$(gcloud config get-value project)
 export BUCKET=gs://${PROJECT_ID}/deadletter
 
 gsutil ls $BUCKET
+
+sleep 300
+
 gsutil cat $BUCKET/*/*
 
 echo "${BG_RED}${BOLD}Congratulations For Completing The Lab !!!${RESET}"
