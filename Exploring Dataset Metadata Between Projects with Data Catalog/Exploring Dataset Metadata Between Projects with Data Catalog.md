@@ -6,6 +6,7 @@
 
 ```
 export REGION=
+export PROJECT_ID_2=
 ```
 ```
 curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Exploring%20Dataset%20Metadata%20Between%20Projects%20with%20Data%20Catalog/gsp789.sh
@@ -78,23 +79,6 @@ UNION ALL
 SELECT * FROM male;
 ```
 
-### Run the following Query in `BigQuery` (`Project-2` Or `NYC Motor Vehicle Collisions Project` )
-
-```
-SELECT
-  contributing_factor_vehicle_1 AS collision_factor,
-  COUNT(*) AS num_collisions
-FROM
-  `new_york_mv_collisions.nypd_mv_collisions`
-WHERE
-  contributing_factor_vehicle_1 != "Unspecified"
-  AND contributing_factor_vehicle_1 != ""
-GROUP BY
-  collision_factor
-ORDER BY
-  num_collisions DESC
-LIMIT 10;
-```
 
 ### Congratulations 🎉 for Completing the Lab !
 
