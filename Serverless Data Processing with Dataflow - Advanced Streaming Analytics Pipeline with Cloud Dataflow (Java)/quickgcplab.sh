@@ -324,9 +324,9 @@ bash generate_streaming_events.sh true
 
 sleep 30
 
-gcloud pubsub topics publish my_topic --message "Subscribe to Quicklab"
+gcloud pubsub topics publish my_topic --message "Congratulations for"
 
-gcloud pubsub topics publish my_topic --message "Like Share & Subscribe:)"
+gcloud pubsub topics publish my_topic --message "Completing the Lab !"
 
 export PROJECT_ID=$(gcloud config get-value project)
 export BUCKET=gs://${PROJECT_ID}/deadletter
