@@ -1,6 +1,6 @@
 # Assessing Data Quality with Dataplex || [GSP1158](https://www.cloudskillsboost.google/focuses/67211?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/vi2m0GWpZa0)
 
 ### Run the following Commands in CloudShell
 
@@ -17,7 +17,7 @@ sudo chmod +x gsp1158.sh
 
 * Go to `BigQuery` from [here](https://console.cloud.google.com/bigquery?)
 
-* In the SQL Editor, click on `Compose a new query`. Paste the following query, and then click `Run`: (REPLACE PROJECT_ID WITH YOUR PROJECT)
+* In the SQL Editor, click on `Compose a new query`. Paste the following query, and then click `Run`: ( REPLACE PROJECT_ID WITH YOUR PROJECT )
 
 ```
   SELECT * FROM `PROJECT_ID.customers.contact_info`

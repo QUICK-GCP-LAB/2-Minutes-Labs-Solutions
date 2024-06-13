@@ -1,6 +1,6 @@
-# Streaming Data to Bigtable || [GSP1055](https://www.cloudskillsboost.google/focuses/58499?locale=es&parent=catalog) ||
+# Streaming Data to Bigtable || [GSP1055](https://www.cloudskillsboost.google/focuses/92498?&parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/Jj4dGiPUImA)
 
 ### Run the following Commands in CloudShell
 

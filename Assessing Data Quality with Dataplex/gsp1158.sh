@@ -33,6 +33,8 @@ gcloud projects add-iam-policy-binding $DEVSHELL_PROJECT_ID \
   --member=user:$USER_EMAIL \
   --role=roles/dataplex.admin
 
+  sleep 30
+
 gcloud dataplex zones create customer-contact-raw-zone \
   --display-name="Customer Contact Raw Zone" \
   --type=RAW \

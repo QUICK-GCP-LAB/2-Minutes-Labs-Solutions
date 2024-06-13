@@ -1,6 +1,6 @@
 # Implementing Security in Dataplex || [GSP1157](https://www.cloudskillsboost.google/focuses/67213?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/0JUaW4wyrDY)
 
 ### Run the following Commands in CloudShell
 
