@@ -1,4 +1,4 @@
-# Streaming Data to Bigtable || [GSP1055](https://www.cloudskillsboost.google/focuses/58499?locale=es&parent=catalog) ||
+# Exploring Dataset Metadata Between Projects with Data Catalog || [GSP789](https://www.cloudskillsboost.google/focuses/11034?parent=catalog) ||
 
 ## Solution [here]()
 
@@ -8,11 +8,11 @@
 export REGION=
 ```
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Streaming%20Data%20to%20Bigtable/gsp1055-1.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Exploring%20Dataset%20Metadata%20Between%20Projects%20with%20Data%20Catalog/gsp789.sh
 
-sudo chmod +x gsp1055-1.sh
+sudo chmod +x gsp789.sh
 
-./gsp1055-1.sh
+./gsp789.sh
 ```
 
 * Go to `BigQuery` from [here](https://console.cloud.google.com/bigquery)
