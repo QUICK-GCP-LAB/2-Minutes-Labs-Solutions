@@ -2,7 +2,7 @@
 
 ## Solution [here]()
 
-### Run the following Commands in CloudShell (`Project-1` Or `NYC Bike Share Project` )
+### Run the following Commands in CloudShell ( `Project-1` Or `NYC Bike Share Project` )
 
 ```
 export PROJECT_ID_2=
@@ -18,7 +18,7 @@ sudo chmod +x gsp789.sh
 
 * Go to `BigQuery` from [here](https://console.cloud.google.com/bigquery)
 
-### Run the following Query in `BigQuery` (`Project-1` Or `NYC Bike Share Project` )
+### Run the following Query in `BigQuery` ( `Project-1` Or `NYC Bike Share Project` )
 
 ```
 WITH unknown AS (
