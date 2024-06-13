@@ -5,8 +5,8 @@
 ### Run the following Commands in CloudShell (`Project-1` Or `NYC Bike Share Project` )
 
 ```
-export REGION=
 export PROJECT_ID_2=
+export REGION=
 ```
 ```
 curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Exploring%20Dataset%20Metadata%20Between%20Projects%20with%20Data%20Catalog/gsp789.sh
