@@ -16,8 +16,6 @@ sudo chmod +x gsp789.sh
 ./gsp789.sh
 ```
 
-* Go to `BigQuery` from [here](https://console.cloud.google.com/bigquery)
-
 ### Run the following Query in `BigQuery` ( `Project-1` Or `NYC Bike Share Project` )
 
 ```
