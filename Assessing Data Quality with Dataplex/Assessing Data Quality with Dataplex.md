@@ -1,6 +1,6 @@
 # Assessing Data Quality with Dataplex || [GSP1158](https://www.cloudskillsboost.google/focuses/67211?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/vi2m0GWpZa0)
 
 ### Run the following Commands in CloudShell
 
