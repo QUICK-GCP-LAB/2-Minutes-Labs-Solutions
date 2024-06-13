@@ -1,6 +1,6 @@
 # Exploring Dataset Metadata Between Projects with Data Catalog || [GSP789](https://www.cloudskillsboost.google/focuses/11034?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/sya_vncb984)
 
 ### Run the following Commands in CloudShell ( `Project-1` Or `NYC Bike Share Project` )
 
