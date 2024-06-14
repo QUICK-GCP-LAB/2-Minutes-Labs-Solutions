@@ -26,25 +26,24 @@
 
 ### Task 2: Download the challenge notebook
 
-1. In your notebook, click the `terminal`.
 
-2. Clone the repo by running this command:
+1. Access the `terminal` in your `notebook` and use the following command to clone the repository:
 
 ```
 git clone https://github.com/QUICK-GCP-LAB/training-data-analyst.git
 ```
 
-3. Install the required packages for the lab:
+2. Install the required packages for the lab:
 
 ```
 cd training-data-analyst/quests/vertex-ai/vertex-challenge-lab
 pip install -U -r requirements.txt --user
 ```
-4. Go to the enclosing folder: *training-data-analyst/quests/vertex-ai/vertex-challenge-lab*.
+3. Go to the enclosing folder: *training-data-analyst/quests/vertex-ai/vertex-challenge-lab*.
 
-5. Open the `notebook file` `vertex-challenge-lab.ipynb`. When asked which kernel to use, select the `TensorFlow 2-11` kernel.
+4. Open the `notebook file` `vertex-challenge-lab.ipynb`. When asked which kernel to use, select the `TensorFlow 2-11` kernel.
 
-6. In the `Setup` section, define your `PROJECT_ID`, `REGION`, and `GCS_BUCKET` variables.
+5. In the `Setup` section, define your `PROJECT_ID`, `REGION`, and `GCS_BUCKET` variables.
 
 ### For Tasks 3,4,5 & 6 Follow [Video](https://youtu.be/5YOvpPtWMnI) Instructions.
 
