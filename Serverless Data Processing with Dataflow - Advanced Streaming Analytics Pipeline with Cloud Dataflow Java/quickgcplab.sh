@@ -25,6 +25,8 @@ RESET=`tput sgr0`
 
 echo "${BG_MAGENTA}${BOLD}Starting Execution${RESET}"
 
+
+
 cd 7_Advanced_Streaming_Analytics/labs
 cd src/main/java/com/mypackage/pipeline/
 
@@ -280,11 +282,15 @@ public class StreamingMinuteTrafficPipeline {
 
 EOF_END
 
+
+
+
 cd /home/project/training-data-analyst/quests/dataflow/7_Advanced_Streaming_Analytics/labs
 
 # Download dependencies
 mvn clean dependency:resolve
 export BASE_DIR=$(pwd)
+
 
 # Create GCS buckets, BQ dataset, and Pubsub Topic
 cd $BASE_DIR/../..
@@ -293,7 +299,10 @@ source create_streaming_sinks.sh
 # Change to the directory containing the practice version of the code
 cd $BASE_DIR
 
+
+
 export PROJECT_ID=$(gcloud config get-value project)
+
 export BUCKET=gs://${PROJECT_ID}
 export PIPELINE_FOLDER=${BUCKET}
 export MAIN_CLASS_NAME=com.mypackage.pipeline.StreamingMinuteTrafficPipeline
@@ -320,11 +329,15 @@ mvn compile exec:java \
 --outputTableName=${OUTPUT_TABLE_NAME} \
 --deadletterBucket=${DEADLETTER_BUCKET}"
 
+
 bash generate_streaming_events.sh true
 
 sleep 30
 
-gcloud pubsub topics publish my_topic --message "Awesome Lab"
+gcloud pubsub topics publish my_topic --message "LOL"
+
+gcloud pubsub topics publish my_topic --message "LOL"
+
 
 export PROJECT_ID=$(gcloud config get-value project)
 export BUCKET=gs://${PROJECT_ID}/deadletter
