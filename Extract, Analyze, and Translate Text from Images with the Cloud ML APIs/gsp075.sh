@@ -33,13 +33,17 @@ API_KEY=$(gcloud alpha services api-keys get-key-string $KEY_NAME --format="valu
 
 export PROJECT_ID=$(gcloud config list --format 'value(core.project)')
 
-gsutil mb -p $PROJECT_ID -c regional -l us-central1 gs://$PROJECT_ID
+export PROJECT_NUMBER=$(gcloud projects describe $DEVSHELL_PROJECT_ID --format="value(projectNumber)")
+
+gcloud storage buckets create gs://$DEVSHELL_PROJECT_ID-bucket --project=$DEVSHELL_PROJECT_ID
+
+gsutil iam ch projectEditor:serviceAccount:$PROJECT_NUMBER@cloudbuild.gserviceaccount.com:objectCreator gs://$DEVSHELL_PROJECT_ID-bucket
 
 curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Extract%2C%20Analyze%2C%20and%20Translate%20Text%20from%20Images%20with%20the%20Cloud%20ML%20APIs/sign.jpg
 
-gsutil cp sign.jpg gs://$PROJECT_ID/sign.jpg
+gsutil cp sign.jpg gs://$DEVSHELL_PROJECT_ID-bucket/sign.jpg
 
-gsutil acl ch -u AllUsers:R gs://$PROJECT_ID/sign.jpg
+gsutil acl ch -u AllUsers:R gs://$DEVSHELL_PROJECT_ID-bucket/sign.jpg
 
 touch ocr-request.json
 
@@ -49,7 +53,7 @@ tee ocr-request.json <<EOF
       {
         "image": {
           "source": {
-              "gcsImageUri": "gs://$PROJECT_ID/sign.jpg"
+              "gcsImageUri": "gs://$DEVSHELL_PROJECT_ID-bucket/sign.jpg"
           }
         },
         "features": [
