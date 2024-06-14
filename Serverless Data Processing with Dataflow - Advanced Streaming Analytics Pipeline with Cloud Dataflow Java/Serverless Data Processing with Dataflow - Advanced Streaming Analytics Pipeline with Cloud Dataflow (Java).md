@@ -8,8 +8,7 @@
 export REGION=
 ```
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Serverless%20Data%20Processing%20with%20Dataflow%20-%20Advanced%20Streaming%20Analytics%20Pipeline%20with%20Cloud%20Dataflow%20(Java)/quickgcplab.sh
-
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Serverless%20Data%20Processing%20with%20Dataflow%20-%20Advanced%20Streaming%20Analytics%20Pipeline%20with%20Cloud%20Dataflow%20Java/quickgcplab.sh
 source quickgcplab.sh
 ```
 
