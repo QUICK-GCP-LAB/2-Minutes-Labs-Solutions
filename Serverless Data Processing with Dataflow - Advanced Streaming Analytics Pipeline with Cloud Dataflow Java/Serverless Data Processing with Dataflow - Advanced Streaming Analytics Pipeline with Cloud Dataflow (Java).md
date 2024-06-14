@@ -1,6 +1,6 @@
 # [Serverless Data Processing with Dataflow - Advanced Streaming Analytics Pipeline with Cloud Dataflow (Java)](https://www.cloudskillsboost.google/focuses/19416?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/5GbW9Sk3THY)
 
 ### Run the following Commands in CloudShell
 
