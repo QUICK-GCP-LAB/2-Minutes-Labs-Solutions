@@ -1,4 +1,4 @@
-# Google Cloud Pub/Sub: Qwik Start - Console || [GSP096](https://www.cloudskillsboost.google/focuses/3719?parent=catalog) ||
+# Pub/Sub: Qwik Start - Console || [GSP096](https://www.cloudskillsboost.google/focuses/3719?parent=catalog) ||
 
 ## Solution [here](https://youtu.be/RnM1xQiVDkA)
 
