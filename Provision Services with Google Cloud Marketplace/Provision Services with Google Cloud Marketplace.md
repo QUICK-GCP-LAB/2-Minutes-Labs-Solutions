@@ -1,6 +1,6 @@
 # Provision Services with Google Cloud Marketplace || [GSP003](https://www.cloudskillsboost.google/focuses/565?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/4slr9p3D6DA)
 
 * Go to `Bitnami package for NGINX Open Source` from [here](https://console.cloud.google.com/marketplace/product/bitnami-launchpad/nginxstack?)
 
