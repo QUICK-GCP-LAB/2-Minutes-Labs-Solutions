@@ -7,11 +7,11 @@
 ### Run the following Commands in CloudShell
 
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Perform%20Foundational%20Infrastructure%20Tasks%20in%20Google%20Cloud%20Challenge%20Lab/gsp315.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Provision%20Services%20with%20Google%20Cloud%20Marketplace/gsp003.sh
 
-sudo chmod +x gsp315.sh
+sudo chmod +x gsp003.sh
 
-./gsp315.sh
+./gsp003.sh
 ```
 
 ### Congratulations 🎉 for completing the Challenge Lab !
