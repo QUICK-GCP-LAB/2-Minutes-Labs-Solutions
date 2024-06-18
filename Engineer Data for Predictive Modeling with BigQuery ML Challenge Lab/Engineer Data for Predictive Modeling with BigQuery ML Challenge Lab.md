@@ -1,6 +1,6 @@
 # Engineer Data for Predictive Modeling with BigQuery ML: Challenge Lab || [GSP327](https://www.cloudskillsboost.google/focuses/12379?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/-YJEXngsFJQ)
 
 ### Run the following Queries in BigQuery Editor
 
