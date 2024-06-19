@@ -1,6 +1,6 @@
 # Store, Process, and Manage Data on Google Cloud - Command Line: Challenge Lab || [ARC102](https://www.cloudskillsboost.google/focuses/61486?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/Fq8TYvpkJ4Q)
 
 ### Run the following Commands in CloudShell
 
