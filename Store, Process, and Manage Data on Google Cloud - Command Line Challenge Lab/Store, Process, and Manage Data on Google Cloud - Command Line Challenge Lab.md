@@ -1,11 +1,15 @@
-# Provision Services with Google Cloud Marketplace || [GSP003](https://www.cloudskillsboost.google/focuses/565?parent=catalog) ||
+# Store, Process, and Manage Data on Google Cloud - Command Line: Challenge Lab || [ARC102](https://www.cloudskillsboost.google/focuses/61486?parent=catalog) ||
 
-## Solution [here](https://youtu.be/4slr9p3D6DA)
-
-* Go to `Bitnami package for NGINX Open Source` from [here](https://console.cloud.google.com/marketplace/product/bitnami-launchpad/nginxstack?)
+## Solution [here]()
 
 ### Run the following Commands in CloudShell
 
+```
+export BUCKET=
+export TOPIC=
+export FUNCTION=
+export ZONE=
+```
 ```
 curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Provision%20Services%20with%20Google%20Cloud%20Marketplace/gsp003.sh
 
