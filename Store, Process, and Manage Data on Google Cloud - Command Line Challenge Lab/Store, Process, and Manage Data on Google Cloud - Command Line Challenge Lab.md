@@ -11,11 +11,11 @@ export FUNCTION=
 export ZONE=
 ```
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Provision%20Services%20with%20Google%20Cloud%20Marketplace/gsp003.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Store%2C%20Process%2C%20and%20Manage%20Data%20on%20Google%20Cloud%20-%20Command%20Line%20Challenge%20Lab/arc102.sh
 
-sudo chmod +x gsp003.sh
+sudo chmod +x arc102.sh
 
-./gsp003.sh
+./arc102.sh
 ```
 
 ### Congratulations 🎉 for completing the Challenge Lab !
