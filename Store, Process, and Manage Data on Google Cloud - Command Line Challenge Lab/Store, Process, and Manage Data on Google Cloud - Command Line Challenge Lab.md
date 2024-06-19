@@ -8,7 +8,7 @@
 export BUCKET=
 export TOPIC=
 export FUNCTION=
-export ZONE=
+export REGION=
 ```
 ```
 curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Store%2C%20Process%2C%20and%20Manage%20Data%20on%20Google%20Cloud%20-%20Command%20Line%20Challenge%20Lab/arc102.sh
