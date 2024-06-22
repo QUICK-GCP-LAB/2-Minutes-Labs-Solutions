@@ -1,4 +1,4 @@
-# Using the Google Cloud Speech API: Challenge Lab || [ARC131](https://www.cloudskillsboost.google/focuses/67215?parent=catalog) ||
+# Using the Google Cloud Speech API: Challenge Lab || [ARC131](https://www.cloudskillsboost.google/focuses/65993?parent=catalog) ||
 
 ## Solution [here](https://youtu.be/5Wzpy6Y2yPk)
 
