@@ -29,7 +29,7 @@ sudo chmod +x gsp647-2.sh
 ./gsp647-2.sh
 ```
 
-* Now Check Your Progress for `TASK 1` & `TASK 2` and then Follow [Video's]() Instructions.
+* Now Check Your Progress for `TASK 1` & `TASK 2` and then Follow [Video's](https://youtu.be/_6phqXHz-9I) Instructions.
 
 ```
 user2
