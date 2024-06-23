@@ -15,7 +15,7 @@ sudo chmod +x gsp917.sh
 ./gsp917.sh
 ```
 
-* Go to `user-managed-instance` from [here](https://console.cloud.google.com/vertex-ai/workbench/user-managed?)
+* Go to `User-managed Notebooks` from [here](https://console.cloud.google.com/vertex-ai/workbench/user-managed?)
 
 ### Congratulations 🎉 for completing the Lab !
 
