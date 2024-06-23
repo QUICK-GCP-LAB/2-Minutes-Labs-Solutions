@@ -5,11 +5,11 @@
 ### Run the following Commands in CloudShell
 
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Analyze%20Images%20with%20the%20Cloud%20Vision%20API%20Challenge%20Lab/arc122.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Speech%20to%20Text%20Transcription%20with%20the%20Cloud%20Speech%20API/gsp048-1.sh
 
-sudo chmod +x arc122.sh
+sudo chmod +x gsp048-1.sh
 
-./arc122.sh
+./gsp048-1.sh
 ```
 
 * *NOTE :*  Now Check The Score Upto `Task 3` then Process Next.
@@ -17,11 +17,11 @@ sudo chmod +x arc122.sh
 ### Run again the following Commands in CloudShell
 
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Analyze%20Images%20with%20the%20Cloud%20Vision%20API%20Challenge%20Lab/arc122.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Speech%20to%20Text%20Transcription%20with%20the%20Cloud%20Speech%20API/gsp048-2.sh
 
-sudo chmod +x arc122.sh
+sudo chmod +x gsp048-2.sh
 
-./arc122.sh
+./gsp048-2.sh
 ```
 
 ### Congratulations 🎉 for completing the Lab !
