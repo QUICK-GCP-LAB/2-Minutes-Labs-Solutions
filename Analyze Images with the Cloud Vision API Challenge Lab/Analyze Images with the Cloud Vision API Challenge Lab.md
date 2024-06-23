@@ -5,11 +5,11 @@
 ### Run the following Commands in CloudShell
 
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Store%2C%20Process%2C%20and%20Manage%20Data%20on%20Google%20Cloud%20-%20Command%20Line%20Challenge%20Lab/arc102.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Analyze%20Images%20with%20the%20Cloud%20Vision%20API%20Challenge%20Lab/arc122.sh
 
-sudo chmod +x arc102.sh
+sudo chmod +x arc122.sh
 
-./arc102.sh
+./arc122.sh
 ```
 
 ### Congratulations 🎉 for completing the Challenge Lab !
