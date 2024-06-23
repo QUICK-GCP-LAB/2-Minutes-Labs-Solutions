@@ -12,7 +12,7 @@ sudo chmod +x arc122.sh
 ./arc122.sh
 ```
 
-* *NOTE:*  Now Check The Score Upto `Task 3` then Process Next.
+* *NOTE :*  Now Check The Score Upto `Task 3` then Process Next.
 
 ### Run again the following Commands in CloudShell
 
