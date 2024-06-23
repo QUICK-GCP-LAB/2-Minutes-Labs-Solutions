@@ -31,9 +31,9 @@ export BUCKET="$(gcloud config get-value project)"
 
 gsutil mb -p $BUCKET gs://$BUCKET-bucket
 
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/APIs%20Explorer%20Cloud%20Storage/demo-image1.png
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/APIs%20Explorer%20Qwik%20Start/demo-image.jpg
 
-gsutil cp demo-image1.png gs://$DEVSHELL_PROJECT_ID/demo-image1.png
+gsutil cp demo-image.jpg gs://$BUCKET-bucket/demo-image.jpg
 
 gsutil acl ch -u allUsers:R gs://$BUCKET-bucket/demo-image.jpg
 
