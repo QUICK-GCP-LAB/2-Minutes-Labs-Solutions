@@ -4,19 +4,20 @@
 
 ### Run the following Commands in CloudShell
 
+```
 export ZONE=
 export MON_IDENT=
 export CLUSTER=
 export ORD_IDENT=
 export PROD_IDENT=
 export FRONT_IDENT=
-
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Analyze%20Images%20with%20the%20Cloud%20Vision%20API%20Challenge%20Lab/arc122.sh
+```
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Build%20a%20Website%20on%20Google%20Cloud%20Challenge%20Lab/gsp319.sh
 
-sudo chmod +x arc122.sh
+sudo chmod +x gsp319.sh
 
-./arc122.sh
+./gsp319.sh
 ```
 
 ### Congratulations 🎉 for completing the Challenge Lab !
