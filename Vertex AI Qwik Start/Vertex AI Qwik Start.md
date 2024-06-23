@@ -8,11 +8,11 @@
 export ZONE=
 ```
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Analyze%20Images%20with%20the%20Cloud%20Vision%20API%20Challenge%20Lab/arc122.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Vertex%20AI%20Qwik%20Start/gsp917.sh
 
-sudo chmod +x arc122.sh
+sudo chmod +x gsp917.sh
 
-./arc122.sh
+./gsp917.sh
 ```
 
 * Go to `user-managed-instance` from [here](https://console.cloud.google.com/vertex-ai/workbench/user-managed?)
