@@ -12,7 +12,7 @@ sudo chmod +x gsp048-1.sh
 ./gsp048-1.sh
 ```
 
-* *NOTE :*  Now Check The Score Upto `Task 3` then Process Next.
+* `NOTE:`  Now Check The Score Upto `Task 3` then Process Next.
 
 ### Run again the following Commands in CloudShell
 
