@@ -2,11 +2,11 @@
 
 ## Solution [here]()
 
-### Run the following Commands in CloudShell
-
 * Go to `Cloud Document AI API` from [here](https://console.cloud.google.com/marketplace/product/google/documentai.googleapis.com)
 
 * Go to `Document AI` from [here](https://console.cloud.google.com/ai/document-ai?)
+
+### Run the following Commands in CloudShell
 
 ```
 export ZONE=$(gcloud compute instances list document-ai-dev --format 'csv[no-heading](zone)')
