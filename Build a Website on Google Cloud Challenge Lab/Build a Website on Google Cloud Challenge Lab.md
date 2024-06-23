@@ -4,6 +4,8 @@
 
 ### Run the following Commands in CloudShell
 
+### Assign Variables
+
 ```
 export ZONE=
 export MON_IDENT=
