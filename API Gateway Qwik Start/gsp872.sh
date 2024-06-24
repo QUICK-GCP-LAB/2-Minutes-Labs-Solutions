@@ -29,18 +29,8 @@ gcloud config set compute/region $REGION
 
 PROJECT_ID=$(gcloud config get-value project)
 PROJECT_NUMBER=$(gcloud projects describe $PROJECT_ID --format="value(projectNumber)")
-export PROJECT_NUMBER
 
 gcloud services enable apigateway.googleapis.com
-gcloud services enable servicemanagement.googleapis.com
-gcloud services enable servicecontrol.googleapis.com --project=$PROJECT_ID
-gcloud services enable serviceusage.services.enable --project=$PROJECT_ID
-gcloud services enable cloudfunctions.googleapis.com --project=$PROJECT_ID
-
-
-PROJECT_ID=$(gcloud config get-value project)
-PROJECT_NUMBER=$(gcloud projects describe $PROJECT_ID --format="value(projectNumber)")
-export PROJECT_NUMBER
 
 gcloud projects add-iam-policy-binding $PROJECT_ID \
   --member="serviceAccount:$PROJECT_NUMBER-compute@developer.gserviceaccount.com" \
@@ -165,7 +155,8 @@ gcloud api-gateway api-configs create hello-config \
   --api=$API_ID \
   --openapi-spec=openapi2-functions2.yaml \
   --project=$PROJECT_ID \
-  --backend-auth-service-account=$PROJECT_ID@$PROJECT_ID.iam.gserviceaccount.com	
+  --backend-auth-service-account=$PROJECT_ID@$PROJECT_ID.iam.gserviceaccount.com
+  	
 gcloud api-gateway gateways update hello-gateway \
   --api=$API_ID --api-config=hello-config \
   --location=$REGION --project=$PROJECT_ID
