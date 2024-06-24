@@ -32,11 +32,6 @@ PROJECT_NUMBER=$(gcloud projects describe $PROJECT_ID --format="value(projectNum
 export PROJECT_NUMBER
 
 gcloud services enable apigateway.googleapis.com
-gcloud services enable servicemanagement.googleapis.com
-gcloud services enable servicecontrol.googleapis.com --project=$PROJECT_ID
-gcloud services enable serviceusage.services.enable --project=$PROJECT_ID
-gcloud services enable cloudfunctions.googleapis.com --project=$PROJECT_ID
-
 
 PROJECT_ID=$(gcloud config get-value project)
 PROJECT_NUMBER=$(gcloud projects describe $PROJECT_ID --format="value(projectNumber)")
