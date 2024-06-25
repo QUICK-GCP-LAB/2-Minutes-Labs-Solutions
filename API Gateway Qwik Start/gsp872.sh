@@ -39,6 +39,8 @@ gcloud projects add-iam-policy-binding $PROJECT_ID --member="serviceAccount:$PRO
 
 gcloud projects add-iam-policy-binding $PROJECT_ID --member="serviceAccount:$PROJECT_NUMBER-compute@developer.gserviceaccount.com" --role="roles/artifactregistry.reader"
 
+sleep 30
+
 git clone https://github.com/GoogleCloudPlatform/nodejs-docs-samples.git
 
 cd nodejs-docs-samples/functions/helloworld/helloworldGet
@@ -61,7 +63,7 @@ while [ "$deploy_success" = false ]; do
     deploy_success=true
   else
     echo "Waiting for Cloud Run service to be created..."
-    sleep 10
+    sleep 60
   fi
 done
 
