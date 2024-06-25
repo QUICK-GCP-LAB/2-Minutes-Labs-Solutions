@@ -43,6 +43,8 @@ git clone https://github.com/GoogleCloudPlatform/nodejs-docs-samples.git
 
 cd nodejs-docs-samples/functions/helloworld/helloworldGet
 
+sleep 60
+
 deploy_function() {
   gcloud functions deploy helloGET \
     --runtime nodejs14 \
@@ -51,17 +53,12 @@ deploy_function() {
     --allow-unauthenticated
 }
 
-SERVICE_NAME="helloGET"
+deploy_success=false
 
-# Loop until the Cloud Run service is created
-while true; do
-  # Run the deployment command
-  deploy_function
-
-  # Check if Cloud Run service is created
-  if gcloud run services describe $SERVICE_NAME --region $REGION &> /dev/null; then
+while [ "$deploy_success" = false ]; do
+  if deploy_function; then
     echo "Cloud Run service is created. Exiting the loop."
-    break
+    deploy_success=true
   else
     echo "Waiting for Cloud Run service to be created..."
     sleep 10
