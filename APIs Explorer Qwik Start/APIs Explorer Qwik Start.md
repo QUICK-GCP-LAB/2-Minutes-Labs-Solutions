@@ -1,6 +1,6 @@
 # APIs Explorer: Qwik Start || [GSP277](https://www.cloudskillsboost.google/focuses/2457?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/4kJytzborPk)
 
 ### Run the following Commands in CloudShell
 
