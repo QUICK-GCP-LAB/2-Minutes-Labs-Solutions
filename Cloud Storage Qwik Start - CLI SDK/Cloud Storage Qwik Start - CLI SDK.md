@@ -1,6 +1,6 @@
 # Cloud Storage: Qwik Start - CLI/SDK || [GSP074](https://www.cloudskillsboost.google/focuses/569?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/nnDHTQKhhxY)
 
 ### Run the following Commands in CloudShell
 
