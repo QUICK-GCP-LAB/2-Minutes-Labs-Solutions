@@ -25,8 +25,6 @@ RESET=`tput sgr0`
 
 echo "${BG_MAGENTA}${BOLD}Starting Execution${RESET}"
 
-APIs Explorer: Qwik Start
-
 export BUCKET="$(gcloud config get-value project)"         
 
 gsutil mb -p $BUCKET gs://$BUCKET-bucket
