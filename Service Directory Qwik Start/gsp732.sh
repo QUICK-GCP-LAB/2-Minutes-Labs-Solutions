@@ -25,6 +25,10 @@ RESET=`tput sgr0`
 
 echo "${BG_MAGENTA}${BOLD}Starting Execution${RESET}"
 
+gcloud services enable servicedirectory.googleapis.com
+
+sleep 15
+
 gcloud service-directory namespaces create example-namespace \
    --location $LOCATION
 
