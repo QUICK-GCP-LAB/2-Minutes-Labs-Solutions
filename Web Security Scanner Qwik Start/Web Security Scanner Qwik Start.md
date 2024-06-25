@@ -1,6 +1,6 @@
 # Web Security Scanner: Qwik Start || [GSP112](https://www.cloudskillsboost.google/focuses/1715?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/zRKCTO8U7fo)
 
 ### Run the following Commands in CloudShell
 
