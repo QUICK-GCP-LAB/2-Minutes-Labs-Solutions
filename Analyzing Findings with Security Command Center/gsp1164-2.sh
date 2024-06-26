@@ -45,3 +45,4 @@ gcloud iam service-accounts create sccp-test-sa-$i;
 gcloud iam service-accounts keys create /tmp/sa-key-$i.json \
 --iam-account=sccp-test-sa-$i@$PROJECT_ID.iam.gserviceaccount.com;
 done
+echo "${YELLOW}${BOLD}Made With${RESET}" "${GREEN}${BOLD}Galaxy Sonu${RESET}"
