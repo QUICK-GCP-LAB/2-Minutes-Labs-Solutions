@@ -27,7 +27,7 @@ echo "${YELLOW}${BOLD}Starting${RESET}" "${GREEN}${BOLD}Execution${RESET}"
 
 export REGION="${ZONE%-*}"
 
-gcloud compute networks create vpc-net --project=$DEVSHELL_PROJECT_ID --description=subscribe\ to\ quicklab --subnet-mode=custom --mtu=1460 --bgp-routing-mode=regional && gcloud compute networks subnets create vpc-subnet --project=$DEVSHELL_PROJECT_ID --range=10.1.3.0/24 --stack-type=IPV4_ONLY --network=vpc-net --region=$REGION --enable-flow-logs --logging-aggregation-interval=interval-5-sec --logging-flow-sampling=0.5 --logging-metadata=include-all
+gcloud compute networks create vpc-net --project=$DEVSHELL_PROJECT_ID --description=awesome\ lab --subnet-mode=custom --mtu=1460 --bgp-routing-mode=regional && gcloud compute networks subnets create vpc-subnet --project=$DEVSHELL_PROJECT_ID --range=10.1.3.0/24 --stack-type=IPV4_ONLY --network=vpc-net --region=$REGION --enable-flow-logs --logging-aggregation-interval=interval-5-sec --logging-flow-sampling=0.5 --logging-metadata=include-all
 
 gcloud compute --project=$DEVSHELL_PROJECT_ID firewall-rules create allow-http-ssh --direction=INGRESS --priority=1000 --network=vpc-net --action=ALLOW --rules=tcp:80,tcp:22 --source-ranges=0.0.0.0/0 --target-tags=http-server
 

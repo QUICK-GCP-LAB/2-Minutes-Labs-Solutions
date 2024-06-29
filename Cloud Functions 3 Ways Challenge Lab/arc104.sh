@@ -106,7 +106,7 @@ touch index.js && touch package.json
 cat > index.js <<EOF
 const functions = require('@google-cloud/functions-framework');
 functions.http('$HTTP_FUNCTION', (req, res) => {
-  res.status(200).send('subscribe to quikclab');
+  res.status(200).send('awesome lab');
 });
 EOF
 

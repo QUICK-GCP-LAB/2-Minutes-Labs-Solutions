@@ -313,7 +313,7 @@ resource "google_storage_bucket" "example_bucket" {
     not_found_page   = "404.html"
   }
 }
-# please like share & subscribe to quikclab
+
 resource "google_compute_instance" "another_instance" {
   # Tells Terraform that this VM instance must be created only after the
   # storage bucket has been created.

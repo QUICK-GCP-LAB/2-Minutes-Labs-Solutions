@@ -72,7 +72,7 @@ tar xvzf vegeta-v6.3.0-linux-386.tar.gz
 
 gcloud logging metrics create CloudFunctionLatency-Logs \
     --project=$DEVSHELL_PROJECT_ID \
-    --description="subscribe to quicklab" \
+    --description="awesome lab" \
     --log-filter='resource.type="cloud_function" AND resource.labels.function_name="helloWorld" AND log_name="projects/$DEVSHELL_PROJECT_ID/logs/cloudaudit.googleapis.com%2Factivity" AND resource.labels.region="$REGION"'
 
 echo "${BG_RED}${BOLD}Congratulations For Completing The Lab !!!${RESET}"

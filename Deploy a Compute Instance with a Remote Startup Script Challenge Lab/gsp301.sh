@@ -30,7 +30,7 @@ gcloud compute instances create quickgcplab --project=$DEVSHELL_PROJECT_ID --zon
 
 gcloud compute firewall-rules create allow-http \
     --allow=tcp:80 \
-    --description="subscribe to quickgcplab" \
+    --description="awesome lab" \
     --direction=INGRESS \
     --target-tags=http-server
 
