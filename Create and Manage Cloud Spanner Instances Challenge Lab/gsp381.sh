@@ -90,7 +90,7 @@ VALUES
 
  NEED TO UPLOAD FILE ON GITHUB
 
-curl -LO raw.githubusercontent.com/Techcps/GSP-Short-Trick/master/Create%20and%20Manage%20Cloud%20Spanner%20Databases%3A%20Challenge%20Lab/Customer_List_500.csv
+curl -LO https://raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Create%20and%20Manage%20Cloud%20Spanner%20Instances%20Challenge%20Lab/Customer_List_500.csv
 
 gcloud services disable dataflow.googleapis.com --force
 gcloud services enable dataflow.googleapis.com
