@@ -8,11 +8,11 @@
 export REGION=
 ```
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Analyze%20Images%20with%20the%20Cloud%20Vision%20API%20Challenge%20Lab/arc122.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Securing%20Compute%20Engine%20Applications%20and%20Resources%20using%20BeyondCorp%20Enterprise%20BCE/gsp1033.sh
 
-sudo chmod +x arc122.sh
+sudo chmod +x gsp1033.sh
 
-./arc122.sh
+./gsp1033.sh
 ```
 
 ### Congratulations 🎉 for completing the Lab !
