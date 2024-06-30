@@ -37,7 +37,6 @@ sleep 30
 
 export PROJECT_ID=$(gcloud config list --format 'value(core.project)')
 
-
 export PROJECT_NUMBER=$(gcloud projects list --filter=projectId:$PROJECT_ID --format="value(projectNumber)")
 
 gcloud projects add-iam-policy-binding $PROJECT_ID --member=serviceAccount:service-$PROJECT_NUMBER@gcp-sa-healthcare.iam.gserviceaccount.com --role=roles/bigquery.admin
