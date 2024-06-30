@@ -8,11 +8,11 @@
 export ZONE=
 ```
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Analyze%20Images%20with%20the%20Cloud%20Vision%20API%20Challenge%20Lab/arc122.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Collect%20Metrics%20from%20Exporters%20using%20the%20Managed%20Service%20for%20Prometheus/gsp1026.sh
 
-sudo chmod +x arc122.sh
+sudo chmod +x gsp1026.sh
 
-./arc122.sh
+./gsp1026.sh
 ```
 
 ### Congratulations 🎉 for completing the Lab !
