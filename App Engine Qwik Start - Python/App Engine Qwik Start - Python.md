@@ -5,7 +5,7 @@
 ### Run the following Commands in CloudShell
 
 ```
-REGION=
+export REGION=
 ```
 ```
 curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/App%20Engine%20Qwik%20Start%20-%20Python/gsp067.sh
