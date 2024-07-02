@@ -1,4 +1,4 @@
-# [Caching Content with Cloud CDN](https://www.cloudskillsboost.google/focuses/57558?parent=catalog) ||
+# [Caching Content with Cloud CDN](https://www.cloudskillsboost.google/focuses/57558?parent=catalog)
 
 ## Solution [here]()
 
