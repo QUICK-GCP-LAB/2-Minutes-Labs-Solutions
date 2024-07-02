@@ -4,7 +4,7 @@
 
 ### Run the following Commands in CloudShell
 
-* NOTE: if you get `TASK 4` Instruction to `Delete Null population and country area data` from `oxford_policy_tracker_by_countries table` then restart the lab otherwise you will not get the score for `Task 4`.
+* *NOTE*: if you get `TASK 4` Instruction to `Delete Null population and country area data` from `oxford_policy_tracker_by_countries table` then restart the lab otherwise you will not get the score for `Task 4`.
 
 ```
 curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Build%20a%20Data%20Warehouse%20with%20BigQuery%20Challenge%20Lab/gsp340.sh
