@@ -1,6 +1,6 @@
 # API Gateway: Qwik Start || [GSP872](https://www.cloudskillsboost.google/focuses/17996?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/5Ae2ftnjJfM)
 
 ### Run the following Commands in CloudShell
 
