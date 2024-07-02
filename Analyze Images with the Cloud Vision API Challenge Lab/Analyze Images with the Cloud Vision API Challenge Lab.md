@@ -1,6 +1,6 @@
 # Analyze Images with the Cloud Vision API: Challenge Lab || [ARC122](https://www.cloudskillsboost.google/focuses/64748?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/DFAprBXSma4)
 
 ### Run the following Commands in CloudShell
 
