@@ -1,6 +1,6 @@
 # Build a Data Warehouse with BigQuery: Challenge Lab || [GSP340](https://www.cloudskillsboost.google/focuses/14341?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/8pC4lghToX0)
 
 ### Run the following Commands in CloudShell
 
