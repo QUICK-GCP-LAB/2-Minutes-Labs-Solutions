@@ -26,8 +26,6 @@ export REGION="${ZONE%-*}"
 
 PROJECT_ID=$(gcloud config get project)
 
-gcloud storage buckets create gs://scc-export-bucket-$DEVSHELL_PROJECT_ID --location=$REGION
-
 gcloud compute instances create instance-1 --zone=$ZONE \
 --machine-type e2-micro \
 --scopes=https://www.googleapis.com/auth/cloud-platform
