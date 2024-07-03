@@ -44,7 +44,7 @@ bq query --apilog=/dev/null --use_legacy_sql=false  \
 
 * Set the TABLE NAME to `old_findings`
 
-* Now paste in the following schema
+* Paste the following in Schema
 
 ```
 [   
