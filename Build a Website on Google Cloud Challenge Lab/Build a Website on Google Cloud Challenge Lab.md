@@ -1,6 +1,6 @@
 # Build a Website on Google Cloud: Challenge Lab || [GSP319](https://www.cloudskillsboost.google/focuses/11765?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/R_h7Djbw5jg)
 
 ### Run the following Commands in CloudShell
 
