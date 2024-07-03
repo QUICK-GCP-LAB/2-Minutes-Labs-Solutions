@@ -26,19 +26,18 @@ export REGION="${ZONE%-*}"
 
 PROJECT_ID=$(gcloud config get project)
 
+gcloud storage buckets create gs://scc-export-bucket-$DEVSHELL_PROJECT_ID --location=$REGION
 
 gcloud compute instances create instance-1 --zone=$ZONE \
 --machine-type e2-micro \
 --scopes=https://www.googleapis.com/auth/cloud-platform
 
-
-bq --location=us-east4 --apilog=/dev/null mk --dataset \
+bq --location=$REGION --apilog=/dev/null mk --dataset \
 $PROJECT_ID:continuous_export_dataset
 
 gcloud services enable securitycenter.googleapis.com
 
 gcloud scc bqexports create scc-bq-cont-export --dataset=projects/$PROJECT_ID/datasets/continuous_export_dataset --project=$PROJECT_ID
-
 
 for i in {0..2}; do
 gcloud iam service-accounts create sccp-test-sa-$i;
