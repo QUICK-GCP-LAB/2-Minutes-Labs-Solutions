@@ -34,7 +34,7 @@ bq query --apilog=/dev/null --use_legacy_sql=false  \
 "SELECT finding_id,event_time,finding.category FROM continuous_export_dataset.findings"
 ```
 
-* `Note`: It may take `10+ minutes` for these findings to be generated. Rerun the above command if you don't receive a similar output.
+#### Note: It may take `10+ minutes` for these findings to be generated. Rerun the above command if you don't receive a similar output.
 
 * Now go to `Export findings to Cloud Storage` from [here](https://console.cloud.google.com/security/command-center/export)
 
