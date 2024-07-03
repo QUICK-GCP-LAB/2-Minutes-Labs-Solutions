@@ -1,6 +1,6 @@
 # [Caching Content with Cloud CDN](https://www.cloudskillsboost.google/focuses/57558?parent=catalog)
 
-## Solution [here]()
+## Solution [here](https://youtu.be/dhZ2AM2h-QM)
 
 ### Run the following Commands in CloudShell
 
