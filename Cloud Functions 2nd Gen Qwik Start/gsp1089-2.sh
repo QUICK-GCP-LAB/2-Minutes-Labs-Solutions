@@ -56,8 +56,6 @@ gcloud run deploy slow-concurrent-function \
 --project=$DEVSHELL_PROJECT_ID \
  && gcloud run services update-traffic slow-concurrent-function --to-latest --region=$REGION
 
-echo "https://console.cloud.google.com/run/deploy/$REGION/slow-concurrent-function?project=$DEVSHELL_PROJECT_ID"
-
-echo "${BG_RED}${BOLD}Congratulations For Completing The Lab !!!${RESET}"
+echo "${CYAN}${BOLD}Click here: "${RESET}""${BLUE}${BOLD}"https://console.cloud.google.com/run/deploy/$REGION/slow-concurrent-function?project=$DEVSHELL_PROJECT_ID""${RESET}"
 
 #-----------------------------------------------------end----------------------------------------------------------#
