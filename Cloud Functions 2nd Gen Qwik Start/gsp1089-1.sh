@@ -63,7 +63,7 @@ EOF_END
 deploy_function() {
   gcloud functions deploy nodejs-http-function \
     --gen2 \
-    --runtime nodejs16 \
+    --runtime nodejs18 \
     --entry-point helloWorld \
     --source . \
     --region $REGION \
@@ -130,7 +130,7 @@ gsutil mb -l $REGION $BUCKET
 deploy_function () {
 gcloud functions deploy nodejs-storage-function \
   --gen2 \
-  --runtime nodejs16 \
+  --runtime nodejs18 \
   --entry-point helloStorage \
   --source . \
   --region $REGION \
@@ -180,7 +180,7 @@ cd ~/eventarc-samples/gce-vm-labeler/gcf/nodejs
 
 gcloud functions deploy gce-vm-labeler \
   --gen2 \
-  --runtime nodejs16 \
+  --runtime nodejs18 \
   --entry-point labelVmCreation \
   --source . \
   --region $REGION \
@@ -243,7 +243,7 @@ echo "module example.com/mod" > go.mod
 
 gcloud functions deploy slow-function \
   --gen2 \
-  --runtime go116 \
+  --runtime go118 \
   --entry-point HelloWorld \
   --source . \
   --region $REGION \
