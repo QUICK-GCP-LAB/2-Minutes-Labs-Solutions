@@ -82,7 +82,7 @@ while true; do
     break
   else
     echo "Waiting for Cloud Functions to be created..."
-    sleep 10
+    sleep 30
   fi
 done
 
