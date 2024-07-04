@@ -78,10 +78,10 @@ while true; do
 
   # Check if Cloud Run service is created
   if gcloud functions describe helloWorld --format="value(state)" > /dev/null 2>&1; then
-    echo "Cloud Run service is created. Exiting the loop."
+    echo "Cloud Functions is created. Exiting the loop."
     break
   else
-    echo "Waiting for Cloud Run service to be created..."
+    echo "Waiting for Cloud Functions to be created..."
     sleep 10
   fi
 done
