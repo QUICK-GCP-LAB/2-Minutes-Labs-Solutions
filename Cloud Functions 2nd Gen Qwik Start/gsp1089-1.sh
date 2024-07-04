@@ -243,7 +243,7 @@ echo "module example.com/mod" > go.mod
 
 gcloud functions deploy slow-function \
   --gen2 \
-  --runtime go118 \
+  --runtime go116 \
   --entry-point HelloWorld \
   --source . \
   --region $REGION \
