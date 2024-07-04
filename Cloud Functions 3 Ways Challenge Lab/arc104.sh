@@ -89,7 +89,7 @@ while true; do
   deploy_function
 
   # Check if Cloud Run service is created
-  if gcloud functions describe helloWorld --region $REGION --format="value(state)" > /dev/null 2>&1; then
+  if gcloud run services describe $FUNCTION_NAME --region $REGION &> /dev/null; then
     echo "Cloud Run service is created. Exiting the loop."
     break
   else
