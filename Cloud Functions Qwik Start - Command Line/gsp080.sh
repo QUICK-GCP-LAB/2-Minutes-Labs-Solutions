@@ -60,21 +60,31 @@ gcloud projects add-iam-policy-binding $DEVSHELL_PROJECT_ID \
 --member="serviceAccount:$DEVSHELL_PROJECT_ID@appspot.gserviceaccount.com" \
 --role="roles/artifactregistry.reader"
 
-sleep 60
+sleep 20
 
+deploy_function() {
   gcloud functions deploy helloWorld \
   --stage-bucket gs://$DEVSHELL_PROJECT_ID \
   --trigger-topic hello_world \
   --runtime nodejs20 \
     --quiet
+}
 
-sleep 60
 
-gcloud functions deploy helloWorld \
-  --stage-bucket gs://$DEVSHELL_PROJECT_ID \
-  --trigger-topic hello_world \
-  --runtime nodejs20 \
-    --quiet
+# Loop until the Cloud Run service is created
+while true; do
+  # Run the deployment command
+  deploy_function
+
+  # Check if Cloud Run service is created
+  if gcloud functions describe helloWorld --region $REGION --format="value(state)" > /dev/null 2>&1; then
+    echo "Cloud Run service is created. Exiting the loop."
+    break
+  else
+    echo "Waiting for Cloud Run service to be created..."
+    sleep 10
+  fi
+done
 
 echo "${BG_RED}${BOLD}Congratulations For Completing The Lab !!!${RESET}"
 
