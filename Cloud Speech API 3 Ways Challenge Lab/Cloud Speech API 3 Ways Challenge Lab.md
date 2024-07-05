@@ -8,6 +8,9 @@
 export ZONE=$(gcloud compute instances list lab-vm --format 'csv[no-heading](zone)')
 gcloud compute ssh lab-vm --project=$DEVSHELL_PROJECT_ID --zone=$ZONE --quiet
 ```
+
+Go to `Credentials` from [here](https://console.cloud.google.com/apis/credentials)
+
 ```
 API_KEY=
 task_2_file_name=""
