@@ -17,6 +17,8 @@ sudo chmod +x gsp089.sh
 
 * Go to `Create Uptime Check` from [here](https://console.cloud.google.com/monitoring/uptime/create?)
 
+* For Title, type `Lamp Uptime Check`.
+
 ### Congratulations 🎉 for completing the Challenge Lab !
 
 ##### *You Have Successfully Demonstrated Your Skills And Determination.*
