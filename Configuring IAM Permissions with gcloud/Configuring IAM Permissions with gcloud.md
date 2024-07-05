@@ -49,7 +49,7 @@ sudo chmod +x gsp647-3.sh
 ./gsp647-3.sh
 ```
 
-### Congratulations 🎉 for completing the Challenge Lab !
+### Congratulations 🎉 for completing the Lab !
 
 ##### *You Have Successfully Demonstrated Your Skills And Determination.*
 

@@ -27,7 +27,7 @@ sudo chmod +x shell-2.sh
 ./shell-2.sh
 ```
 
-### Congratulations 🎉 for completing the Challenge Lab !
+### Congratulations 🎉 for completing the Lab !
 
 ##### *You Have Successfully Demonstrated Your Skills And Determination.*
 

@@ -12,7 +12,7 @@ sudo chmod +x gsp1050.sh
 ./gsp1050.sh
 ```
 
-### Congratulations 🎉 for completing the Challenge Lab !
+### Congratulations 🎉 for completing the Lab !
 
 ##### *You Have Successfully Demonstrated Your Skills And Determination.*
 

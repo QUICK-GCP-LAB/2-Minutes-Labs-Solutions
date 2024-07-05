@@ -35,7 +35,7 @@ sudo chmod +x gsp1089-2.sh
 ./gsp1089-2.sh
 ```
 
-### Congratulations 🎉 for completing the Challenge Lab !
+### Congratulations 🎉 for completing the Lab !
 
 ##### *You Have Successfully Demonstrated Your Skills And Determination.*
 

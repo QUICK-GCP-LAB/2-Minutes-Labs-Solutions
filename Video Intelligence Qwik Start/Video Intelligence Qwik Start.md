@@ -12,7 +12,7 @@ sudo chmod +x gsp154.sh
 ./gsp154.sh
 ```
 
-### Congratulations 🎉 for completing the Challenge Lab !
+### Congratulations 🎉 for completing the Lab !
 
 ##### *You Have Successfully Demonstrated Your Skills And Determination.*
 

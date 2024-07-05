@@ -12,7 +12,7 @@ sudo chmod +x gsp401.sh
 ./gsp401.sh
 ```
 
-### Congratulations 🎉 for completing the Challenge Lab !
+### Congratulations 🎉 for completing the Lab !
 
 ##### *You Have Successfully Demonstrated Your Skills And Determination.*
 

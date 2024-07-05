@@ -14,7 +14,7 @@ sudo chmod +x gsp003.sh
 ./gsp003.sh
 ```
 
-### Congratulations 🎉 for completing the Challenge Lab !
+### Congratulations 🎉 for completing the Lab !
 
 ##### *You Have Successfully Demonstrated Your Skills And Determination.*
 

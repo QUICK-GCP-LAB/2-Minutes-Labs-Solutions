@@ -24,7 +24,7 @@ sudo chmod +x gsp924.sh
 ./gsp924.sh
 ```
 
-### Congratulations 🎉 for completing the Challenge Lab !
+### Congratulations 🎉 for completing the Lab !
 
 ##### *You Have Successfully Demonstrated Your Skills And Determination.*
 

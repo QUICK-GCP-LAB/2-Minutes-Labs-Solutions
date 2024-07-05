@@ -19,7 +19,7 @@ sudo chmod +x gsp089.sh
 
 * For Title, type `Lamp Uptime Check`.
 
-### Congratulations 🎉 for completing the Challenge Lab !
+### Congratulations 🎉 for completing the Lab !
 
 ##### *You Have Successfully Demonstrated Your Skills And Determination.*
 

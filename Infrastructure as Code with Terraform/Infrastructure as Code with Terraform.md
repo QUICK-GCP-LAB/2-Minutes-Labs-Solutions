@@ -15,7 +15,7 @@ sudo chmod +x gsp750.sh
 ./gsp750.sh
 ```
 
-### Congratulations 🎉 for completing the Challenge Lab !
+### Congratulations 🎉 for completing the Lab !
 
 ##### *You Have Successfully Demonstrated Your Skills And Determination.*
 
