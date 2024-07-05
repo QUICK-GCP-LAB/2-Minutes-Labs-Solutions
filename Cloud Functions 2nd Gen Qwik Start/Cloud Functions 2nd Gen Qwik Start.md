@@ -1,6 +1,6 @@
 # Cloud Functions 2nd Gen: Qwik Start || [GSP1089](https://www.cloudskillsboost.google/focuses/49757?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/WWFzCrPHsCk)
 
 * Go to `Audit Logs` from [here](https://console.cloud.google.com/iam-admin/audit?)
 
