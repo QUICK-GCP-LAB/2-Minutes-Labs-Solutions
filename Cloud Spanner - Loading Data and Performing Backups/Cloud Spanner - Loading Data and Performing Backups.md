@@ -12,6 +12,8 @@ sudo chmod +x gsp1049.sh
 ./gsp1049.sh
 ```
 
+* Go to `Dataflow` from [here](https://console.cloud.google.com/dataflow?)
+
 ### Congratulations 🎉 for completing the Lab !
 
 ##### *You Have Successfully Demonstrated Your Skills And Determination.*
