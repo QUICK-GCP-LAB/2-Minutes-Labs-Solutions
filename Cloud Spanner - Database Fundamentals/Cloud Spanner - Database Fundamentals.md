@@ -1,6 +1,6 @@
 # Cloud Spanner - Database Fundamentals || [GSP1048](https://www.cloudskillsboost.google/focuses/54352?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/BuJqjHUCRoU)
 
 ### Run the following Commands in CloudShell
 
