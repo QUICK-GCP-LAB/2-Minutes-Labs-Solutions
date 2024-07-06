@@ -1,6 +1,6 @@
 # Cloud Spanner - Defining Schemas and Understanding Query Plans || [GSP1050](https://www.cloudskillsboost.google/focuses/54353?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/OBMGgjSIiGo)
 
 ### Run the following Commands in CloudShell
 
