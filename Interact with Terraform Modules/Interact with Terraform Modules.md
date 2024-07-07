@@ -1,6 +1,6 @@
 # Interact with Terraform Modules || [GSP751](https://www.cloudskillsboost.google/focuses/15836?parent=catalog) ||
 
-## Solution [here](https://youtu.be/Q5-9pV2CuGw)
+## Solution [here](https://youtu.be/BdcuKi-oTA4)
 
 ### Run the following Commands in CloudShell
 
