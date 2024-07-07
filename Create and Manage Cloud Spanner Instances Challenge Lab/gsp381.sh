@@ -43,7 +43,6 @@ gcloud spanner databases ddl update banking-ops-db --instance=banking-ops-instan
     PortfolioInfo STRING(MAX))
     PRIMARY KEY (CategoryId)"
 
-
 gcloud spanner databases ddl update banking-ops-db --instance=banking-ops-instance --ddl="CREATE TABLE Product (
     ProductId INT64 NOT NULL,
     CategoryId INT64 NOT NULL,
@@ -53,13 +52,11 @@ gcloud spanner databases ddl update banking-ops-db --instance=banking-ops-instan
     ProductClass STRING(25))
     PRIMARY KEY (ProductId)"
 
-
 gcloud spanner databases ddl update banking-ops-db --instance=banking-ops-instance --ddl="CREATE TABLE Customer (
     CustomerId STRING(36) NOT NULL,
     Name STRING(MAX) NOT NULL,
     Location STRING(MAX) NOT NULL)
     PRIMARY KEY (CustomerId)"
-
 
 gcloud spanner databases execute-sql banking-ops-db --instance=banking-ops-instance --sql='INSERT INTO Portfolio (PortfolioId, Name, ShortName, PortfolioInfo)
 VALUES 
@@ -67,14 +64,12 @@ VALUES
   (2, "Asset Growth", "AsstGrwth", "All Asset Focused Products"),
   (3, "Insurance", "Insurance", "All Insurance Focused Products")'
 
-
 gcloud spanner databases execute-sql banking-ops-db --instance=banking-ops-instance --sql='INSERT INTO Category (CategoryId, PortfolioId, CategoryName)
 VALUES 
   (1, 1, "Cash"),
   (2, 2, "Investments - Short Return"),
   (3, 2, "Annuities"),
   (4, 3, "Life Insurance")'
-
 
 gcloud spanner databases execute-sql banking-ops-db --instance=banking-ops-instance --sql='INSERT INTO Product (ProductId, CategoryId, PortfolioId, ProductName, ProductAssetCode, ProductClass)
 VALUES 
