@@ -30,6 +30,7 @@ PROJECT_NUMBER=$(gcloud projects describe $DEVSHELL_PROJECT_ID --format='value(p
 PROJECT_ID=$(gcloud config get-value project)
 
 BUCKET_SERVICE_ACCOUNT="${PROJECT_ID}@${PROJECT_ID}.iam.gserviceaccount.com"
+
 gcloud services enable \
   artifactregistry.googleapis.com \
   cloudfunctions.googleapis.com \
