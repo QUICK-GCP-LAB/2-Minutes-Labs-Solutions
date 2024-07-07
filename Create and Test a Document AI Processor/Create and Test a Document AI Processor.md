@@ -2,16 +2,16 @@
 
 ## Solution [here]()
 
-* Go to `Cloud Document AI API` from [here](https://console.cloud.google.com/marketplace/product/google/documentai.googleapis.com)
-
-* Go to `Document AI` from [here](https://console.cloud.google.com/ai/document-ai?)
-
 ### Run the following Commands in CloudShell
 
 ```
+gcloud services enable documentai.googleapis.com
 export ZONE=$(gcloud compute instances list document-ai-dev --format 'csv[no-heading](zone)')
 gcloud compute ssh document-ai-dev --project=$DEVSHELL_PROJECT_ID --zone=$ZONE --quiet
 ```
+
+* Go to `Document AI` from [here](https://console.cloud.google.com/ai/document-ai?)
+
 ```
 export PROCESSOR_ID=
 ```
