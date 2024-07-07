@@ -12,6 +12,8 @@ gcloud compute ssh document-ai-dev --project=$DEVSHELL_PROJECT_ID --zone=$ZONE -
 
 * Go to `Document AI` from [here](https://console.cloud.google.com/ai/document-ai?)
 
+* Specify the processor name as `form-parser`
+
 ```
 export PROCESSOR_ID=
 ```
