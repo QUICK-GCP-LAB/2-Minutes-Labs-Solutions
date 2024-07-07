@@ -23,11 +23,20 @@ BOLD=`tput bold`
 RESET=`tput sgr0`
 #----------------------------------------------------start--------------------------------------------------#
 
-echo "${YELLOW}${BOLD}Starting${RESET}" "${GREEN}${BOLD}Execution${RESET}"
+echo "${BG_MAGENTA}${BOLD}Starting Execution${RESET}"
+
+gcloud services enable \
+  artifactregistry.googleapis.com \
+  cloudfunctions.googleapis.com \
+  cloudbuild.googleapis.com \
+  eventarc.googleapis.com \
+  run.googleapis.com \
+  logging.googleapis.com \
+  pubsub.googleapis.com
 
 gcloud config set compute/region $REGION
 
-gsutil mb -p $DEVSHELL_PROJECT_ID gs://$BUCKET_NAME
+gsutil mb -l $REGION gs://$BUCKET_NAME
 
 gcloud projects add-iam-policy-binding $DEVSHELL_PROJECT_ID --member=user:$BUCKET_USER --role=roles/storage.objectViewer
 
@@ -135,34 +144,36 @@ gcloud projects add-iam-policy-binding $PROJECT_ID \
   --member serviceAccount:$SERVICE_ACCOUNT \
   --role roles/artifactregistry.reader
 
-sleep 120
+sleep 60
 
-export PROJECT_ID=$(gcloud config get-value project)
-PROJECT_NUMBER=$(gcloud projects list --filter="project_id:$PROJECT_ID" --format='value(project_number)')
-SERVICE_ACCOUNT=$(gsutil kms serviceaccount -p $PROJECT_NUMBER)
+deploy_function() {
+    gcloud functions deploy $FUNCTION_NAME \
+    --gen2 \
+    --runtime nodejs20 \
+    --trigger-resource $BUCKET_NAME \
+    --trigger-event google.storage.object.finalize \
+    --entry-point thumbnail \
+    --region=$REGION \
+    --source . \
+    --quiet
+}
 
-gcloud projects add-iam-policy-binding $PROJECT_ID \
-  --member serviceAccount:$SERVICE_ACCOUNT \
-  --role roles/artifactregistry.reader
+SERVICE_NAME="$FUNCTION_NAME"
 
-sleep 120
+# Loop until the Cloud Run service is created
+while true; do
+  # Run the deployment command
+  deploy_function
 
-cd lol
-
-export PROJECT_ID=$(gcloud config get-value project)
-PROJECT_NUMBER=$(gcloud projects list --filter="project_id:$PROJECT_ID" --format='value(project_number)')
-SERVICE_ACCOUNT=$(gsutil kms serviceaccount -p $PROJECT_NUMBER)
-
-gcloud projects add-iam-policy-binding $PROJECT_ID \
-  --member serviceAccount:$SERVICE_ACCOUNT \
-  --role roles/artifactregistry.reader
-
-gcloud functions deploy $FUNCTION_NAME \
---runtime=nodejs14 \
---region=$REGION \
---source=. \
---entry-point=thumbnail \
---trigger-bucket $BUCKET_NAME 
+  # Check if Cloud Run service is created
+  if gcloud run services describe $SERVICE_NAME --region $REGION &> /dev/null; then
+    echo "Cloud Run service is created. Exiting the loop."
+    break
+  else
+    echo "Waiting for Cloud Run service to be created..."
+    sleep 10
+  fi
+done
 
 wget https://storage.googleapis.com/cloud-training/arc101/travel.jpg
 
@@ -205,29 +216,6 @@ EOF_END
 
 gcloud alpha monitoring policies create --policy-from-file="app-engine-error-percent-policy.json"
 
-sleep 400
-
-cd lol
-
-export PROJECT_ID=$(gcloud config get-value project)
-PROJECT_NUMBER=$(gcloud projects list --filter="project_id:$PROJECT_ID" --format='value(project_number)')
-SERVICE_ACCOUNT=$(gsutil kms serviceaccount -p $PROJECT_NUMBER)
-
-gcloud projects add-iam-policy-binding $PROJECT_ID \
-  --member serviceAccount:$SERVICE_ACCOUNT \
-  --role roles/artifactregistry.reader
-
-gcloud functions deploy $FUNCTION_NAME \
---runtime=nodejs14 \
---region=$REGION \
---source=. \
---entry-point=thumbnail \
---trigger-bucket $BUCKET_NAME 
-
-wget https://storage.googleapis.com/cloud-training/arc101/travel.jpg
-
-gsutil cp travel.jpg gs://$BUCKET_NAME
-
-echo "${RED}${BOLD}Congratulations${RESET}" "${WHITE}${BOLD}for${RESET}" "${GREEN}${BOLD}Completing the Lab !!!${RESET}"
+echo "${BG_RED}${BOLD}Congratulations For Completing The Lab !!!${RESET}"
 
 #-----------------------------------------------------end----------------------------------------------------------#
