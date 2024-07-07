@@ -29,8 +29,7 @@ gcloud services enable datacatalog.googleapis.com
 
 bq mk demo_dataset
 
-bq cp bigquery-public-data:new_york_taxi_trips.tlc_yellow_trips_2018 $(gcloud config 
-get project):demo_dataset.trips
+bq cp bigquery-public-data:new_york_taxi_trips.tlc_yellow_trips_2018 $(gcloud config get project):demo_dataset.trips
 
 gcloud data-catalog tag-templates create demo_tag_template \
     --location=$LOCATION \
