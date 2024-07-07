@@ -78,6 +78,14 @@ python3 synchronous_doc_ai.py \
 --location=us \
 --file_name=health-intake-form.pdf | tee results.txt
 
+export LOCATION="us"
+export PROJECT_ID=$(gcloud config get-value core/project)
+curl -X POST \
+-H "Authorization: Bearer "$(gcloud auth application-default print-access-token) \
+-H "Content-Type: application/json; charset=utf-8" \
+-d @request.json \
+https://${LOCATION}-documentai.googleapis.com/v1beta3/projects/${PROJECT_ID}/locations/${LOCATION}/processors/${PROCESSOR_ID}:process > output.json
+
 echo "${BG_RED}${BOLD}Congratulations For Completing The Lab !!!${RESET}"
 
 #-----------------------------------------------------end----------------------------------------------------------#
