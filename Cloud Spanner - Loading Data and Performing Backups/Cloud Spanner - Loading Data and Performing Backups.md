@@ -1,6 +1,6 @@
 # Cloud Spanner - Loading Data and Performing Backups || [GSP1049](https://www.cloudskillsboost.google/focuses/54354?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/btBB7bnSam0)
 
 ### Run the following Commands in CloudShell
 
