@@ -23,6 +23,33 @@ BOLD=`tput bold`
 RESET=`tput sgr0`
 #----------------------------------------------------start--------------------------------------------------#
 
+echo "${BG_MAGENTA}${BOLD}Starting Execution${RESET}"
+
+#!/bin/bash
+# Define color variables
+
+BLACK=`tput setaf 0`
+RED=`tput setaf 1`
+GREEN=`tput setaf 2`
+YELLOW=`tput setaf 3`
+BLUE=`tput setaf 4`
+MAGENTA=`tput setaf 5`
+CYAN=`tput setaf 6`
+WHITE=`tput setaf 7`
+
+BG_BLACK=`tput setab 0`
+BG_RED=`tput setab 1`
+BG_GREEN=`tput setab 2`
+BG_YELLOW=`tput setab 3`
+BG_BLUE=`tput setab 4`
+BG_MAGENTA=`tput setab 5`
+BG_CYAN=`tput setab 6`
+BG_WHITE=`tput setab 7`
+
+BOLD=`tput bold`
+RESET=`tput sgr0`
+#----------------------------------------------------start--------------------------------------------------#
+
 echo "${YELLOW}${BOLD}Starting${RESET}" "${GREEN}${BOLD}Execution${RESET}"
 
 export CLUSTER=hello-cluster
@@ -107,10 +134,9 @@ git branch dev
 git checkout dev
 git push -u origin dev
 
-#TASK 3
-
 gcloud builds triggers create cloud-source-repositories \
     --name="sample-app-prod-deploy" \
+    --service-account="projects/$PROJECT_ID/serviceAccounts/$PROJECT_ID@$PROJECT_ID.iam.gserviceaccount.com" \
     --description="Cloud Build Trigger for production deployment" \
     --repo="sample-app" \
     --branch-pattern="^master$" \
@@ -118,20 +144,17 @@ gcloud builds triggers create cloud-source-repositories \
 
 gcloud builds triggers create cloud-source-repositories \
     --name="sample-app-dev-deploy" \
+    --service-account="projects/$PROJECT_ID/serviceAccounts/$PROJECT_ID@$PROJECT_ID.iam.gserviceaccount.com" \
     --description="Cloud Build Trigger for development deployment" \
     --repo="sample-app" \
     --branch-pattern="^dev$" \
     --build-config="cloudbuild-dev.yaml"
 
-#TASK 4:-
-
 COMMIT_ID="$(git rev-parse --short=7 HEAD)"
 gcloud builds submit --tag="${REGION}-docker.pkg.dev/${PROJECT_ID}/$REPO/hello-cloudbuild:${COMMIT_ID}" .
 
-# Capture the IMAGES value into a variable
 EXPORTED_IMAGE="$(gcloud builds submit --tag="${REGION}-docker.pkg.dev/${PROJECT_ID}/$REPO/hello-cloudbuild:${COMMIT_ID}" . | grep IMAGES | awk '{print $2}')"
 
-# Print the value of the variable
 echo "EXPORTED_IMAGE: ${EXPORTED_IMAGE}"
 
 git checkout dev
@@ -146,7 +169,7 @@ git add .
 git commit -m "Awesome Lab" 
 git push -u origin dev
 
-sleep 10
+sleep 70
 
 git checkout master
 
@@ -162,10 +185,9 @@ git add .
 git commit -m "Awesome Lab" 
 git push -u origin master
 
-sleep 10
+sleep 70
 
 kubectl expose deployment production-deployment -n prod --name=prod-deployment-service --type=LoadBalancer --port 8080 --target-port 8080
-#TASK 5:
 
 git checkout dev
 
@@ -210,51 +232,15 @@ sed -i "16c\    args: ['push', '$REGION-docker.pkg.dev/\$PROJECT_ID/my-repositor
 
 sed -i "17c\        image: $REGION-docker.pkg.dev/$PROJECT_ID/my-repository/hello-cloudbuild:v2.0" prod/deployment.yaml
 
-
 git add .
 git commit -m "Awesome Lab" 
 git push -u origin master
 
+sleep 70
+
+kubectl -n prod rollout undo deployment/production-deployment
 
 kubectl -n prod get pods -o jsonpath --template='{range .items[*]}{.metadata.name}{"\t"}{"\t"}{.spec.containers[0].image}{"\n"}{end}'
-kubectl expose deployment production-deployment -n prod --name=prod-deployment-service --type=LoadBalancer --port 8080 --target-port 8080
-
-NAMESPACE="prod"
-DEPLOYMENT_NAME="production-deployment"
-SERVICE_NAME="prod-deployment-service"
-PORT=8080
-TARGET_PORT=8080
-
-# Function to expose the deployment and check if it succeeded
-expose_deployment() {
-  kubectl expose deployment $DEPLOYMENT_NAME -n $NAMESPACE --name=$SERVICE_NAME --type=LoadBalancer --port=$PORT --target-port=$TARGET_PORT
-  return $?
-}
-
-# Loop until the expose command succeeds
-until expose_deployment; do
-  echo "Failed to expose deployment. Retrying in 5 seconds..."
-  sleep 5
-done
-
-echo "Successfully exposed the deployment."
-
-# Undo the deployment rollout
-kubectl -n $NAMESPACE rollout undo deployment/$DEPLOYMENT_NAME
-
-if [ $? -eq 0 ]; then
-  echo "Successfully rolled back the deployment."
-else
-  echo "Failed to roll back the deployment."
-fi
-
-sleep 100
-kubectl -n $NAMESPACE rollout undo deployment/$DEPLOYMENT_NAME
-sleep 60
-kubectl -n $NAMESPACE rollout undo deployment/$DEPLOYMENT_NAME
-
-cd sample-app
-kubectl -n prod rollout undo deployment/production-deployment
 
 echo "${RED}${BOLD}Congratulations${RESET}" "${WHITE}${BOLD}for${RESET}" "${GREEN}${BOLD}Completing the Lab !!!${RESET}"
 
