@@ -1,6 +1,6 @@
 # Create and Test a Document AI Processor || [GSP924](https://www.cloudskillsboost.google/focuses/21028?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/zcpvgPBgKPw)
 
 ### Run the following Commands in CloudShell
 
