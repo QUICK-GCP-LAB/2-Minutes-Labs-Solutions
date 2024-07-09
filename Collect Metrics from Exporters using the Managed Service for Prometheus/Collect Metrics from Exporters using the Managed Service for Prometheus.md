@@ -1,6 +1,6 @@
 # Collect Metrics from Exporters using the Managed Service for Prometheus || [GSP1026](https://www.cloudskillsboost.google/focuses/33340?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/k4MtUNfkY6Y)
 
 ### Run the following Commands in CloudShell
 
