@@ -1,6 +1,6 @@
 # Creating Permanent Tables and Access-Controlled Views in BigQuery || [GSP410](https://www.cloudskillsboost.google/focuses/3690?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/mN--j-DGSqA)
 
 ### Run the following Commands in CloudShell
 
