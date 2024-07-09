@@ -1,6 +1,6 @@
 # Create and Manage Cloud Spanner Instances: Challenge Lab || [GSP381](https://www.cloudskillsboost.google/focuses/54357?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/ZURE1v6n7rw)
 
 ### Run the following Commands in CloudShell
 
