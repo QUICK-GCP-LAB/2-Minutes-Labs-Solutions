@@ -7,7 +7,6 @@
 ### Assign Veriables
 ```
 export INSTANCE=
-export PORT_NO=
 export FIREWALL=
 export ZONE=
 ```
