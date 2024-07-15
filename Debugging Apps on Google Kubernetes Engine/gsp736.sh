@@ -43,6 +43,8 @@ gcloud logging metrics create Error_Rate_SLI \
   --description="awesome lab" \
   --log-filter="resource.type=\"k8s_container\" severity=ERROR labels.\"k8s-pod/app\": \"recommendationservice\"" 
 
+sleep 30
+
 cat > awesome.json <<EOF_END
 {
   "displayName": "Error Rate SLI",
