@@ -1,4 +1,4 @@
-# Dataproc: Qwik Start - Console || [GSP104](https://www.cloudskillsboost.google/focuses/586?parent=catalog) ||
+# Dataproc: Qwik Start - Console || [GSP103](https://www.cloudskillsboost.google/focuses/586?parent=catalog) ||
 
 ## Solution [here]()
 
