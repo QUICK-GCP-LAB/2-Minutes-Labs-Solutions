@@ -1,6 +1,6 @@
 # Dataproc: Qwik Start - Console || [GSP103](https://www.cloudskillsboost.google/focuses/586?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/GOAXZc8Ve58)
 
 ### Run the following Commands in CloudShell
 
