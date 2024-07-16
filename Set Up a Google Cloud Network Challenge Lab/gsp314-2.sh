@@ -20,7 +20,7 @@ BOLD=`tput bold`
 RESET=`tput sgr0`
 #----------------------------------------------------start--------------------------------------------------#
 
-echo "${YELLOW}${BOLD}Starting${RESET}" "${GREEN}${BOLD}Execution${RESET}"
+echo "${BG_MAGENTA}${BOLD}Starting Execution${RESET}"
 
 gcloud compute networks create $VPC_NAME --project=$DEVSHELL_PROJECT_ID --subnet-mode=custom --mtu=1460 --bgp-routing-mode=regional
 
@@ -35,6 +35,9 @@ gcloud compute --project=$DEVSHELL_PROJECT_ID firewall-rules create $FIREWALL_2 
 gcloud compute --project=$DEVSHELL_PROJECT_ID firewall-rules create $FIREWALL_3 --direction=INGRESS --priority=65535 --network=$VPC_NAME --action=ALLOW --rules=icmp --source-ranges=0.0.0.0/0
 
 bq mk gke_app_errors_sink
+
+gcloud logging sinks create $SINK_NAME bigquery.googleapis.com/projects/$DEVSHELL_PROJECT_ID/datasets/gke_app_errors_sink --log-filter='resource.type=resource.labels.container_name;
+severity=ERROR'
 
 echo "${YELLOW}${BOLD}NOW${RESET}" "${WHITE}${BOLD}FOLLOW${RESET}" "${GREEN}${BOLD}VIDEO'S INSTRUCTIONS${RESET}"
 

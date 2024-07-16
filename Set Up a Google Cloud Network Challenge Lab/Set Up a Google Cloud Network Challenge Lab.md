@@ -169,7 +169,7 @@ echo $VM_INT_IP
 
 * Go to [IAM](https://console.cloud.google.com/iam-admin/iam) and follow [Video's](https://youtu.be/kG0HpV05nlk) instructions
 
-### Task 3: Create networks and firewalls
+### Task 3: Create networks and firewalls & Task 4: Troubleshoot and fix a broken GKE cluster
 
 * Note: For this task, you will need to log in to the `Cymbal Project` with the `Cymbal Owner credentials`.
 
@@ -193,22 +193,6 @@ curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/S
 sudo chmod +x gsp314-2.sh
 
 ./gsp314-2.sh
-```
-
-### Task 4: Troubleshoot and fix a broken GKE cluster
-
-```
-gcloud logging sinks create $SINK_NAME bigquery.googleapis.com/projects/$DEVSHELL_PROJECT_ID/datasets/gke_app_errors_sink --log-filter='resource.type=resource.labels.container_name;
-severity=ERROR'
-```
-
-* Go to [Create sink](https://console.cloud.google.com/logs/router/sink)
-
-* Paste the following in `Build inclusion filter`
-
-```
-resource.type=REPLACE HERE;
-severity=ERROR
 ```
 
 * Go to [IAM](https://console.cloud.google.com/iam-admin/iam) and follow [Video's](https://youtu.be/kG0HpV05nlk) instructions
