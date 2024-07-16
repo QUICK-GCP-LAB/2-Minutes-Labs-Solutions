@@ -154,12 +154,14 @@ exit
 exit
 ```
 ```
+export ZONE=$(gcloud compute instances list antern-postgresql-vm --format 'csv[no-heading](zone)')
+
 export VM_INT_IP=$(gcloud compute instances describe antern-postgresql-vm --zone=$ZONE \
   --format='get(networkInterfaces[0].networkIP)')
 echo $VM_INT_IP
 ```
 
-* Go to [CREATE MIGRATION JOB](https://console.cloud.google.com/dbmigration/migrations/create)
+* Go to [Create a migration job](https://console.cloud.google.com/dbmigration/migrations/create)
 
 * Now Follow [Video's](https://youtu.be/kG0HpV05nlk) Instructions
 
@@ -196,7 +198,7 @@ sudo chmod +x gsp314-2.sh
 ### Task 4: Troubleshoot and fix a broken GKE cluster
 
 ```
-gcloud logging sinks create $SINK_NAME bigquery.googleapis.com/projects/$DEVSHELL_PROJECT_ID/datasets/gke_app_errors_sink --log-filter='resource.type=REPLACE_HERE;
+gcloud logging sinks create $SINK_NAME bigquery.googleapis.com/projects/$DEVSHELL_PROJECT_ID/datasets/gke_app_errors_sink --log-filter='resource.type=resource.labels.container_name;
 severity=ERROR'
 ```
 
