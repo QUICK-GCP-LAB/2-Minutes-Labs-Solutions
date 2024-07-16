@@ -28,11 +28,13 @@ gcloud compute networks subnets create $SUBNET_A --project=$DEVSHELL_PROJECT_ID 
 
 gcloud compute networks subnets create $SUBNET_B --project=$DEVSHELL_PROJECT_ID --range=10.10.20.0/24 --stack-type=IPV4_ONLY --network=$VPC_NAME --region=$REGION_B
 
-gcloud compute --project=$DEVSHELL_PROJECT_ID firewall-rules create $FIREWALL_RULE_NAME_1 --direction=INGRESS --priority=65535 --network=$VPC_NAME --action=ALLOW --rules=tcp:22 --source-ranges=0.0.0.0/0
+gcloud compute --project=$DEVSHELL_PROJECT_ID firewall-rules create $FIREWALL_1 --direction=INGRESS --priority=65535 --network=$VPC_NAME --action=ALLOW --rules=tcp:22 --source-ranges=0.0.0.0/0
 
-gcloud compute --project=$DEVSHELL_PROJECT_ID firewall-rules create $FIREWALL_RULE_NAME_2 --direction=INGRESS --priority=65535 --network=$VPC_NAME --action=ALLOW --rules=tcp:3389 --source-ranges=0.0.0.0/0
+gcloud compute --project=$DEVSHELL_PROJECT_ID firewall-rules create $FIREWALL_2 --direction=INGRESS --priority=65535 --network=$VPC_NAME --action=ALLOW --rules=tcp:3389 --source-ranges=0.0.0.0/0
 
-gcloud compute --project=$DEVSHELL_PROJECT_ID firewall-rules create $FIREWALL_RULE_NAME_3 --direction=INGRESS --priority=65535 --network=$VPC_NAME --action=ALLOW --rules=icmp --source-ranges=0.0.0.0/0
+gcloud compute --project=$DEVSHELL_PROJECT_ID firewall-rules create $FIREWALL_3 --direction=INGRESS --priority=65535 --network=$VPC_NAME --action=ALLOW --rules=icmp --source-ranges=0.0.0.0/0
+
+bq mk gke_app_errors_sink
 
 echo "${YELLOW}${BOLD}NOW${RESET}" "${WHITE}${BOLD}FOLLOW${RESET}" "${GREEN}${BOLD}VIDEO'S INSTRUCTIONS${RESET}"
 

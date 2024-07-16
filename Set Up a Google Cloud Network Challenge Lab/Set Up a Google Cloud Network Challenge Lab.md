@@ -4,116 +4,153 @@
 
 ### Task 1: Migrate a stand-alone PostgreSQL database to a Cloud SQL for PostgreSQL instance
 
-1. Enable the [Database Migration API](https://console.cloud.google.com/marketplace/product/google/datamigration.googleapis.com) and the [Service Networking API](https://console.cloud.google.com/marketplace/product/google/servicenetworking.googleapis.com)
-
-2. Go to [VM instances](https://console.cloud.google.com/compute/instances)
-
-3. Click `SSH` next to `antern-postgresql-vm`
-
-### Run the following Commands in `SSH`
-
 ```
-sudo apt install postgresql-13-pglogical
-```
-```
+sudo apt-get update
+sudo apt-get install -y postgresql-13-pglogical
+
 sudo su - postgres -c "gsutil cp gs://cloud-training/gsp918/pg_hba_append.conf ."
 sudo su - postgres -c "gsutil cp gs://cloud-training/gsp918/postgresql_append.conf ."
 sudo su - postgres -c "cat pg_hba_append.conf >> /etc/postgresql/13/main/pg_hba.conf"
 sudo su - postgres -c "cat postgresql_append.conf >> /etc/postgresql/13/main/postgresql.conf"
 sudo systemctl restart postgresql@13-main
-```
-```
 sudo su - postgres
+```
+```
 psql
 ```
 ```
+\set user REPLACE_HERE
+```
+```
 \c postgres;
-CREATE EXTENSION pglogical;
-\c orders;
-CREATE EXTENSION pglogical;
-\c gmemegen_db;
+```
+```
 CREATE EXTENSION pglogical;
 ```
-
-* NOTE: Replace `[MIGRATION ADMINE]` with your `Postgres Migration Username`
-
 ```
-CREATE USER [MIGRATION ADMINE] PASSWORD 'DMS_1s_cool!';
-ALTER DATABASE orders OWNER TO [MIGRATION ADMINE];
-ALTER ROLE [MIGRATION ADMINE] WITH REPLICATION;
-
-\c postgres;
-GRANT USAGE ON SCHEMA pglogical TO [MIGRATION ADMINE];
-GRANT ALL ON SCHEMA pglogical TO [MIGRATION ADMINE];
-GRANT SELECT ON pglogical.tables TO [MIGRATION ADMINE];
-GRANT SELECT ON pglogical.depend TO [MIGRATION ADMINE];
-GRANT SELECT ON pglogical.local_node TO [MIGRATION ADMINE];
-GRANT SELECT ON pglogical.local_sync_status TO [MIGRATION ADMINE];
-GRANT SELECT ON pglogical.node TO [MIGRATION ADMINE];
-GRANT SELECT ON pglogical.node_interface TO [MIGRATION ADMINE];
-GRANT SELECT ON pglogical.queue TO [MIGRATION ADMINE];
-GRANT SELECT ON pglogical.replication_set TO [MIGRATION ADMINE];
-GRANT SELECT ON pglogical.replication_set_seq TO [MIGRATION ADMINE];
-GRANT SELECT ON pglogical.replication_set_table TO [MIGRATION ADMINE];
-GRANT SELECT ON pglogical.sequence_state TO [MIGRATION ADMINE];
-GRANT SELECT ON pglogical.subscription TO [MIGRATION ADMINE];
-
 \c orders;
-GRANT USAGE ON SCHEMA pglogical TO [MIGRATION ADMINE];
-GRANT ALL ON SCHEMA pglogical TO [MIGRATION ADMINE];
-GRANT SELECT ON pglogical.tables TO [MIGRATION ADMINE];
-GRANT SELECT ON pglogical.depend TO [MIGRATION ADMINE];
-GRANT SELECT ON pglogical.local_node TO [MIGRATION ADMINE];
-GRANT SELECT ON pglogical.local_sync_status TO [MIGRATION ADMINE];
-GRANT SELECT ON pglogical.node TO [MIGRATION ADMINE];
-GRANT SELECT ON pglogical.node_interface TO [MIGRATION ADMINE];
-GRANT SELECT ON pglogical.queue TO [MIGRATION ADMINE];
-GRANT SELECT ON pglogical.replication_set TO [MIGRATION ADMINE];
-GRANT SELECT ON pglogical.replication_set_seq TO [MIGRATION ADMINE];
-GRANT SELECT ON pglogical.replication_set_table TO [MIGRATION ADMINE];
-GRANT SELECT ON pglogical.sequence_state TO [MIGRATION ADMINE];
-GRANT SELECT ON pglogical.subscription TO [MIGRATION ADMINE];
-
-GRANT USAGE ON SCHEMA public TO [MIGRATION ADMINE];
-GRANT ALL ON SCHEMA public TO [MIGRATION ADMINE];
-GRANT SELECT ON public.distribution_centers TO [MIGRATION ADMINE];
-GRANT SELECT ON public.inventory_items TO [MIGRATION ADMINE];
-GRANT SELECT ON public.order_items TO [MIGRATION ADMINE];
-GRANT SELECT ON public.products TO [MIGRATION ADMINE];
-GRANT SELECT ON public.users TO [MIGRATION ADMINE];
-
+```
+```
+CREATE EXTENSION pglogical;
+```
+```
+CREATE DATABASE gmemegen_db;
+```
+```
 \c gmemegen_db;
-GRANT USAGE ON SCHEMA pglogical TO [MIGRATION ADMINE];
-GRANT ALL ON SCHEMA pglogical TO [MIGRATION ADMINE];
-GRANT SELECT ON pglogical.tables TO [MIGRATION ADMINE];
-GRANT SELECT ON pglogical.depend TO [MIGRATION ADMINE];
-GRANT SELECT ON pglogical.local_node TO [MIGRATION ADMINE];
-GRANT SELECT ON pglogical.local_sync_status TO [MIGRATION ADMINE];
-GRANT SELECT ON pglogical.node TO [MIGRATION ADMINE];
-GRANT SELECT ON pglogical.node_interface TO [MIGRATION ADMINE];
-GRANT SELECT ON pglogical.queue TO [MIGRATION ADMINE];
-GRANT SELECT ON pglogical.replication_set TO [MIGRATION ADMINE];
-GRANT SELECT ON pglogical.replication_set_seq TO [MIGRATION ADMINE];
-GRANT SELECT ON pglogical.replication_set_table TO [MIGRATION ADMINE];
-GRANT SELECT ON pglogical.sequence_state TO [MIGRATION ADMINE];
-GRANT SELECT ON pglogical.subscription TO [MIGRATION ADMINE];
+```
+```
+CREATE EXTENSION pglogical;
+```
+```
+\l
+```
+```
+CREATE USER :user PASSWORD 'DMS_1s_cool!';
+GRANT ALL PRIVILEGES ON DATABASE orders TO :user;
+ALTER DATABASE orders OWNER TO :user;
+ALTER ROLE :user WITH REPLICATION;
+```
+```
+\c postgres;
+```
+```
+GRANT USAGE ON SCHEMA pglogical TO :user;
+GRANT ALL ON SCHEMA pglogical TO :user;
 
-GRANT USAGE ON SCHEMA public TO [MIGRATION ADMINE];
-GRANT ALL ON SCHEMA public TO [MIGRATION ADMINE];
-GRANT SELECT ON public.meme TO [MIGRATION ADMINE];
+GRANT SELECT ON pglogical.tables TO :user;
+GRANT SELECT ON pglogical.depend TO :user;
+GRANT SELECT ON pglogical.local_node TO :user;
+GRANT SELECT ON pglogical.local_sync_status TO :user;
+GRANT SELECT ON pglogical.node TO :user;
+GRANT SELECT ON pglogical.node_interface TO :user;
+GRANT SELECT ON pglogical.queue TO :user;
+GRANT SELECT ON pglogical.replication_set TO :user;
+GRANT SELECT ON pglogical.replication_set_seq TO :user;
+GRANT SELECT ON pglogical.replication_set_table TO :user;
+GRANT SELECT ON pglogical.sequence_state TO :user;
+GRANT SELECT ON pglogical.subscription TO :user;
+```
+```
+\c orders;
+```
+```
+GRANT USAGE ON SCHEMA pglogical TO :user;
+GRANT ALL ON SCHEMA pglogical TO :user;
 
+GRANT SELECT ON pglogical.tables TO :user;
+GRANT SELECT ON pglogical.depend TO :user;
+GRANT SELECT ON pglogical.local_node TO :user;
+GRANT SELECT ON pglogical.local_sync_status TO :user;
+GRANT SELECT ON pglogical.node TO :user;
+GRANT SELECT ON pglogical.node_interface TO :user;
+GRANT SELECT ON pglogical.queue TO :user;
+GRANT SELECT ON pglogical.replication_set TO :user;
+GRANT SELECT ON pglogical.replication_set_seq TO :user;
+GRANT SELECT ON pglogical.replication_set_table TO :user;
+GRANT SELECT ON pglogical.sequence_state TO :user;
+GRANT SELECT ON pglogical.subscription TO :user;
+```
+```
+GRANT USAGE ON SCHEMA public TO :user;
+GRANT ALL ON SCHEMA public TO :user;
+
+GRANT SELECT ON public.distribution_centers TO :user;
+GRANT SELECT ON public.inventory_items TO :user;
+GRANT SELECT ON public.order_items TO :user;
+GRANT SELECT ON public.products TO :user;
+GRANT SELECT ON public.users TO :user;
+```
+```
+\c gmemegen_db;
+```
+```
+GRANT USAGE ON SCHEMA pglogical TO :user;
+GRANT ALL ON SCHEMA pglogical TO :user;
+
+GRANT SELECT ON pglogical.tables TO :user;
+GRANT SELECT ON pglogical.depend TO :user;
+GRANT SELECT ON pglogical.local_node TO :user;
+GRANT SELECT ON pglogical.local_sync_status TO :user;
+GRANT SELECT ON pglogical.node TO :user;
+GRANT SELECT ON pglogical.node_interface TO :user;
+GRANT SELECT ON pglogical.queue TO :user;
+GRANT SELECT ON pglogical.replication_set TO :user;
+GRANT SELECT ON pglogical.replication_set_seq TO :user;
+GRANT SELECT ON pglogical.replication_set_table TO :user;
+GRANT SELECT ON pglogical.sequence_state TO :user;
+GRANT SELECT ON pglogical.subscription TO :user;
+```
+```
+GRANT USAGE ON SCHEMA public TO :user;
+GRANT ALL ON SCHEMA public TO :user;
+```
+```
 \c orders;
 \dt
-ALTER TABLE public.distribution_centers OWNER TO [MIGRATION ADMINE];
-ALTER TABLE public.inventory_items OWNER TO [MIGRATION ADMINE];
-ALTER TABLE public.order_items OWNER TO [MIGRATION ADMINE];
-ALTER TABLE public.products OWNER TO [MIGRATION ADMINE];
-ALTER TABLE public.users OWNER TO [MIGRATION ADMINE];
+```
+```
+ALTER TABLE public.distribution_centers OWNER TO :user;
+ALTER TABLE public.inventory_items OWNER TO :user;
+ALTER TABLE public.order_items OWNER TO :user;
+ALTER TABLE public.products OWNER TO :user;
+ALTER TABLE public.users OWNER TO :user;
 \dt
-
+```
+```
 ALTER TABLE public.inventory_items ADD PRIMARY KEY(id);
 \q 
+```
+```
 exit
+```
+```
+exit
+```
+```
+export VM_INT_IP=$(gcloud compute instances describe antern-postgresql-vm --zone=$ZONE \
+  --format='get(networkInterfaces[0].networkIP)')
+echo $VM_INT_IP
 ```
 
 * Go to [CREATE MIGRATION JOB](https://console.cloud.google.com/dbmigration/migrations/create)
@@ -137,9 +174,10 @@ export SUBNET_A=
 export REGION_A=
 export SUBNET_B=
 export REGION_B=
-export FIREWALL_RULE_NAME_1=
-export FIREWALL_RULE_NAME_2=
-export FIREWALL_RULE_NAME_3=
+export FIREWALL_1=
+export FIREWALL_2=
+export FIREWALL_3=
+export SINK_NAME=
 ```
 ```
 curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Set%20Up%20a%20Google%20Cloud%20Network%20Challenge%20Lab/gsp314.sh
@@ -150,6 +188,11 @@ sudo chmod +x gsp314.sh
 ```
 
 ### Task 4: Troubleshoot and fix a broken GKE cluster
+
+```
+gcloud logging sinks create $SINK_NAME bigquery.googleapis.com/projects/$DEVSHELL_PROJECT_ID/datasets/gke_app_errors_sink --log-filter='resource.type=REPLACE_HERE;
+severity=ERROR'
+```
 
 * Go to [Create sink](https://console.cloud.google.com/logs/router/sink)
 
