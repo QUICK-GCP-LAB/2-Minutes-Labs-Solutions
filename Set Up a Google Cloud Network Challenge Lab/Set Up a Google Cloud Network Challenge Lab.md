@@ -1,6 +1,6 @@
 # Set Up a Google Cloud Network: Challenge Lab || [GSP314](https://www.cloudskillsboost.google/focuses/10417?parent=catalog) ||
 
-## Solution [here](https://youtu.be/kG0HpV05nlk)
+## Solution [here](https://youtu.be/joyGvSMX-9I)
 
 ### Task 1: Migrate a stand-alone PostgreSQL database to a Cloud SQL for PostgreSQL instance
 ```
@@ -163,11 +163,11 @@ echo $VM_INT_IP
 
 * Go to [Create a migration job](https://console.cloud.google.com/dbmigration/migrations/create)
 
-* Now Follow [Video's](https://youtu.be/kG0HpV05nlk) Instructions
+* Now Follow [Video's](https://youtu.be/joyGvSMX-9I) Instructions
 
 ### Task 2: Update permissions and add IAM roles to users
 
-* Go to [IAM](https://console.cloud.google.com/iam-admin/iam) and follow [Video's](https://youtu.be/kG0HpV05nlk) instructions
+* Go to [IAM](https://console.cloud.google.com/iam-admin/iam) and follow [Video's](https://youtu.be/joyGvSMX-9I) instructions
 
 ### Task 3: Create networks and firewalls & Task 4: Troubleshoot and fix a broken GKE cluster
 
@@ -195,7 +195,7 @@ sudo chmod +x gsp314-2.sh
 ./gsp314-2.sh
 ```
 
-* Go to [IAM](https://console.cloud.google.com/iam-admin/iam) and follow [Video's](https://youtu.be/kG0HpV05nlk) instructions
+* Go to [IAM](https://console.cloud.google.com/iam-admin/iam) and follow [Video's](https://youtu.be/joyGvSMX-9I) instructions
 
 
 ### Congratulations 🎉 for completing the Challenge Lab !
