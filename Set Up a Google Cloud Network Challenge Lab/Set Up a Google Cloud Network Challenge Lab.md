@@ -3,7 +3,13 @@
 ## Solution [here](https://youtu.be/kG0HpV05nlk)
 
 ### Task 1: Migrate a stand-alone PostgreSQL database to a Cloud SQL for PostgreSQL instance
+```
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Set%20Up%20a%20Google%20Cloud%20Network%20Challenge%20Lab/gsp314-1.sh
 
+sudo chmod +x gsp314-1.sh
+
+./gsp314-1.sh
+```
 ```
 sudo apt-get update
 sudo apt-get install -y postgresql-13-pglogical
@@ -180,11 +186,11 @@ export FIREWALL_3=
 export SINK_NAME=
 ```
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Set%20Up%20a%20Google%20Cloud%20Network%20Challenge%20Lab/gsp314.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Set%20Up%20a%20Google%20Cloud%20Network%20Challenge%20Lab/gsp314-2.sh
 
-sudo chmod +x gsp314.sh
+sudo chmod +x gsp314-2.sh
 
-./gsp314.sh
+./gsp314-2.sh
 ```
 
 ### Task 4: Troubleshoot and fix a broken GKE cluster
