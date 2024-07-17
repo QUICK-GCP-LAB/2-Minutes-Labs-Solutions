@@ -49,6 +49,15 @@ gsutil -m cp gs://cloud-training/gsp897/cosmetic-test-data/*.png \
 gs://${PROJECT_ID}/cosmetic-test-data/
 gsutil cp gs://${PROJECT_ID}/cosmetic-test-data/IMG_07703.png .
 
+sudo apt install python3 -y
+sudo apt install python3-pip -y
+sudo apt install python3.11-venv -y 
+python3 -m venv create myvenv
+source myvenv/bin/activate
+pip install absl-py  
+pip install numpy 
+pip install requests
+
 python3 ./prediction_script.py --input_image_file=./IMG_07703.png  --port=8602 --output_result_file=def_prediction_result.json
 
 python3 ./prediction_script.py --input_image_file=./IMG_07703.png  --port=8602 --num_of_requests=10 --output_result_file=def_latency_result.json
