@@ -20,7 +20,7 @@ BOLD=`tput bold`
 RESET=`tput sgr0`
 #----------------------------------------------------start--------------------------------------------------#
 
-echo "${YELLOW}${BOLD}Starting${RESET}" "${GREEN}${BOLD}Execution${RESET}"
+echo "${BG_MAGENTA}${BOLD}Starting Execution${RESET}"
 
 cat > prepare_disk.sh <<'EOF_END'
 
@@ -68,6 +68,6 @@ gcloud compute scp prepare_disk.sh lab-vm:/tmp --project=$DEVSHELL_PROJECT_ID --
 
 gcloud compute ssh lab-vm --project=$DEVSHELL_PROJECT_ID --zone=$ZONE --quiet --command="bash /tmp/prepare_disk.sh"
 
-echo "${RED}${BOLD}Congratulations${RESET}" "${WHITE}${BOLD}for${RESET}" "${GREEN}${BOLD}Completing the Lab !!!${RESET}"
+echo "${BG_RED}${BOLD}Congratulations For Completing The Lab !!!${RESET}"
 
 #-----------------------------------------------------end----------------------------------------------------------#
