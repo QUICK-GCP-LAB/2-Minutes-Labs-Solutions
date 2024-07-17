@@ -62,6 +62,8 @@ python3 ./prediction_script.py --input_image_file=./IMG_0769.png  --port=8602 --
 
 EOF_END
 
+export ZONE=$(gcloud compute instances list lab-vm --format 'csv[no-heading](zone)')
+
 gcloud compute scp prepare_disk.sh lab-vm:/tmp --project=$DEVSHELL_PROJECT_ID --zone=$ZONE --quiet
 
 gcloud compute ssh lab-vm --project=$DEVSHELL_PROJECT_ID --zone=$ZONE --quiet --command="bash /tmp/prepare_disk.sh"
