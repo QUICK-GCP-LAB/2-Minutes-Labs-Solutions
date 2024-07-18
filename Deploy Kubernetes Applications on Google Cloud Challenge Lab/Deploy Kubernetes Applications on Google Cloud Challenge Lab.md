@@ -1,6 +1,6 @@
 # Deploy Kubernetes Applications on Google Cloud: Challenge Lab || [GSP318](https://www.cloudskillsboost.google/focuses/10457?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/Tn2bQVDcMXM)
 
 ### Run the following Commands in CloudShell
 
