@@ -25,6 +25,17 @@ RESET=`tput sgr0`
 
 echo "${BG_MAGENTA}${BOLD}Starting Execution${RESET}"
 
+cat <<EOF >> policy.yaml
+auditConfigs:
+- auditLogConfigs:
+  - logType: ADMIN_READ
+  - logType: DATA_READ
+  - logType: DATA_WRITE
+  service: storage.googleapis.com
+EOF
+
+gcloud projects set-iam-policy $DEVSHELL_PROJECT_ID policy.yaml
+
 gcloud config set project $DEVSHELL_PROJECT_ID
 
 gcloud config set run/region $REGION
