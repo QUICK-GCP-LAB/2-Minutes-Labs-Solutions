@@ -1,6 +1,6 @@
 # Deploy and Test a Visual Inspection AI Cosmetic Anomaly Detection Solution || [GSP898](https://www.cloudskillsboost.google/focuses/34183?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/NHEnJl0w8Gk)
 
 ### Run the following Commands in CloudShell
 
