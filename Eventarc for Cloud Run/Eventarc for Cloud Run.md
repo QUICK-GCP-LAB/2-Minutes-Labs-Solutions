@@ -58,6 +58,17 @@ gsutil mb -p $(gcloud config get-value project) \
   -l $(gcloud config get-value run/region) \
   gs://${BUCKET_NAME}/
 
+cat <<EOF >> policy.yaml
+auditConfigs:
+- auditLogConfigs:
+  - logType: ADMIN_READ
+  - logType: DATA_READ
+  - logType: DATA_WRITE
+  service: storage.googleapis.com
+EOF
+
+gcloud projects set-iam-policy $DEVSHELL_PROJECT_ID policy.yaml
+
 echo "Hello World" > random.txt
 
 gsutil cp random.txt gs://${BUCKET_NAME}/random.txt
