@@ -1,6 +1,6 @@
 # Employing Best Practices for Improving the Usability of LookML Projects || [GSP1020](https://www.cloudskillsboost.google/focuses/33369?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/YMBxqRgCN60)
 
 ### Paste The Following
 
