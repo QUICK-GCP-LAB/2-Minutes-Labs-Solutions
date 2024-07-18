@@ -10,11 +10,11 @@ export USER_2=
 export ZONE=
 ```
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Exploring%20IAM/Exploring-IAM.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Exploring%20IAM/shell.sh
 
-sudo chmod +x Exploring-IAM.sh
+sudo chmod +x shell.sh
 
-./Exploring-IAM.sh
+./shell.sh
 ```
 
 ### Congratulations 🎉 for completing the Lab !
