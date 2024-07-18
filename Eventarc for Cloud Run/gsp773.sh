@@ -25,6 +25,14 @@ RESET=`tput sgr0`
 
 echo "${BG_MAGENTA}${BOLD}Starting Execution${RESET}"
 
+gcloud config set project $DEVSHELL_PROJECT_ID
+
+gcloud config set run/region $REGION
+
+gcloud config set run/platform managed
+
+gcloud config set eventarc/location $REGION
+
 cat <<EOF >> policy.yaml
 auditConfigs:
 - auditLogConfigs:
@@ -35,14 +43,6 @@ auditConfigs:
 EOF
 
 gcloud projects set-iam-policy $DEVSHELL_PROJECT_ID policy.yaml
-
-gcloud config set project $DEVSHELL_PROJECT_ID
-
-gcloud config set run/region $REGION
-
-gcloud config set run/platform managed
-
-gcloud config set eventarc/location $REGION
 
 export PROJECT_NUMBER="$(gcloud projects list \
   --filter=$(gcloud config get-value project) \
