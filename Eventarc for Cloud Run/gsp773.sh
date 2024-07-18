@@ -50,15 +50,17 @@ gcloud run deploy ${SERVICE_NAME} \
   --allow-unauthenticated \
   --max-instances=3
 
-gcloud beta eventarc attributes types describe \
-  google.cloud.pubsub.topic.v1.messagePublished
+gcloud eventarc providers describe \
+  pubsub.googleapis.com
 
-gcloud beta eventarc triggers create trigger-pubsub \
+gcloud eventarc triggers create trigger-pubsub \
   --destination-run-service=${SERVICE_NAME} \
-  --matching-criteria="type=google.cloud.pubsub.topic.v1.messagePublished"
+  --event-filters="type=google.cloud.pubsub.topic.v1.messagePublished"
 
 export TOPIC_ID=$(gcloud eventarc triggers describe trigger-pubsub \
   --format='value(transport.pubsub.topic)')
+
+echo ${TOPIC_ID}
 
 gcloud pubsub topics publish ${TOPIC_ID} --message="Hello there"
 
@@ -72,15 +74,11 @@ echo "Hello World" > random.txt
 
 gsutil cp random.txt gs://${BUCKET_NAME}/random.txt
 
-gcloud eventarc triggers delete trigger-pubsub
-
-gcloud beta eventarc attributes types describe google.cloud.audit.log.v1.written
-
-gcloud beta eventarc triggers create trigger-auditlog \
---destination-run-service=${SERVICE_NAME} \
---matching-criteria="type=google.cloud.audit.log.v1.written" \
---matching-criteria="serviceName=storage.googleapis.com" \
---matching-criteria="methodName=storage.objects.create" \
---service-account=${PROJECT_NUMBER}-compute@developer.gserviceaccount.com
+gcloud eventarc triggers create trigger-auditlog \
+  --destination-run-service=${SERVICE_NAME} \
+  --event-filters="type=google.cloud.audit.log.v1.written" \
+  --event-filters="serviceName=storage.googleapis.com" \
+  --event-filters="methodName=storage.objects.create" \
+  --service-account=${PROJECT_NUMBER}-compute@developer.gserviceaccount.com
 
 gsutil cp random.txt gs://${BUCKET_NAME}/random.txt
