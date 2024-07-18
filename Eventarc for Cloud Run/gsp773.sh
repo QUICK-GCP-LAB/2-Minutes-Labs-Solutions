@@ -1,20 +1,30 @@
-# Eventarc for Cloud Run || [GSP773](https://www.cloudskillsboost.google/focuses/15657?parent=catalog) ||
+#!/bin/bash
+# Define color variables
 
-## Solution [here]()
+BLACK=`tput setaf 0`
+RED=`tput setaf 1`
+GREEN=`tput setaf 2`
+YELLOW=`tput setaf 3`
+BLUE=`tput setaf 4`
+MAGENTA=`tput setaf 5`
+CYAN=`tput setaf 6`
+WHITE=`tput setaf 7`
 
-1. Got `Audit Logs` from [here](https://console.cloud.google.com/iam-admin/audit)
+BG_BLACK=`tput setab 0`
+BG_RED=`tput setab 1`
+BG_GREEN=`tput setab 2`
+BG_YELLOW=`tput setab 3`
+BG_BLUE=`tput setab 4`
+BG_MAGENTA=`tput setab 5`
+BG_CYAN=`tput setab 6`
+BG_WHITE=`tput setab 7`
 
-2. Use `Filter` to locate `Google Cloud Storage`.
+BOLD=`tput bold`
+RESET=`tput sgr0`
+#----------------------------------------------------start--------------------------------------------------#
 
-3. Then `check the box` next to it.
+echo "${BG_MAGENTA}${BOLD}Starting Execution${RESET}"
 
-4. Select `Admin Read`, `Data Read` and `Data Write`, and then click `SAVE`.
-
-### Run the following Commands in CloudShell
-```
-export REGION=
-```
-```
 gcloud config set project $DEVSHELL_PROJECT_ID
 
 gcloud config set run/region $REGION
@@ -61,11 +71,7 @@ gsutil mb -p $(gcloud config get-value project) \
 echo "Hello World" > random.txt
 
 gsutil cp random.txt gs://${BUCKET_NAME}/random.txt
-```
 
-### Again Run the following Commands in CloudShell
-
-```
 gcloud eventarc triggers delete trigger-pubsub
 
 gcloud beta eventarc attributes types describe google.cloud.audit.log.v1.written
@@ -78,14 +84,3 @@ gcloud beta eventarc triggers create trigger-auditlog \
 --service-account=${PROJECT_NUMBER}-compute@developer.gserviceaccount.com
 
 gsutil cp random.txt gs://${BUCKET_NAME}/random.txt
-```
-
-### Congratulations 🎉 for Completing the Lab !
-
-##### *You Have Successfully Demonstrated Your Skills And Determination.*
-
-#### *Well done!*
-
-#### Don't Forget to Join the [Telegram Channel](https://t.me/quickgcplab) & [Discussion group](https://t.me/quickgcplabchats)
-
-# [QUICK GCP LAB](https://www.youtube.com/@quickgcplab)
