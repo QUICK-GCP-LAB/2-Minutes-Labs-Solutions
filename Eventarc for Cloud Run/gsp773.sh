@@ -41,6 +41,11 @@ gcloud projects add-iam-policy-binding $(gcloud config get-value project) \
   --member=serviceAccount:${PROJECT_NUMBER}-compute@developer.gserviceaccount.com \
   --role='roles/eventarc.admin'
 
+gcloud eventarc providers list
+
+gcloud eventarc providers describe \
+  pubsub.googleapis.com
+
 export SERVICE_NAME=event-display
 
 export IMAGE_NAME="gcr.io/cloudrun/hello"
@@ -61,6 +66,8 @@ export TOPIC_ID=$(gcloud eventarc triggers describe trigger-pubsub \
   --format='value(transport.pubsub.topic)')
 
 echo ${TOPIC_ID}
+
+gcloud eventarc triggers list
 
 gcloud pubsub topics publish ${TOPIC_ID} --message="Hello there"
 
@@ -85,6 +92,8 @@ echo "Hello World" > random.txt
 
 gsutil cp random.txt gs://${BUCKET_NAME}/random.txt
 
+gcloud eventarc providers describe cloudaudit.googleapis.com
+
 gcloud eventarc triggers create trigger-auditlog \
   --destination-run-service=${SERVICE_NAME} \
   --event-filters="type=google.cloud.audit.log.v1.written" \
@@ -92,4 +101,10 @@ gcloud eventarc triggers create trigger-auditlog \
   --event-filters="methodName=storage.objects.create" \
   --service-account=${PROJECT_NUMBER}-compute@developer.gserviceaccount.com
 
+gcloud eventarc triggers list
+
 gsutil cp random.txt gs://${BUCKET_NAME}/random.txt
+
+echo "${BG_RED}${BOLD}Congratulations For Completing The Lab !!!${RESET}"
+
+#-----------------------------------------------------end----------------------------------------------------------#
