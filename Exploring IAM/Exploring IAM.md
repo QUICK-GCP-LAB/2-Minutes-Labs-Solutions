@@ -1,4 +1,4 @@
-# [Exploring IAM](https://www.cloudskillsboost.google/games/4794/labs/31307)
+# [Exploring IAM](https://www.cloudskillsboost.google/focuses/19082?parent=catalog)
 
 ## Solution [here]()
 
