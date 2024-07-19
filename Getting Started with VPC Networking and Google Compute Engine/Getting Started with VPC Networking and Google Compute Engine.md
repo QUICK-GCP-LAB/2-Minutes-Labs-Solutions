@@ -1,4 +1,4 @@
-# [Getting Started with VPC Networking and Google Compute Engine](https://www.cloudskillsboost.google/games/4829/labs/31569)
+# [Getting Started with VPC Networking and Google Compute Engine](https://www.cloudskillsboost.google/focuses/41750?parent=catalog)
 
 ## Solution [here]()
 
