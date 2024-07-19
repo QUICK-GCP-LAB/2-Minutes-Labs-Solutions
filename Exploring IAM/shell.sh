@@ -20,7 +20,7 @@ BOLD=`tput bold`
 RESET=`tput sgr0`
 #----------------------------------------------------start--------------------------------------------------#
 
-echo "${YELLOW}${BOLD}Starting${RESET}" "${GREEN}${BOLD}Execution${RESET}"
+echo "${BG_MAGENTA}${BOLD}Starting Execution${RESET}"
 
 export PROJECT_ID=$(gcloud info --format='value(config.project)')
 
@@ -33,30 +33,18 @@ EOF_END
 gsutil cp sample.txt gs://$DEVSHELL_PROJECT_ID
 
 
-echo "${GREEN}${BOLD}
-
-Task 3. Prepare a resource for access testing Completed
-
-${RESET}"
+echo "${YELLOW}${BOLD}Task 3. ${RESET}"echo "${GREEN}${BOLD}Prepare a resource for access testing Completed${RESET}"
 
 gcloud projects remove-iam-policy-binding $DEVSHELL_PROJECT_ID --member=user:$USER_2 --role=roles/viewer
 
 
-echo "${GREEN}${BOLD}
-
-Task 4. Remove project access Completed
-
-${RESET}"
+echo "${YELLOW}${BOLD}Task 4. ${RESET}""${GREEN}${BOLD}Remove project access Completed${RESET}"
 
 gcloud projects add-iam-policy-binding $DEVSHELL_PROJECT_ID \
   --role=roles/storage.objectViewer \
   --member=user:$USER_2
 
-echo "${GREEN}${BOLD}
-
-Task 5. Add storage access Completed
-
-${RESET}"
+echo "${YELLOW}${BOLD}Task 5. ${RESET}""${GREEN}${BOLD}Add storage access Completed${RESET}"
 
 gcloud iam service-accounts create read-bucket-objects --display-name "read-bucket-objects" 
 
@@ -73,12 +61,8 @@ gcloud compute instances create demoiam \
   --image-project=debian-cloud \
   --service-account=read-bucket-objects@$DEVSHELL_PROJECT_ID.iam.gserviceaccount.com
 
-echo "${GREEN}${BOLD}
+echo echo "${YELLOW}${BOLD}Task 6. ${RESET}""${GREEN}${BOLD}Set up the Service Account User Completed${RESET}"
 
-Task 6. Set up the Service Account User Completed !!!
-
-${RESET}"
-
-echo "${RED}${BOLD}Congratulations${RESET}" "${WHITE}${BOLD}for${RESET}" "${GREEN}${BOLD}Completing the Lab !!!${RESET}"
+echo "${BG_RED}${BOLD}Congratulations For Completing The Lab !!!${RESET}"
 
 #-----------------------------------------------------end----------------------------------------------------------#
