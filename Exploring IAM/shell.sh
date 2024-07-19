@@ -33,7 +33,7 @@ EOF_END
 gsutil cp sample.txt gs://$DEVSHELL_PROJECT_ID
 
 
-echo "${YELLOW}${BOLD}Task 3. ${RESET}"echo "${GREEN}${BOLD}Prepare a resource for access testing Completed${RESET}"
+echo "${YELLOW}${BOLD}Task 3. ${RESET}" "${GREEN}${BOLD}Prepare a resource for access testing Completed${RESET}"
 
 gcloud projects remove-iam-policy-binding $DEVSHELL_PROJECT_ID --member=user:$USER_2 --role=roles/viewer
 
@@ -61,7 +61,7 @@ gcloud compute instances create demoiam \
   --image-project=debian-cloud \
   --service-account=read-bucket-objects@$DEVSHELL_PROJECT_ID.iam.gserviceaccount.com
 
-echo echo "${YELLOW}${BOLD}Task 6. ${RESET}""${GREEN}${BOLD}Set up the Service Account User Completed${RESET}"
+echo "${YELLOW}${BOLD}Task 6. ${RESET}""${GREEN}${BOLD}Set up the Service Account User Completed${RESET}"
 
 echo "${BG_RED}${BOLD}Congratulations For Completing The Lab !!!${RESET}"
 
