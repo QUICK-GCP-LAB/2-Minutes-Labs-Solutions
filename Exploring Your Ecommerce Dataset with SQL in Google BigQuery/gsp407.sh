@@ -20,7 +20,7 @@ BOLD=`tput bold`
 RESET=`tput sgr0`
 #----------------------------------------------------start--------------------------------------------------#
 
-echo "${YELLOW}${BOLD}Starting${RESET}" "${GREEN}${BOLD}Execution${RESET}"
+echo "${BG_MAGENTA}${BOLD}Starting Execution${RESET}"
 
 export PROJECT_ID=$(gcloud info --format='value(config.project)')
 
@@ -34,12 +34,7 @@ fullVisitorId, channelGrouping, time, country, city, totalTransactionRevenue, tr
 HAVING num_duplicate_rows > 1;
 "
 
-echo "${GREEN}${BOLD}
-
-Task 2. Explore ecommerce data and identify duplicate records Completed
-
-${RESET}"
-
+echo "${YELLOW}${BOLD}Task 2. ${RESET}""${GREEN}${BOLD}Explore ecommerce data and identify duplicate records Completed${RESET}"
 
 bq query --use_legacy_sql=false \
 "
@@ -65,8 +60,6 @@ GROUP BY 1,2,3 ,4, 5, 6, 7, 8, 9, 10,11,12
 HAVING row_count > 1 # find duplicates
 "
 
-
-
 bq query --use_legacy_sql=false \
 "
 #standardSQL
@@ -75,7 +68,6 @@ SELECT
   COUNT(DISTINCT fullVisitorId) AS unique_visitors
 FROM \`data-to-insights.ecommerce.all_sessions\`;
 "
-
 
 bq query --use_legacy_sql=false \
 "
@@ -88,8 +80,6 @@ GROUP BY channelGrouping
 ORDER BY channelGrouping DESC;
 "
 
-
-
 bq query --use_legacy_sql=false \
 "
 #standardSQL
@@ -99,7 +89,6 @@ FROM \`data-to-insights.ecommerce.all_sessions\`
 GROUP BY ProductName
 ORDER BY ProductName
 "
-
 
 bq query --use_legacy_sql=false \
 "
@@ -113,8 +102,6 @@ GROUP BY v2ProductName
 ORDER BY product_views DESC
 LIMIT 5;
 "
-
-
 
 bq query --use_legacy_sql=false \
 "
@@ -136,7 +123,6 @@ ORDER BY unique_view_count DESC
 LIMIT 5
 "
 
-
 bq query --use_legacy_sql=false \
 "
 #standardSQL
@@ -151,7 +137,6 @@ GROUP BY v2ProductName
 ORDER BY product_views DESC
 LIMIT 5;
 "
-
 
 bq query --use_legacy_sql=false \
 "
@@ -169,14 +154,9 @@ ORDER BY product_views DESC
 LIMIT 5;
 "
 
+echo "${YELLOW}${BOLD}Task 3. ${RESET}""${GREEN}${BOLD}Write basic SQL on ecommerce data Completed${RESET}"
 
-echo "${GREEN}${BOLD}
-
-Task 3. Write basic SQL on ecommerce data Completed
-
-${RESET}"
-
-echo "${RED}${BOLD}Congratulations${RESET}" "${WHITE}${BOLD}for${RESET}" "${GREEN}${BOLD}Completing the Lab !!!${RESET}"
+echo "${BG_RED}${BOLD}Congratulations For Completing The Lab !!!${RESET}"
 
 #-----------------------------------------------------end----------------------------------------------------------#
 
