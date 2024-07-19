@@ -77,6 +77,8 @@ gsutil mb -p $(gcloud config get-value project) \
   -l $(gcloud config get-value run/region) \
   gs://${BUCKET_NAME}/
 
+gcloud projects get-iam-policy $DEVSHELL_PROJECT_ID > policy.yaml
+
 cat <<EOF >> policy.yaml
 auditConfigs:
 - auditLogConfigs:
