@@ -103,7 +103,7 @@ explore: events {
 
 * NOW FOLLOW [VIDEO'S]() INSTRUCTIONS
 
-* create a bar chart of the `top 3 event types based on the highest number of users`
+* Create a bar chart of the `top 3 event types based on the highest number of users`
 
 * Save your bar chart to a new dashboard named `User Events`
 
