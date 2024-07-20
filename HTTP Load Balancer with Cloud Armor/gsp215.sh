@@ -20,7 +20,7 @@ BOLD=`tput bold`
 RESET=`tput sgr0`
 #----------------------------------------------------start--------------------------------------------------#
 
-echo "${YELLOW}${BOLD}Starting${RESET}" "${GREEN}${BOLD}Execution${RESET}"
+echo "${BG_MAGENTA}${BOLD}Starting Execution${RESET}"
 
 export INSTANCE_NAME=$REGION1-mig
 
@@ -274,6 +274,6 @@ LB_IP_ADDRESS=$(gcloud compute forwarding-rules describe http-lb-forwarding-rule
 
 gcloud compute ssh --zone "$VM_ZONE" "siege-vm" --project "$DEVSHELL_PROJECT_ID" --quiet --command "sudo apt-get -y install siege && export LB_IP=$LB_IP_ADDRESS && siege -c 150 -t 120s http://\$LB_IP"
 
-echo "${RED}${BOLD}Congratulations${RESET}" "${WHITE}${BOLD}for${RESET}" "${GREEN}${BOLD}Completing the Lab !!!${RESET}"
+echo "${BG_RED}${BOLD}Congratulations For Completing The Lab !!!${RESET}"
 
 #-----------------------------------------------------end----------------------------------------------------------#
