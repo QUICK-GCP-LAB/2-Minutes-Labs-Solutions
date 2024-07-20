@@ -2,7 +2,9 @@
 
 ## Solution [here]()
 
-### Paste THE FOLLOWING IN `user_region.view` file:
+* Create a new [Looker Studio](http://lookerstudio.google.com/) report named `Online Sales`
+
+### Create a new view named `users_region` and Paste the following:
 
 ```
 view: users_region {
@@ -31,7 +33,7 @@ view: users_region {
 }
 ```
 
-### Paste THE FOLLOWING IN `training_ecommerce.model` file:
+### Replace the follwing in `training_ecommerce.model` file:
 ```
 connection: "bigquery_public_data_looker"
 
@@ -100,6 +102,10 @@ explore: events {
 ```
 
 * NOW FOLLOW [VIDEO'S]() INSTRUCTIONS
+
+* create a bar chart of the `top 3 event types based on the highest number of users`
+
+* Save your bar chart to a new dashboard named `User Events`
 
 ### Congratulations 🎉 for completing the Lab !
 
