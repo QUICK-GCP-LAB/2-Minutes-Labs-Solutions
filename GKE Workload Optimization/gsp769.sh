@@ -89,7 +89,7 @@ gcloud compute backend-services get-health $BACKEND_SERVICE --global
 
 kubectl get ingress gb-frontend-ingress
 
-echo "${YELLOW}${BOLD}NOW${RESET}" "${WHITE}${BOLD}Check The Score${RESET}" "${GREEN}${BOLD}For Task 1. Within 1 Minute${RESET}"
+echo "${YELLOW}${BOLD}NOW${RESET}" "${WHITE}${BOLD}Check The Score${RESET}" "${GREEN}${BOLD}For Task 1. Within 2 Minute${RESET}"
 
 sleep 120
 
