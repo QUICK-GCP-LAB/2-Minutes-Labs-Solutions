@@ -3,6 +3,10 @@
 ## Solution [here]()
 
 ### Run the following Commands in CloudShell
+
+```
+export ZONE=
+```
 ```
 curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/GKE%20Workload%20Optimization/gsp769.sh
 

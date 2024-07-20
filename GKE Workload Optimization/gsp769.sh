@@ -22,6 +22,8 @@ RESET=`tput sgr0`
 
 echo "${YELLOW}${BOLD}Starting${RESET}" "${GREEN}${BOLD}Execution${RESET}"
 
+gcloud config set compute/zone $ZONE
+
 gcloud container clusters create test-cluster --num-nodes=3  --enable-ip-alias
 
 cat << EOF > gb_frontend_pod.yaml
