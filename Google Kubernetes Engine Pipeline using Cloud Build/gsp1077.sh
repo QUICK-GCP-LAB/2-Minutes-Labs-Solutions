@@ -29,8 +29,8 @@ export PROJECT_ID=$(gcloud config get-value project)
 export PROJECT_NUMBER=$(gcloud projects describe $PROJECT_ID --format='value(projectNumber)')
 gcloud config set compute/region $REGION
 
-git config --global user.email "you@example.com"  
-git config --global user.name "Your Name"
+git config --global user.email "quickgcplab@gmail.com"  
+git config --global user.name "quickgcplab"
 
 gcloud services enable container.googleapis.com \
     cloudbuild.googleapis.com \
