@@ -91,7 +91,7 @@ kubectl get ingress gb-frontend-ingress
 
 echo "${YELLOW}${BOLD}NOW${RESET}" "${WHITE}${BOLD}Check The Score${RESET}" "${GREEN}${BOLD}For Task 1. Within 1 Minute${RESET}"
 
-sleep 70
+sleep 120
 
 gsutil -m cp -r gs://spls/gsp769/locust-image .
 
