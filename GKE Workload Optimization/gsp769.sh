@@ -89,6 +89,8 @@ gcloud compute backend-services get-health $BACKEND_SERVICE --global
 
 kubectl get ingress gb-frontend-ingress
 
+echo "${YELLOW}${BOLD}NOW${RESET}" "${WHITE}${BOLD}Check The Score${RESET}" "${GREEN}${BOLD}For Task 1. Within 1 Minute${RESET}"
+
 sleep 70
 
 gsutil -m cp -r gs://spls/gsp769/locust-image .
