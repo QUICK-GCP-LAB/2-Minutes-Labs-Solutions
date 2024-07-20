@@ -1,6 +1,6 @@
 # Exploring Your Ecommerce Dataset with SQL in Google BigQuery || [GSP407](https://www.cloudskillsboost.google/focuses/3618?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/zhsrYJPaU3Y)
 
 ### Run the following Commands in CloudShell
 ```
