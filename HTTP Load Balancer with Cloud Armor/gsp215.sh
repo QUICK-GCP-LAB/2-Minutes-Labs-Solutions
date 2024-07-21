@@ -125,7 +125,7 @@ curl -X POST -H "Content-Type: application/json" \
   }' \
   "https://compute.googleapis.com/compute/v1/projects/$DEVSHELL_PROJECT_ID/global/urlMaps"
 
-sleep 20
+sleep 30
 
 # Create Target HTTP Proxy
 curl -X POST -H "Content-Type: application/json" \
@@ -136,7 +136,7 @@ curl -X POST -H "Content-Type: application/json" \
   }' \
   "https://compute.googleapis.com/compute/v1/projects/$DEVSHELL_PROJECT_ID/global/targetHttpProxies"
 
-sleep 20
+sleep 30
 
 # Create Forwarding Rule
 curl -X POST -H "Content-Type: application/json" \
@@ -152,7 +152,7 @@ curl -X POST -H "Content-Type: application/json" \
   }' \
   "https://compute.googleapis.com/compute/v1/projects/$DEVSHELL_PROJECT_ID/global/forwardingRules"
 
-sleep 20
+sleep 30
 
 # Create another Target HTTP Proxy
 curl -X POST -H "Content-Type: application/json" \
@@ -163,7 +163,7 @@ curl -X POST -H "Content-Type: application/json" \
   }' \
   "https://compute.googleapis.com/compute/v1/projects/$DEVSHELL_PROJECT_ID/global/targetHttpProxies"
 
-sleep 20
+sleep 30
 
 # Create another Forwarding Rule
 curl -X POST -H "Content-Type: application/json" \
@@ -179,7 +179,7 @@ curl -X POST -H "Content-Type: application/json" \
   }' \
   "https://compute.googleapis.com/compute/v1/projects/$DEVSHELL_PROJECT_ID/global/forwardingRules"
 
-sleep 20
+sleep 30
 
 # Set Named Ports for Europe-West1 Instance Group
 curl -X POST -H "Content-Type: application/json" \
@@ -194,7 +194,7 @@ curl -X POST -H "Content-Type: application/json" \
   }' \
   "https://compute.googleapis.com/compute/v1/projects/$DEVSHELL_PROJECT_ID/regions/$REGION2/instanceGroups/$INSTANCE_NAME_2/setNamedPorts"
 
-sleep 20
+sleep 30
 
 # Set Named Ports for $REGION1 Instance Group
 curl -X POST -H "Content-Type: application/json" \
@@ -211,11 +211,11 @@ curl -X POST -H "Content-Type: application/json" \
 
 gcloud compute instances create siege-vm --project=$DEVSHELL_PROJECT_ID --zone=$VM_ZONE --machine-type=e2-medium --network-interface=network-tier=PREMIUM,stack-type=IPV4_ONLY,subnet=default --metadata=enable-oslogin=true --maintenance-policy=MIGRATE --provisioning-model=STANDARD --create-disk=auto-delete=yes,boot=yes,device-name=siege-vm,image=projects/debian-cloud/global/images/debian-11-bullseye-v20230629,mode=rw,size=10,type=projects/$DEVSHELL_PROJECT_ID/zones/us-central1-c/diskTypes/pd-balanced --no-shielded-secure-boot --shielded-vtpm --shielded-integrity-monitoring --labels=goog-ec-src=vm_add-gcloud --reservation-affinity=any
 
-sleep 20
+sleep 30
 
 export EXTERNAL_IP=$(gcloud compute instances  describe siege-vm --zone=$VM_ZONE --format="get(networkInterfaces[0].accessConfigs[0].natIP)")
 
-sleep 20
+sleep 30
 
 curl -X POST -H "Authorization: Bearer $(gcloud auth print-access-token)" -H "Content-Type: application/json" \
   -d '{
@@ -261,7 +261,7 @@ curl -X POST -H "Authorization: Bearer $(gcloud auth print-access-token)" -H "Co
   "https://compute.googleapis.com/compute/v1/projects/$DEVSHELL_PROJECT_ID/global/securityPolicies"
 
 
-sleep 20
+sleep 30
 
 curl -X POST -H "Authorization: Bearer $(gcloud auth print-access-token)" -H "Content-Type: application/json" \
   -d "{
