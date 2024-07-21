@@ -1,6 +1,6 @@
 # Get Started with Looker: Challenge Lab || [ARC107](https://www.cloudskillsboost.google/focuses/61470?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/iZPo_KTy1RE)
 
 * Create a new [Looker Studio](http://lookerstudio.google.com/) report named `Online Sales`
 
