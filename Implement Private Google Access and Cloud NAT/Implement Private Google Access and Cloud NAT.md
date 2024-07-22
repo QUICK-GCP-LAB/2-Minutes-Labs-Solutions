@@ -7,11 +7,11 @@
 export ZONE=
 ```
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Implement%20Private%20Google%20Access%20and%20Cloud%20NAT/NAT.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Implement%20Private%20Google%20Access%20and%20Cloud%20NAT/shell.sh
 
-sudo chmod +x NAT.sh
+sudo chmod +x shell.sh
 
-./NAT.sh
+./shell.sh
 ```
 
 ### Congratulations 🎉 for completing the Lab !
