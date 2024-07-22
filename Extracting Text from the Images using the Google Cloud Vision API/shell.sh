@@ -105,7 +105,7 @@ echo "Running the next code..."
 
 gsutil cp gs://cloud-training/OCBL307/menu.jpg .
 
-gsutil cp IMAGE_NAME gs://$DEVSHELL_PROJECT_ID
+gsutil cp menu.jpg gs://$DEVSHELL_PROJECT_ID
 
 gcloud functions logs read --limit 100
 

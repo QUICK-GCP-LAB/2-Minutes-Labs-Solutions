@@ -1,4 +1,4 @@
-# [Implement Private Google Access and Cloud NAT](https://www.cloudskillsboost.google/games/4794/labs/31303)
+# [Implement Private Google Access and Cloud NAT](https://www.cloudskillsboost.google/paths/11/course_templates/50/labs/485523)
 
 ## Solution [here]()
 
