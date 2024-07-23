@@ -1,6 +1,6 @@
 # HTTP Load Balancer with Cloud Armor || [GSP215](https://www.cloudskillsboost.google/focuses/1232?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/1tftx_ftLLA)
 
 ### Run the following Commands in CloudShell
 ```
