@@ -1,6 +1,6 @@
 # Implement Cloud Security Fundamentals on Google Cloud: Challenge Lab || [GSP342](https://www.cloudskillsboost.google/focuses/14572?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/ZCJktu906oM)
 
 ### Run the following Commands in CloudShell
 
