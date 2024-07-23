@@ -1,6 +1,6 @@
 # [Implement Private Google Access and Cloud NAT](https://www.cloudskillsboost.google/paths/11/course_templates/50/labs/485523)
 
-## Solution [here]()
+## Solution [here](https://youtu.be/Xrid2UNH118)
 
 ### Run the following Commands in CloudShell
 ```
