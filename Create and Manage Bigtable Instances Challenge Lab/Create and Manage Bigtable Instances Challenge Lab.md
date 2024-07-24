@@ -1,4 +1,4 @@
-# Manage Bigtable on Google Cloud: Challenge Lab || [GSP380](https://www.cloudskillsboost.google/focuses/62217?parent=catalog) ||
+# Create and Manage Bigtable Instances: Challenge Lab || [GSP380](https://www.cloudskillsboost.google/focuses/92500?parent=catalog) ||
 
 ## Solution [here]()
 
