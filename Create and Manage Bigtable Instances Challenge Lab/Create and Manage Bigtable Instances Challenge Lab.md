@@ -10,7 +10,7 @@ export ZONE=
 export ZONE2=
 ```
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Manage%20Bigtable%20on%20Google%20Cloud%20Challenge%20Lab/gsp380.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Create%20and%20Manage%20Bigtable%20Instances%20Challenge%20Lab/gsp380.sh
 
 sudo chmod +x gsp380.sh
 
