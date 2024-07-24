@@ -1,6 +1,6 @@
 # GKE Workload Optimization || [GSP769](https://www.cloudskillsboost.google/focuses/15706?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/GQwdfE9AZeU)
 
 ### Run the following Commands in CloudShell
 

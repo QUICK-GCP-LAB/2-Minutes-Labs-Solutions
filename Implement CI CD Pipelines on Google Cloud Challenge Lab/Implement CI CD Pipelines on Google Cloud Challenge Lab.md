@@ -1,6 +1,6 @@
 # Implement CI/CD Pipelines on Google Cloud: Challenge Lab || [GSP393](https://www.cloudskillsboost.google/focuses/52826?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/iy5vkAKyvY8)
 
 ### Run the following Commands in CloudShell
 
