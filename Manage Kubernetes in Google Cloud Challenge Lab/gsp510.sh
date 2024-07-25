@@ -236,7 +236,7 @@ cat > awesome.json <<EOF_END
 }
 EOF_END
 
-sleep 60
+sleep 600
 
 gcloud alpha monitoring policies create --policy-from-file="awesome.json"
 
