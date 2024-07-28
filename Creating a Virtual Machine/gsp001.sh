@@ -28,10 +28,6 @@ gcloud compute instances create gcelab2 --machine-type e2-medium --zone=$ZONE
 
 gcloud compute ssh --zone "$ZONE" "gcelab" --project "$DEVSHELL_PROJECT_ID" --quiet --command "sudo apt-get update && sudo apt-get install -y nginx && ps auwx | grep nginx "
 
-sudo apt-get update
-sudo apt-get install -y nginx
-ps auwx | grep nginx
-
 gcloud compute firewall-rules create allow-http --network=default --allow=tcp:80 --target-tags=allow-http
 
 echo "${RED}${BOLD}Congratulations${RESET}" "${WHITE}${BOLD}for${RESET}" "${GREEN}${BOLD}Completing the Lab !!!${RESET}"
