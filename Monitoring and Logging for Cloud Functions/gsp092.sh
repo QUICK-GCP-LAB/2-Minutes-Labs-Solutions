@@ -59,12 +59,30 @@ cat > package.json <<EOF
   
 EOF
 
-gcloud functions deploy helloWorld \
+
+
+deploy_function() {
+  gcloud functions deploy helloWorld \
 --trigger-http \
 --runtime nodejs20 \
 --allow-unauthenticated \
 --region $REGION \
 --max-instances 5
+}
+
+deploy_success=false
+
+while [ "$deploy_success" = false ]; do
+  if deploy_function; then
+    echo "Cloud Run service is created. Exiting the loop."
+    deploy_success=true
+  else
+    echo "Waiting for Cloud Run service to be created..."
+    sleep 60
+  fi
+done
+
+echo "Running the next code..."
 
 curl -LO 'https://github.com/tsenart/vegeta/releases/download/v6.3.0/vegeta-v6.3.0-linux-386.tar.gz'
 
