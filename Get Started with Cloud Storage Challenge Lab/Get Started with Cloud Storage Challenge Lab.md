@@ -1,4 +1,4 @@
-# Get Started with Cloud Storage: Challenge Lab || [ARC113](https://www.cloudskillsboost.google/focuses/62706?parent=catalog) ||
+# Get Started with Cloud Storage: Challenge Lab || [ARC111](https://www.cloudskillsboost.google/focuses/62706?parent=catalog) ||
 
 ## Solution [here](https://youtu.be/5XhxAXn-qlc)
 
