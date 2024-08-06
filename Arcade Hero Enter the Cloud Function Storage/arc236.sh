@@ -31,12 +31,15 @@ PROJECT_NUMBER=$(gcloud projects list --filter="project_id:$PROJECT_ID" --format
 git clone https://github.com/GoogleCloudPlatform/golang-samples.git
 cd golang-samples/functions/functionsv2/hellostorage/
 
+deploy_function() {
 gcloud functions deploy cf-demo \
   --runtime=go121 \
   --region="$REGION" \
   --source=. \
   --entry-point=HelloStorage \
   --trigger-bucket="$DEVSHELL_PROJECT_ID-bucket"
+
+}
 
 # Variables
 SERVICE_NAME="cf-demo"
