@@ -1,6 +1,6 @@
 # Arcade Hero: Enter the Cloud Function NET || [ARC232](https://www.cloudskillsboost.google/focuses/98841?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/puC4eE8nx2o)
 
 ### Run the following Commands in CloudShell
 

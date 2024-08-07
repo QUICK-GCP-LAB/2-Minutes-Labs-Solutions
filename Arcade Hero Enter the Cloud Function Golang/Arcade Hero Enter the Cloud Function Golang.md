@@ -1,6 +1,6 @@
 # Arcade Hero: Enter the Cloud Function Golang || [ARC230](https://www.cloudskillsboost.google/focuses/98842?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/ED0iL3CoXXA)
 
 ### Run the following Commands in CloudShell
 

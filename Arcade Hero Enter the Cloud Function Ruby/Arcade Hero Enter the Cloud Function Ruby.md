@@ -1,6 +1,6 @@
 # Arcade Hero: Enter the Cloud Function Ruby || [ARC234](https://www.cloudskillsboost.google/focuses/98836?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/lfM2nyNBTrI)
 
 ### Run the following Commands in CloudShell
 
