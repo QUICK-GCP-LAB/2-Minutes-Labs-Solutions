@@ -22,9 +22,6 @@ notepad content\index.html
   </body>
 </html>
 ```
-
-* Save the `index.html`
-
 ```
 call > Dockerfile
 notepad Dockerfile
