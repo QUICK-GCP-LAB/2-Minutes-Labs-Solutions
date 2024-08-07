@@ -1,6 +1,6 @@
 # Create a Secure Data Lake on Cloud Storage: Challenge Lab || [ARC119](https://www.cloudskillsboost.google/focuses/63857?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/tK9bk6wG0aQ)
 
 ### Run the following Commands in CloudShell
 
