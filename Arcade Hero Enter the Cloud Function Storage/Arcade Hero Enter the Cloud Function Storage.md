@@ -1,6 +1,6 @@
 # Arcade Hero: Enter the Cloud Function Storage || [ARC236](https://www.cloudskillsboost.google/focuses/98835?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/b6wGHbRAgew)
 
 ### Run the following Commands in CloudShell
 
