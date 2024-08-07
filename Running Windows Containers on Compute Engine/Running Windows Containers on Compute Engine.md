@@ -1,4 +1,4 @@
-# Running Windows Containers on Compute Engine || [GSP053](https://www.cloudskillsboost.google/focuses/3348?parent=catalog) ||
+# Running Windows Containers on Compute Engine || [GSP153](https://www.cloudskillsboost.google/focuses/3348?parent=catalog) ||
 
 ## Solution [here]()
 
@@ -22,9 +22,6 @@ notepad content\index.html
   </body>
 </html>
 ```
-
-* Save the `index.html`
-
 ```
 call > Dockerfile
 notepad Dockerfile
