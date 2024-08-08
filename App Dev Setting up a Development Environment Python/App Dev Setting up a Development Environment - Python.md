@@ -1,6 +1,6 @@
 # App Dev: Setting up a Development Environment - Python || [GSP183](https://www.cloudskillsboost.google/focuses/1074?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/u0D1yl9SUuA)
 
 ### Run the following Commands in CloudShell
 
