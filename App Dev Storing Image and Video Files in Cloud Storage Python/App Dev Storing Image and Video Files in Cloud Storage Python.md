@@ -1,6 +1,6 @@
 # App Dev: Storing Image and Video Files in Cloud Storage - Python || [GSP185](https://www.cloudskillsboost.google/focuses/1075?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/sDWlw49Aqjo)
 
 ### Run the following Commands in CloudShell
 
