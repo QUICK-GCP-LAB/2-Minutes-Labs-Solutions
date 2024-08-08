@@ -1,6 +1,6 @@
 # App Dev: Storing Application Data in Cloud Datastore - Python || [GSP184](https://www.cloudskillsboost.google/focuses/1076?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/tJSlJuHPRdQ)
 
 ### Run the following Commands in CloudShell
 
