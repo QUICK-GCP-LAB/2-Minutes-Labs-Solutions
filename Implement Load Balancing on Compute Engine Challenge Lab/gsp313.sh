@@ -43,14 +43,12 @@ EOF
  
 gcloud compute instance-templates create web-server-template \
         --metadata-from-file startup-script=startup.sh \
-        --machine-type g1-small \
-        --region $REGION
+        --machine-type e2-medium \
  
 gcloud compute instance-groups managed create web-server-group \
         --base-instance-name web-server \
         --size 2 \
         --template web-server-template \
-        --region $REGION
  
 gcloud compute firewall-rules create $FIREWALL \
         --allow tcp:80 \
@@ -61,7 +59,6 @@ gcloud compute http-health-checks create http-basic-check
 gcloud compute instance-groups managed \
         set-named-ports web-server-group \
         --named-ports http:80 \
-        --region $REGION
  
 gcloud compute backend-services create web-server-backend \
         --protocol HTTP \
@@ -70,7 +67,6 @@ gcloud compute backend-services create web-server-backend \
  
 gcloud compute backend-services add-backend web-server-backend \
         --instance-group web-server-group \
-        --instance-group-region $REGION \
         --global
  
 gcloud compute url-maps create web-server-map \
