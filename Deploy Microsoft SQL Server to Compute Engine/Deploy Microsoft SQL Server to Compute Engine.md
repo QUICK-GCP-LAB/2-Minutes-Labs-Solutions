@@ -1,6 +1,6 @@
 # Deploy Microsoft SQL Server to Compute Engine || [GSP031](https://www.cloudskillsboost.google/focuses/3347?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/u2v35vK0OnQ)
 
 ### Run the following Commands in CloudShell
 
