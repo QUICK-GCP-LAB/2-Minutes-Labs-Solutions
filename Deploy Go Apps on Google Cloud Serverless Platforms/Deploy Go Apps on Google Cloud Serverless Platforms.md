@@ -1,6 +1,6 @@
 # Deploy Go Apps on Google Cloud Serverless Platforms || [GSP702](https://www.cloudskillsboost.google/focuses/10532?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/2oR3xGcdpyA)
 
 ### Run the following Commands in CloudShell
 
