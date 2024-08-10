@@ -2,7 +2,7 @@
 
 ## Solution [here]()
 
-* Enable `Dialogflow API` from [here] (https://console.cloud.google.com/marketplace/product/google/dialogflow.googleapis.com?)
+* Enable `Dialogflow API` from [here](https://console.cloud.google.com/marketplace/product/google/dialogflow.googleapis.com?)
 
 * Go to `Firestore` from [here](https://console.cloud.google.com/firestore?)
 
