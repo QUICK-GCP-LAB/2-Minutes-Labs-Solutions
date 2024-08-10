@@ -2,6 +2,10 @@
 
 ## Solution [here]()
 
+* Enable `Dialogflow API` from [here] (https://console.cloud.google.com/marketplace/product/google/dialogflow.googleapis.com?)
+
+* Enable `Cloud Functions API` from [here] (https://console.cloud.google.com/marketplace/product/google/cloudfunctions.googleapis.com?)
+
 * Go to `Firestore` from [here](https://console.cloud.google.com/firestore?)
 
 * Copy and Paste the following in `index.js`
