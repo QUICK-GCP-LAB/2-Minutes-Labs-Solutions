@@ -10,11 +10,11 @@ export FILE_1=
 export FILE_2=
 ```
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Analyze%20Images%20with%20the%20Cloud%20Vision%20API%20Challenge%20Lab/arc122.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Detect%20Manufacturing%20Defects%20using%20Visual%20Inspection%20AI%20Challenge%20Lab/gsp366.sh
 
-sudo chmod +x arc122.sh
+sudo chmod +x gsp366.sh
 
-./arc122.sh
+./gsp366.sh
 ```
 
 ### Congratulations 🎉 for completing the Lab !
