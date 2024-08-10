@@ -260,4 +260,4 @@ gcloud run deploy slow-function \
 --project=$DEVSHELL_PROJECT_ID \
  && gcloud run services update-traffic slow-function --to-latest --region=$REGION
 
- echo "${YELLOW}${BOLD}NOW${RESET}" "${WHITE}${BOLD}Check The Score${RESET}" "${GREEN}${BOLD}Upto Task 6 then Process Next${RESET}"
+echo "${YELLOW}${BOLD}NOW${RESET}" "${WHITE}${BOLD}Check The Score${RESET}" "${GREEN}${BOLD}Upto Task 6 then Process Next${RESET}"
