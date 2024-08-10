@@ -25,8 +25,6 @@ RESET=`tput sgr0`
 
 echo "${BG_MAGENTA}${BOLD}Starting Execution${RESET}"
 
-cat > prepare_disk.sh <<'EOF_END'
-
 curl -sL https://firebase.tools | bash
 
 cd ~/my_hugo_site
@@ -68,16 +66,6 @@ gcloud builds list
 gcloud builds log $(gcloud builds list --format='value(ID)' --filter=$(git rev-parse HEAD))
 
 gcloud builds log $(gcloud builds list --format='value(ID)' --filter=$(git rev-parse HEAD)) | grep "Hosting URL"
-
-EOF_END
-
-ZONE="$(gcloud compute instances list --project=$DEVSHELL_PROJECT_ID --format='value(ZONE)' | head -n 1)"
-
-gcloud compute scp prepare_disk.sh hugo-dev-vm:/tmp --project=$DEVSHELL_PROJECT_ID --zone=$ZONE --quiet
-
-gcloud compute ssh hugo-dev-vm --project=$DEVSHELL_PROJECT_ID --zone=$ZONE --quiet --command="bash /tmp/prepare_disk.sh"
-
-echo "${YELLOW}${BOLD}NOW${RESET}" "${WHITE}${BOLD}Check The Score${RESET}" "${GREEN}${BOLD}Upto Task 2 then Process Next${RESET}"
 
 echo "${BG_RED}${BOLD}Congratulations For Completing The Lab !!!${RESET}"
 

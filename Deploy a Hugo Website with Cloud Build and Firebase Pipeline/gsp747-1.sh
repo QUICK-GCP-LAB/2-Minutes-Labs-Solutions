@@ -25,8 +25,6 @@ RESET=`tput sgr0`
 
 echo "${BG_MAGENTA}${BOLD}Starting Execution${RESET}"
 
-cat > prepare_disk.sh <<'EOF_END'
-
 cd ~
 /tmp/installhugo.sh
 
@@ -51,12 +49,6 @@ sudo rm themes/ananke/.gitignore
 
 cd ~/my_hugo_site
   /tmp/hugo server -D --bind 0.0.0.0 --port 8080
-
-EOF_END
-
-ZONE="$(gcloud compute instances list --project=$DEVSHELL_PROJECT_ID --format='value(ZONE)' | head -n 1)"
-
-gcloud compute scp prepare_disk.sh hugo-dev-vm:/tmp --project=$DEVSHELL_PROJECT_ID --zone=$ZONE --quiet
 
 gcloud compute ssh hugo-dev-vm --project=$DEVSHELL_PROJECT_ID --zone=$ZONE --quiet --command="bash /tmp/prepare_disk.sh"
 
