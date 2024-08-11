@@ -1,6 +1,6 @@
 # Building Virtual Agent Fulfillment || [GSP792](https://www.cloudskillsboost.google/focuses/12039?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/Tl08w_3VaQU)
 
 * Enable `Dialogflow API` from [here](https://console.cloud.google.com/marketplace/product/google/dialogflow.googleapis.com?)
 
