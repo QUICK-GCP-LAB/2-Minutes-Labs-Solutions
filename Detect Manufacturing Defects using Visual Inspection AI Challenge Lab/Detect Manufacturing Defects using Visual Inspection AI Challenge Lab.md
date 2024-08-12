@@ -1,6 +1,6 @@
 # Detect Manufacturing Defects using Visual Inspection AI: Challenge Lab || [GSP366](https://www.cloudskillsboost.google/focuses/34184?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/Om88d86qFXs)
 
 ### Run the following Commands in CloudShell
 
