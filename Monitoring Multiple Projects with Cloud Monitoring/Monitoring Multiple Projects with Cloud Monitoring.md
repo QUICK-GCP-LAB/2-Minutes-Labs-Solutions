@@ -16,6 +16,8 @@ sudo chmod +x gsp090-1.sh
 ```
 * Go to `Create group` from [here](https://console.cloud.google.com/monitoring/groups?)
 
+* Name your group `DemoGroup`
+
 * In the third field (Value), type in `instance`
 
 * For Uptime check Title: enter `DemoGroup uptime check`
