@@ -25,13 +25,11 @@ RESET=`tput sgr0`
 
 echo "${BG_MAGENTA}${BOLD}Starting Execution${RESET}"
 
-gcloud auth list
-
 gcloud config set compute/zone $ZONE 
 
 export PROJECT_ID=$DEVSHELL_PROJECT_ID
 
-gcloud container clusters create hello-world --zone=$ZONE --project=$DEVSHELL_PROJECT_ID --num-nodes=2
+gcloud container clusters create hello-world --num-nodes=2
 
 gsutil -m cp -r gs://spls/gsp022/mongo-k8s-sidecar .
 
