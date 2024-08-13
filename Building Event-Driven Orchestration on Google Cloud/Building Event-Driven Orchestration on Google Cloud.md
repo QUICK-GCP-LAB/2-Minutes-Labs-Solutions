@@ -1,4 +1,4 @@
-# Building Event-Driven Orchestration on Google Cloud || [](https://www.cloudskillsboost.google/paths/19/course_templates/465/labs/346770) ||
+# [Building Event-Driven Orchestration on Google Cloud](https://www.cloudskillsboost.google/paths/19/course_templates/465/labs/346770)
 
 ## Solution [here]()
 
