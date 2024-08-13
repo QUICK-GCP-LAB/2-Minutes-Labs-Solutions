@@ -1,6 +1,6 @@
 # Autoscaling an Instance Group with Custom Cloud Monitoring Metrics || [GSP087](https://www.cloudskillsboost.google/focuses/611?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/jp7VYo44Y-g)
 
 ### Run the following Commands in CloudShell
 
