@@ -1,6 +1,6 @@
 # Cloud SQL for PostgreSQL: Qwik Start || [GSP152](https://www.cloudskillsboost.google/focuses/937?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/Xxozzrl_nUU)
 
 ### Run the following Commands in CloudShell
 
