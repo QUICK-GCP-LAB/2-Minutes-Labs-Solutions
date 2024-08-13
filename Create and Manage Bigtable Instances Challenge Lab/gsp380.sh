@@ -1,3 +1,6 @@
+#!/bin/bash
+# Define color variables
+
 BLACK=`tput setaf 0`
 RED=`tput setaf 1`
 GREEN=`tput setaf 2`
@@ -20,7 +23,7 @@ BOLD=`tput bold`
 RESET=`tput sgr0`
 #----------------------------------------------------start--------------------------------------------------#
 
-echo "${YELLOW}${BOLD}Starting${RESET}" "${GREEN}${BOLD}Execution${RESET}"
+echo "${BG_MAGENTA}${BOLD}Starting Execution${RESET}"
 
 export REGION="${ZONE%-*}"
 
@@ -92,6 +95,6 @@ gcloud bigtable backups delete PersonalizedProducts_7 --instance=ecommerce-recom
 
 gcloud bigtable instances delete ecommerce-recommendations --quiet
 
-echo "${RED}${BOLD}Congratulations${RESET}" "${WHITE}${BOLD}for${RESET}" "${GREEN}${BOLD}Completing the Lab !!!${RESET}"
+echo "${BG_RED}${BOLD}Congratulations For Completing The Lab !!!${RESET}"
 
 #-----------------------------------------------------end----------------------------------------------------------#
