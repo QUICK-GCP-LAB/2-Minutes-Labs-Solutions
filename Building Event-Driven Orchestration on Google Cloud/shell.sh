@@ -92,38 +92,70 @@ gcloud builds submit \
   . \
   --tag ${REPO_REGION}-docker.pkg.dev/${GOOGLE_CLOUD_PROJECT}/${REPO_NAME}/${THUMBNAIL_SERVICE_NAME}
 
-export REPO_NAME=image-app-repo
-export REPO_REGION=$REGION
-export THUMBNAIL_SERVICE_REGION=$REGION
-export THUMBNAIL_SERVICE_NAME=create-thumbnail
-export GENERATED_IMAGES_BUCKET=generated-images-${GOOGLE_CLOUD_PROJECT}
-cd ~/code/cloud-run/create-thumbnail
-gcloud config set run/region ${THUMBNAIL_SERVICE_REGION}
-gcloud config set run/platform managed
-gcloud run deploy ${THUMBNAIL_SERVICE_NAME} \
-  --image ${REPO_REGION}-docker.pkg.dev/${GOOGLE_CLOUD_PROJECT}/${REPO_NAME}/${THUMBNAIL_SERVICE_NAME} \
-  --no-allow-unauthenticated \
-  --memory=1Gi \
-  --max-instances=1 \
-  --update-env-vars GENERATED_IMAGES_BUCKET=${GENERATED_IMAGES_BUCKET}
+deploy_function() {
+    export REPO_NAME=image-app-repo
+    export REPO_REGION=$REGION
+    export THUMBNAIL_SERVICE_REGION=$REGION
+    export THUMBNAIL_SERVICE_NAME=create-thumbnail
+    export GENERATED_IMAGES_BUCKET=generated-images-${GOOGLE_CLOUD_PROJECT}
+    cd ~/code/cloud-run/create-thumbnail
+    gcloud config set run/region ${THUMBNAIL_SERVICE_REGION}
+    gcloud config set run/platform managed
+    gcloud run deploy ${THUMBNAIL_SERVICE_NAME} \
+        --image ${REPO_REGION}-docker.pkg.dev/${GOOGLE_CLOUD_PROJECT}/${REPO_NAME}/${THUMBNAIL_SERVICE_NAME} \
+        --no-allow-unauthenticated \
+        --memory=1Gi \
+        --max-instances=1 \
+        --update-env-vars GENERATED_IMAGES_BUCKET=${GENERATED_IMAGES_BUCKET}
+}
 
-export REPO_NAME=image-app-repo
-export REPO_REGION=$REGION
-export COLLAGE_SERVICE_REGION=$REGION
-export COLLAGE_SERVICE_NAME=create-collage
-export GENERATED_IMAGES_BUCKET=generated-images-${GOOGLE_CLOUD_PROJECT}
-cd ~/code/cloud-run/create-collage
-gcloud builds submit \
-  . \
-  --tag ${REPO_REGION}-docker.pkg.dev/${GOOGLE_CLOUD_PROJECT}/${REPO_NAME}/${COLLAGE_SERVICE_NAME}
-gcloud config set run/region ${COLLAGE_SERVICE_REGION}
-gcloud config set run/platform managed
-gcloud run deploy ${COLLAGE_SERVICE_NAME} \
-  --image ${REPO_REGION}-docker.pkg.dev/${GOOGLE_CLOUD_PROJECT}/${REPO_NAME}/${COLLAGE_SERVICE_NAME} \
-  --no-allow-unauthenticated \
-  --memory=1Gi \
-  --max-instances=1 \
-  --update-env-vars GENERATED_IMAGES_BUCKET=${GENERATED_IMAGES_BUCKET}
+deploy_success=false
+
+while [ "$deploy_success" = false ]; do
+    if deploy_function; then
+        echo "Function deployed successfully..."
+        deploy_success=true
+    else
+        echo "Retrying in 15 seconds..."
+        sleep 15
+    fi
+done
+
+deploy_function() {
+    export REPO_NAME=image-app-repo
+    export REPO_REGION=$REGION
+    export COLLAGE_SERVICE_REGION=$REGION
+    export COLLAGE_SERVICE_NAME=create-collage
+    export GENERATED_IMAGES_BUCKET=generated-images-${GOOGLE_CLOUD_PROJECT}
+
+    cd ~/code/cloud-run/create-collage
+
+    gcloud builds submit \
+        . \
+        --tag ${REPO_REGION}-docker.pkg.dev/${GOOGLE_CLOUD_PROJECT}/${REPO_NAME}/${COLLAGE_SERVICE_NAME}
+
+    gcloud config set run/region ${COLLAGE_SERVICE_REGION}
+    gcloud config set run/platform managed
+
+    gcloud run deploy ${COLLAGE_SERVICE_NAME} \
+        --image ${REPO_REGION}-docker.pkg.dev/${GOOGLE_CLOUD_PROJECT}/${REPO_NAME}/${COLLAGE_SERVICE_NAME} \
+        --no-allow-unauthenticated \
+        --memory=1Gi \
+        --max-instances=1 \
+        --update-env-vars GENERATED_IMAGES_BUCKET=${GENERATED_IMAGES_BUCKET}
+}
+
+deploy_success=false
+
+while [ "$deploy_success" = false ]; do
+    if deploy_function; then
+        echo "Function deployed successfully..."
+        deploy_success=true
+    else
+        echo "Retrying in 15 seconds..."
+        sleep 15
+    fi
+done
 
 export DELETE_SERVICE_REGION=$REGION
 export DELETE_SERVICE_NAME=delete-image
@@ -135,18 +167,32 @@ gcloud run deploy ${DELETE_SERVICE_NAME} \
   --source . \
   --no-allow-unauthenticated \
   --max-instances=1 \
-  --update-env-vars GENERATED_IMAGES_BUCKET=${GENERATED_IMAGES_BUCKET}
+  --update-env-vars GENERATED_IMAGES_BUCKET=${GENERATED_IMAGES_BUCKET} --quiet
 
-export EXTRACT_FUNCTION_REGION=$REGION
-export EXTRACT_FUNCTION_NAME=extract-image-metadata
-cd ~/code/cloud-functions/${EXTRACT_FUNCTION_NAME}
-gcloud config set functions/region ${EXTRACT_FUNCTION_REGION}
-gcloud functions deploy ${EXTRACT_FUNCTION_NAME} \
-  --source . \
-  --runtime=nodejs18 \
-  --entry-point=extract_image_metadata \
-  --trigger-http \
-  --no-allow-unauthenticated
+deploy_function() {
+    export EXTRACT_FUNCTION_REGION=$REGION
+    export EXTRACT_FUNCTION_NAME=extract-image-metadata
+    cd ~/code/cloud-functions/${EXTRACT_FUNCTION_NAME} || return 1
+    gcloud config set functions/region ${EXTRACT_FUNCTION_REGION} || return 1
+    gcloud functions deploy ${EXTRACT_FUNCTION_NAME} \
+      --source . \
+      --runtime=nodejs18 \
+      --entry-point=extract_image_metadata \
+      --trigger-http \
+      --no-allow-unauthenticated
+}
+
+deploy_success=false
+
+while [ "$deploy_success" = false ]; do
+    if deploy_function; then
+        echo "Function deployed successfully..."
+        deploy_success=true
+    else
+        echo "Retrying in 15 seconds..."
+        sleep 15
+    fi
+done
 
 export WORKFLOWS_SA=workflows-sa
 gcloud iam service-accounts create ${WORKFLOWS_SA}
@@ -202,18 +248,32 @@ gcloud projects add-iam-policy-binding ${GOOGLE_CLOUD_PROJECT} \
   --member="serviceAccount:${CLOUD_STORAGE_SA}" \
   --role="roles/pubsub.publisher"
 
-export WORKFLOW_TRIGGER_REGION=$REGION
-export WORKFLOW_NAME=image-add-workflow
-export WORKFLOW_REGION=$REGION
-export UPLOAD_BUCKET=uploaded-images-${GOOGLE_CLOUD_PROJECT}
-export WORKFLOW_TRIGGER_SA=workflow-trigger-sa
-gcloud eventarc triggers create image-add-trigger \
-  --location=${WORKFLOW_TRIGGER_REGION} \
-  --destination-workflow=${WORKFLOW_NAME} \
-  --destination-workflow-location=${WORKFLOW_REGION} \
-  --event-filters="type=google.cloud.storage.object.v1.finalized" \
-  --event-filters="bucket=${UPLOAD_BUCKET}" \
-  --service-account="${WORKFLOW_TRIGGER_SA}@${GOOGLE_CLOUD_PROJECT}.iam.gserviceaccount.com"
+deploy_function() {
+    export WORKFLOW_TRIGGER_REGION=$REGION
+    export WORKFLOW_NAME=image-add-workflow
+    export WORKFLOW_REGION=$REGION
+    export UPLOAD_BUCKET=uploaded-images-${GOOGLE_CLOUD_PROJECT}
+    export WORKFLOW_TRIGGER_SA=workflow-trigger-sa
+    gcloud eventarc triggers create image-add-trigger \
+      --location=${WORKFLOW_TRIGGER_REGION} \
+      --destination-workflow=${WORKFLOW_NAME} \
+      --destination-workflow-location=${WORKFLOW_REGION} \
+      --event-filters="type=google.cloud.storage.object.v1.finalized" \
+      --event-filters="bucket=${UPLOAD_BUCKET}" \
+      --service-account="${WORKFLOW_TRIGGER_SA}@${GOOGLE_CLOUD_PROJECT}.iam.gserviceaccount.com"
+}
+
+deploy_success=false
+
+while [ "$deploy_success" = false ]; do
+    if deploy_function; then
+        echo "Function deployed successfully..."
+        deploy_success=true
+    else
+        echo "Deployment failed. Retrying in 15 seconds..."
+        sleep 15
+    fi
+done
 
 export UPLOAD_BUCKET=uploaded-images-${GOOGLE_CLOUD_PROJECT}
 export IMAGE_NAME=neon.jpg
@@ -248,10 +308,10 @@ gcloud run services add-iam-policy-binding ${COLLAGE_SERVICE} \
 
 export SERVICE_REGION=$REGION
 export SERVICE_NAME=create-collage
-gcloud run services describe ${SERVICE_NAME} \
+export URL=$(gcloud run services describe ${SERVICE_NAME} \
   --platform managed \
   --region ${SERVICE_REGION} \
-  --format 'value(status.url)'
+  --format 'value(status.url)')
 
 job_function() {
     gcloud scheduler jobs create http collage-schedule \
@@ -302,7 +362,6 @@ gcloud eventarc triggers create image-delete-trigger \
 --destination-run-path="/" \
 --event-filters="bucket=uploaded-images-$GOOGLE_CLOUD_PROJECT" \
 --event-filters="type=google.cloud.storage.object.v1.deleted"
-
 
 gcloud firestore indexes composite create \
   --collection-group=images \
