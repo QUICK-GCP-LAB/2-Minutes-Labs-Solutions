@@ -27,64 +27,62 @@ echo "${BG_MAGENTA}${BOLD}Starting Execution${RESET}"
 
 gcloud config set compute/region $REGION
 
-mkdir gcf_hello_world
-
-cd gcf_hello_world
+mkdir gcf_hello_world && cd $_
 
 cat > index.js <<'EOF_END'
-/**
-* Background Cloud Function to be triggered by Pub/Sub.
-* This function is exported by index.js, and executed when
-* the trigger topic receives a message.
-*
-* @param {object} data The event payload.
-* @param {object} context The event metadata.
-*/
-exports.helloWorld = (data, context) => {
-    const pubSubMessage = data;
-    const name = pubSubMessage.data
-        ? Buffer.from(pubSubMessage.data, 'base64').toString() : "Hello World";
-    
-    console.log(`My Cloud Function: ${name}`);
-    };
+const functions = require('@google-cloud/functions-framework');
+
+// Register a CloudEvent callback with the Functions Framework that will
+// be executed when the Pub/Sub trigger topic receives a message.
+functions.cloudEvent('helloPubSub', cloudEvent => {
+  // The Pub/Sub message is passed as the CloudEvent's data payload.
+  const base64name = cloudEvent.data.message.data;
+
+  const name = base64name
+    ? Buffer.from(base64name, 'base64').toString()
+    : 'World';
+
+  console.log(`Hello, ${name}!`);
+});
 EOF_END
 
+cat > package.json <<'EOF_END'
+{
+  "name": "gcf_hello_world",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@google-cloud/functions-framework": "^3.0.0"
+  }
+}
+EOF_END
 
-gsutil mb -p $DEVSHELL_PROJECT_ID gs://$DEVSHELL_PROJECT_ID
+npm install
 
 gcloud services disable cloudfunctions.googleapis.com
 
 gcloud services enable cloudfunctions.googleapis.com
 
-gcloud projects add-iam-policy-binding $DEVSHELL_PROJECT_ID \
---member="serviceAccount:$DEVSHELL_PROJECT_ID@appspot.gserviceaccount.com" \
---role="roles/artifactregistry.reader"
+sleep 15
 
-sleep 20
+gcloud functions deploy nodejs-pubsub-function \
+  --gen2 \
+  --runtime=nodejs20 \
+  --region=$REGION \
+  --source=. \
+  --entry-point=helloPubSub \
+  --trigger-topic cf-demo \
+  --stage-bucket $DEVSHELL_PROJECT_ID-bucket \
+  --service-account cloudfunctionsa@$DEVSHELL_PROJECT_ID.iam.gserviceaccount.com \
+  --allow-unauthenticated \
+  --quiet
 
-deploy_function() {
-  gcloud functions deploy helloWorld \
-  --stage-bucket gs://$DEVSHELL_PROJECT_ID \
-  --trigger-topic hello_world \
-  --runtime nodejs20 \
-    --quiet
-}
-
-
-# Loop until the Cloud Run service is created
-while true; do
-  # Run the deployment command
-  deploy_function
-
-  # Check if Cloud Run service is created
-  if gcloud functions describe helloWorld --format="value(state)" > /dev/null 2>&1; then
-    echo "Cloud Functions is created. Exiting the loop."
-    break
-  else
-    echo "Waiting for Cloud Functions to be created..."
-    sleep 30
-  fi
-done
+gcloud functions describe nodejs-pubsub-function \
+  --region=$REGION
 
 echo "${BG_RED}${BOLD}Congratulations For Completing The Lab !!!${RESET}"
 
