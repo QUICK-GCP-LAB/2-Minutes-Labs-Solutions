@@ -1,6 +1,6 @@
 # [Building Event-Driven Orchestration on Google Cloud](https://www.cloudskillsboost.google/paths/19/course_templates/465/labs/346770)
 
-## Solution [here]()
+## Solution [here](https://youtu.be/GCpSTrTMXYM)
 
 ### Run the following Commands in CloudShell
 
