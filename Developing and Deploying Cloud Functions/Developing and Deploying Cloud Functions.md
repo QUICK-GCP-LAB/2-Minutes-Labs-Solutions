@@ -1,6 +1,6 @@
 # [Developing and Deploying Cloud Functions](https://www.cloudskillsboost.google/course_templates/505/labs/361038)
 
-## Solution [here]()
+## Solution [here](https://youtu.be/uz_Uhxi8hjA)
 
 ### Run the following Commands in CloudShell
 
