@@ -4,7 +4,7 @@
 
 * Go to `Create database` from [here](https://console.cloud.google.com/firestore/create-database?)
 
-### create a new document collection
+### Create a New Document Collection
 
 * For Collection ID Paste the Following
 
@@ -31,7 +31,7 @@ sudo chmod +x arc122.sh
 ./arc122.sh
 ```
 
-* Delete and re-create last field
+* Delete and Re-Create Last Field
 
 |   Field   |  Type  |  Value  |
 |   :---:   | :----: | :----:  |
