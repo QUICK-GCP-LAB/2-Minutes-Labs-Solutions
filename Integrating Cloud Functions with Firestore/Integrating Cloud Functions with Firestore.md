@@ -4,7 +4,7 @@
 
 * Go to `Create database` from [here](https://console.cloud.google.com/firestore/create-database?)
 
-create a new document collection
+### create a new document collection
 
 * For Collection ID Paste the Following
 
