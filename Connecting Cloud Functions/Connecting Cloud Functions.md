@@ -1,6 +1,6 @@
 # [Connecting Cloud Functions](https://www.cloudskillsboost.google/course_templates/505/labs/361044)
 
-## Solution [here]()
+## Solution [here](https://youtu.be/Wqt-M5bwn6o)
 
 ### Run the following Commands in CloudShell
 
