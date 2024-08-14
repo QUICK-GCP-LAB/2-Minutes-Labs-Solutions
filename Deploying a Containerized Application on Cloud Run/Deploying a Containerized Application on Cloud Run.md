@@ -1,6 +1,6 @@
 # [Deploying a Containerized Application on Cloud Run](https://www.cloudskillsboost.google/focuses/60089?parent=catalog)
 
-## Solution [here]()
+## Solution [here](https://youtu.be/OHZvNA_qZa8)
 
 ### Run the following Commands in CloudShell
 
