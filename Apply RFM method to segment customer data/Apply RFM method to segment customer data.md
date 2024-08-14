@@ -1,6 +1,6 @@
 # [Apply RFM method to segment customer data](https://www.cloudskillsboost.google/focuses/88317?parent=catalog)
 
-## Solution [here]()
+## Solution [here](https://youtu.be/q4wtSeSWjP4)
 
 ### Run the following Commands in CloudShell
 
