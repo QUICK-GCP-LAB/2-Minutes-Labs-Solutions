@@ -1,6 +1,6 @@
 # [Integrating Cloud Functions with Firestore](https://www.cloudskillsboost.google/course_templates/505/labs/361054)
 
-## Solution [here]()
+## Solution [here](https://youtu.be/I5sP3Z8VdXA)
 
 * Go to `Create database` from [here](https://console.cloud.google.com/firestore/create-database?)
 
