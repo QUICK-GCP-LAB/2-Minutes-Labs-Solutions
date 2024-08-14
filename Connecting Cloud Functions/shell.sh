@@ -125,8 +125,8 @@ while [ "$deploy_success" = false ]; do
         echo "Function deployed successfully..."
         deploy_success=true
     else
-        echo "Retrying in 30 seconds..."
-        sleep 30
+        echo "Retrying in 20 seconds..."
+        sleep 20
     fi
 done
 
@@ -189,8 +189,8 @@ while [ "$deploy_success" = false ]; do
         echo "Function deployed successfully..."
         deploy_success=true
     else
-        echo "Retrying in 15 seconds..."
-        sleep 15
+        echo "Retrying in 20 seconds..."
+        sleep 30
     fi
 done
 
@@ -275,8 +275,8 @@ while [ "$deploy_success" = false ]; do
         echo "Function deployed successfully..."
         deploy_success=true
     else
-        echo "Retrying in 15 seconds..."
-        sleep 15
+        echo "Retrying in 30 seconds..."
+        sleep 30
     fi
 done
 
@@ -322,8 +322,8 @@ while [ "$deploy_success" = false ]; do
         echo "Function deployed successfully..."
         deploy_success=true
     else
-        echo "Retrying in 15 seconds..."
-        sleep 15
+        echo "Retrying in 30 seconds..."
+        sleep 30
     fi
 done
 
