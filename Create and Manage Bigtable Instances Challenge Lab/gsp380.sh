@@ -88,7 +88,7 @@ gcloud dataflow jobs run import-recommendations --gcs-location gs://dataflow-tem
 
 echo "${YELLOW}${BOLD}NOW${RESET}" "${WHITE}${BOLD}Check The Score${RESET}" "${GREEN}${BOLD}Upto Task 4${RESET}"
 
-sleep 120
+sleep 300
 
 gcloud bigtable backups delete PersonalizedProducts_7 --instance=ecommerce-recommendations \
   --cluster=ecommerce-recommendations-c1  --quiet
