@@ -10,11 +10,11 @@ gcloud compute ssh debian-clean --zone=$ZONE --quiet
 ```
 ### Assign Veriables in `SSH`
 ```
-export ZONE=
 export USER2=
 export PROJECT2=
 ```
 ```
+export ZONE=$(gcloud compute instances list debian-clean --format 'csv[no-heading](zone)')
 gcloud --version
 gcloud auth login --no-launch-browser --quiet
 ```
