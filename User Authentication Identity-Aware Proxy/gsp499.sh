@@ -56,7 +56,7 @@ while [ "$deploy_success" = false ]; do
     echo "Function deployed successfully."
     deploy_success=true
   else
-    echo "Retrying, please subscribe to techcps (https://www.youtube.com/@techcps)..."
+    echo "Retrying..."
     sleep 10
   fi
 done
@@ -76,7 +76,7 @@ while [ "$deploy_success" = false ]; do
     echo "Function deployed successfully."
     deploy_success=true
   else
-    echo "Retrying, please subscribe to techcps (https://www.youtube.com/@techcps)..."
+    echo "Retrying..."
     sleep 10
   fi
 done
@@ -96,7 +96,7 @@ while [ "$deploy_success" = false ]; do
     echo "Function deployed successfully."
     deploy_success=true
   else
-    echo "Retrying, please subscribe to techcps (https://www.youtube.com/@techcps)..."
+    echo "Retrying..."
     sleep 10
   fi
 done
