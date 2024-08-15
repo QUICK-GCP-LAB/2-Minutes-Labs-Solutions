@@ -31,6 +31,7 @@ gcloud config configurations activate default
 gcloud config configurations activate user2
 
 echo "export PROJECTID2=$PROJECT2" >> ~/.bashrc
+
 . ~/.bashrc
 gcloud config set project $PROJECTID2 --quiet
 
