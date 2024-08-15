@@ -22,8 +22,6 @@ RESET=`tput sgr0`
 
 echo "${YELLOW}${BOLD}Starting${RESET}" "${GREEN}${BOLD}Execution${RESET}"
 
-gcloud compute instances list
-
 gcloud compute instances create lab-2 --machine-type=e2-standard-2
 
 gcloud config configurations activate default
@@ -31,24 +29,18 @@ gcloud config configurations activate default
 gcloud config configurations activate user2
 
 echo "export PROJECTID2=$PROJECT2" >> ~/.bashrc
-
 . ~/.bashrc
 gcloud config set project $PROJECTID2 --quiet
 
 gcloud config configurations activate default
 
-sudo apt -y install jq
-
 echo "export USERID2=$USER2" >> ~/.bashrc
-
 . ~/.bashrc
 gcloud projects add-iam-policy-binding $PROJECTID2 --member user:$USERID2 --role=roles/viewer
 
 gcloud config configurations activate user2
 
 gcloud config set project $PROJECTID2
-
-gcloud compute instances list
 
 gcloud compute instances create lab-2 --machine-type=e2-standard-2
 
@@ -63,8 +55,6 @@ gcloud projects add-iam-policy-binding $PROJECTID2 --member user:$USERID2 --role
 gcloud config configurations activate user2
 
 gcloud compute instances create lab-2 --machine-type=e2-standard-2
-
-gcloud compute instances list
 
 gcloud config configurations activate default
 
