@@ -5,8 +5,8 @@
 ### Run the following Commands in CloudShell
 
 ```
-export ZONE=
-gcloud compute ssh centos-clean --zone=$ZONE --quiet
+export ZONE=$(gcloud compute instances list debian-clean --format 'csv[no-heading](zone)')
+gcloud compute ssh debian-clean --zone=$ZONE --quiet
 ```
 ### Assign Veriables in `SSH`
 ```
