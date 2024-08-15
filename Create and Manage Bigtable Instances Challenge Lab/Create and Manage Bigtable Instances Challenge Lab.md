@@ -17,6 +17,8 @@ sudo chmod +x gsp380.sh
 ./gsp380.sh
 ```
 
+* Go to `Dataflow Job` from [here](https://console.cloud.google.com/dataflow/jobs?)
+
 ### Congratulations 🎉 for completing the Challenge Lab !
 
 ##### *You Have Successfully Demonstrated Your Skills And Determination.*
