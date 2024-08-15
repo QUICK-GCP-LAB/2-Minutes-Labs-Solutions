@@ -29,6 +29,7 @@ echo "export PROJECTID2=$PROJECT2" >> ~/.bashrc
 . ~/.bashrc
 gcloud config set project $PROJECTID2 --quiet
 gcloud config configurations activate default
+sudo apt -y install jq
 echo "export USERID2=$USER2" >> ~/.bashrc
 . ~/.bashrc
 gcloud projects add-iam-policy-binding $PROJECTID2 --member user:$USERID2 --role=roles/viewer
