@@ -28,7 +28,7 @@ user2
 ```
 ```
 curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Configuring%20IAM%20Permissions%20with%20gcloud%20-%20AWS/gsp1126-2.sh
-sudo chmod +x gsp1126-1.sh
+sudo chmod +x gsp1126-2.sh
 ./gsp1126-2.sh
 ```
 
