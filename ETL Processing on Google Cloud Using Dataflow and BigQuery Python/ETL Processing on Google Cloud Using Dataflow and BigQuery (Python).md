@@ -1,6 +1,6 @@
 # ETL Processing on Google Cloud Using Dataflow and BigQuery (Python) || [GSP290](https://www.cloudskillsboost.google/focuses/3460?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/3n1Fkmm_bdI)
 
 ### Run the following Commands in CloudShell
 
