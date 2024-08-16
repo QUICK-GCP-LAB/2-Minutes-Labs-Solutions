@@ -1,6 +1,6 @@
 # Create and Manage Bigtable Instances: Challenge Lab || [GSP380](https://www.cloudskillsboost.google/focuses/92500?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/GbzjeeVll4c)
 
 ### Run the following Commands in CloudShell
 
