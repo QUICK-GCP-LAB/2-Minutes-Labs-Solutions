@@ -1,4 +1,4 @@
-# [Optimizing your BigQuery Queries for Performance 2.5](https://www.cloudskillsboost.google/games/4794/labs/31309)
+# [Optimizing your BigQuery Queries for Performance 2.5](https://www.cloudskillsboost.google/focuses/28348?parent=catalog)
 
 ## Solution [here]()
 
