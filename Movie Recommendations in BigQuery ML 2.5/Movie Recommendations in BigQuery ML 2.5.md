@@ -1,4 +1,4 @@
-# [Movie Recommendations in BigQuery ML 2.5](https://www.cloudskillsboost.google/games/4794/labs/31314)
+# [Movie Recommendations in BigQuery ML 2.5](https://www.cloudskillsboost.google/course_templates/55/labs/488493)
 
 ## Solution [here]()
 
