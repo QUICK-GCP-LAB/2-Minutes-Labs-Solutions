@@ -202,6 +202,11 @@ cd ..
 
 kubectl -n $NAMESPACE apply -f pod-monitoring.yaml
 
+gcloud logging metrics create pod-image-errors \
+  --description="awesome lab" \
+  --log-filter="resource.type=\"k8s_pod\"	
+severity=WARNING"
+
 cat > awesome.json <<EOF_END
 {
   "displayName": "Pod Error Alert",
@@ -235,8 +240,6 @@ cat > awesome.json <<EOF_END
   "notificationChannels": []
 }
 EOF_END
-
-sleep 600
 
 gcloud alpha monitoring policies create --policy-from-file="awesome.json"
 
