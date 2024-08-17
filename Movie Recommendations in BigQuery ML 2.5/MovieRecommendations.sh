@@ -1,3 +1,6 @@
+#!/bin/bash
+# Define color variables
+
 BLACK=`tput setaf 0`
 RED=`tput setaf 1`
 GREEN=`tput setaf 2`
@@ -20,21 +23,19 @@ BOLD=`tput bold`
 RESET=`tput sgr0`
 #----------------------------------------------------start--------------------------------------------------#
 
-echo "${YELLOW}${BOLD}Starting${RESET}" "${GREEN}${BOLD}Execution${RESET}"
+echo "${BG_MAGENTA}${BOLD}Starting Execution${RESET}"
 
-bq --location=EU mk --dataset movies
+bq --location=US mk --dataset movies
 
- bq load --source_format=CSV \
- --location=EU \
+  bq load --source_format=CSV \
+ --location=US \
  --autodetect movies.movielens_ratings \
  gs://dataeng-movielens/ratings.csv
 
-
- bq load --source_format=CSV \
- --location=EU   \
+  bq load --source_format=CSV \
+ --location=US   \
  --autodetect movies.movielens_movies_raw \
  gs://dataeng-movielens/movies.csv
-
 
 bq query --use_legacy_sql=false \
 "
@@ -66,7 +67,6 @@ FROM
   movies.movielens_movies_raw
 "
 
-
 bq query --use_legacy_sql=false \
 "
 SELECT * FROM ML.EVALUATE(MODEL \`cloud-training-prod-bucket.movies.movie_recommender\`)
@@ -93,7 +93,6 @@ ORDER BY
 LIMIT
   5  
 "
-
 
 bq query --use_legacy_sql=false \
 "
@@ -127,7 +126,6 @@ LIMIT
   5
 "
 
-
 bq query --use_legacy_sql=false \
 "
 SELECT
@@ -159,6 +157,6 @@ LIMIT
 100
 "
 
-echo "${RED}${BOLD}Congratulations${RESET}" "${WHITE}${BOLD}for${RESET}" "${GREEN}${BOLD}Completing the Lab !!!${RESET}"
+echo "${BG_RED}${BOLD}Congratulations For Completing The Lab !!!${RESET}"
 
 #-----------------------------------------------------end----------------------------------------------------------#
