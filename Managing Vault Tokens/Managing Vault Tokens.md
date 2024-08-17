@@ -2,7 +2,7 @@
 
 ## Solution [here]()
 
-* *In Cloud Shell, Use Below Commands to Execute Shell File.*
+### Run the following Commands in CloudShell
 
 ```
 curl -LO https://raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Managing%20Vault%20Tokens/gsp1006.sh
