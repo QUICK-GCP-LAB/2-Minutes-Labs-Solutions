@@ -20,7 +20,7 @@ sudo chmod +x gsp323.sh
 ./gsp323.sh
 ```
 
-* * Go to `Create a Dataproc cluster on Compute Engine` from [here](https://console.cloud.google.com/dataproc/clustersAdd?computeInfra=gce)
+* * Go to `Create a Dataproc cluster on Compute Engine` from [here](https://console.cloud.google.com/dataproc/clusters?)
 
 ### Congratulations 🎉 for completing the Lab !
 
