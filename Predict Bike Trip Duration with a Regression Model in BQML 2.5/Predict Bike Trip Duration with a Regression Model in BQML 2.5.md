@@ -1,4 +1,4 @@
-# [Predict Bike Trip Duration with a Regression Model in BQML 2.5](https://www.cloudskillsboost.google/games/4794/labs/31313)
+# [Predict Bike Trip Duration with a Regression Model in BQML 2.5](https://www.cloudskillsboost.google/course_templates/55/labs/488491)
 
 ## Solution [here]()
 
