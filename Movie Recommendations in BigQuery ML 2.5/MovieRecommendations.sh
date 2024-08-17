@@ -25,7 +25,7 @@ RESET=`tput sgr0`
 
 echo "${BG_MAGENTA}${BOLD}Starting Execution${RESET}"
 
-bq --location=EU mk --dataset movies
+bq --location=US mk --dataset movies
 
   bq load --source_format=CSV \
  --location=US \
