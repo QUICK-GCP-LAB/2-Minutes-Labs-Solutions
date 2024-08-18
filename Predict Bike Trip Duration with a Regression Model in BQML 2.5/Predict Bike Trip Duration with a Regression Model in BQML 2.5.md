@@ -1,6 +1,6 @@
 # [Predict Bike Trip Duration with a Regression Model in BQML 2.5](https://www.cloudskillsboost.google/course_templates/55/labs/488491)
 
-## Solution [here]()
+## Solution [here](https://youtu.be/FUfOIu1Gy8s)
 
 ### Run the following Commands in CloudShell
 ```
