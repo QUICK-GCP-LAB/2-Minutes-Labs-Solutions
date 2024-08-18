@@ -1,6 +1,6 @@
 # [Optimizing your BigQuery Queries for Performance 2.5](https://www.cloudskillsboost.google/focuses/28348?parent=catalog)
 
-## Solution [here]()
+## Solution [here](https://youtu.be/v1qw2pymwL0)
 
 ### Run the following Commands in CloudShell
 ```
