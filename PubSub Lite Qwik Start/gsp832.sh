@@ -34,12 +34,12 @@ pip3 install --upgrade google-cloud-pubsublite
 sleep 15
 
 gcloud pubsub lite-topics create my-lite-topic \
-  --location=$LOCATION \
+  --location=$LOCATION-b \
   --partitions=1 \
   --per-partition-bytes=30GiB
 
 gcloud pubsub lite-subscriptions create my-lite-subscription \
-  --location=$LOCATION \
+  --location=$LOCATION-b \
   --topic=my-lite-topic
 
 echo "${BG_RED}${BOLD}Congratulations For Completing The Lab !!!${RESET}"
