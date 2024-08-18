@@ -1,6 +1,6 @@
 # Monitoring and Logging for Cloud Functions || [GSP092](https://www.cloudskillsboost.google/focuses/1833?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/o9lvQ3_JI-E)
 
 ### Run the following Commands in CloudShell
 
