@@ -1,6 +1,6 @@
 # Migrate a MySQL Database to Google Cloud SQL: Challenge Lab || [GSP306](https://www.cloudskillsboost.google/focuses/1740?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/k5VtYbZ4Csk)
 
 ### Run the following Commands in CloudShell
 
