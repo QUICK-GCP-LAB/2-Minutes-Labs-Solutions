@@ -15,6 +15,10 @@ sudo chmod +x gsp1033.sh
 ./gsp1033.sh
 ```
 
+* Go to the `OAuth consent screen` from [here](https://console.cloud.google.com/apis/credentials/consent?)
+
+* Go to the `Identity-Aware Proxy` from [here](https://console.cloud.google.com/security/iap?)
+
 ### Congratulations 🎉 for completing the Lab !
 
 ##### *You Have Successfully Demonstrated Your Skills And Determination.*
