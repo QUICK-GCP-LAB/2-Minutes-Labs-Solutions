@@ -1,6 +1,6 @@
 # Predict Taxi Fare with a BigQuery ML Forecasting Model || [GSP246](https://www.cloudskillsboost.google/focuses/1797?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/LQy1Mmht7kc)
 
 ### Run the following Commands in CloudShell
 
