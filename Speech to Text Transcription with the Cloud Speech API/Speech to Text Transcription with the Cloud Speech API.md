@@ -2,7 +2,9 @@
 
 ## Solution [here]()
 
-### Run the following Commands in CloudShell
+* Go to `VM instances` from [here](https://console.cloud.google.com/compute/instances?)
+
+### Run the following Commands in SSH
 
 ```
 curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Speech%20to%20Text%20Transcription%20with%20the%20Cloud%20Speech%20API/gsp048-1.sh
@@ -14,7 +16,7 @@ sudo chmod +x gsp048-1.sh
 
 * `NOTE:`  Now Check The Score Upto `Task 3` then Process Next.
 
-### Run again the following Commands in CloudShell
+### Run again the following Commands in SSH
 
 ```
 curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Speech%20to%20Text%20Transcription%20with%20the%20Cloud%20Speech%20API/gsp048-2.sh
