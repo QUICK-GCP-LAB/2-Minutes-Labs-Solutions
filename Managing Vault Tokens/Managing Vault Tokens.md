@@ -1,6 +1,6 @@
 # Managing Vault Tokens || [GSP1006](https://www.cloudskillsboost.google/focuses/32201?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/cTM4WCFutHM)
 
 ### Run the following Commands in CloudShell
 
