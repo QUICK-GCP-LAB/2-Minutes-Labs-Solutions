@@ -1,6 +1,6 @@
 # [Extracting Text from the Images using the Google Cloud Vision API](https://www.cloudskillsboost.google/paths/17/course_templates/18/labs/381944)
 
-## Solution [here]()
+## Solution [here](https://youtu.be/V5wXiB6iGYQ)
 
 ### Run the following Commands in CloudShell
 
