@@ -1,6 +1,6 @@
 # Manage Kubernetes in Google Cloud: Challenge Lab || [GSP510](https://www.cloudskillsboost.google/focuses/58179?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/SN3Wg2ej15I)
 
 ### Run the following Commands in CloudShell
 
