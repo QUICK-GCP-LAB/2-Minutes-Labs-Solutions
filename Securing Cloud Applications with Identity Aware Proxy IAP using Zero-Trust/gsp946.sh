@@ -27,6 +27,8 @@ echo "${BG_MAGENTA}${BOLD}Starting Execution${RESET}"
 
 gcloud services enable iap.googleapis.com
 
+sleep 15
+
 git clone https://github.com/googlecodelabs/user-authentication-with-iap.git
 cd user-authentication-with-iap
 
