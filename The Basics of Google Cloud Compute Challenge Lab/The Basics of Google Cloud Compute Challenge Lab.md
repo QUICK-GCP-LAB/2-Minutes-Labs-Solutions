@@ -1,8 +1,8 @@
 # The Basics of Google Cloud Compute: Challenge Lab || [ARC120](https://www.cloudskillsboost.google/focuses/65384?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/XAwPdcW5iZY)
 
-* * Go to `Create a bucket` from [here](https://console.cloud.google.com/storage/create-bucket?)
+* Go to `Create a bucket` from [here](https://console.cloud.google.com/storage/create-bucket?)
 
 ### Run the following Commands in CloudShell
 
