@@ -118,30 +118,17 @@ PROCESSOR_ID=$(curl -X GET \
 
 export PROCESSOR_ID
 
-deploy_function() {
 gcloud functions deploy process-invoices \
   --region=${CLOUD_FUNCTION_LOCATION} \
   --entry-point=process_invoice \
   --runtime=python39 \
-  --service-account=${PROJECT_ID}@appspot.gserviceaccount.com \
   --source=cloud-functions/process-invoices \
   --timeout=400 \
   --trigger-resource=gs://${PROJECT_ID}-input-invoices \
   --trigger-event=google.storage.object.finalize \
-  --update-env-vars=PROCESSOR_ID=${PROCESSOR_ID},PARSER_LOCATION=us,PROJECT_ID=${PROJECT_ID}
-}
-
-deploy_success=false
-
-while [ "$deploy_success" = false ]; do
-  if deploy_function; then
-    echo "Function deployed successfully...."
-    deploy_success=true
-  else
-    echo "Deployment Retrying, please wait...."
-    sleep 30
-  fi
-done
+  --update-env-vars=PROCESSOR_ID=${PROCESSOR_ID},PARSER_LOCATION=us,PROJECT_ID=${PROJECT_ID} \
+  --service-account=$PROJECT_NUMBER-compute@developer.gserviceaccount.com \
+  --no-gen2
 
 export PROJECT_ID=$(gcloud config get-value core/project)
 gsutil -m cp -r gs://cloud-training/gsp367/* \
