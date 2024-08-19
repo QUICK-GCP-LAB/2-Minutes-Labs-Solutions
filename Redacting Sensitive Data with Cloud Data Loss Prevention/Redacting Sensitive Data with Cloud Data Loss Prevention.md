@@ -1,6 +1,6 @@
 # Redacting Sensitive Data with Cloud Data Loss Prevention || [GSP864](https://www.cloudskillsboost.google/focuses/46234?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/feE2nwYzIjo)
 
 ### Run the following Commands in CloudShell
 
