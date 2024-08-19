@@ -1,6 +1,6 @@
 # Tag and Discover BigLake Data: Challenge Lab || [ARC123](https://www.cloudskillsboost.google/focuses/64167?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/_c6Zmt9pAgk)
 
 ### Run the following Commands in CloudShell
 
