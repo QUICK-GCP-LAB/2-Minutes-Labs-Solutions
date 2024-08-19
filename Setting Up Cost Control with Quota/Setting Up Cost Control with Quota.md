@@ -1,6 +1,6 @@
 # Setting Up Cost Control with Quota || [GSP651](https://www.cloudskillsboost.google/focuses/7847?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/wJGmUvobY-4)
 
 ### Run the following Commands in CloudShell
 
