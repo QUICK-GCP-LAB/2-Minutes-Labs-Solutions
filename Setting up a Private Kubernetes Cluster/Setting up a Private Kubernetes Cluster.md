@@ -1,6 +1,6 @@
 # Setting up a Private Kubernetes Cluster || [GSP178](https://www.cloudskillsboost.google/focuses/867?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/3EoYy_mk2vA)
 
 ### Run the following Commands in CloudShell
 
