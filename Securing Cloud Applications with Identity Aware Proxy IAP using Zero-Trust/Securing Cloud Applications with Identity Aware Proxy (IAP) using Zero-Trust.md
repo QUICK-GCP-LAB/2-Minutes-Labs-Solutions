@@ -1,6 +1,6 @@
 # Securing Cloud Applications with Identity Aware Proxy (IAP) using Zero-Trust || [GSP946](https://www.cloudskillsboost.google/focuses/20229?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/qV0fiuE7P8E)
 
 ### Run the following Commands in CloudShell
 
