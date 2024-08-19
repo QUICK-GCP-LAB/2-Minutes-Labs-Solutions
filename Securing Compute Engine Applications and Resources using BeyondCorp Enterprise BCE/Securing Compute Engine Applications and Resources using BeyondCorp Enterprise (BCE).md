@@ -1,6 +1,6 @@
 # Securing Compute Engine Applications and Resources using BeyondCorp Enterprise (BCE) || [GSP1033](https://www.cloudskillsboost.google/focuses/40542?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/VZLI922Fxkg)
 
 ### Run the following Commands in CloudShell
 
