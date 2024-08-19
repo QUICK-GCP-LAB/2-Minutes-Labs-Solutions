@@ -1,6 +1,6 @@
 # Service Accounts and Roles: Fundamentals || [GSP199](https://www.cloudskillsboost.google/focuses/1038?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/mUWjGNCoPzs)
 
 ### Run the following Commands in CloudShell
 
