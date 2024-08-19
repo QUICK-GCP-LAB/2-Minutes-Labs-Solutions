@@ -1,6 +1,6 @@
 # Speech to Text Transcription with the Cloud Speech API || [GSP048](https://www.cloudskillsboost.google/focuses/2187?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/Hs4Gpdcb5WI)
 
 ### Run the following Commands in CloudShell
 
