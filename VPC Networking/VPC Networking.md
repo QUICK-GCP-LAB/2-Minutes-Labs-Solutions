@@ -1,4 +1,4 @@
-# [VPC Networking](https://www.cloudskillsboost.google/games/4794/labs/31302)
+# [VPC Networking](https://www.cloudskillsboost.google/course_templates/50/labs/485519)
 
 ## Solution [here]()
 
