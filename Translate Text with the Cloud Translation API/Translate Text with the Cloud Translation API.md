@@ -1,6 +1,6 @@
 # Translate Text with the Cloud Translation APITranslate Text with the Cloud Translation API || [GSP049](https://www.cloudskillsboost.google/focuses/697?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/I0kHgGcwB_U)
 
 ### Run the following Commands in CloudShell
 
