@@ -1,6 +1,6 @@
 # Vertex AI: Qwik Start || [GSP917](https://www.cloudskillsboost.google/focuses/18940?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/AU1OEtWj8eo)
 
 ### Run the following Commands in CloudShell
 
