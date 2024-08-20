@@ -12,6 +12,8 @@ sudo chmod +x arc115.sh
 ./arc115.sh
 ```
 
+### NOW FOLLOW [VIDEO'S](https://youtu.be/bJmehGefeek) INSTRUCTIONS.
+
 * Go to `Create Uptime Check` from [here](https://console.cloud.google.com/monitoring/uptime/create?)
 
 1. For Title: enter `quickgcplab`
