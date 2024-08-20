@@ -2,14 +2,18 @@
 
 ## Solution [here]()
 
+* Go to `Create an instance' from [here](https://console.cloud.google.com/compute/instancesAdd?)
+
+* In the Name field, enter `quickstart-vm`
+
 ### Run the following Commands in CloudShell
 
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Analyze%20Images%20with%20the%20Cloud%20Vision%20API%20Challenge%20Lab/arc122.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Monitor%20a%20Compute%20Engine%20Virtual%20Machine%20Qwik%20Start/gsp1108.sh
 
-sudo chmod +x arc122.sh
+sudo chmod +x gsp1108.sh
 
-./arc122.sh
+./gsp1108.sh
 ```
 
 ### Congratulations 🎉 for completing the Lab !
