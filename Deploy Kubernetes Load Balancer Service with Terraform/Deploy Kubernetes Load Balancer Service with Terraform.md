@@ -1,6 +1,6 @@
 # Deploy Kubernetes Load Balancer Service with Terraform || [GSP233](https://www.cloudskillsboost.google/focuses/1205?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/7iOAaw_ErV0)
 
 ### Run the following Commands in CloudShell
 
