@@ -20,6 +20,7 @@ const {WebhookClient} = require('dialogflow-fulfillment');
 const {Card, Suggestion} = require('dialogflow-fulfillment');
 const admin = require('firebase-admin');
 admin.initializeApp();
+admin.firestore().settings({timestamps})
 admin.firestore().settings( { timestampsInSnapshots: true });
 const db = admin.firestore();
 process.env.DEBUG = 'dialogflow:debug'; // enables lib debugging statements
