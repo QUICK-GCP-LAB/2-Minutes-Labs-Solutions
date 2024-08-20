@@ -122,12 +122,13 @@ gcloud functions deploy process-invoices \
   --region=${CLOUD_FUNCTION_LOCATION} \
   --entry-point=process_invoice \
   --runtime=python39 \
-  --service-account=${PROJECT_ID}@appspot.gserviceaccount.com \
   --source=cloud-functions/process-invoices \
   --timeout=400 \
   --trigger-resource=gs://${PROJECT_ID}-input-invoices \
   --trigger-event=google.storage.object.finalize \
-  --update-env-vars=PROCESSOR_ID=${PROCESSOR_ID},PARSER_LOCATION=us,PROJECT_ID=${PROJECT_ID}
+  --update-env-vars=PROCESSOR_ID=${PROCESSOR_ID},PARSER_LOCATION=us,PROJECT_ID=${PROJECT_ID} \
+  --service-account=$PROJECT_NUMBER-compute@developer.gserviceaccount.com \
+  --no-gen2
 
 export PROJECT_ID=$(gcloud config get-value core/project)
 gsutil -m cp -r gs://cloud-training/gsp367/* \

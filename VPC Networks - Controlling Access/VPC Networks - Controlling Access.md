@@ -1,6 +1,6 @@
 # VPC Networks - Controlling Access || [GSP213](https://www.cloudskillsboost.google/focuses/1231?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/yrGVW7Ptdn4)
 
 ### Run the following Commands in CloudShell
 ```
