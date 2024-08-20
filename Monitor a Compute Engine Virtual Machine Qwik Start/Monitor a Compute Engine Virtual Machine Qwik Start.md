@@ -2,7 +2,7 @@
 
 ## Solution [here]()
 
-* Go to `Create an instance' from [here](https://console.cloud.google.com/compute/instancesAdd?)
+* Go to `Create an instance` from [here](https://console.cloud.google.com/compute/instancesAdd?)
 
 * In the Name field, enter `quickstart-vm`
 
