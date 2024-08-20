@@ -1,6 +1,6 @@
 # [VPC Networking](https://www.cloudskillsboost.google/course_templates/50/labs/485519)
 
-## Solution [here]()
+## Solution [here](https://youtu.be/pKAu_PB3FZI)
 
 ### Run the following Commands in CloudShell
 ```
