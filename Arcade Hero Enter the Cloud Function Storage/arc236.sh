@@ -55,7 +55,7 @@ while true; do
     break
   else
     echo "Waiting for Cloud Function to be deployed..."
-    sleep 10
+    sleep 30
   fi
 done
 
