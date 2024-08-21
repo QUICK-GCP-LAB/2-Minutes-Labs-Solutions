@@ -5,11 +5,11 @@
 ### Run the following Commands in CloudShell
 
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Analyze%20Images%20with%20the%20Cloud%20Vision%20API%20Challenge%20Lab/arc122.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Troubleshooting%20Common%20SQL%20Errors%20with%20BigQuery/gsp408.sh
 
-sudo chmod +x arc122.sh
+sudo chmod +x gsp408.sh
 
-./arc122.sh
+./gsp408.sh
 ```
 
 ### Congratulations 🎉 for completing the Lab !
