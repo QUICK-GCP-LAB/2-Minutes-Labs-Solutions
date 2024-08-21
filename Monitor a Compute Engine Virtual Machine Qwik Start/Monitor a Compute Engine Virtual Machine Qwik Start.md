@@ -1,6 +1,6 @@
 # Monitor a Compute Engine Virtual Machine: Qwik Start || [GSP1108](https://www.cloudskillsboost.google/focuses/56596?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/tiQEUmNP6Zc)
 
 * Go to `Create an instance` from [here](https://console.cloud.google.com/compute/instancesAdd?)
 
