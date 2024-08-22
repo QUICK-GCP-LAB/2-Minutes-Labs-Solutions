@@ -1,6 +1,6 @@
 # Monitoring in Google Cloud: Challenge Lab || [ARC115](https://www.cloudskillsboost.google/focuses/63855?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/cZJn_C_Ry4w)
 
 ### Run the following Commands in CloudShell
 

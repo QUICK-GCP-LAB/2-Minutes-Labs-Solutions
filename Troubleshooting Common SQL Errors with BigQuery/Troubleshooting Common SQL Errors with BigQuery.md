@@ -1,6 +1,6 @@
 # Troubleshooting Common SQL Errors with BigQuery || [GSP408](https://www.cloudskillsboost.google/focuses/3642?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/MzuMqt11Ykc)
 
 ### Run the following Commands in CloudShell
 
