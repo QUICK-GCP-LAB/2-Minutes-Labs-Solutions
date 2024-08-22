@@ -1,6 +1,6 @@
 # BigQuery Soccer Data Analytical Insight || [GSP850](https://www.cloudskillsboost.google/focuses/58632?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/HCocRX2g6Lo)
 
 ### Run the following Commands in CloudShell
 
