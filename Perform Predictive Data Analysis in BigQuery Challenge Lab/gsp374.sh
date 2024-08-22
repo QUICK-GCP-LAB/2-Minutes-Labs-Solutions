@@ -200,6 +200,6 @@ ORDER BY
 predictedgoalProb
 "
 
-echo "${BG_RED}${BOLD}Congratulations For Completing The Lab !!!${RESET}"
+echo "${YELLOW}${BOLD}NOW${RESET}" "${WHITE}${BOLD}FOLLOW${RESET}" "${GREEN}${BOLD}VIDEO'S INSTRUCTIONS${RESET}"
 
 #-----------------------------------------------------end----------------------------------------------------------#

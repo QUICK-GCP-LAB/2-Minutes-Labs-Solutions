@@ -23,6 +23,8 @@ sudo chmod +x gsp374.sh
 ./gsp374.sh
 ```
 
+* Go to `BigQuery` from [here](https://console.cloud.google.com/bigquery?)
+
 ### Congratulations 🎉 for completing the Lab !
 
 ##### *You Have Successfully Demonstrated Your Skills And Determination.*
