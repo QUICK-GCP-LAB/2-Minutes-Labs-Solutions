@@ -1,6 +1,6 @@
 # Perform Predictive Data Analysis in BigQuery: Challenge Lab || [GSP374](https://www.cloudskillsboost.google/focuses/37320?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/drrdaN5mroI)
 
 ### Run the following Commands in CloudShell
 
