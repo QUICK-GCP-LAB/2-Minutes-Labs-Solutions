@@ -125,7 +125,7 @@ Average Distance
 Busiest, Major Joint-Use Airports with Control Towers
 ```
 28. Click **New Dashboard**.
-29. For the dashboard name, type **YOUR DASHBOARD NAME** and click **OK**
+29. For the **dashboard name**, type **YOUR DASHBOARD NAME** and click **OK**
 30. Click **Save to Dashboard**.
 
 ### Task 3: Save looks to a dashboard
