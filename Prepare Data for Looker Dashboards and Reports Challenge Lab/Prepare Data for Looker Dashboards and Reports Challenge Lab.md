@@ -19,7 +19,7 @@
 11**. Click the arrow next to **Visualization** to expand the window.
 12. Change **visualization** type to **Table**.
 13. Click **Run**.
-14. Click on the settings gear icon next to **Run**, and select **Save** > **As a Look**.
+14. Click on the **settings gear** icon next to **Run**, and select **Save** > **As a Look**.
 15. Title the **NAME YOUR LOOK**.
 16. Click **Save**.
 
