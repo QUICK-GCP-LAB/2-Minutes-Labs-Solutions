@@ -13,7 +13,7 @@
 5. Under **Airports** > **Measures**, click **Count**.
 6. Under **Airports** > **Dimensions**, click on the **Filter** button next to the **Facility Type**.
 7. In the **filter window**, set the **filter** to: is equal to **`HELIPORT`**.
-8. On the Data tab, change **Row limit** to **YOUR LIMIT**
+8. On the **Data tab**, change **Row limit** to **YOUR LIMIT**
 9. Click **Run**
 10. Click on **Airports Count** to sort the values in **descending order**.
 11. Click the arrow next to **Visualization** to expand the window.
@@ -30,7 +30,7 @@
 3. Under **Airports** > **Dimensions**, click **State**.
 4. Under **Airports** > **Measures**, click **Count**.
 5. Under **Airports** > **Dimensions**, click on the **Pivot button** next to the **Facility Type**.
-6. On the Data tab, change **Row limit** to **YOUR LIMIT**
+6. On the **Data tab**, change **Row limit** to **YOUR LIMIT**
 7. Click on **Airports Facility Type** to sort the values in **descending order**.
 8. Click the arrow next to **Visualization** to expand the window.
 9. Change **visualization** type to **Table**.
@@ -58,9 +58,9 @@ ${flights.cancelled_count}/${flights.count}
 12. Name The Calculation **`Percentage of Flights Cancelled`**
 13. Click **Default Formatting** to change the format to **Percent (3)**
 14. Click on **Percent Cancelled** to sort the values in **descending order**.
-15. Hover over the **Flights Count** column, and click the **gear icon** that appears on the right side.
+15. Hover over the **Flights Count column**, and click the **gear icon** that appears on the right side.
 16. Click **Hide from Visualization**.
-17. Hover over the **Cancelled Count** column, and click the **gear icon** that appears on the right side.
+17. Hover over the **Cancelled Count column**, and click the **gear icon** that appears on the right side.
 18. Click **Hide from Visualization**.
 19. Change **visualization** type to **Table**.
 20. Click **Run**.
@@ -80,11 +80,11 @@ Average Distance
 ```
 6. Name The Custom Measure: **`Average Distance (Miles)`**
 7. Click **Save**.
-8. Hover over the **Average Distance (Miles)** column, and click the **gear icon** that appears on the right side.
+8. Hover over the **Average Distance (Miles) column**, and click the **gear icon** that appears on the right side.
 9. Click **Filter**.
-10. In the **filter** window, set the filter to: **Average Distance (Miles) is greater than `0`**
+10. In the **filter window**, set the filter to: **Average Distance (Miles) is greater than `0`**
 11. Click on **Average Distance (Miles)** to sort the values in **Ascending order**.
-12. On the Data tab, change **Row limit** to **YOUR LIMIT**.
+12. On the **Data tab**, change **Row limit** to **YOUR LIMIT**.
 13. Click the arrow next to **Visualization** to expand the window.
 14. Change **visualization** type to **Table**.
 15. Click **Run**.
@@ -102,7 +102,7 @@ Average Distance
 6. Under **Flights** > **Measures**, click **Count**.
 7. On the **Data tab**, change **Row limit** to `10`
 8. Click **Run**.
-9. In the top right pane of the **Explore** for your primary query, click **Settings (Settings/gear)**.
+9. In the top right pane of the **Explore** for your **primary query**, click **Settings (Settings/gear)**.
 10. Click **Merge Results**. This will open the Choose an **Explore window**.
 11. In the Choose an **Explore window**, click **Airports**.
 12. In the **All Fields pane**, click **City**, **State** and **Code**.
