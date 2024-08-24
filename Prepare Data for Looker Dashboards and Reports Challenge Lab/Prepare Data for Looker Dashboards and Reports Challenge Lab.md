@@ -12,11 +12,11 @@
 4. Under **Airports** > **Dimensions**, click **State**.
 5. Under **Airports** > **Measures**, click **Count**.
 6. Under **Airports** > **Dimensions**, click on the **Filter** button next to the **Facility Type**.
-7. In the filter window, set the **filter** to: is equal to **`HELIPORT`**.
+7. In the **filter window**, set the **filter** to: is equal to **`HELIPORT`**.
 8. On the Data tab, change **Row limit** to **YOUR LIMIT**
 9. Click **Run**
-10. Click on **Airports Count** to sort the values in ******.
-11**. Click the arrow next to **Visualization** to expand the window.
+10. Click on **Airports Count** to sort the values in **descending order**.
+11. Click the arrow next to **Visualization** to expand the window.
 12. Change **visualization** type to **Table**.
 13. Click **Run**.
 14. Click on the **settings gear** icon next to **Run**, and select **Save** > **As a Look**.
