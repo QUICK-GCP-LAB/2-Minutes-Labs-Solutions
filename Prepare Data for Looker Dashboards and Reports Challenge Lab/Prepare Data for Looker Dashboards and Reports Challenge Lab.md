@@ -65,7 +65,7 @@ ${flights.cancelled_count}/${flights.count}
 19. Change **visualization** type to **Table**.
 20. Click **Run**.
 21. Click on the **settings gear** icon next to **Run**, and select **Save** > **As a Look**.
-22. Title the **NAME YOUR LOOK**.
+22. Title the **`States and Cities with Highest Percentage of Cancellations: Flights over 10,000`**.
 23. Click **Save**.
 
 #### Look #4: Smallest average distance
