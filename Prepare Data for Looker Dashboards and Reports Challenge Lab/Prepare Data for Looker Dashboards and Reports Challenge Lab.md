@@ -41,14 +41,14 @@
 
 #### Look #3: Percentage cancelled
 
-1. In the **Looker navi**gation** menu**, **click** **Explore**.
-2. Under **FAA**, click ****Fli**ghts******.
-3**. Under ****** > ****Dimensi**ons****, **click City.
-4. **Under** **Aircraft **Orig**in****** > **Dimensions**, click State.
-**5.** Under **Flights **Details**** > **`Measures**,` click Cancelled Count.
-6. Under **Flights** > **Measures**, click Count.
-7. Under **Flights** > **Measures**, click on the Filter button next to the Count.
-8. In the filter window, set the **filter** to: Flights Count **is greater than 10000**.
+1. In the **Looker navigation menu**, **click** **Explore**.
+2. Under **FAA**, click **Flights**.
+3. Under **Aircraft Origin** > **Dimensions**, click **City**.
+4. Under **Aircraft Origin** > **Dimensions**, click **State**.
+5. Under **Flights Details** > **Measures**, click **Cancelled Count**.
+6. Under **Flights** > **Measures**, click **Count**.
+7. Under **Flights** > **Measures**, click on the **Filter** button next to the **Count**.
+8. In the **filter window**, set the **filter** to: Flights Count **is greater than 10000**.
 9. Click **Run**.
 10. Next to **Custom Fields**, click **+ Add**. Select **Table Calculation**.
 11. Copy or Paste the following in **Expression field**:
