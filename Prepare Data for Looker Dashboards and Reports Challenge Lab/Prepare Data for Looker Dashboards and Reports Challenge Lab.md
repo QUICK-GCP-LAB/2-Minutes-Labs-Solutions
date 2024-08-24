@@ -12,7 +12,7 @@
 4. Under **Airports** > **Dimensions**, click **State**.
 5. Under **Airports** > **Measures**, click **Count**.
 6. Under **Airports** > **Dimensions**, click on the **Filter** button next to the **Facility Type**.
-7. In the filter window, set the **filter** to: is equal to `HELIPORT`.
+7. In the filter window, set the **filter** to: is equal to **`HELIPORT`**.
 8. On the Data tab, change **Row limit** to **YOUR LIMIT**
 9. Click **Run**
 10. Click on **Airports Count** to sort the values in ******.
@@ -55,7 +55,7 @@
 ```
 ${flights.cancelled_count}/${flights.count}
 ```
-12. Name The Calculation `Percentage of Flights Cancelled`
+12. Name The Calculation **`Percentage of Flights Cancelled`**
 13. Click **Default Formatting** to change the format to **Percent (3)**
 14. Click on **Percent Cancelled** to sort the values in **descending order**.
 15. Hover over the **Flights Count** column, and click the **gear icon** that appears on the right side.
@@ -74,15 +74,15 @@ ${flights.cancelled_count}/${flights.count}
 2. Under **FAA**, click **Flights**.
 3. Under **Flights** > **Dimensions**, click **Origin and Destination**.
 4. Next to **Custom Fields**, click **+ Add**. Select **Custom Measure**.
-5. In Field to Measure, type or paste the following
+5. In Field to **Measure**, type or  paste the following
 ```
 Average Distance
 ```
-6. Name The Custom Measure: **Average Distance (Miles)**
+6. Name The Custom Measure: **`Average Distance (Miles)`**
 7. Click **Save**.
 8. Hover over the **Average Distance (Miles)** column, and click the **gear icon** that appears on the right side.
 9. Click **Filter**.
-10. In the **filter** window, set the filter to: **Average Distance (Miles) is greater than 0**
+10. In the **filter** window, set the filter to: **Average Distance (Miles) is greater than `0`**
 11. Click on **Average Distance (Miles)** to sort the values in **Ascending order**.
 12. On the Data tab, change **Row limit** to **YOUR LIMIT**.
 13. Click the arrow next to **Visualization** to expand the window.
@@ -105,7 +105,7 @@ Average Distance
 9. In the top right pane of the **Explore** for your primary query, click **Settings (Settings/gear)**.
 10. Click **Merge Results**. This will open the Choose an **Explore window**.
 11. In the Choose an **Explore window**, click **Airports**.
-12. In the All Fields pane, click **City**, **State** and **Code**.
+12. In the **All Fields pane**, click **City**, **State** and **Code**.
 13. Under **Airports** > **Dimensions**, click on the **Filter** button next to the **Control Tower (Yes / No)**.
 14. In the **filter window**, set the **filter** to: **Airports Control Tower (Yes / No)** is **Yes**.
 15. Under **Airports** > **Dimensions**, click on the **Filter** button next to the **Is Major (Yes / No)**.
@@ -120,7 +120,7 @@ Average Distance
 24. Click **Run**.
 25. In the top right pane of the Explore for your **Merged Results**, click the **gear icon**.
 26. Click **Save to Dashboard**.
-27. For **Title**, type or paste
+27. For **Title**, type or  paste
 ```
 Busiest, Major Joint-Use Airports with Control Towers
 ```
@@ -137,7 +137,7 @@ Busiest, Major Joint-Use Airports with Control Towers
 4. Click on the **settings gear** icon next to **Run**, and select **Save** > **To an existing dashboard**.
 5. Select the **dashbo**ard you **previously created**
 6. Click **Add Look to Dashboard**.
-7. For each of the Looks you created, add them to the **YOUR DASHBOARD NAME**.
+7. For each of the **Looks you created**, add them to the **YOUR DASHBOARD NAME**.
 
 ### Congratulations 🎉 for completing the Lab !
 
