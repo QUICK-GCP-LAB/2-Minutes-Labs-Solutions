@@ -31,8 +31,8 @@
 4. Under **Airports** > **Measures**, click **Count**.
 5. Under **Airports** > **Dimensions**, click on the **Pivot button** next to the **Facility Type**.
 6. On the Data tab, change **Row limit** to **YOUR LIMIT**
-7. Click on **Airports Facility Type** to sort the values in ******.
-8**. Click the arrow next to **Visualization** to expand the window.
+7. Click on **Airports Facility Type** to sort the values in **descending order**.
+8. Click the arrow next to **Visualization** to expand the window.
 9. Change **visualization** type to **Table**.
 10. Click **Run**.
 11. Click on the **settings gear** icon next to **Run**, and select **Save** > **As a Look**.
