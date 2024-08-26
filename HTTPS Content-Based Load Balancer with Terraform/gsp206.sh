@@ -33,7 +33,7 @@ cd ~/terraform-google-lb-http/examples/multi-backend-multi-mig-bucket-https-lb
 
 rm -rf main.tf
 
-wget https://raw.githubusercontent.com/quiccklabs/Labs_solutions/master/HTTPS%20Content-Based%20Load%20Balancer%20with%20Terraform/main.tf
+wget https://raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/HTTPS%20Content-Based%20Load%20Balancer%20with%20Terraform/main.tf
 
 terraform init 
 
