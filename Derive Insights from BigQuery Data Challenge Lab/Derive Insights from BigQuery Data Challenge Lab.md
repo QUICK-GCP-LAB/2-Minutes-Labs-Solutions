@@ -42,7 +42,7 @@ WHERE total_confirmed_cases > CASES
 ```
 SELECT sum(cumulative_confirmed) as total_confirmed_cases,
        sum(cumulative_deceased) as total_deaths,
-       (sum(cumulative_deceased)/sum(cumulative_confirmed))*100 as case_fatality_ratio
+       (sum(cumulative_deceased)/sum(cumulative_confirmed))*100,(sumif(cumulative_confirmed>=109) as case_fatality_ratio
 FROM `bigquery-public-data.covid19_open_data.covid19_open_data`
 WHERE country_name="Italy" AND date BETWEEN 'YYYY-MM-DD' and 'YYYY-MM-DD'
 ```
