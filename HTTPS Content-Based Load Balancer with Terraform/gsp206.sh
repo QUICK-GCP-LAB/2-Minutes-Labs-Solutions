@@ -43,7 +43,7 @@ echo $DEVSHELL_PROJECT_ID | terraform apply -auto-approve
 
 EXTERNAL_IP=$(terraform output | grep load-balancer-ip | cut -d = -f2 | xargs echo -n)
 
-echo "${CYAN}${BOLD}Click here: "${RESET}""${BLUE}${BOLD}""http://${EXTERNAL_IP}""${RESET}"
+echo "${CYAN}${BOLD}"Click here: "${RESET}""${BLUE}${BOLD}""http://${EXTERNAL_IP}""${RESET}"
 
 echo "${BG_RED}${BOLD}Congratulations For Completing The Lab !!!${RESET}"
 
