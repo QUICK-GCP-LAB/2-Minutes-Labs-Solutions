@@ -1,6 +1,6 @@
 # Prepare Data for Looker Dashboards and Reports: Challenge Lab || [GSP346](https://www.cloudskillsboost.google/focuses/18116?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/nqm6FQTOICI)
 
 ### Task 1. Create Looks
 
