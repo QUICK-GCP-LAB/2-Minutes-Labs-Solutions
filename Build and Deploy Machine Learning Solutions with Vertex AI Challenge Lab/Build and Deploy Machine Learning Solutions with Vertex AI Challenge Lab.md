@@ -1,6 +1,6 @@
 # Build and Deploy Machine Learning Solutions with Vertex AI: Challenge Lab || [GSP354](https://www.cloudskillsboost.google/focuses/22019?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/6jqBe2o6jPM)
 
 * Go to `Workbench` from [here](https://console.cloud.google.com/vertex-ai/workbench?)
 
@@ -16,7 +16,7 @@ pip3 install -U -r requirements.txt --user
 
 4. When asked which kernel to use, select the **Python 3 (ipykernel)** kernel.
 
-### Now follow [video's]() instructions for tasks 3,4 & 5.
+### Now follow [video's](https://youtu.be/6jqBe2o6jPM) instructions for tasks 3,4 & 5.
 
 > *Note: This training can take around **30-40** minutes to train and deploy the model.*
 
