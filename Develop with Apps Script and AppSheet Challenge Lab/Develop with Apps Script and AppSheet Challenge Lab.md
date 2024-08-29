@@ -23,7 +23,7 @@ ATM Maintenance Tracker
 
 ### Task 3. Create and publish an Apps Script chat bot
 
-1. Create a new **Apps Script Chap App** from [here](https://script.google.com/home/projects/create?template=hangoutsChat)
+1. Create a new **Apps Script Chat App** from [here](https://script.google.com/home/projects/create?template=hangoutsChat)
 
 * Now replace the following in **Code.gs** file:
 
