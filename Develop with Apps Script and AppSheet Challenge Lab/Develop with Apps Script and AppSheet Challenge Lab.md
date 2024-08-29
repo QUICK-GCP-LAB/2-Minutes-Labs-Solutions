@@ -25,7 +25,7 @@ ATM Maintenance Tracker
 
 1. Create a new **Apps Script Chap App** from [here](https://script.google.com/home/projects/create?template=hangoutsChat)
 
-* Now Replace the following in **Code.gs** file:
+* Now replace the following in **Code.gs** file:
 
 ```
 /**
