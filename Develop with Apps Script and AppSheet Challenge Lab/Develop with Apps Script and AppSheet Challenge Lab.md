@@ -4,7 +4,7 @@
 
 ### Task 1. Create and customize an app
 
-1. After you've logged into **AppSheet**, open the [ATM Maintenance app](https://www.appsheet.com/template/AppDef?appName=ATMMaintenance-925818016) in a new browser tab.
+1. After you've logged into **AppSheet**, open the [ATM Maintenance app](https://www.appsheet.com/template/AppDef?appName=ATMMaintenance-925818016) in same Incognito tab.
 
 2. In the left navigation menu, click **Copy app**.
 
