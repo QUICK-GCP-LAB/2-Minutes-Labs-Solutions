@@ -1,6 +1,6 @@
 # Classify Images with TensorFlow on Google Cloud: Challenge Lab || [GSP398](https://www.cloudskillsboost.google/focuses/53698?parent=catalog) ||
 
-## Solution [here](https://youtu.be/bbKUgdaADIs)
+## Solution [here](https://youtu.be/HDa3hklJaTQ)
 
 ### Run the following Commands in CloudShell
 
