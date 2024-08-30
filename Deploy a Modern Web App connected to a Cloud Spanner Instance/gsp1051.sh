@@ -26,6 +26,7 @@ RESET=`tput sgr0`
 echo "${BG_MAGENTA}${BOLD}Starting Execution${RESET}"
 
 gcloud services enable spanner.googleapis.com
+gcloud services enable artifactregistry.googleapis.com
 gcloud services enable containerregistry.googleapis.com
 gcloud services enable run.googleapis.com
 
@@ -42,6 +43,8 @@ DATABASE = omegatrade-db
 JWT_KEY = w54p3Y?4dj%8Xqa2jjVC84narhe5Pk
 EXPIRE_IN = 30d
 EOF_END
+
+nvm install 22.6
 
 npm install npm -g
 npm install --loglevel=error
