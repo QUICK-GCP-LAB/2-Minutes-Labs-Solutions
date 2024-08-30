@@ -44,8 +44,6 @@ JWT_KEY = w54p3Y?4dj%8Xqa2jjVC84narhe5Pk
 EXPIRE_IN = 30d
 EOF_END
 
-nvm install 22.6
-
 npm install npm -g
 npm install --loglevel=error
 
