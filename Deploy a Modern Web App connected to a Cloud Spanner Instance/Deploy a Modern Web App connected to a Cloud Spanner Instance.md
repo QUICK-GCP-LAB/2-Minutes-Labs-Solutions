@@ -1,6 +1,6 @@
 # Deploy a Modern Web App connected to a Cloud Spanner Instance || [GSP1051](https://www.cloudskillsboost.google/focuses/54356?parent=catalog) ||
 
-## Solution [here](https://youtu.be/cldaRCybxKg)
+## Solution [here](https://youtu.be/s_9SrH7FvgM)
 
 ### Run the following Commands in CloudShell
 
