@@ -1,6 +1,6 @@
 # Configure Secure RDP using a Windows Bastion Host: Challenge Lab || [GSP303](https://www.cloudskillsboost.google/focuses/1737?parent=catalog) ||
 
-## Solution [here](https://youtu.be/eUyfJkNPVl8)
+## Solution [here](https://youtu.be/Y8_C7jwHpHc)
 
 ### Run the following Commands in CloudShell
 
