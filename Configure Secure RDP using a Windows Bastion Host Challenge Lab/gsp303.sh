@@ -37,7 +37,7 @@ gcloud compute instances create vm-bastionhost --zone=$ZONE --machine-type=e2-me
 
 gcloud compute instances create vm-securehost --zone=$ZONE --machine-type=e2-medium --network-interface=subnet=securenetwork-subnet,no-address --network-interface=subnet=default,no-address --tags=allow-rdp-traffic --image=projects/windows-cloud/global/images/windows-server-2016-dc-v20220513
 
-sleep 150
+sleep 300
 
 echo "${CYAN}${BOLD}Resetting ${RESET}""${RED}${BOLD}password${RESET}" "${WHITE}${BOLD}for${RESET}" "${GREEN}${BOLD}vm-bastionhost${RESET}"
 
