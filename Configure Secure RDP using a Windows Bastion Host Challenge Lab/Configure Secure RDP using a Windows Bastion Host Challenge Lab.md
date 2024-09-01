@@ -15,6 +15,8 @@ sudo chmod +x gsp303.sh
 ./gsp303.sh
 ```
 
+* Go to `VM instances` from [here](https://console.cloud.google.com/compute/instances?)
+
 ### Congratulations 🎉 for Completing the Lab !
 
 ##### *You Have Successfully Demonstrated Your Skills And Determination.*
