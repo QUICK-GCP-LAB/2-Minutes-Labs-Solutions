@@ -1,5 +1,6 @@
 #!/bin/bash
 # Define color variables
+
 BLACK=`tput setaf 0`
 RED=`tput setaf 1`
 GREEN=`tput setaf 2`
@@ -22,66 +23,58 @@ BOLD=`tput bold`
 RESET=`tput sgr0`
 #----------------------------------------------------start--------------------------------------------------#
 
-echo "${YELLOW}${BOLD}Starting${RESET}" "${GREEN}${BOLD}Execution${RESET}"
+echo "${BG_MAGENTA}${BOLD}Starting Execution${RESET}"
 
 #form 1
 # Function to run form 1 code
 run_form_1() {
-export BUCKET="$(gcloud config get-value project)"		
 
-gsutil mb -p $BUCKET gs://$BUCKET-bucket
+gsutil mb -c coldline gs://$BUCKET_1
 
-gsutil retention set 30s gs://$BUCKET-gcs-bucket
+gsutil retention set 30s gs://$BUCKET_2
 
 echo "Awesome Lab" > sample.txt
 
-gsutil cp sample.txt gs://$BUCKET-bucket-ops/
+gsutil cp sample.txt gs://$BUCKET_3
 }
-
-
 
 #form 2
 # Function to run form 2 code
 run_form_2() {
-export BUCKET="$(gcloud config get-value project)"		
 
-gsutil mb -c nearline gs://$BUCKET-bucket
+gsutil mb gs://$BUCKET_1
 
-gcloud alpha storage buckets update gs://$BUCKET-gcs-bucket --no-uniform-bucket-level-access
+gcloud alpha storage buckets update gs://$BUCKET_2 --no-uniform-bucket-level-access
 
-gsutil acl ch -u $USER_EMAIL:OWNER gs://$BUCKET-gcs-bucket
+gsutil acl ch -u $USER_EMAIL:OWNER gs://$BUCKET$BUCKET_2
 
-gsutil rm gs://$BUCKET-gcs-bucket/sample.txt
+gsutil rm gs://$BUCKET$BUCKET_2/sample.txt
 
 echo "Awesome Lab" > sample.txt
 
-gsutil cp sample.txt gs://$BUCKET-gcs-bucket
+gsutil cp sample.txt gs://$BUCKET$BUCKET_2
 
-gsutil acl ch -u allUsers:R gs://$BUCKET-gcs-bucket/sample.txt
+gsutil acl ch -u allUsers:R gs://$BUCKET$BUCKET_2/sample.txt
 
-gcloud storage buckets update gs://$BUCKET-bucket-ops --update-labels=key=value
+gcloud storage buckets update gs://$BUCKET_3 --update-labels=key=value
 }
-
 
 #form 3
 # Function to run form 3 code
 run_form_3() {
-export BUCKET="$(gcloud config get-value project)"		
 
+gsutil mb -c nearline gs://$BUCKET_1
 
-gsutil mb -c coldline gs://$BUCKET-bucket
+echo "This is an example of editing the file content for cloud storage object" | gsutil cp - gs://$BUCKET_2/sample.txt
 
-echo "This is an example of editing the file content for cloud storage object" | gsutil cp - gs://$BUCKET-gcs-bucket/sample.txt
-
-gsutil defstorageclass set ARCHIVE gs://$BUCKET-bucket-ops
+gsutil defstorageclass set ARCHIVE gs://$BUCKET_3
 }
-
 
 # Main script block
 echo "${WHITE}${BOLD}"
 
 # Get the form number from user input
-read -p "Enter lab given Form number (1, 2, or 3): " form_number
+read -p "Enter Form Number (1, 2, or 3): " form_number
 
 # Execute the appropriate function based on the selected form number
 case $form_number in
@@ -91,6 +84,6 @@ case $form_number in
     *) echo "Invalid form number. Please enter 1, 2, or 3." ;;
 esac
 
-echo "${RED}${BOLD}Congratulations${RESET}" "${WHITE}${BOLD}for${RESET}" "${GREEN}${BOLD}Completing the Lab !!!${RESET}"
+echo "${BG_RED}${BOLD}Congratulations For Completing The Lab !!!${RESET}"
 
 #-----------------------------------------------------end----------------------------------------------------------#
