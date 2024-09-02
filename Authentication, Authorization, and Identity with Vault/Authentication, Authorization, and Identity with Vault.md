@@ -1,6 +1,6 @@
 # Authentication, Authorization, and Identity with Vault || [GSP1005](https://www.cloudskillsboost.google/focuses/32203?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/wyHw7Gv897g)
 
 ### Run the following Commands in CloudShell
 
