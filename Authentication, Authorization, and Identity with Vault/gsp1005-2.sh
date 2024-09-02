@@ -25,26 +25,17 @@ RESET=`tput sgr0`
 
 echo "${BG_MAGENTA}${BOLD}Starting Execution${RESET}"
 
-export VAULT_ADDR='http://127.0.0.1:8200'
+VAULT_TOKEN=$APP_TOKEN vault kv get secret/mysql/webapp
 
-vault status
+VAULT_TOKEN=$APP_TOKEN vault kv delete secret/mysql/webapp
 
-vault kv put secret/mysql/webapp db_name="users" username="admin" password="passw0rd"
+VAULT_TOKEN=$APP_TOKEN vault kv get -format=json secret/mysql/webapp | jq -r .data.data.db_name > db_name.txt
+VAULT_TOKEN=$APP_TOKEN vault kv get -format=json secret/mysql/webapp | jq -r .data.data.password > password.txt
+VAULT_TOKEN=$APP_TOKEN vault kv get -format=json secret/mysql/webapp | jq -r .data.data.username > username.txt
 
-vault auth enable approle
+export PROJECT_ID=$(gcloud config get-value project)
+gsutil cp *.txt gs://$PROJECT_ID
 
-vault policy write jenkins -<<EOF
-# Read-only permission on secrets stored at 'secret/data/mysql/webapp'
-path "secret/data/mysql/webapp" {
-  capabilities = [ "read" ]
-}
-EOF
+echo "${BG_RED}${BOLD}Congratulations For Completing The Lab !!!${RESET}"
 
-vault write auth/approle/role/jenkins token_policies="jenkins" \
-    token_ttl=1h token_max_ttl=4h
-
-vault read auth/approle/role/Jenkins
-
-vault read auth/approle/role/jenkins/role-id
-
-vault write -force auth/approle/role/jenkins/secret-id
+#-----------------------------------------------------end----------------------------------------------------------#
