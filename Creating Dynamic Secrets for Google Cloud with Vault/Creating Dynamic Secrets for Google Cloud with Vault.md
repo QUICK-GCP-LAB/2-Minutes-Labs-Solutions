@@ -5,6 +5,14 @@
 ### Run the following Commands in CloudShell
 
 ```
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Creating%20Dynamic%20Secrets%20for%20Google%20Cloud%20with%20Vault/gsp1007.sh
+
+sudo chmod +x gsp1007.sh
+
+./gsp1007.sh
+```
+
+```
 export VAULT_ADDR='http://127.0.0.1:8200'
 vault operator init
 ```
