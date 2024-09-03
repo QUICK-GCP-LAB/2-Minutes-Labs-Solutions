@@ -1,6 +1,6 @@
 # Creating Dynamic Secrets for Google Cloud with Vault || [GSP1007](https://www.cloudskillsboost.google/focuses/32204?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/MuMcDSeUmAw)
 
 ### Run the following Commands in CloudShell
 
