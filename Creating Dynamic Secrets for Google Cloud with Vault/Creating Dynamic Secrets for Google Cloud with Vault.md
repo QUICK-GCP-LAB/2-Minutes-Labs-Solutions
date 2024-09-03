@@ -53,8 +53,7 @@ resource "buckets/$DEVSHELL_PROJECT_ID" {
   ]
 }
 EOM
-```
-```
+
 vault write gcp/roleset/my-token-roleset \
     project="$DEVSHELL_PROJECT_ID" \
     secret_type="access_token"  \
