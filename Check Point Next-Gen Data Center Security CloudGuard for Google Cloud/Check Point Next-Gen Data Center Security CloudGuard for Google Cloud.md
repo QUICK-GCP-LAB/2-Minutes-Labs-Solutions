@@ -1,6 +1,6 @@
 # Check Point: Next-Gen Data Center Security CloudGuard for Google Cloud || [GSP818](https://www.cloudskillsboost.google/focuses/15822?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/LaGwriJlAKs)
 
 ### Run the following Commands in CloudShell
 
