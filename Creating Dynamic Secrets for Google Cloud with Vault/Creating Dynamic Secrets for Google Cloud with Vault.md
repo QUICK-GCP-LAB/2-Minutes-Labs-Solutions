@@ -11,7 +11,7 @@ vault operator init
 
 * Make sure to copy all the **Unseal keys** and **Initial root token**.
 
-* You need 3 of the 5 keys that were generated.
+* You need **3** of the **5** keys that were generated.
 
 ```
 vault operator unseal
@@ -52,7 +52,7 @@ vault write gcp/roleset/my-token-roleset \
     bindings=@bindings.hcl
 
 vault read gcp/roleset/my-token-roleset/token
-
+```
 ```
 curl \
   'https://storage.googleapis.com/storage/v1/b/REPLACE_PROJECT_ID' \
@@ -71,7 +71,7 @@ vault write gcp/roleset/my-key-roleset \
     bindings=@bindings.hcl
 
 vault read gcp/roleset/my-key-roleset/key
-
+```
 ```
 export S_A=
 ```
