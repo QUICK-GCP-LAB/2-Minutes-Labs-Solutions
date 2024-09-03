@@ -12,6 +12,8 @@ sudo chmod +x gsp1007.sh
 ./gsp1007.sh
 ```
 
+* Open a new Cloud Shell window
+
 ```
 export VAULT_ADDR='http://127.0.0.1:8200'
 vault operator init
