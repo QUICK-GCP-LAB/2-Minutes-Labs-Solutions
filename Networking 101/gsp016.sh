@@ -25,8 +25,6 @@ RESET=`tput sgr0`
 
 echo "${BG_MAGENTA}${BOLD}Starting Execution${RESET}"
 
-gcloud config set compute/region $REGION
-
 gcloud compute networks create taw-custom-network --subnet-mode custom
 
 gcloud compute networks subnets create subnet-$REGION_1 \
