@@ -78,10 +78,10 @@ sudo chmod +x form3.sh
 ### For form 4: Solution [here](https://youtu.be/tK9bk6wG0aQ)
 ---
 
-* **Task 1. Create a lake in Dataplex and add a zone to your lake**
-* **Task 2. Attach an existing Cloud Storage bucket to the zone**
-* **Task 3. Attach an existing BigQuery Dataset to the Lake**
-* **Task 4. Create Entities**
+* **Task 1. Create a lake in Dataplex and add a zone to your lake.**
+* **Task 2. Attach an existing Cloud Storage bucket to the zone.**
+* **Task 3. Attach an existing BigQuery Dataset to the Lake.**
+* **Task 4. Create Entities.**
 
 ### Run the following Commands in CloudShell
 
