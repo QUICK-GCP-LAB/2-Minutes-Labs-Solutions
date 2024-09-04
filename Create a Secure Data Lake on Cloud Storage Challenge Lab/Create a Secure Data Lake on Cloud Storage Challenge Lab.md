@@ -17,7 +17,7 @@
 export ZONE=
 ```
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Analyze%20Images%20with%20the%20Cloud%20Vision%20API%20Challenge%20Lab/arc122.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Create%20a%20Secure%20Data%20Lake%20on%20Cloud%20Storage%20Challenge%20Lab/form1.sh
 
 sudo chmod +x form1.sh
 
@@ -41,7 +41,7 @@ sudo chmod +x form1.sh
 export ZONE=
 ```
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Analyze%20Images%20with%20the%20Cloud%20Vision%20API%20Challenge%20Lab/arc122.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Create%20a%20Secure%20Data%20Lake%20on%20Cloud%20Storage%20Challenge%20Lab/form2.sh
 
 sudo chmod +x form2.sh
 
@@ -65,7 +65,7 @@ sudo chmod +x form2.sh
 export ZONE=
 ```
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Analyze%20Images%20with%20the%20Cloud%20Vision%20API%20Challenge%20Lab/arc122.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Create%20a%20Secure%20Data%20Lake%20on%20Cloud%20Storage%20Challenge%20Lab/form3.sh
 
 sudo chmod +x form3.sh
 
@@ -89,7 +89,7 @@ sudo chmod +x form3.sh
 export ZONE=
 ```
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Analyze%20Images%20with%20the%20Cloud%20Vision%20API%20Challenge%20Lab/arc122.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Create%20a%20Secure%20Data%20Lake%20on%20Cloud%20Storage%20Challenge%20Lab/form4.sh
 
 sudo chmod +x form4.sh
 
