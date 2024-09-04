@@ -41,6 +41,14 @@ INSERT INTO regions VALUES ( 3, 'Asia' );
 INSERT INTO regions VALUES ( 4, 'Middle East and Africa' );
 ```
 ```
+\q
+```
+```
+exit
+```
+```
+export ZONE=$(gcloud compute instances list alloydb-client --format 'csv[no-heading](zone)')
+export REGION="${ZONE%-*}"
 gcloud beta alloydb clusters create gcloud-lab-cluster \
     --password=Change3Me \
     --network=peering-network \
