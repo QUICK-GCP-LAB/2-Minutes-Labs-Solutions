@@ -5,11 +5,11 @@
 ### Run the following Commands in CloudShell
 
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/AlloyDB%20-%20Database%20Fundamentals/gsp1083.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/AlloyDB%20-%20Database%20Fundamentals/gsp1083-1.sh
 
-sudo chmod +x gsp1083.sh
+sudo chmod +x gsp1083-1.sh
 
-./gsp1083.sh
+./gsp1083-1.sh
 ```
 ```
 export ALLOYDB=
@@ -47,20 +47,11 @@ INSERT INTO regions VALUES ( 4, 'Middle East and Africa' );
 exit
 ```
 ```
-export ZONE=$(gcloud compute instances list alloydb-client --format 'csv[no-heading](zone)')
-export REGION="${ZONE%-*}"
-gcloud beta alloydb clusters create gcloud-lab-cluster \
-    --password=Change3Me \
-    --network=peering-network \
-    --region=$REGION \
-    --project=$DEVSHELL_PROJECT_ID
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/AlloyDB%20-%20Database%20Fundamentals/gsp1083-2.sh
 
-gcloud beta alloydb instances create gcloud-lab-instance\
-    --instance-type=PRIMARY \
-    --cpu-count=2 \
-    --region=$REGION  \
-    --cluster=gcloud-lab-cluster \
-    --project=$DEVSHELL_PROJECT_ID
+sudo chmod +x gsp1083-2.sh
+
+./gsp1083-2.sh
 ```
 
 ### Congratulations 🎉 for completing the Lab !
