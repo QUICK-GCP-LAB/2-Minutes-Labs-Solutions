@@ -4,11 +4,10 @@
 
 ### Run the following Commands in CloudShell
 
-* Copy ZONE_1, ZONE_2, ZONE_3 from TASK 6
 ```
-export ZONE_1=
-export ZONE_2=
-export ZONE_3=
+export REGION_1=
+export REGION_2=
+export REGION_3=
 ```
 ```
 curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Networking%20101/gsp016.sh
