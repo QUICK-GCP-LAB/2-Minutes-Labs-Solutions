@@ -1,6 +1,6 @@
 # AlloyDB - Database Fundamentals || [GSP1083](https://www.cloudskillsboost.google/focuses/50122?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/NtkOg8kjdxk)
 
 ### Run the following Commands in CloudShell
 
