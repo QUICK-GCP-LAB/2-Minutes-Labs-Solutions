@@ -3,7 +3,7 @@
 * **Note Before Starting The Execution Check and Match Your `Task 1 & Task 4` From Below and Your Instrution page..**
 ---
 
-### For form 1: Solution [here]()
+### For form 1: Solution [here](https://youtu.be/Raqvt8jvfRw)
 ---
 
 * **Task 1. Create a Cloud Storage bucket.**
@@ -51,7 +51,7 @@ sudo chmod +x form2.sh
 * **Now check your progress, You will get score for all tasks..**
 ---
 
-### For form 3: Solution [here]()
+### For form 3: Solution [here](https://youtu.be/HxznRWJFxgA)
 ---
 
 * **Task 1. Create a BigQuery dataset.**
