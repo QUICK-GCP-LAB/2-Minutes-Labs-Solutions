@@ -1,6 +1,6 @@
 # [Creating Cloud SQL Databases](https://www.cloudskillsboost.google/course_templates/145/labs/387208)
 
-## Solution [here]()
+## Solution [here](https://youtu.be/5Q9nRiEO45I)
 
 ### Run the following Commands in CloudShell
 
