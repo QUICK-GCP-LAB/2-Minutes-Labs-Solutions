@@ -1,6 +1,6 @@
 # Administering an AlloyDB Database || [GSP1086](https://www.cloudskillsboost.google/focuses/100851?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/SjV2dOM_TME)
 
 ### Run the following Commands in CloudShell
 
