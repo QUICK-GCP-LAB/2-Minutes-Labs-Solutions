@@ -5,7 +5,7 @@
 ### Run the following Commands in CloudShell
 
 ```
-export REGION=
+export ZONE=
 ```
 ```
 curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Build%20and%20Execute%20MySQL%20PostgreSQL%20and%20SQLServer%20to%20Data%20Catalog%20Connectors/gsp814.sh
