@@ -22,6 +22,7 @@ RESET=`tput sgr0`
 
 echo "${YELLOW}${BOLD}Starting${RESET}" "${GREEN}${BOLD}Execution${RESET}"
 
+export REGION="${ZONE%-*}"
 gcloud services enable datacatalog.googleapis.com
 
 echo "${YELLOW}${BOLD}Task 1. ${RESET}""${WHITE}${BOLD}Enable the Data Catalog API${RESET}" "${GREEN}${BOLD}Completed${RESET}"
@@ -34,6 +35,8 @@ unzip cloudsql-sqlserver-tooling.zip
 cd cloudsql-sqlserver-tooling/infrastructure/terraform
 
 sed -i "s/us-central1/$REGION/g" variables.tf
+
+sed -i "s/$REGION-a/$ZONE/g" variables.tf
 
 cd ~/cloudsql-sqlserver-tooling
 bash init-db.sh
