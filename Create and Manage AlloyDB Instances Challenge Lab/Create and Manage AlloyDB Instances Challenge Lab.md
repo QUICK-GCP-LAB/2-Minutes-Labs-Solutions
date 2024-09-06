@@ -1,6 +1,6 @@
 # Create and Manage AlloyDB Instances: Challenge Lab || [GSP395](https://www.cloudskillsboost.google/focuses/50123?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/86kpvb2omtw)
 
 ### Run the following Commands in CloudShell
 

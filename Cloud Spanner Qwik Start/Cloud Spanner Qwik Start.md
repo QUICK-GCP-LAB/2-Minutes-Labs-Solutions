@@ -1,6 +1,6 @@
 # Cloud Spanner: Qwik Start || [GSP102](https://www.cloudskillsboost.google/focuses/1774?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/INJoqAqXmqY)
 
 ### Run the following Commands in CloudShell
 
