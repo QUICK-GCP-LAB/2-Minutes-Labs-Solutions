@@ -1,6 +1,6 @@
 # AppSheet to Google Chat using Webhooks from Automation Bots || [GSP756](https://www.cloudskillsboost.google/focuses/55390?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/AHXKUectm7g)
 
 ### Run the following Commands in CloudShell
 
