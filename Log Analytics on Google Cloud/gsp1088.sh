@@ -52,6 +52,6 @@ gcloud logging sinks create day2ops-sink \
     --include-children \
     --format='json'
 
-echo "${BG_RED}${BOLD}Congratulations For Completing The Lab !!!${RESET}"
+echo "${CYAN}${BOLD}Click here: "${RESET}""${BLUE}${BOLD}"https://console.cloud.google.com/logs/storage/bucket?project=$DEVSHELL_PROJECT_ID""${RESET}"
 
 #-----------------------------------------------------end----------------------------------------------------------#
