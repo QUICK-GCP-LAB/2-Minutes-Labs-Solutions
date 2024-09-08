@@ -11,7 +11,14 @@ sudo chmod +x gsp1088.sh
 
 ./gsp1088.sh
 ```
-
+* For the bucket name paste the following:
+```
+day2ops-log
+```
+* For the dataset name paste the following:
+```
+day2ops_log
+```
 ### Congratulations 🎉 for completing the Lab !
 
 ##### *You Have Successfully Demonstrated Your Skills And Determination.*
