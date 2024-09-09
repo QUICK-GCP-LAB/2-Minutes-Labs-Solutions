@@ -1,6 +1,6 @@
 # Log Analytics on Google Cloud || [GSP1088](https://www.cloudskillsboost.google/focuses/49749?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/l7UOU56TWzk)
 
 ### Run the following Commands in CloudShell
 
