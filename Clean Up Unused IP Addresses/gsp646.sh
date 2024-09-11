@@ -88,6 +88,9 @@ gcloud scheduler jobs run unused-ip-job \
 
 gcloud compute addresses list --filter="region:($REGION)"
 
+gcloud scheduler jobs run unused-ip-job \
+--location=$REGION
+
 echo "${BG_RED}${BOLD}Congratulations For Completing The Lab !!!${RESET}"
 
 #-----------------------------------------------------end----------------------------------------------------------#
