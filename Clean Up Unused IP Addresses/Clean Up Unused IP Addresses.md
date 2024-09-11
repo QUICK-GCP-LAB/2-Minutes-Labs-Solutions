@@ -1,6 +1,6 @@
 # Clean Up Unused IP Addresses || [GSP646](https://www.cloudskillsboost.google/focuses/7841?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/u9tn1s4GgkU)
 
 ### Run the following Commands in CloudShell
 
