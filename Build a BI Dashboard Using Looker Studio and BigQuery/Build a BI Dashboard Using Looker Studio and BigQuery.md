@@ -1,6 +1,6 @@
 # Build a BI Dashboard Using Looker Studio and BigQuery || [GSP403](https://www.cloudskillsboost.google/focuses/5538?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/sprkEnSqsZ8)
 
 ### Run the following Commands in CloudShell
 
