@@ -2,16 +2,6 @@
 
 ## Solution [here](https://youtu.be/TvrQTmJaZYA)
 
-### Run the following Commands in `IDE`
-```
-export REGION=
-```
-```
-git clone https://github.com/rosera/pet-theory.git
-gcloud config set compute/region $REGION
-gcloud app create --region=$REGION
-gcloud firestore databases create --region=$REGION
-```
 * Go to `Firebase Console` from [here](https://console.firebase.google.com/)
 
 ### NOW FOLLOW VIDEOS'S INSTRUCTION
