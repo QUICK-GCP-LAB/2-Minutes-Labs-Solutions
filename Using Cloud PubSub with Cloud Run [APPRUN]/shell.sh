@@ -45,20 +45,6 @@ gcloud pubsub topics create ORDER_PLACED
  gcloud iam service-accounts create pubsub-cloud-run-invoker \
   --display-name "Order Initiator"
 
- gcloud iam service-accounts list --filter="Order Initiator"
-
- gcloud run services add-iam-policy-binding order-service --region $LOCATION \
-  --member=serviceAccount:pubsub-cloud-run-invoker@$GOOGLE_CLOUD_PROJECT.iam.gserviceaccount.com \
-  --role=roles/run.invoker --platform managed
-
-export PROJECT_NUMBER=$(gcloud projects list \
-  --filter="qwiklabs-gcp" \
-  --format='value(PROJECT_NUMBER)')
-
-gcloud projects add-iam-policy-binding $GOOGLE_CLOUD_PROJECT \
-   --member=serviceAccount:service-$PROJECT_NUMBER@gcp-sa-pubsub.iam.gserviceaccount.com \
-   --role=roles/iam.serviceAccountTokenCreator
-
 export ORDER_SERVICE_URL=$(gcloud run services describe order-service \
    --region $LOCATION \
    --format="value(status.address.url)")
