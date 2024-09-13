@@ -59,7 +59,7 @@ cat > package.json <<EOF
     "express": "^4.21.0"
   }
 }
-	
+EOF	
 
 cat > index.js <<EOF
 const {PubSub} = require('@google-cloud/pubsub');
