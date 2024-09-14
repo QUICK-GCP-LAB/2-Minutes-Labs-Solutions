@@ -1,6 +1,6 @@
 # Build a Serverless Web App with Firebase || [GSP643](https://www.cloudskillsboost.google/focuses/8391?parent=catalog) ||
 
-## Solution [here](https://youtu.be/TvrQTmJaZYA)
+## Solution [here](https://youtu.be/68qNZlz21kg)
 
 * Go to `Firebase Console` from [here](https://console.firebase.google.com/)
 
