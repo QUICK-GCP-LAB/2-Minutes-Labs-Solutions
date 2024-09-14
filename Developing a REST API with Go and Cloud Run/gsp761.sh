@@ -80,16 +80,6 @@ gcloud run deploy rest-api \
 
 gcloud firestore databases create --location nam5
 
-gsutil mb -c standard -l $REGION gs://$GOOGLE_CLOUD_PROJECT-customer
-
-gsutil cp -r gs://spls/gsp645/2019-10-06T20:10:37_43617 gs://$GOOGLE_CLOUD_PROJECT-customer
-
-gcloud beta firestore import gs://$GOOGLE_CLOUD_PROJECT-customer/2019-10-06T20:10:37_43617/
-
-https://rest-api-[hash].a.run.app/v1/customer/22530
-
-echo $GOOGLE_CLOUD_PROJECT
-
 cat > main.go <<'EOF_END'
 package main
 
