@@ -1,6 +1,6 @@
 # [Develop an App with Vertex AI Gemini 1.0 Pro](https://www.cloudskillsboost.google/focuses/86788?parent=catalog)
 
-## Solution [here]()
+## Solution [here](https://youtu.be/c1DGOyzcDig)
 
 ### Run the following Commands in CloudShell
 
