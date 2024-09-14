@@ -25,8 +25,6 @@ RESET=`tput sgr0`
 
 echo "${BG_MAGENTA}${BOLD}Starting Execution${RESET}"
 
-export REGION=us-west1
-
 gcloud services enable run.googleapis.com
 gcloud services enable cloudbuild.googleapis.com
 
@@ -80,10 +78,7 @@ gcloud run deploy rest-api \
   --allow-unauthenticated \
   --max-instances=2
 
-export FIRESTORE_LOCATION=$REGION
-gcloud firestore databases create \
-  --location=${FIRESTORE_LOCATION} \
-  --type=firestore-native
+gcloud firestore databases create --location nam5
 
 gsutil mb -c standard -l $REGION gs://$GOOGLE_CLOUD_PROJECT-customer
 
