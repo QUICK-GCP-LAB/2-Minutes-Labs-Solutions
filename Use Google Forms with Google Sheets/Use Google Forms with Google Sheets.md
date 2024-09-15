@@ -2,33 +2,31 @@
 
 ## Solution [here]()
 
-1. To open Google Drive, click [here](https://drive.google.com)
+1. In the left panel, click **+ New**, and then click **Google Forms** > **Blank form**.
 
-2. In the left panel, click **+ New**, and then click **Google Forms** > **Blank form**.
+2. A new web page containing a blank Google Form should open.
 
-3. A new web page containing a blank Google Form should open.
+3. To name the form, in the upper-left corner, click **Untitled form**, and type **On the Rise Bakery Survey**
 
-4. To name the form, in the upper-left corner, click **Untitled form**, and type **On the Rise Bakery Survey**
+4. In the top pane, click **Responses**.
 
-5. In the top pane, click **Responses**.
+5. On the **Responses** tab, in the upper-right, click **Link to Sheets**.
 
-6. On the **Responses** tab, in the upper-right, click **Link to Sheets**.
-
-7. In the **Select response destination** dialog, accept the default for **Create a new spreadsheet**, and click **Create**.
+6. In the **Select response destination** dialog, accept the default for **Create a new spreadsheet**, and click **Create**.
 
 >A new spreadsheet with the filename On the Rise Bakery Survey (Responses) should open.
 
 * Download **File** from [here](https://docs.google.com/spreadsheets/d/16tCqBtOGHHF_db3BiXWQYdpMkjq2VMWD/export?&format=xlsx)
 
-8. At the top, click File > Import.
+7. At the top, click File > Import.
 
-9. The Import file dialog opens.
+8. The Import file dialog opens.
 
-10. Click the Upload tab.
+9. Click the Upload tab.
 
-11. To upload the file, drag the file from step 1 into the upload window or select the file from your device.
+10. To upload the file, drag the file from step 1 into the upload window or select the file from your device.
 
-12. In the Import location dropdown, select Replace spreadsheet, and then click Import data.
+11. In the Import location dropdown, select Replace spreadsheet, and then click Import data.
 
 ### Congratulations 🎉 for completing the Lab !
 
