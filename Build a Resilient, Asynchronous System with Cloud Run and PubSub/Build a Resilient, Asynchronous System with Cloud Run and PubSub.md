@@ -1,6 +1,6 @@
 # Build a Resilient, Asynchronous System with Cloud Run and Pub/Sub || [GSP650](https://www.cloudskillsboost.google/focuses/8389?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/UdRVg-mIAcY)
 
 ### Run the following Commands in CloudShell
 
