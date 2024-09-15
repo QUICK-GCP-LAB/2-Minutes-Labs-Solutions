@@ -1,6 +1,6 @@
 # Pivot Tables in Google Sheets || [GSP1065](https://www.cloudskillsboost.google/focuses/47354?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/NU8_C-kBJh8)
 
 1. In the top left, under Start a new spreadsheet, click + to open a blank spreadsheet in a new browser tab.
 
