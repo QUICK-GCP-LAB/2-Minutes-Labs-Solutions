@@ -4,7 +4,7 @@
 
 1. In the top left, under Start a new spreadsheet, click + to open a blank spreadsheet in a new browser tab.
 
-* Download **File** from [here](https://docs.google.com/spreadsheets/d/1hZr-T9ed3PSec0KXUjn2yCEdr-ICBLUm/export?gid=1609780571&format=xlsx)
+* Download **File** from [here](https://docs.google.com/spreadsheets/d/1hZr-T9ed3PSec0KXUjn2yCEdr-ICBLUm/export?&format=xlsx)
 
 2. At the top, click File > Import.
 
