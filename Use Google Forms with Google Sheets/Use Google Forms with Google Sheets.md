@@ -2,7 +2,7 @@
 
 ## Solution [here]()
 
-1. To open Google Drive, click [here](drive.google.com)
+1. To open Google Drive, click [here](https://drive.google.com)
 
 2. In the left panel, click **+ New**, and then click **Google Forms** > **Blank form**.
 
