@@ -1,6 +1,6 @@
 # Use Google Forms with Google Sheets || [GSP1064](https://www.cloudskillsboost.google/focuses/46917?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/MKwXW-5phgQ)
 
 1. In the left panel, click **+ New**, and then click **Google Forms** > **Blank form**.
 
