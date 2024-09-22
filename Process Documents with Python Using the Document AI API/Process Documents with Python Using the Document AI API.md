@@ -5,11 +5,11 @@
 ### Run the following Commands in CloudShell
 
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Process%20Documents%20with%20Python%20Using%20the%20Document%20AI%20API/gsp925.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Process%20Documents%20with%20Python%20Using%20the%20Document%20AI%20API/gsp925-1.sh
 
-sudo chmod +x gsp925.sh
+sudo chmod +x gsp925-1.sh
 
-./gsp925.sh
+./gsp925-1.sh
 ```
 
 * Go to **Vertex AI** from [here](https://console.cloud.google.com/vertex-ai?)
@@ -17,14 +17,11 @@ sudo chmod +x gsp925.sh
 * Run the following commands in **Jupyter Notebook Terminal**
 
 ```
-gsutil cp gs://cloud-training/gsp925/*.ipynb .
-python -m pip install --upgrade google-cloud-core google-cloud-documentai google-cloud-storage prettytable --user
-gsutil cp gs://cloud-training/gsp925/health-intake-form.pdf form.pdf
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Process%20Documents%20with%20Python%20Using%20the%20Document%20AI%20API/gsp925-2.sh
 
-export PROJECT_ID="$(gcloud config get-value core/project)"
-export BUCKET="${PROJECT_ID}"_doc_ai_async
-gsutil mb gs://${BUCKET}
-gsutil -m cp gs://cloud-training/gsp925/async/*.* gs://${BUCKET}/input
+sudo chmod +x gsp925-2.sh
+
+./gsp925-2.sh
 ```
 
 ### Congratulations 🎉 for completing the Lab !
