@@ -2,7 +2,7 @@
 
 ## Solution [here]()
 
-### Run the following Commands in CloudShell
+### Run the following Commands in Jupyter notebook terminal
 
 * Go to **Workbench** from [here](https://console.cloud.google.com/vertex-ai/workbench?)
 
