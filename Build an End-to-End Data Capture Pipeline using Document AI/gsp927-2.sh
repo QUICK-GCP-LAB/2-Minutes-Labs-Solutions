@@ -34,6 +34,11 @@ KEY_NAME=$(gcloud alpha services api-keys list --format="value(name)" --filter "
 
 export API_KEY=$(gcloud alpha services api-keys get-key-string $KEY_NAME --format="value(keyString)")
 
+  mkdir ./documentai-pipeline-demo
+  gsutil -m cp -r \
+    gs://sureskills-lab-dev/gsp927/documentai-pipeline-demo/* \
+    ~/documentai-pipeline-demo/
+
 curl -X POST \
   -H "Authorization: Bearer $ACCESS_TOKEN" \
   -H "Content-Type: application/json" \
