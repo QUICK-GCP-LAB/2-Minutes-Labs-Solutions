@@ -1,6 +1,6 @@
 # Process Documents with Python Using the Document AI API || [GSP925](https://www.cloudskillsboost.google/focuses/21026?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/FcrK549tlZk)
 
 ### Run the following Commands in CloudShell
 
