@@ -1,6 +1,6 @@
 # Build an End-to-End Data Capture Pipeline using Document AI || [GSP927](https://www.cloudskillsboost.google/focuses/21027?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/Wz5YMXy9uq4)
 
 ### Run the following Commands in CloudShell
 
