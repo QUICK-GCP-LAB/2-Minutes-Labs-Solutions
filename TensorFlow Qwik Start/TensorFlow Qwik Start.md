@@ -1,6 +1,6 @@
 # TensorFlow: Qwik Start || [GSP637](https://www.cloudskillsboost.google/focuses/7639?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/Fx8csorAnSI)
 
 ### Run the following Commands in Jupyter notebook terminal
 
