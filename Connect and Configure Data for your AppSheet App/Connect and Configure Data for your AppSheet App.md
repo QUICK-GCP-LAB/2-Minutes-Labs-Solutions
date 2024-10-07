@@ -4,23 +4,15 @@
 
 1. Open the link in another browser tab to copy the Customer Contacts app to your AppSheet account: [Customer Contacts app](https://www.appsheet.com/Template/AppDef?appName=Lab1-CustomerContacts-3856613)
 
-2. Click Copy app from the left pane.
-
-3. On the Copy App form, specify the following, and leave the remaining settings as their defaults:
-
 * App name: **Customer Contacts**
 
-4. Click Copy app.
+2. Copy and paste the link below in a separate browser tab: [A copy of companies](https://docs.google.com/spreadsheets/d/1fsusJTqRwsURG9GpduXVZE8XXfv9vzq5XXI9jBlcq9M/copy)
 
-5. Copy and paste the link below in a separate browser tab: [A copy of companies](https://docs.google.com/spreadsheets/d/1fsusJTqRwsURG9GpduXVZE8XXfv9vzq5XXI9jBlcq9M/copy)
+3. Click Make a copy to and change the name to **companies**
 
-6. Click Make a copy to make a copy of the spreadsheet in your Google drive folder.
+4. Navigate to Google Drive from [here](https://drive.google.com/)
 
-7. At the top left corner of the sheet, click anywhere in the filename and change the name to **companies**
-
-8. Navigate to Google Drive from [here](https://drive.google.com/)
-
-9. Download File from [here](https://docs.google.com/spreadsheets/d/1t7ppj_RTHYACbkJRINozlyRtqSYYxoAd/export?&format=xlsx)
+5. Download File from [here](https://docs.google.com/spreadsheets/d/1t7ppj_RTHYACbkJRINozlyRtqSYYxoAd/export?&format=xlsx)
 
 ### Congratulations 🎉 for completing the Lab !
 
