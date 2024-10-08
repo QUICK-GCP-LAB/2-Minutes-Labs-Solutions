@@ -14,6 +14,8 @@ sudo chmod +x gsp1204-1.sh
 
 * Go to **Clod Run** from [here](https://console.cloud.google.com/run)
 
+### Run again the following Commands in CloudShell
+
 ```
 curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Automatically%20Deploy%20Python%20Web%20Apps%20from%20Version%20Control%20to%20Cloud%20Run/gsp1204-2.sh
 
