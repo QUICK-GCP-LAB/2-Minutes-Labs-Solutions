@@ -25,8 +25,8 @@ RESET=`tput sgr0`
 
 echo "${BG_MAGENTA}${BOLD}Starting Execution${RESET}"
 
+export REGION=${ZONE%-*}
 PROJECT_ID=$(gcloud config get-value project)
-REGION=${ZONE%-*}
 echo "PROJECT_ID=${PROJECT_ID}"
 echo "REGION=${REGION}"
 
