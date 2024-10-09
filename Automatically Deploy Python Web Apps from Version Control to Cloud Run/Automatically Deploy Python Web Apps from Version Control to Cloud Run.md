@@ -1,6 +1,6 @@
 # Automatically Deploy Python Web Apps from Version Control to Cloud Run || [GSP1204](https://www.cloudskillsboost.google/focuses/80415?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/GpUp5nfEJPo)
 
 **Prerequisites**
 
