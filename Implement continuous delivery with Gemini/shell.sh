@@ -25,6 +25,7 @@ RESET=`tput sgr0`
 
 echo "${BG_MAGENTA}${BOLD}Starting Execution${RESET}"
 
+export REGION=${ZONE%-*}
 PROJECT_ID=$(gcloud config get-value project)
 echo "PROJECT_ID=${PROJECT_ID}"
 echo "REGION=${REGION}"
@@ -43,7 +44,7 @@ gcloud projects add-iam-policy-binding ${PROJECT_ID} --member user:${USER} --rol
 
 gcloud container clusters create test \
     --project=$DEVSHELL_PROJECT_ID \
-    --zone=$REGION \
+    --zone=$ZONE \
     --num-nodes=3 \
     --machine-type=e2-standard-4
 

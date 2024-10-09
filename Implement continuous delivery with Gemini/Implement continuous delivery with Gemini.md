@@ -5,7 +5,7 @@
 ### Run the following Commands in CloudShell
 
 ```
-export REGION=
+export ZONE=
 ```
 ```
 curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Implement%20continuous%20delivery%20with%20Gemini/shell.sh
