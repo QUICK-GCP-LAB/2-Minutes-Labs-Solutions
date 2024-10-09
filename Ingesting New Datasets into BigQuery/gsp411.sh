@@ -25,9 +25,9 @@ RESET=`tput sgr0`
 
 echo "${BG_MAGENTA}${BOLD}Starting Execution${RESET}"
 
-curl -LO 
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Ingesting%20New%20Datasets%20into%20BigQuery/gsp411.csv
 
-curl -LO 
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Ingesting%20New%20Datasets%20into%20BigQuery/products.csv
 
 bq mk ecommerce
 
