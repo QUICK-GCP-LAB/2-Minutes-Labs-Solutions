@@ -1,6 +1,6 @@
 # Setting up Jenkins on Kubernetes Engine || [GSP117](https://www.cloudskillsboost.google/focuses/1776?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/LnpA8NdNubE)
 
 ### Run the following Commands in CloudShell
 
