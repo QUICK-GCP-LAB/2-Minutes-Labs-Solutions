@@ -66,9 +66,9 @@ function onRemoveFromSpace(event) {
 ```
 4. Click **Save** to save the `Code.gs` file
 
-* Go to **OAuth consent screen** from [here](https://console.cloud.google.com/apis/credentials/consent?)
-
 ### Task 2. Publish the bot
+
+* Go to **OAuth consent screen** from [here](https://console.cloud.google.com/apis/credentials/consent?)
 
 1. Set User Type to Internal, and click Create.
 
