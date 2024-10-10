@@ -1,6 +1,6 @@
 # Deploy and Test a Visual Inspection AI Component Anomaly Detection Solution || [GSP896](https://www.cloudskillsboost.google/focuses/34182?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/OCG88YRtQnY)
 
 ### Run the following Commands in CloudShell
 
