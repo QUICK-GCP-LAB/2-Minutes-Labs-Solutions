@@ -205,9 +205,9 @@ function onRemoveFromSpace(event) {
 }
 ```
 
-* Type any message such as **Hello**
-
 4. Click **Save** to save the `Code.gs` file
+
+* Type any message such as **Hello**
 
 ### Task 4. React to button clicks in cards
 
