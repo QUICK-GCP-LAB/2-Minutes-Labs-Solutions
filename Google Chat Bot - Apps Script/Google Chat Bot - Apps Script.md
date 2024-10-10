@@ -10,7 +10,7 @@
 
 3. In the Edit project name dialog, rename the project to **Attendance Bot**, and then click Rename.
 
-* Paste the following in `Code.gs`
+* Copy and replace the following in `Code.gs`
 
 ```
 /**
@@ -105,7 +105,7 @@ function onRemoveFromSpace(event) {
 
 ### Task 3. Define a card-formatted response
 
-1. Copy the following code, and paste it in `Code.gs`
+1. Copy and replace the following code, in `Code.gs`
 
 ```
 var DEFAULT_IMAGE_URL = 'https://goo.gl/bMqzYS';
