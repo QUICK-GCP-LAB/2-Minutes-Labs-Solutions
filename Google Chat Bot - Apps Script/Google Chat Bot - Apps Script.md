@@ -154,24 +154,6 @@ function onMessage(event) {
 }
 
 /**
- * Responds to a MESSAGE event in Google Chat.
- *
- * @param {Object} event the event object from Google Chat
- */
-function onMessage(event) {
-  var name = "";
-
-  if (event.space.type == "DM") {
-    name = "You";
-  } else {
-    name = event.user.displayName;
-  }
-  var message = name + " said \"" + event.message.text + "\"";
-
-  return { "text": message };
-}
-
-/**
  * Responds to an ADDED_TO_SPACE event in Google Chat.
  *
  * @param {Object} event the event object from Google Chat
