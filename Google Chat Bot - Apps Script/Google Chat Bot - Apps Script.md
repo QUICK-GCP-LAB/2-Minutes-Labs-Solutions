@@ -70,9 +70,9 @@ function onRemoveFromSpace(event) {
 
 * Go to **OAuth consent screen** from [here](https://console.cloud.google.com/apis/credentials/consent?)
 
-1. Set User Type to Internal, and click Create.
+1. Set **User Type** to **Internal**, and click **Create**.
 
-2. On the next page, (the OAuth consent screen), configure the following:
+2. On the next page, (the **OAuth consent** screen), configure the following:
 
 | Field | Value |
 | :---: | :----: |
