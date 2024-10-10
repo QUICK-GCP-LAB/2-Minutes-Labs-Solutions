@@ -1,6 +1,6 @@
 # Ingesting New Datasets into BigQuery || [GSP411](https://www.cloudskillsboost.google/focuses/3692?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/V3k49HjBpKM)
 
 ### Run the following Commands in CloudShell
 
