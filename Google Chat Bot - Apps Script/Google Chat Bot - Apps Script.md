@@ -4,7 +4,7 @@
 
 ### Task 1. Create a chat app from a template
 
-1. Click this [Google Apps Script homepage](https://script.google.com/home/projects/create?template=hangoutsChat) link to open the Google Apps Script online editor.
+1. Click this [Google Apps Script](https://script.google.com/home/projects/create?template=hangoutsChat) link to open the Google Apps Script online editor.
 
 2. Click Untitled project (the current name).
 
