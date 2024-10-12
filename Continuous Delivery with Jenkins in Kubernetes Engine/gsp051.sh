@@ -42,7 +42,6 @@ gcloud container clusters create jenkins-cd --zone=$ZONE \
 
 gcloud container clusters list
 
-
 gcloud container clusters get-credentials jenkins-cd
 
 kubectl cluster-info
@@ -69,7 +68,6 @@ cd sample-app
 kubectl create ns production
 
 kubectl apply -f k8s/production -n production
-
 
 kubectl apply -f k8s/canary -n production
 
