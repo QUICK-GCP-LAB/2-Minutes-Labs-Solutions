@@ -12,7 +12,11 @@ sudo chmod +x shell.sh
 ./shell.sh
 ```
 
-* When prompted for the password type **Passw0rd** and press Enter.
+* When prompted for the password type or paste the following and press Enter.
+
+```
+Passw0rd
+```
 
 * Now paste the following content into the command line to create the schema for the trips table:
 
