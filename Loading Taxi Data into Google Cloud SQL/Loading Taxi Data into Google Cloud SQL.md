@@ -21,6 +21,11 @@ Passw0rd
 * Now paste the following content into the command line to create the schema for the trips table:
 
 ```
+create database if not exists bts;
+use bts;
+
+drop table if exists trips;
+
 create table trips (
   vendor_id VARCHAR(16),    
   pickup_datetime DATETIME,
