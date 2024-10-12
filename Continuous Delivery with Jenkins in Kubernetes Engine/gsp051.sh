@@ -27,18 +27,21 @@ echo "${BG_MAGENTA}${BOLD}Starting Execution${RESET}"
 
 gcloud config set compute/zone $ZONE
 
+export PROJECT_ID=$DEVSHELL_PROJECT_ID
+
 gsutil cp gs://spls/gsp051/continuous-deployment-on-kubernetes.zip .
 
 unzip continuous-deployment-on-kubernetes.zip
 
-cd continuous-deployment-on-Kubernetes
+cd continuous-deployment-on-kubernetes
 
-gcloud container clusters create jenkins-cd \
+gcloud container clusters create jenkins-cd --zone=$ZONE \
 --num-nodes 2 \
 --machine-type e2-standard-2 \
 --scopes "https://www.googleapis.com/auth/source.read_write,cloud-platform"
 
 gcloud container clusters list
+
 
 gcloud container clusters get-credentials jenkins-cd
 
@@ -50,7 +53,7 @@ helm repo update
 
 helm install cd jenkins/jenkins -f jenkins/values.yaml --wait
 
-SLEEP 80
+kubectl get pods
 
 kubectl create clusterrolebinding jenkins-deploy --clusterrole=cluster-admin --serviceaccount=default:cd-jenkins
 
@@ -66,6 +69,7 @@ cd sample-app
 kubectl create ns production
 
 kubectl apply -f k8s/production -n production
+
 
 kubectl apply -f k8s/canary -n production
 
