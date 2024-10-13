@@ -15,6 +15,62 @@ sudo chmod +x arc122.sh
 ./arc122.sh
 ```
 
+* For the Sink name, **type bq_vpcflows**
+
+```
+export MY_SERVER=$(gcloud compute instances describe web-server --zone "$ZONE" --format='get(networkInterfaces[0].accessConfigs[0].natIP)')
+
+for ((i=1;i<=50;i++)); do curl $MY_SERVER; done
+```
+
+```
+#standardSQL
+SELECT
+jsonPayload.src_vpc.vpc_name,
+SUM(CAST(jsonPayload.bytes_sent AS INT64)) AS bytes,
+jsonPayload.src_vpc.subnetwork_name,
+jsonPayload.connection.src_ip,
+jsonPayload.connection.src_port,
+jsonPayload.connection.dest_ip,
+jsonPayload.connection.dest_port,
+jsonPayload.connection.protocol
+FROM
+`REPLACE_YOUR_TABLE_ID`
+GROUP BY
+jsonPayload.src_vpc.vpc_name,
+jsonPayload.src_vpc.subnetwork_name,
+jsonPayload.connection.src_ip,
+jsonPayload.connection.src_port,
+jsonPayload.connection.dest_ip,
+jsonPayload.connection.dest_port,
+jsonPayload.connection.protocol
+ORDER BY
+bytes DESC
+LIMIT
+15
+```
+```
+#standardSQL
+SELECT
+jsonPayload.connection.src_ip,
+jsonPayload.connection.dest_ip,
+SUM(CAST(jsonPayload.bytes_sent AS INT64)) AS bytes,
+jsonPayload.connection.dest_port,
+jsonPayload.connection.protocol
+FROM
+`REPLACE_YOUR_TABLE_ID`
+WHERE jsonPayload.reporter = 'DEST'
+GROUP BY
+jsonPayload.connection.src_ip,
+jsonPayload.connection.dest_ip,
+jsonPayload.connection.dest_port,
+jsonPayload.connection.protocol
+ORDER BY
+bytes DESC
+LIMIT
+15
+```
+
 ### Congratulations 🎉 for completing the Lab !
 
 ##### *You Have Successfully Demonstrated Your Skills And Determination.*
