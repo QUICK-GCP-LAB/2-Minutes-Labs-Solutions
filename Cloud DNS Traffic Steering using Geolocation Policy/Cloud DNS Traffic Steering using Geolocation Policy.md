@@ -10,11 +10,11 @@ export ZONE_2=
 export ZONE_3=
 ```
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Analyze%20Images%20with%20the%20Cloud%20Vision%20API%20Challenge%20Lab/arc122.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Cloud%20DNS%20Traffic%20Steering%20using%20Geolocation%20Policy/gsp1008.sh
 
-sudo chmod +x arc122.sh
+sudo chmod +x gsp1008.sh
 
-./arc122.sh
+./gsp1008.sh
 ```
 
 ### Congratulations 🎉 for completing the Lab !
