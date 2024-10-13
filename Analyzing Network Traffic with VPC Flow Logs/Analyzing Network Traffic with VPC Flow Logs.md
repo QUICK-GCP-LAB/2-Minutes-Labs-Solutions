@@ -8,11 +8,11 @@
 export ZONE=
 ```
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Analyze%20Images%20with%20the%20Cloud%20Vision%20API%20Challenge%20Lab/arc122.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Analyzing%20Network%20Traffic%20with%20VPC%20Flow%20Logs/shell.sh
 
-sudo chmod +x arc122.sh
+sudo chmod +x shell.sh
 
-./arc122.sh
+./shell.sh
 ```
 
 * For the Sink name, **type bq_vpcflows**
@@ -22,6 +22,8 @@ export MY_SERVER=$(gcloud compute instances describe web-server --zone "$ZONE" -
 
 for ((i=1;i<=50;i++)); do curl $MY_SERVER; done
 ```
+
+* Add the following to the **BigQuery Editor** and **REPLACE_YOUR_TABLE_ID** with *TABLE_ID* while retaining the accents (**`**) on both sides:
 
 ```
 #standardSQL
