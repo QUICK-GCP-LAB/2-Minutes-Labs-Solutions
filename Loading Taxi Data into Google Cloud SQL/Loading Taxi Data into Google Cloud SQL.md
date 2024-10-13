@@ -1,6 +1,6 @@
 # [Loading Taxi Data into Google Cloud SQL](https://www.cloudskillsboost.google/games/5521/labs/35625)
 
-## Solution [here]()
+## Solution [here](https://youtu.be/it72NG_h_XY)
 
 ### Run the following Commands in CloudShell
 
