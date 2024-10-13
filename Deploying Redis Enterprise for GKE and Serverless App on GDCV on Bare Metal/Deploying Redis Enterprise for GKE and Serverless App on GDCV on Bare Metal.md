@@ -1,6 +1,6 @@
 # Deploying Redis Enterprise for GKE and Serverless App on GDCV on Bare Metal || [GSP938](https://www.cloudskillsboost.google/focuses/21603?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/1fFDv2zbthc)
 
 ### Run the following Commands in CloudShell
 

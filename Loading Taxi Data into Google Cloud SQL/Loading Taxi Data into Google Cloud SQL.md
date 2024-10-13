@@ -1,6 +1,6 @@
 # [Loading Taxi Data into Google Cloud SQL](https://www.cloudskillsboost.google/games/5521/labs/35625)
 
-## Solution [here]()
+## Solution [here](https://youtu.be/it72NG_h_XY)
 
 ### Run the following Commands in CloudShell
 
@@ -12,11 +12,20 @@ sudo chmod +x shell.sh
 ./shell.sh
 ```
 
-* When prompted for the password type **Passw0rd** and press Enter.
+* When prompted for the password type or paste the following and press Enter.
+
+```
+Passw0rd
+```
 
 * Now paste the following content into the command line to create the schema for the trips table:
 
 ```
+create database if not exists bts;
+use bts;
+
+drop table if exists trips;
+
 create table trips (
   vendor_id VARCHAR(16),    
   pickup_datetime DATETIME,
