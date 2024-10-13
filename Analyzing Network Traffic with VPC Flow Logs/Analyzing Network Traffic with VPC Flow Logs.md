@@ -15,7 +15,7 @@ sudo chmod +x shell.sh
 ./shell.sh
 ```
 
-* For the Sink name, **type bq_vpcflows**
+* For the Sink name, type **bq_vpcflows**
 
 ```
 export MY_SERVER=$(gcloud compute instances describe web-server --zone "$ZONE" --format='get(networkInterfaces[0].accessConfigs[0].natIP)')
