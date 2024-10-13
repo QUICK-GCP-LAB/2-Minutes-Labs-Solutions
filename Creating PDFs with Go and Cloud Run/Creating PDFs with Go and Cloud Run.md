@@ -1,6 +1,6 @@
 # Creating PDFs with Go and Cloud Run || [GSP762](https://www.cloudskillsboost.google/focuses/14743?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/tCnqsJF_zqg)
 
 ### Run the following Commands in CloudShell
 
