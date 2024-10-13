@@ -1,6 +1,6 @@
 # Continuous Delivery with Jenkins in Kubernetes Engine || [GSP051](https://www.cloudskillsboost.google/focuses/1104?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/YYB83ZtzTpc)
 
 ### Run the following Commands in CloudShell
 
