@@ -49,7 +49,7 @@ sleep 60
 
 deploy_function() {
   gcloud functions deploy helloGET \
-    --runtime nodejs14 \
+    --runtime nodejs20 \
     --region $REGION \
     --trigger-http \
     --allow-unauthenticated
@@ -92,7 +92,7 @@ paths:
       summary: Greet a user
       operationId: hello
       x-google-backend:
-        address: https://$REGION-$PROJECT_ID.cloudfunctions.net/helloGET
+        address: https://us-east4-qwiklabs-gcp-01-b47a65687b9f.cloudfunctions.net/helloGET
       responses:
        '200':
           description: A successful response
