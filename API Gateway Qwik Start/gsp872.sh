@@ -30,6 +30,7 @@ export PROJECT_ID=$(gcloud config get-value project)
 gcloud config set compute/region $REGION
 
 gcloud services enable apigateway.googleapis.com --project $DEVSHELL_PROJECT_ID
+gcloud services enable run.googleapis.com
 
 sleep 15
 
