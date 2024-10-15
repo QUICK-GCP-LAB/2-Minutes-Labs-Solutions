@@ -2,14 +2,6 @@
 
 ## Solution [here](https://youtu.be/WWFzCrPHsCk)
 
-* Go to `Audit Logs` from [here](https://console.cloud.google.com/iam-admin/audit?)
-
-* Type or Paste in filter `Compute Engine API`
-
-* Check the box next to `Compute Engine API`
-
-* Now Check all `Admin Read` , `Data Read` & `Data Write`
-
 ### Run the following Commands in CloudShell
 
 ### Assign Variable
