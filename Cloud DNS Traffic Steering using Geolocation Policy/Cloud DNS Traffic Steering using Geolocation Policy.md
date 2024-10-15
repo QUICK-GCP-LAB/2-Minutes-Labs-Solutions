@@ -1,6 +1,6 @@
 # Cloud DNS: Traffic Steering using Geolocation Policy || [GSP1008](https://www.cloudskillsboost.google/focuses/28525?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/RFGbwUweWVo)
 
 ### Run the following Commands in CloudShell
 
