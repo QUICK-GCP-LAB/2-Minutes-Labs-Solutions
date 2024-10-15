@@ -29,6 +29,19 @@ export REGION="${ZONE%-*}"
 gcloud config set compute/region $REGION
 export PROJECT_ID=$(gcloud config get-value project)
 
+gcloud projects get-iam-policy $DEVSHELL_PROJECT_ID > policy.yaml
+
+cat <<EOF >> policy.yaml
+auditConfigs:
+- auditLogConfigs:
+  - logType: ADMIN_READ
+  - logType: DATA_READ
+  - logType: DATA_WRITE
+  service: compute.googleapis.com
+EOF
+
+gcloud projects set-iam-policy $DEVSHELL_PROJECT_ID policy.yaml
+
 gcloud services enable \
   artifactregistry.googleapis.com \
   cloudfunctions.googleapis.com \
@@ -257,7 +270,6 @@ gcloud run deploy slow-function \
 --min-instances=1 \
 --max-instances=4 \
 --region=$REGION \
---project=$DEVSHELL_PROJECT_ID \
- && gcloud run services update-traffic slow-function --to-latest --region=$REGION
+--project=$DEVSHELL_PROJECT_ID
 
 echo "${YELLOW}${BOLD}NOW${RESET}" "${WHITE}${BOLD}Check The Score${RESET}" "${GREEN}${BOLD}Upto Task 6 then Process Next${RESET}"
