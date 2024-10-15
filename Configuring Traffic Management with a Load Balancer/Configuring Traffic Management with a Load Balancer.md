@@ -1,6 +1,6 @@
 # Configuring Traffic Management with a Load Balancer
 
-## Solution [here]()
+## Solution [here](https://youtu.be/zb82CAt1Cz0)
 
 ### Run the following Commands in CloudShell
 
