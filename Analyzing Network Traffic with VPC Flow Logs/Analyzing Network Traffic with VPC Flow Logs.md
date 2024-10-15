@@ -1,6 +1,6 @@
 # [Analyzing Network Traffic with VPC Flow Logs](https://www.cloudskillsboost.google/games/5551/labs/35770)
 
-## Solution [here]()
+## Solution [here](https://youtu.be/epQLHLoq4hc)
 
 ### Run the following Commands in CloudShell
 
