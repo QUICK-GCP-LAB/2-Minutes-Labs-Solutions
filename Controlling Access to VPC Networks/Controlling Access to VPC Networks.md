@@ -1,6 +1,6 @@
 # [Controlling Access to VPC Networks](https://www.cloudskillsboost.google/games/5551/labs/35772)
 
-## Solution [here]()
+## Solution [here](https://youtu.be/BGIBzYiYGyQ)
 
 ### Run the following Commands in CloudShell
 
