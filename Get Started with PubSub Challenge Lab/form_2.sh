@@ -52,6 +52,55 @@ gcloud pubsub topics create temp-topic \
         --message-encoding=JSON \
         --schema=temperature-schema
 
+mkdir gcf_hello_world && cd $_
+
+cat > index.js <<'EOF_END'
+/**
+ * Triggered from a message on a Cloud Pub/Sub topic.
+ *
+ * @param {!Object} event Event payload.
+ * @param {!Object} context Metadata for the event.
+ */
+exports.helloPubSub = (event, context) => {
+  const message = event.data
+    ? Buffer.from(event.data, 'base64').toString()
+    : 'Hello, World';
+  console.log(message);
+};
+EOF_END
+
+cat > package.json <<'EOF_END'
+{
+  "name": "sample-pubsub",
+  "version": "0.0.1",
+  "dependencies": {
+    "@google-cloud/pubsub": "^0.18.0"
+  }
+}
+EOF_END
+
+deploy_function() {
+gcloud functions deploy gcf-pubsub \
+  --trigger-topic=gcf-topic \
+  --runtime=nodejs20 \
+  --no-gen2 \
+  --entry-point=helloPubSub \
+  --source=. \
+  --region=$LOCATION
+}
+
+deploy_success=false
+
+while [ "$deploy_success" = false ]; do
+    if deploy_function; then
+        echo "Function deployed successfully..."
+        deploy_success=true
+    else
+        echo "Retrying in 20 seconds..."
+        sleep 20
+    fi
+done
+
 echo "${RED}${BOLD}Congratulations${RESET}" "${WHITE}${BOLD}for${RESET}" "${GREEN}${BOLD}Completing the Lab !!!${RESET}"
 
 #-----------------------------------------------------end----------------------------------------------------------#
