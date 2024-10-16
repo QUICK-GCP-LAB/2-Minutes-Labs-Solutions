@@ -41,11 +41,9 @@ sudo chmod +x form_2.sh
 ./form_2.sh
 ```
 
-* **For Task 3. Follow Video's Instruction from [here](https://youtu.be/vkyhC0NA8sY)**
+* **For Task 3. Follow Video's Instruction from [here](https://youtu.be/vkyhC0NA8sY?t=69)**
 
 * Go to Cloud Function from [here](https://console.cloud.google.com/functions/add)
-
-* Now Follow *Video Instructions* from [here](https://youtu.be/vkyhC0NA8sY?t=69)
 
 * **Now check your progress, You will get score for all tasks..**
 ---
