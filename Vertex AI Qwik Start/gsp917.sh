@@ -38,33 +38,9 @@ gcloud services enable \
   cloudbuild.googleapis.com \
   container.googleapis.com
 
-SERVICE_ACCOUNT_ID=vertex-custom-training-sa
-gcloud iam service-accounts create $SERVICE_ACCOUNT_ID  \
-    --description="A custom service account for Vertex custom training with Tensorboard" \
-    --display-name="Vertex AI Custom Training"
-
-PROJECT_ID=$(gcloud config get-value core/project)
-gcloud projects add-iam-policy-binding $PROJECT_ID \
-    --member=serviceAccount:$SERVICE_ACCOUNT_ID@$PROJECT_ID.iam.gserviceaccount.com \
-    --role="roles/storage.admin"
-
-gcloud projects add-iam-policy-binding $PROJECT_ID \
-    --member=serviceAccount:$SERVICE_ACCOUNT_ID@$PROJECT_ID.iam.gserviceaccount.com \
-    --role="roles/bigquery.admin"
-
-gcloud projects add-iam-policy-binding $PROJECT_ID \
-    --member=serviceAccount:$SERVICE_ACCOUNT_ID@$PROJECT_ID.iam.gserviceaccount.com \
-    --role="roles/aiplatform.user"
-
-export NOTEBOOK_NAME="awesome-jupyter"
-export MACHINE_TYPE="e2-standard-2"
-
-gcloud notebooks instances create $NOTEBOOK_NAME \
-  --location=$ZONE \
-  --vm-image-project=deeplearning-platform-release \
-  --vm-image-family=tf-2-11-cu113-notebooks \
-  --machine-type=$MACHINE_TYPE
-
+gcloud workbench instances create awesome-jupyter \
+  --location=$ZONE
+  
   echo "${BG_RED}${BOLD}Congratulations For Completing The Lab !!!${RESET}"
 
 #-----------------------------------------------------end----------------------------------------------------------#
