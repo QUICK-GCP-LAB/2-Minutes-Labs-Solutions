@@ -22,17 +22,15 @@ RESET=`tput sgr0`
 
 echo "${YELLOW}${BOLD}Starting${RESET}" "${GREEN}${BOLD}Execution${RESET}"
 
-export MSG_BODY='Hello World!'
+gcloud pubsub subscriptions create pubsub-subscription-message --topic gcloud-pubsub-topic
 
-gcloud pubsub topics create cloud-pubsub-topic
+gcloud pubsub topics publish gcloud-pubsub-topic --message="Hello World"
 
-gcloud pubsub subscriptions create cloud-pubsub-subscription --topic cloud-pubsub-topic
+sleep 10
 
-gcloud services enable cloudscheduler.googleapis.com
+gcloud pubsub subscriptions pull pubsub-subscription-message --limit 5
 
-gcloud scheduler jobs create pubsub cron-scheduler-job --schedule="* * * * *" --location $LOCATION --topic cron-job-pubsub-topic --message-body="$MSG_BODY"
-
-gcloud pubsub subscriptions pull cron-job-pubsub-subscription --limit 5
+gcloud pubsub snapshots create pubsub-snapshot --subscription=gcloud-pubsub-subscription
 
 echo "${RED}${BOLD}Congratulations${RESET}" "${WHITE}${BOLD}for${RESET}" "${GREEN}${BOLD}Completing the Lab !!!${RESET}"
 
