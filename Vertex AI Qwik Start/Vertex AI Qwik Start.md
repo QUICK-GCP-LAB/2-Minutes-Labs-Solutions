@@ -23,7 +23,6 @@ cd training-data-analyst/self-paced-labs/vertex-ai/vertex-ai-qwikstart
 pip3 install --user -r requirements.txt
 sudo apt -y install python3-pandas
 sudo apt -y install graphviz
-pip uninstall openpyxl
 pip install openpyxl
 ```
 ### Congratulations 🎉 for completing the Lab !
