@@ -15,10 +15,16 @@ sudo chmod +x gsp917.sh
 ./gsp917.sh
 ```
 
-* Go to `User-managed Notebooks` from [here](https://console.cloud.google.com/vertex-ai/workbench/user-managed?)
+* Go to `User-managed Notebooks` from [here](https://console.cloud.google.com/vertex-ai/workbench/instances?)
 
 ```
 git clone --depth=1 https://github.com/GoogleCloudPlatform/training-data-analyst
+cd training-data-analyst/self-paced-labs/vertex-ai/vertex-ai-qwikstart
+pip3 install --user -r requirements.txt
+sudo apt -y install python3-pandas
+sudo apt -y install graphviz
+pip uninstall openpyxl
+pip install openpyxl
 ```
 ### Congratulations 🎉 for completing the Lab !
 
