@@ -1,6 +1,6 @@
 # Create a Secure Data Lake on Cloud Storage: Challenge Lab || [ARC119](https://www.cloudskillsboost.google/focuses/63857?parent=catalog) ||
 
-* **Note Before Starting The Execution Check and Match Your `Task 1 & Task 4` From Below and Your Instrution page..**
+* **Note Before Starting The Execution Check and Match Your `Task 1 & Task 4` From Below and Your Instruction page..**
 ---
 
 ### For form 1: Solution [here](https://youtu.be/Raqvt8jvfRw)
