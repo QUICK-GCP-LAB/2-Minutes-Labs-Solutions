@@ -73,7 +73,7 @@ EOF
 deploy_function() {
   gcloud functions deploy $FUNCTION_NAME \
   --gen2 \
-  --runtime nodejs16 \
+  --runtime nodejs20 \
   --entry-point $FUNCTION_NAME \
   --source . \
   --region $REGION \
@@ -125,7 +125,7 @@ EOF
 deploy_function() {
   gcloud functions deploy $HTTP_FUNCTION \
   --gen2 \
-  --runtime nodejs16 \
+  --runtime nodejs20 \
   --entry-point $HTTP_FUNCTION \
   --source . \
   --region $REGION \
