@@ -47,7 +47,6 @@ gcloud compute networks subnets create $SUBNET_B \
     --range=10.10.20.0/24 \
     --stack-type=IPV4_ONLY
 
-
 gcloud compute firewall-rules create $FWL_1 \
     --project=$DEVSHELL_PROJECT_ID \
     --network=$VPC_NAME \
@@ -58,7 +57,6 @@ gcloud compute firewall-rules create $FWL_1 \
     --source-ranges=0.0.0.0/0 \
     --target-tags=all
 
-
 gcloud compute firewall-rules create $FWL_2 \
     --project=$DEVSHELL_PROJECT_ID \
     --network=$VPC_NAME \
@@ -68,7 +66,6 @@ gcloud compute firewall-rules create $FWL_2 \
     --rules=tcp:3389 \
     --source-ranges=0.0.0.0/24 \
     --target-tags=all
-
 
 gcloud compute firewall-rules create $FWL_3 \
     --project=$DEVSHELL_PROJECT_ID \
@@ -94,7 +91,7 @@ gcloud compute instances create $VM_2 \
 
 sleep 10
 
-export EXTERNAL_IP2=$(gcloud compute instances describe $VM_NAME_2 \
+export EXTERNAL_IP2=$(gcloud compute instances describe $VM_2 \
     --zone=$ZONE_2 \
     --format='get(networkInterfaces[0].accessConfigs[0].natIP)')
 
