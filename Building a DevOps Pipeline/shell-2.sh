@@ -73,9 +73,9 @@ export IMAGE=$(gcloud artifacts docker images describe \
     $REGION-docker.pkg.dev/$DEVSHELL_PROJECT_ID/devops-repo/devops-image:v0.1 \
     --format 'value(image_summary.digest)')
 
-echo "${CYAN}${BOLD}Copy this: "${RESET}""${GREEN}${BOLD}""$REGION-docker.pkg.dev/$DEVSHELL_PROJECT_ID/devops-repo/devops-image@$IMAGE"""${RESET}"
-
 echo "${CYAN}${BOLD}Click here: "${RESET}""${BLUE}${BOLD}""https://console.cloud.google.com/compute/instancesAdd?"""${RESET}"
+
+echo "${CYAN}${BOLD}Copy this: "${RESET}""${GREEN}${BOLD}""$REGION-docker.pkg.dev/$DEVSHELL_PROJECT_ID/devops-repo/devops-image@$IMAGE"""${RESET}"
 
 echo "${YELLOW}${BOLD}NOW${RESET}" "${WHITE}${BOLD}FOLLOW${RESET}" "${GREEN}${BOLD}VIDEO'S INSTRUCTIONS${RESET}"
 
