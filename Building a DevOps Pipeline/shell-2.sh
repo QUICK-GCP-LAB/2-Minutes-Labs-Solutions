@@ -75,8 +75,8 @@ export IMAGE=$(gcloud artifacts docker images describe \
 
 echo "${CYAN}${BOLD}Click here: "${RESET}""${BLUE}${BOLD}""https://console.cloud.google.com/compute/instancesAdd?project=$DEVSHELL_PROJECT_ID"""${RESET}"
 
-echo "${CYAN}${BOLD}Copy this: "${RESET}""${GREEN}${BOLD}""$REGION-docker.pkg.dev/$DEVSHELL_PROJECT_ID/devops-repo/devops-image@$IMAGE"""${RESET}"
+echo "${YELLOW}${BOLD}Copy this: "${RESET}""${GREEN}${BOLD}""$REGION-docker.pkg.dev/$DEVSHELL_PROJECT_ID/devops-repo/devops-image@$IMAGE"""${RESET}"
 
-echo "${YELLOW}${BOLD}NOW${RESET}" "${WHITE}${BOLD}FOLLOW${RESET}" "${GREEN}${BOLD}VIDEO'S INSTRUCTIONS${RESET}"
+echo "${YELLOW}${BOLD}NOW${RESET}" "${WHITE}${BOLD}FOLLOW${RESET}" "${MAGENTA}${BOLD}VIDEO'S INSTRUCTIONS${RESET}"
 
 #-----------------------------------------------------end----------------------------------------------------------#
