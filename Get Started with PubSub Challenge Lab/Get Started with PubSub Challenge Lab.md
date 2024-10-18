@@ -24,7 +24,7 @@ sudo chmod +x form_1.sh
 ---
 ---
 
-### For form 2: Solution [here](https://youtu.be/vkyhC0NA8sY)
+### For form 2: Solution [here](https://youtu.be/w-bnVtz2dWY)
 ---
 
 * **Task 1. Create Pub/Sub schema.**
@@ -47,7 +47,7 @@ sudo chmod +x form_2.sh
 * **Now check your progress, You will get score for all tasks..**
 ---
 
-### For form 3: Solution [here](https://youtu.be/BcCcEv2mqAs)
+### For form 3: Solution [here](https://youtu.be/SZdTvD5Cfig)
 ---
 
 * **Task 1. Set up Cloud Pub/Sub.**
