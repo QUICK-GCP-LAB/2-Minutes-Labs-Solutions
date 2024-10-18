@@ -1,6 +1,6 @@
 # [Building a DevOps Pipeline](https://www.cloudskillsboost.google/paths/20/course_templates/41/labs/489843)
 
-## Solution [here]()
+## Solution [here](https://youtu.be/t8zpapD6AmE)
 
 ### Run the following Commands in CloudShell
 
