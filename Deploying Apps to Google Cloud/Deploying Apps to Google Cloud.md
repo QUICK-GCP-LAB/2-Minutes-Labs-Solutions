@@ -1,6 +1,6 @@
 # [Deploying Apps to Google Cloud](https://www.cloudskillsboost.google/paths/20/course_templates/41/labs/489870)
 
-## Solution [here]()
+## Solution [here](https://youtu.be/CKrK51bl7aE)
 
 ### Run the following Commands in CloudShell
 
