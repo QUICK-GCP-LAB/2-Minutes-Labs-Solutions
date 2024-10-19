@@ -25,6 +25,8 @@ RESET=`tput sgr0`
 
 echo "${BG_MAGENTA}${BOLD}Starting Execution${RESET}"
 
+gcloud services enable run.googleapis.com
+
 export PROJECT_ID=$(gcloud config get-value project)
 
 export PROJECT_NUMBER=$(gcloud projects describe ${PROJECT_ID} \
@@ -152,6 +154,8 @@ gcloud artifacts repositories create devops-demo \
 gcloud auth configure-docker $REGION-docker.pkg.dev
 
 gcloud builds submit --tag $REGION-docker.pkg.dev/$DEVSHELL_PROJECT_ID/devops-demo/devops-image:v0.2 .
+
+CONTAINER_PATH=$REGION-docker.pkg.dev/$DEVSHELL_PROJECT_ID/devops-demo/devops-image:v0.2
 
 cat > kubernetes-config.yaml << EOM
 ---
