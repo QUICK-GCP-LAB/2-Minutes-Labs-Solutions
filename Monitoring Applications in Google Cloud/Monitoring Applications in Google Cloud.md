@@ -1,6 +1,6 @@
 # [Monitoring Applications in Google Cloud](https://www.cloudskillsboost.google/paths/20/course_templates/41/labs/489901)
 
-## Solution [here]()
+## Solution [here](https://youtu.be/k8zJch3noz8)
 
 ### Run the following Commands in CloudShell
 
