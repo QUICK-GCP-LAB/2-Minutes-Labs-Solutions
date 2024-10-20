@@ -15,7 +15,7 @@ sudo chmod +x gsp917.sh
 ./gsp917.sh
 ```
 
-* Go to `User-managed Notebooks` from [here](https://console.cloud.google.com/vertex-ai/workbench/instances?)
+* Go to `Instances` from [here](https://console.cloud.google.com/vertex-ai/workbench/instances?)
 
 ```
 git clone --depth=1 https://github.com/GoogleCloudPlatform/training-data-analyst
