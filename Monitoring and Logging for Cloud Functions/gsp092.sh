@@ -61,12 +61,12 @@ EOF
 
 
 
-deploy_function() {
-  gcloud functions deploy helloWorld \
+deploy_function() {  gcloud functions deploy helloWorld \
 --trigger-http \
 --runtime nodejs20 \
 --allow-unauthenticated \
 --region $REGION \
+--no-gen2 \
 --max-instances 5
 }
 
