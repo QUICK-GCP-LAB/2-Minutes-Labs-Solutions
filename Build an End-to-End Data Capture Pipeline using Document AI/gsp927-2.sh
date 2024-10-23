@@ -176,7 +176,7 @@ gcloud functions deploy geocode-addresses \
   --trigger-topic=${GEO_CODE_REQUEST_PUBSUB_TOPIC} \
   --update-env-vars=API_key=${API_KEY}
 
-gsutil cp gs://sureskills-lab-dev/gsp927/documentai-pipeline-demo/sample-files/* gs://${PROJECT_ID}-input-invoices/
+gsutil cp gs://spls/gsp927/documentai-pipeline-demo/sample-files/* gs://${PROJECT_ID}-input-invoices/
 
 echo "${BG_RED}${BOLD}Congratulations For Completing The Lab !!!${RESET}"
 
