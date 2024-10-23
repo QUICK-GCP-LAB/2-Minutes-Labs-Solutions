@@ -1,4 +1,4 @@
-# Activity: Manage authorization || []() ||
+# Activity: Manage authorization
 
 ## Solution [here]()
 
