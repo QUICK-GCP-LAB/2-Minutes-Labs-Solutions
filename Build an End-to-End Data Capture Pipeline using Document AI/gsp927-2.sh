@@ -26,7 +26,7 @@ RESET=`tput sgr0`
 echo "${BG_MAGENTA}${BOLD}Starting Execution${RESET}"
 
 export GEO_CODE_REQUEST_PUBSUB_TOPIC=geocode_request
-export PROCESSOR_NAME=form-parser
+export PROCESSOR_NAME=form-processor
 export PROJECT_ID=$(gcloud config get-value core/project)
 ACCESS_TOKEN=$(gcloud auth application-default print-access-token)
 
@@ -73,14 +73,28 @@ bq mk --table \
 gcloud pubsub topics \
     create ${GEO_CODE_REQUEST_PUBSUB_TOPIC}
 
+gcloud storage service-agent --project=$PROJECT_ID
+
+PROJECT_NUMBER=$(gcloud projects describe $PROJECT_ID --format="value(projectNumber)")
+
+gcloud iam service-accounts create "service-$PROJECT_NUMBER" \
+  --display-name "Cloud Storage Service Account" || true
+
+gcloud projects add-iam-policy-binding $PROJECT_ID \
+  --member="serviceAccount:service-$PROJECT_NUMBER@gs-project-accounts.iam.gserviceaccount.com" \
+  --role="roles/pubsub.publisher"
+gcloud projects add-iam-policy-binding $PROJECT_ID \
+  --member="serviceAccount:service-$PROJECT_NUMBER@gs-project-accounts.iam.gserviceaccount.com" \
+  --role="roles/iam.serviceAccountTokenCreator"
+
 cd ~/documentai-pipeline-demo/scripts
 
 deploy_function() {
 gcloud functions deploy process-invoices \
+  --gen2 \
   --region=${LOCATION} \
   --entry-point=process_invoice \
-  --runtime=python37 \
-  --service-account=${PROJECT_ID}@appspot.gserviceaccount.com \
+  --runtime=python39 \
   --source=cloud-functions/process-invoices \
   --timeout=400 \
   --env-vars-file=cloud-functions/process-invoices/.env.yaml \
@@ -104,12 +118,12 @@ echo "Running the next code..."
 
 cd ~/documentai-pipeline-demo/scripts
 
-deploy_function() {
+deploy_function() {  
 gcloud functions deploy geocode-addresses \
+  --gen2 \
   --region=${LOCATION} \
   --entry-point=process_address \
-  --runtime=python38 \
-  --service-account=${PROJECT_ID}@appspot.gserviceaccount.com \
+  --runtime=python39 \
   --source=cloud-functions/geocode-addresses \
   --timeout=60 \
   --env-vars-file=cloud-functions/geocode-addresses/.env.yaml \
@@ -142,10 +156,10 @@ export PROCESSOR_ID
 cd ~/documentai-pipeline-demo/scripts
 
 gcloud functions deploy process-invoices \
+  --gen2 \
   --region=${LOCATION} \
   --entry-point=process_invoice \
-  --runtime=python37 \
-  --service-account=${PROJECT_ID}@appspot.gserviceaccount.com \
+  --runtime=python39 \
   --source=cloud-functions/process-invoices \
   --timeout=400 \
   --trigger-resource=gs://${PROJECT_ID}-input-invoices \
@@ -153,10 +167,10 @@ gcloud functions deploy process-invoices \
   --update-env-vars=PROCESSOR_ID=${PROCESSOR_ID},PARSER_LOCATION=us
 
 gcloud functions deploy geocode-addresses \
+  --gen2 \
   --region=${LOCATION} \
   --entry-point=process_address \
-  --runtime=python38 \
-  --service-account=${PROJECT_ID}@appspot.gserviceaccount.com \
+  --runtime=python39 \
   --source=cloud-functions/geocode-addresses \
   --timeout=60 \
   --trigger-topic=${GEO_CODE_REQUEST_PUBSUB_TOPIC} \
