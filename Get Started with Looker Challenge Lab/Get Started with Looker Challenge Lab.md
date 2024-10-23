@@ -101,7 +101,7 @@ explore: events {
 }
 ```
 
-* NOW FOLLOW [VIDEO'S]() INSTRUCTIONS
+* NOW FOLLOW [VIDEO'S](https://youtu.be/iZPo_KTy1RE) INSTRUCTIONS
 
 * Create a bar chart of the `top 3 event types based on the highest number of users`
 
