@@ -25,11 +25,15 @@ RESET=`tput sgr0`
 
 echo "${BG_MAGENTA}${BOLD}Starting Execution${RESET}"
 
+export ZONE=$(gcloud compute instances list instance1 --format 'csv[no-heading](zone)')
+
+export REGION="${ZONE%-*}"
+
 gcloud config set compute/zone $ZONE
 
 export PROJECT_ID=$(gcloud info --format='value(config.project)')
 
-gcloud container clusters create gmp-cluster --num-nodes=1 --zone $ZONE
+gcloud container clusters create gmp-cluster --num-nodes=1 --region $REGION
 
 gcloud logging metrics create stopped-vm \
     --description="Metric for stopped VMs" \
@@ -92,7 +96,7 @@ EOF_END
 # Create the alert policy
 gcloud alpha monitoring policies create --policy-from-file=stopped-vm-alert-policy.json
 
-gcloud compute instances stop instance1 --zone=us-central1-a --quiet
+gcloud compute instances stop instance1 --zone=$ZONE --quiet
 
 sleep 30
 
