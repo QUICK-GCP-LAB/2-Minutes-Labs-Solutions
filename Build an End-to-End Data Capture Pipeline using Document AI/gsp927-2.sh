@@ -29,15 +29,16 @@ export GEO_CODE_REQUEST_PUBSUB_TOPIC=geocode_request
 export PROCESSOR_NAME=form-processor
 export PROJECT_ID=$(gcloud config get-value core/project)
 ACCESS_TOKEN=$(gcloud auth application-default print-access-token)
+PROJECT_NUMBER=$(gcloud projects describe $PROJECT_ID --format="value(projectNumber)")
 
 KEY_NAME=$(gcloud alpha services api-keys list --format="value(name)" --filter "displayName=awesome")
 
 export API_KEY=$(gcloud alpha services api-keys get-key-string $KEY_NAME --format="value(keyString)")
 
-  mkdir ./documentai-pipeline-demo
-  gsutil -m cp -r \
-    gs://sureskills-lab-dev/gsp927/documentai-pipeline-demo/* \
-    ~/documentai-pipeline-demo/
+mkdir ./documentai-pipeline-demo
+gcloud storage cp -r \
+  gs://spls/gsp927/documentai-pipeline-demo/* \
+  ~/documentai-pipeline-demo/
 
 curl -X POST \
   -H "Authorization: Bearer $ACCESS_TOKEN" \
@@ -49,33 +50,27 @@ curl -X POST \
   "https://documentai.googleapis.com/v1/projects/$PROJECT_ID/locations/us/processors"
 
 gsutil mb -c standard -l ${LOCATION} -b on \
-    gs://${PROJECT_ID}-input-invoices
+  gs://${PROJECT_ID}-input-invoices
 gsutil mb -c standard -l ${LOCATION} -b on \
-    gs://${PROJECT_ID}-output-invoices
-
+  gs://${PROJECT_ID}-output-invoices
 gsutil mb -c standard -l ${LOCATION} -b on \
-    gs://${PROJECT_ID}-archived-invoices
+  gs://${PROJECT_ID}-archived-invoices
 
 bq --location="US" mk  -d \
-     --description "Form Parser Results" \
-     ${PROJECT_ID}:invoice_parser_results
-
+    --description "Form Parser Results" \
+    ${PROJECT_ID}:invoice_parser_results
 cd ~/documentai-pipeline-demo/scripts/table-schema/
-
 bq mk --table \
-    invoice_parser_results.doc_ai_extracted_entities \
-    doc_ai_extracted_entities.json
-
+  invoice_parser_results.doc_ai_extracted_entities \
+  doc_ai_extracted_entities.json
 bq mk --table \
-    invoice_parser_results.geocode_details \
-    geocode_details.json
-
+  invoice_parser_results.geocode_details \
+  geocode_details.json
+  
 gcloud pubsub topics \
-    create ${GEO_CODE_REQUEST_PUBSUB_TOPIC}
+  create ${GEO_CODE_REQUEST_PUBSUB_TOPIC}
 
 gcloud storage service-agent --project=$PROJECT_ID
-
-PROJECT_NUMBER=$(gcloud projects describe $PROJECT_ID --format="value(projectNumber)")
 
 gcloud iam service-accounts create "service-$PROJECT_NUMBER" \
   --display-name "Cloud Storage Service Account" || true
@@ -86,9 +81,10 @@ gcloud projects add-iam-policy-binding $PROJECT_ID \
 gcloud projects add-iam-policy-binding $PROJECT_ID \
   --member="serviceAccount:service-$PROJECT_NUMBER@gs-project-accounts.iam.gserviceaccount.com" \
   --role="roles/iam.serviceAccountTokenCreator"
-
-cd ~/documentai-pipeline-demo/scripts
-
+  
+  cd ~/documentai-pipeline-demo/scripts
+  
+  
 deploy_function() {
 gcloud functions deploy process-invoices \
   --gen2 \
@@ -115,8 +111,6 @@ while [ "$deploy_success" = false ]; do
 done
 
 echo "Running the next code..."
-
-cd ~/documentai-pipeline-demo/scripts
 
 deploy_function() {  
 gcloud functions deploy geocode-addresses \
@@ -153,8 +147,6 @@ PROCESSOR_ID=$(curl -X GET \
 
 export PROCESSOR_ID
 
-cd ~/documentai-pipeline-demo/scripts
-
 gcloud functions deploy process-invoices \
   --gen2 \
   --region=${LOCATION} \
@@ -162,9 +154,9 @@ gcloud functions deploy process-invoices \
   --runtime=python39 \
   --source=cloud-functions/process-invoices \
   --timeout=400 \
+  --update-env-vars=PROCESSOR_ID=${PROCESSOR_ID},PARSER_LOCATION=us,GCP_PROJECT=${PROJECT_ID} \
   --trigger-resource=gs://${PROJECT_ID}-input-invoices \
-  --trigger-event=google.storage.object.finalize \
-  --update-env-vars=PROCESSOR_ID=${PROCESSOR_ID},PARSER_LOCATION=us
+  --trigger-event=google.storage.object.finalize
 
 gcloud functions deploy geocode-addresses \
   --gen2 \
@@ -173,9 +165,9 @@ gcloud functions deploy geocode-addresses \
   --runtime=python39 \
   --source=cloud-functions/geocode-addresses \
   --timeout=60 \
-  --trigger-topic=${GEO_CODE_REQUEST_PUBSUB_TOPIC} \
-  --update-env-vars=API_key=${API_KEY}
-
+  --update-env-vars=API_key=${API_KEY} \
+  --trigger-topic=${GEO_CODE_REQUEST_PUBSUB_TOPIC}
+  
 gsutil cp gs://spls/gsp927/documentai-pipeline-demo/sample-files/* gs://${PROJECT_ID}-input-invoices/
 
 echo "${BG_RED}${BOLD}Congratulations For Completing The Lab !!!${RESET}"
