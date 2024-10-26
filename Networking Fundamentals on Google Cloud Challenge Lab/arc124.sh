@@ -28,7 +28,7 @@ echo "${YELLOW}${BOLD}Starting${RESET}" "${GREEN}${BOLD}Execution${RESET}"
 export REGION="${ZONE%-*}"
 
 gcloud compute instances create web1 \
---zone=$ZONE \
+--instances-zone=$ZONE \
 --machine-type=e2-small \
 --tags=network-lb-tag \
 --image-family=debian-11 \
@@ -40,7 +40,7 @@ service apache2 restart
 echo "<h3>Web Server: web1</h3>" | tee /var/www/html/index.html'
 
 gcloud compute instances create web2 \
---zone=$ZONE \
+--instances-zone=$ZONE \
 --machine-type=e2-small \
 --tags=network-lb-tag \
 --image-family=debian-11 \
@@ -52,7 +52,7 @@ service apache2 restart
 echo "<h3>Web Server: web2</h3>" | tee /var/www/html/index.html'
 
 gcloud compute instances create web3 \
---zone=$ZONE \
+--instances-zone=$ZONE \
 --machine-type=e2-small \
 --tags=network-lb-tag \
 --image-family=debian-11 \
@@ -74,7 +74,7 @@ gcloud compute http-health-checks create basic-check
     --region=$REGION  --http-health-check basic-check
 
 gcloud compute target-pools add-instances www-pool \
-    --instances web1,web2,web3 --zone=$ZONE
+    --instances web1,web2,web3 --instances-zone=$ZONE
     
 gcloud compute forwarding-rules create www-rule \
     --region=$REGION \
@@ -104,7 +104,7 @@ gcloud compute instance-templates create lb-backend-template \
      systemctl restart apache2'
 
 gcloud compute instance-groups managed create lb-backend-group \
-   --template=lb-backend-template --size=2 --zone=$ZONE 
+   --template=lb-backend-template --size=2 --instances-zone=$ZONE 
 
 gcloud compute firewall-rules create fw-allow-health-check \
   --network=default \
