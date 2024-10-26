@@ -2,7 +2,7 @@
 
 ## Solution [here]()
 
-### Run the following Commands in CloudShell
+### Run the following Commands
 
 ```
 SELECT * 
