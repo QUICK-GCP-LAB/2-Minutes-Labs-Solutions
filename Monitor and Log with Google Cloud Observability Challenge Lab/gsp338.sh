@@ -120,7 +120,7 @@ cat > quickgcplab.json <<EOF_END
     {
       "displayName": "VM Instance - logging/user/large_video_upload_rate",
       "conditionThreshold": {
-        "filter": "resource.type = \"gce_instance\" AND metric.type = \"logging.googleapis.com/user/large_video_upload_rate\"",
+        "filter": "resource.type = \"gce_instance\" AND metric.type = \"logging.googleapis.com/user/$METRIC\"",
         "aggregations": [
           {
             "alignmentPeriod": "300s",
