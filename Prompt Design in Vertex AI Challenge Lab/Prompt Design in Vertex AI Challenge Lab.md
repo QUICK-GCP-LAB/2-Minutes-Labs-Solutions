@@ -4,7 +4,7 @@
 
 * Go to `Vertex AI` from [here](https://console.cloud.google.com/vertex-ai)
 
-* Go to **Workbench Instances** from [here](https://console.cloud.google.com/vertex-ai/workbench/instances?)
+* Go to `Workbench Instances` from [here](https://console.cloud.google.com/vertex-ai/workbench/instances?)
 
 * Download **Cymbal Product Analysis.json** file from [here](https://drive.google.com/uc?export=download&id=1lwLQOO6-BOE00j9aNochg-sPmSBQ7FSm)
 
