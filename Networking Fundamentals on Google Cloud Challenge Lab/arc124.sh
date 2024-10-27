@@ -23,12 +23,12 @@ BOLD=`tput bold`
 RESET=`tput sgr0`
 #----------------------------------------------------start--------------------------------------------------#
 
-echo "${YELLOW}${BOLD}Starting${RESET}" "${GREEN}${BOLD}Execution${RESET}"
+echo "${BG_MAGENTA}${BOLD}Starting Execution${RESET}"
 
 export REGION="${ZONE%-*}"
 
 gcloud compute instances create web1 \
---instances-zone=$ZONE \
+--zone=$ZONE \
 --machine-type=e2-small \
 --tags=network-lb-tag \
 --image-family=debian-11 \
@@ -40,7 +40,7 @@ service apache2 restart
 echo "<h3>Web Server: web1</h3>" | tee /var/www/html/index.html'
 
 gcloud compute instances create web2 \
---instances-zone=$ZONE \
+--zone=$ZONE \
 --machine-type=e2-small \
 --tags=network-lb-tag \
 --image-family=debian-11 \
@@ -52,7 +52,7 @@ service apache2 restart
 echo "<h3>Web Server: web2</h3>" | tee /var/www/html/index.html'
 
 gcloud compute instances create web3 \
---instances-zone=$ZONE \
+--zone=$ZONE \
 --machine-type=e2-small \
 --tags=network-lb-tag \
 --image-family=debian-11 \
@@ -74,7 +74,7 @@ gcloud compute http-health-checks create basic-check
     --region=$REGION  --http-health-check basic-check
 
 gcloud compute target-pools add-instances www-pool \
-    --instances web1,web2,web3 --instances-zone=$ZONE
+    --instances web1,web2,web3 --zone=$ZONE
     
 gcloud compute forwarding-rules create www-rule \
     --region=$REGION \
@@ -104,7 +104,7 @@ gcloud compute instance-templates create lb-backend-template \
      systemctl restart apache2'
 
 gcloud compute instance-groups managed create lb-backend-group \
-   --template=lb-backend-template --size=2 --instances-zone=$ZONE 
+   --template=lb-backend-template --size=2 --zone=$ZONE 
 
 gcloud compute firewall-rules create fw-allow-health-check \
   --network=default \
@@ -148,6 +148,6 @@ gcloud compute forwarding-rules create http-content-rule \
     --target-http-proxy=http-lb-proxy \
     --ports=80
 
-echo "${RED}${BOLD}Congratulations${RESET}" "${WHITE}${BOLD}for${RESET}" "${GREEN}${BOLD}Completing the Lab !!!${RESET}"
+echo "${BG_RED}${BOLD}Congratulations For Completing The Lab !!!${RESET}"
 
 #-----------------------------------------------------end----------------------------------------------------------#
