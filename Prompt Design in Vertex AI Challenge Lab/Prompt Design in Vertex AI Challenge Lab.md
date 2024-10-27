@@ -2,9 +2,15 @@
 
 ## Solution [here](https://youtu.be/9zj5Vtd8yWA)
 
-* Download All file from [here](https://drive.google.com/drive/folders/1q5dJzvqlT8tAsjcip2JfzYTXYoJzgnw7?usp=sharing)
-
 * Go to `Vertex AI` from [here](https://console.cloud.google.com/vertex-ai)
+
+* Download **Cymbal Product Analysis.json** file from [here](https://drive.google.com/uc?export=download&id=1lwLQOO6-BOE00j9aNochg-sPmSBQ7FSm)
+
+* Download **Cymbal Tagline Generator Template.json** file from [here](https://drive.google.com/uc?export=download&id=1FWwb2Gqd7rlJEIsc2Uyl_LLGlb-dTzA1)
+
+* Download **image-analysis.ipynb** file from [here](https://drive.google.com/uc?export=download&id=1GNb1gEREBvD2s5GBGy1q6fqVtWVka4KL)
+
+* Download **tagline-generator.ipynb** file from [here](https://drive.google.com/uc?export=download&id=1yxaed9gBKbHt2A7v5wHfOmZe51IN1yot)
 
 * Now Follow [Video's](https://youtu.be/9zj5Vtd8yWA) Instructions
 
