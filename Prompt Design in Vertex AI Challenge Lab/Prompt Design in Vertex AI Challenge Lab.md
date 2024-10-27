@@ -10,7 +10,7 @@
 
 * Download **Cymbal Tagline Generator Template.json** file from [here](https://drive.google.com/uc?export=download&id=1FWwb2Gqd7rlJEIsc2Uyl_LLGlb-dTzA1)
 
-* Download **image-analysis.ipynb** file from [here](https://drive.google.com/uc?export=download&id=1GNb1gEREBvD2s5GBGy1q6fqVtWVka4KL)
+* Download **image-analysis.ipynb** file from [here](https://drive.google.com/uc?export=download&id=1JwtR47BwqLnqOknhNaI8t96nmYJP3Vyj)
 
 * Download **tagline-generator.ipynb** file from [here](https://drive.google.com/uc?export=download&id=1yxaed9gBKbHt2A7v5wHfOmZe51IN1yot)
 
