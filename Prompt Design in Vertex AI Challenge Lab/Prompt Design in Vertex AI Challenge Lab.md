@@ -1,6 +1,6 @@
 # Prompt Design in Vertex AI: Challenge Lab || [GSP519](https://www.cloudskillsboost.google/focuses/86504?parent=catalog) ||
 
-## Solution [here](https://youtu.be/9zj5Vtd8yWA)
+## Solution [here](https://youtu.be/N10u_rh3jOU)
 
 * Go to `Vertex AI` from [here](https://console.cloud.google.com/vertex-ai)
 
@@ -14,7 +14,7 @@
 
 * Download **tagline-generator.ipynb** file from [here](https://drive.google.com/uc?export=download&id=1yxaed9gBKbHt2A7v5wHfOmZe51IN1yot)
 
-* Now Follow [Video's](https://youtu.be/9zj5Vtd8yWA) Instructions
+* Now Follow [Video's](https://youtu.be/N10u_rh3jOU) Instructions
 
 ### Congratulations 🎉 for completing the Lab !
 
