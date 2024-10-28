@@ -3,10 +3,7 @@
 ## Solution [here](https://youtu.be/iEayif0tUZQ)
 
 ### Run the following Commands in CloudShell
-```
-export ZONE=
-export REGION_2=
-```
+
 ```
 curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Multiple%20VPC%20Networks/gsp211.sh
 
