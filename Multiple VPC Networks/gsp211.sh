@@ -60,16 +60,13 @@ gcloud compute firewall-rules create privatenet-allow-icmp-ssh-rdp --direction=I
 gcloud compute instances create managementnet-vm-1 --zone=$ZONE_1 --machine-type=e2-micro --subnet=managementsubnet-1
 gcloud compute instances create privatenet-vm-1 --zone=$ZONE_1 --machine-type=e2-micro --subnet=privatesubnet-1
 
-# Create the appliance instance (assuming 'mynetwork' exists)
+# Create the appliance instance
 gcloud compute instances create vm-appliance \
-  --zone=$ZONE_1 \
-  --machine-type=e2-standard-4 \
-  --network=privatenet \
-  --network-interface=network-tier=PREMIUM,stack-type=IPV4_ONLY,subnet=privatesubnet-1 \
-  --network=managementnet \
-  --network-interface=network-tier=PREMIUM,stack-type=IPV4_ONLY,subnet=managementsubnet-1 \
-  --network=mynetwork \
-  --network-interface=network-tier=PREMIUM,stack-type=IPV4_ONLY,subnet=mynetwork
+--zone=$ZONE_1 \
+--machine-type=e2-standard-4 \
+--network-interface=network-tier=PREMIUM,stack-type=IPV4_ONLY,subnet=privatesubnet-1 \
+--network-interface=network-tier=PREMIUM,stack-type=IPV4_ONLY,subnet=managementsubnet-1 \
+--network-interface=network-tier=PREMIUM,stack-type=IPV4_ONLY,subnet=mynetwork
 
 echo "${BG_RED}${BOLD}Congratulations For Completing The Lab !!!${RESET}"
 
