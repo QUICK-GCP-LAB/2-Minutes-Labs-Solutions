@@ -1,6 +1,6 @@
 # Multiple VPC Networks || [GSP211](https://www.cloudskillsboost.google/focuses/22772?parent=catalog) ||
 
-## Solution [here](https://youtu.be/iEayif0tUZQ)
+## Solution [here](https://youtu.be/lryqgJ_C_uw)
 
 ### Run the following Commands in CloudShell
 
