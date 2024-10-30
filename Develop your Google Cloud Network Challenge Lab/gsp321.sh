@@ -55,7 +55,7 @@ gcloud compute firewall-rules create fw-ssh-prod --source-ranges=0.0.0.0/0 --tar
 echo "${RED}${BOLD}Task 3. ${RESET}""${WHITE}${BOLD}Create bastion host${RESET}" "${GREEN}${BOLD}Completed${RESET}"
 
 gcloud sql instances create griffin-dev-db \
-    --database-version=MYSQL_5_7 \
+    --database-version=MYSQL_5_8 \
     --region=$REGION \
     --root-password='awesome'
 
