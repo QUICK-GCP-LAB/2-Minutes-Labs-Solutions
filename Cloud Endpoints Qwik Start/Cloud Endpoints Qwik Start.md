@@ -1,6 +1,6 @@
 # Cloud Endpoints: Qwik Start || [GSP164](https://www.cloudskillsboost.google/focuses/767?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/dAWIy5Jwn0Q)
 
 ### Run the following Commands in CloudShell
 
