@@ -2,6 +2,16 @@
 
 ## Solution [here]()
 
+### Run the following Commands in CloudShell
+
+```
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Resource%20Monitoring/shell.sh
+
+sudo chmod +x shell.sh
+
+./shell.sh
+```
+
 * Go to **Dashboards Overview** from [here](https://console.cloud.google.com/monitoring/dashboards?)
 
 * Type **CPU utilization** in Metric field dropdown
@@ -13,16 +23,6 @@
 * In the Criteria section, type **nginx** in the Value field below Contains.
 
 * Go to **Create Uptime Check** from [here](https://console.cloud.google.com/monitoring/uptime/create?)
-
-### Run the following Commands in CloudShell
-
-```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Resource%20Monitoring/shell.sh
-
-sudo chmod +x shell.sh
-
-./shell.sh
-```
 
 ### Congratulations 🎉 for completing the Lab !
 
