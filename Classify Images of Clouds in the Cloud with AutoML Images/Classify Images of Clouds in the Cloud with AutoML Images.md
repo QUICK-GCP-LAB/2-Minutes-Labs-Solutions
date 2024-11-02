@@ -12,6 +12,8 @@ sudo chmod +x gsp223.sh
 ./gsp223.sh
 ```
 
+* Type **clouds** for the Dataset name.
+
 ### Congratulations 🎉 for completing the Lab !
 
 ##### *You Have Successfully Demonstrated Your Skills And Determination.*
