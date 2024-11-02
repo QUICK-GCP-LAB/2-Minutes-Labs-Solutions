@@ -23,13 +23,6 @@ BOLD=`tput bold`
 RESET=`tput sgr0`
 #----------------------------------------------------start--------------------------------------------------#
 
-echo "${BG_MAGENTA}${BOLD}Starting Execution${RESET}"
-
-export ZONE=$(gcloud compute project-info describe \
---format="value(commonInstanceMetadata.items[google-compute-default-zone])")
-
-export REGION=$(echo "$ZONE" | cut -d '-' -f 1-2)
-
 gcloud scc muteconfigs create muting-flow-log-findings \
   --project=$DEVSHELL_PROJECT_ID \
   --location=global \
@@ -52,7 +45,7 @@ gcloud scc muteconfigs create muting-admin-sa-findings \
   --type=STATIC
 
 # Delete the existing rule
-gcloud compute firewall-rules delete default-allow-rdp --quiet
+gcloud compute firewall-rules delete default-allow-rdp
 
 # Create a new rule with the updated source IP range
 gcloud compute firewall-rules create default-allow-rdp \
@@ -70,6 +63,9 @@ gcloud compute firewall-rules create default-allow-ssh \
   --allow=tcp:22 \
   --description="Allow HTTP traffic from 35.235.240.0/20" \
   --priority=65534
+
+export ZONE=$(gcloud compute project-info describe \
+--format="value(commonInstanceMetadata.items[google-compute-default-zone])")
 
 echo "${CYAN}${BOLD}Click here: "${RESET}""${BLUE}${BOLD}""https://console.cloud.google.com/compute/instancesEdit/zones/$ZONE/instances/cls-vm?project=$DEVSHELL_PROJECT_ID"""${RESET}"
 
