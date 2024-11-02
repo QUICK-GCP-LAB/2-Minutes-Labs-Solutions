@@ -1,6 +1,6 @@
 # [Resource Monitoring ](https://www.cloudskillsboost.google/games/5632/labs/36136)
 
-## Solution [here]()
+## Solution [here](https://youtu.be/kTN9AP-g9Hc)
 
 ### Run the following Commands in CloudShell
 
