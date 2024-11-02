@@ -23,6 +23,8 @@ BOLD=`tput bold`
 RESET=`tput sgr0`
 #----------------------------------------------------start--------------------------------------------------#
 
+echo "${BG_MAGENTA}${BOLD}Starting Execution${RESET}"
+
 gcloud scc muteconfigs create muting-flow-log-findings \
   --project=$DEVSHELL_PROJECT_ID \
   --location=global \
