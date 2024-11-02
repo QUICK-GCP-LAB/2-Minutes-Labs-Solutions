@@ -31,6 +31,30 @@ bq query --use_legacy_sql=false \
 "
 #standardSQL
 SELECT
+fullVisitorId
+FROM \`data-to-insights.ecommerce.rev_transactions\`
+"
+
+bq query --use_legacy_sql=false \
+"
+#standardSQL
+SELECT fullVisitorId hits_page_pageTitle
+FROM \`data-to-insights.ecommerce.rev_transactions\` LIMIT 1000
+"
+
+bq query --use_legacy_sql=false \
+"
+#standardSQL
+SELECT
+  fullVisitorId
+  , hits_page_pageTitle
+FROM \`data-to-insights.ecommerce.rev_transactions\` LIMIT 1000
+"
+
+bq query --use_legacy_sql=false \
+"
+#standardSQL
+SELECT
 COUNT(DISTINCT fullVisitorId) AS visitor_count
 , hits_page_pageTitle
 FROM \`data-to-insights.ecommerce.rev_transactions\`
@@ -100,6 +124,26 @@ FROM
 GROUP BY geoNetwork_city
 HAVING avg_products_ordered > 20
 ORDER BY avg_products_ordered DESC
+"
+
+bq query --use_legacy_sql=false \
+"
+#standardSQL
+SELECT hits_product_v2ProductName, hits_product_v2ProductCategory
+FROM \`data-to-insights.ecommerce.rev_transactions\`
+GROUP BY 1,2
+"
+
+bq query --use_legacy_sql=false \
+"
+#standardSQL
+SELECT
+COUNT(hits_product_v2ProductName) as number_of_products,
+hits_product_v2ProductCategory
+FROM \`data-to-insights.ecommerce.rev_transactions\`
+WHERE hits_product_v2ProductName IS NOT NULL
+GROUP BY hits_product_v2ProductCategory
+ORDER BY number_of_products DESC
 "
 
 bq query --use_legacy_sql=false \
