@@ -14,6 +14,8 @@ sudo chmod +x gsp382-1.sh
 
 * **Reserve Static External IP** address name **static-ip**
 
+### Run again the following Commands in CloudShell
+
 ```
 curl -LO https://raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Mitigate%20Threats%20and%20Vulnerabilities%20with%20Security%20Command%20Center%20Challenge%20Lab/gsp382-2.sh
 
