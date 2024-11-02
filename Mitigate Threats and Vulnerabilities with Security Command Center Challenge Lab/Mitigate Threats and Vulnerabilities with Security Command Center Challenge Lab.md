@@ -1,6 +1,6 @@
 # Mitigate Threats and Vulnerabilities with Security Command Center: Challenge Lab || [GSP382](https://www.cloudskillsboost.google/focuses/71935?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/aSUdaONi4CI)
 
 ### Run the following Commands in CloudShell
 
