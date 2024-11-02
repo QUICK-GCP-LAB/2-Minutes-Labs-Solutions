@@ -44,6 +44,8 @@ gcloud scc muteconfigs create muting-admin-sa-findings \
   --filter="category=\"ADMIN_SERVICE_ACCOUNT\"" \
   --type=STATIC
 
+echo "${YELLOW}${BOLD}Check Score ${RESET}""${WHITE}${BOLD}for task 2${RESET}" "${GREEN}${BOLD}then press Y${RESET}"
+
 # Delete the existing rule
 gcloud compute firewall-rules delete default-allow-rdp
 
