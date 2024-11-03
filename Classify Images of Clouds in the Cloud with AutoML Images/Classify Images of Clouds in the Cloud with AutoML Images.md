@@ -1,6 +1,6 @@
 # Classify Images of Clouds in the Cloud with AutoML Images || [GSP223](https://www.cloudskillsboost.google/focuses/8406?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/oVRkruz0t28)
 
 ### Run the following Commands in CloudShell
 
