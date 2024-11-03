@@ -1,13 +1,12 @@
 # Build Infrastructure with Terraform on Google Cloud: Challenge Lab || [GSP345](https://www.cloudskillsboost.google/focuses/42740?parent=catalog) ||
 
-## Solution
+## Solution [here]()
 
 ### Run the following Commands in CloudShell
 ```
-export ZONE=
-export INSTANCE_NAME=
-export BUCKET_NAME=
-export VPC_NAME=
+export BUCKET=
+export INSTANCE=
+export VPC=
 ```
 ```
 curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Build%20Infrastructure%20with%20Terraform%20on%20Google%20Cloud%20Challenge%20Lab/gsp345.sh
