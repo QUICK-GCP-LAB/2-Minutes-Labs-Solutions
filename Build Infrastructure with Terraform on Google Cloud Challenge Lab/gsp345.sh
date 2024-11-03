@@ -153,7 +153,7 @@ echo "${RED}${BOLD}Task 2. ${RESET}""${WHITE}${BOLD}Import infrastructure${RESET
 
 cat > modules/storage/storage.tf <<EOF_END
 resource "google_storage_bucket" "storage-bucket" {
-  name          = "$BUCKET_NAME"
+  name          = "$BUCKET"
   location      = "us"
   force_destroy = true
   uniform_bucket_level_access = true
@@ -173,7 +173,7 @@ terraform apply -auto-approve
 cat > main.tf <<EOF_END
 terraform {
 	backend "gcs" {
-		bucket = "$BUCKET_NAME"
+		bucket = "$BUCKET"
 		prefix = "terraform/state"
 	}
   required_providers {
@@ -244,8 +244,8 @@ resource "google_compute_instance" "tf-instance-2" {
   allow_stopping_for_update = true
 }
 
-resource "google_compute_instance" "$INSTANCE_NAME" {
-  name         = "$INSTANCE_NAME"
+resource "google_compute_instance" "$INSTANCE" {
+  name         = "$INSTANCE"
   machine_type = "e2-standard-2"
   zone         = "$ZONE"
 
@@ -271,7 +271,7 @@ terraform apply -auto-approve
 
 echo "${RED}${BOLD}Task 4. ${RESET}""${WHITE}${BOLD}Modify and update infrastructure${RESET}" "${GREEN}${BOLD}Completed${RESET}"
 
-terraform taint module.instances.google_compute_instance.$INSTANCE_NAME
+terraform taint module.instances.google_compute_instance.$INSTANCE
 
 terraform init
 
@@ -331,7 +331,7 @@ module "vpc" {
     version = "~> 6.0.0"
 
     project_id   = "$PROJECT_ID"
-    network_name = "$VPC_NAME"
+    network_name = "$VPC"
     routing_mode = "GLOBAL"
 
     subnets = [
@@ -371,7 +371,7 @@ resource "google_compute_instance" "tf-instance-1" {
   }
 
   network_interface {
-	  network = "$VPC_NAME"
+	  network = "$VPC"
     subnetwork = "subnet-01"
   }
   metadata_startup_script = <<-EOT
@@ -392,7 +392,7 @@ resource "google_compute_instance" "tf-instance-2" {
   }
 
   network_interface {
-	  network = "$VPC_NAME"
+	  network = "$VPC"
     subnetwork = "subnet-02"
   }
   metadata_startup_script = <<-EOT
@@ -413,7 +413,7 @@ echo "${RED}${BOLD}Task 6. ${RESET}""${WHITE}${BOLD}Use a module from the Regist
 cat >> main.tf <<EOF_END
 resource "google_compute_firewall" "tf-firewall"{
   name    = "tf-firewall"
-	network = "projects/$PROJECT_ID/global/networks/$VPC_NAME"
+	network = "projects/$PROJECT_ID/global/networks/$VPC"
 
   allow {
     protocol = "tcp"
