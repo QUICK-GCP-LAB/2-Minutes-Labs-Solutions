@@ -1,3 +1,6 @@
+#!/bin/bash
+# Define color variables
+
 BLACK=`tput setaf 0`
 RED=`tput setaf 1`
 GREEN=`tput setaf 2`
@@ -20,11 +23,12 @@ BOLD=`tput bold`
 RESET=`tput sgr0`
 #----------------------------------------------------start--------------------------------------------------#
 
-echo "${YELLOW}${BOLD}Starting${RESET}" "${GREEN}${BOLD}Execution${RESET}"
+echo "${BG_MAGENTA}${BOLD}Starting Execution${RESET}"
 
-gcloud auth list
+export ZONE=$(gcloud compute project-info describe \
+--format="value(commonInstanceMetadata.items[google-compute-default-zone])")
 
-export REGION="${ZONE%-*}"
+export REGION=$(echo "$ZONE" | cut -d '-' -f 1-2)
 
 export PROJECT_ID=$DEVSHELL_PROJECT_ID
 
@@ -429,6 +433,6 @@ terraform apply -auto-approve
 
 echo "${RED}${BOLD}Task 6. ${RESET}""${WHITE}${BOLD}Configure a firewall${RESET}" "${GREEN}${BOLD}Completed${RESET}"
 
-echo "${RED}${BOLD}Congratulations${RESET}" "${WHITE}${BOLD}for${RESET}" "${GREEN}${BOLD}Completing the Lab !!!${RESET}"
+echo "${BG_RED}${BOLD}Congratulations For Completing The Lab !!!${RESET}"
 
 #-----------------------------------------------------end----------------------------------------------------------#
