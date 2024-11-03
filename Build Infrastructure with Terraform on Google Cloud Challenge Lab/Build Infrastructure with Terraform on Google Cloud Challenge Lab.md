@@ -1,6 +1,6 @@
 # Build Infrastructure with Terraform on Google Cloud: Challenge Lab || [GSP345](https://www.cloudskillsboost.google/focuses/42740?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/6fidKO9GO7w)
 
 ### Run the following Commands in CloudShell
 ```
