@@ -1,4 +1,4 @@
-# Datastream: PostgreSQL Replication to BigQuery || [GSP1052](https://www.cloudskillsboost.google/games/5630/labs/36118) ||
+# Datastream: PostgreSQL Replication to BigQuery || [GSP1052](https://www.cloudskillsboost.google/focuses/53925?parent=catalog) ||
 
 ## Solution [here]()
 
