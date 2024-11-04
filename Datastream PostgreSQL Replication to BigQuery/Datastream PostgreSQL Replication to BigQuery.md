@@ -5,11 +5,11 @@
 ### Run the following Commands in CloudShell
 
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Analyze%20Images%20with%20the%20Cloud%20Vision%20API%20Challenge%20Lab/arc122.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Datastream%20PostgreSQL%20Replication%20to%20BigQuery/gsp1052-1.sh
 
-sudo chmod +x arc122.sh
+sudo chmod +x gsp1052-1.sh
 
-./arc122.sh
+./gsp1052-1.sh
 ```
 
 * When prompted for the password, paste the following.
@@ -43,11 +43,11 @@ SELECT PG_CREATE_LOGICAL_REPLICATION_SLOT('test_replication', 'pgoutput');
 exit
 ```
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Analyze%20Images%20with%20the%20Cloud%20Vision%20API%20Challenge%20Lab/arc122.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Datastream%20PostgreSQL%20Replication%20to%20BigQuery/gsp1052-2.sh
 
-sudo chmod +x arc122.sh
+sudo chmod +x gsp1052-2.sh
 
-./arc122.sh
+./gsp1052-2.sh
 ```
 
 * Use **postgres-cp** as the name and ID of the connection profile.
