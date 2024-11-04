@@ -32,6 +32,6 @@ export ZONE=$(gcloud compute project-info describe \
 export REGION=$(echo "$ZONE" | cut -d '-' -f 1-2)
 echo "${CYAN}${BOLD}Click here: "${RESET}""${BLUE}${BOLD}""https://console.cloud.google.com/datastream/connection-profiles/create/POSTGRESQL?project=$DEVSHELL_PROJECT_ID"""${RESET}"
 echo "${YELLOW}${BOLD}your REGION is ${RESET}" "${GREEN}${BOLD}"$REGION"${RESET}"
-echo "${YELLOW}${BOLD}Copy this: "${RESET}""${WHITE}${BOLD}"$PUBLIC_IP""${RESET}"
+echo "${RED}${BOLD}Copy this: "${RESET}""${WHITE}${BOLD}"$PUBLIC_IP""${RESET}"
 
 #-----------------------------------------------------end----------------------------------------------------------#
