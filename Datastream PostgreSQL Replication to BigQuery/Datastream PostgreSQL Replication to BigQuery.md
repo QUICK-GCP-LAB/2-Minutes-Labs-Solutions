@@ -50,6 +50,21 @@ sudo chmod +x arc122.sh
 ./arc122.sh
 ```
 
+* Use **postgres-cp** as the name and ID of the connection profile.
+
+| Field | Value |
+| :---: | :----: |
+| Username | **postgres** |
+| Password  | **pwd** |
+| Database | **postgres** |
+
+* Use **bigquery-cp** as the name and ID of the connection profile.
+
+* Use **test-stream** as the name and ID of the stream
+
+* Specify the replication slot name as **test_replication**
+
+* Specify the publication name as **test_publication**
 
 ### Congratulations 🎉 for completing the Lab !
 
