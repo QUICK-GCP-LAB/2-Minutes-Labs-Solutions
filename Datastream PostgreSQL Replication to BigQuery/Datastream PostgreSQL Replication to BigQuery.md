@@ -5,6 +5,9 @@
 ### Run the following Commands in CloudShell
 
 ```
+export 
+```
+```
 curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Datastream%20PostgreSQL%20Replication%20to%20BigQuery/gsp1052-1.sh
 
 sudo chmod +x gsp1052-1.sh
