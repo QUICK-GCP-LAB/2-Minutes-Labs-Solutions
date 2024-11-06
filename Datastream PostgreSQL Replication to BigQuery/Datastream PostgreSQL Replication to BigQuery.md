@@ -1,6 +1,6 @@
 # Datastream: PostgreSQL Replication to BigQuery || [GSP1052](https://www.cloudskillsboost.google/focuses/53925?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/GVl2jfB7DKA)
 
 ### Run the following Commands in CloudShell
 
