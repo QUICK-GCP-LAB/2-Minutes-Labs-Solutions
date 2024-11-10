@@ -1,4 +1,4 @@
-# Distributed Load Testing Using Kubernetes || [GSP182](https://www.cloudskillsboost.google/focuses/967?parent=catalog) ||
+# Creating Cross-region Load Balancing || [GSP157](https://www.cloudskillsboost.google/focuses/642?parent=catalog) ||
 
 ## Solution [here]()
 
