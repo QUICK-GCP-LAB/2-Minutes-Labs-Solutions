@@ -8,11 +8,11 @@
 export USER_2=
 ```
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Analyze%20Images%20with%20the%20Cloud%20Vision%20API%20Challenge%20Lab/arc122.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Build%20a%20Data%20Mesh%20with%20Dataplex%20Challenge%20Lab/gsp514.sh
 
-sudo chmod +x arc122.sh
+sudo chmod +x gsp514.sh
 
-./arc122.sh
+./gsp514.sh
 ```
 
 * For the display name enter, **Customer Orders Data Quality Job**
