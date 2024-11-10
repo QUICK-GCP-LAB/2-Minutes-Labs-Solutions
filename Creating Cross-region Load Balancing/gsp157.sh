@@ -145,13 +145,6 @@ LB_IP_ADDRESS=$(gcloud compute addresses list --format="get(ADDRESS)")
     --target-http-proxy http-lb-proxy \
     --ports 80
 
-gcloud compute firewall-rules create allow-lb-and-healthcheck \
-    --source-ranges 130.211.0.0/22,35.191.0.0/16 \
-    --target-tags http-tag \
-    --allow tcp:80
-
-gcloud compute firewall-rules delete www-firewall --quiet
-
 echo "${BG_RED}${BOLD}Congratulations For Completing The Lab !!!${RESET}"
 
 #-----------------------------------------------------end----------------------------------------------------------#
