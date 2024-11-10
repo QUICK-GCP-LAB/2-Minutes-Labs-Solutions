@@ -8,11 +8,11 @@
 export ZONE_2=
 ```
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Distributed%20Load%20Testing%20Using%20Kubernetes/gsp182.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Creating%20Cross-region%20Load%20Balancing/gsp157.sh
 
-sudo chmod +x gsp182.sh
+sudo chmod +x gsp157.sh
 
-./gsp182.sh
+./gsp157.sh
 ```
 
 ### Congratulations 🎉 for completing the Lab !
