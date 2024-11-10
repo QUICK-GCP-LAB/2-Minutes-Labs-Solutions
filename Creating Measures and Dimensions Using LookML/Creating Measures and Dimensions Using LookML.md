@@ -1,6 +1,6 @@
 # Creating Measures and Dimensions Using LookML || [GSP890](https://www.cloudskillsboost.google/focuses/18476?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/Odd4rHhRCHs)
 
 * Replace the following with users.view
 

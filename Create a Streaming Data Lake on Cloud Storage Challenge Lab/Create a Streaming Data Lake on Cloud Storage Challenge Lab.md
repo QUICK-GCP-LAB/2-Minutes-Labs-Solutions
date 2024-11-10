@@ -1,6 +1,6 @@
 # Create a Streaming Data Lake on Cloud Storage: Challenge Lab || [ARC110](https://www.cloudskillsboost.google/focuses/62701?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/wiVyLQNeWmM)
 
 ### Run the following Commands in CloudShell
 
