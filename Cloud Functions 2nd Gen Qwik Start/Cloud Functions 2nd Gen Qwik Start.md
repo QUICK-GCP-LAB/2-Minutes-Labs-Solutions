@@ -4,8 +4,6 @@
 
 ### Run the following Commands in CloudShell
 
-### Assign Variable
-
 ```
 curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Cloud%20Functions%202nd%20Gen%20Qwik%20Start/gsp1089-1.sh
 
