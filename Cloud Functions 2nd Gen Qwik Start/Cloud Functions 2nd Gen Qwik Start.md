@@ -7,9 +7,6 @@
 ### Assign Variable
 
 ```
-export ZONE=
-```
-```
 curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Cloud%20Functions%202nd%20Gen%20Qwik%20Start/gsp1089-1.sh
 
 sudo chmod +x gsp1089-1.sh
