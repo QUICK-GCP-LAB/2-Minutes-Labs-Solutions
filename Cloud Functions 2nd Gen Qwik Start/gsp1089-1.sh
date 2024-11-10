@@ -264,8 +264,18 @@ gcloud functions deploy slow-function \
   --max-instances 4 \
   --quiet
 
+# Transform DEVSHELL_PROJECT_ID and REGION
+export spcl_project=$(echo "$DEVSHELL_PROJECT_ID" | sed 's/-/--/g; s/$/__/g')
+export my_region=$(echo "$REGION" | sed 's/-/--/g; s/$/__/g')
+
+# Build the final string
+export full_path="$REGION-docker.pkg.dev/$DEVSHELL_PROJECT_ID/gcf-artifacts/$spcl_project$my_region"
+
+# Append the static part
+export full_path="${full_string}slow--function:version_1"
+
 gcloud run deploy slow-function \
---image=$REGION-docker.pkg.dev/$DEVSHELL_PROJECT_ID/gcf-artifacts/slow--function:version_1 \
+--image=$full_path \
 --min-instances=1 \
 --max-instances=4 \
 --region=$REGION \
