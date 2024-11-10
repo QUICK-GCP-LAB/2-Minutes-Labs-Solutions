@@ -25,7 +25,9 @@ RESET=`tput sgr0`
 
 echo "${BG_MAGENTA}${BOLD}Starting Execution${RESET}"
 
-export REGION="${ZONE%-*}"
+export ZONE=$(gcloud compute project-info describe \
+--format="value(commonInstanceMetadata.items[google-compute-default-zone])")
+export REGION=$(echo "$ZONE" | cut -d '-' -f 1-2)
 
 cd min-instances/
 

@@ -25,7 +25,9 @@ RESET=`tput sgr0`
 
 echo "${BG_MAGENTA}${BOLD}Starting Execution${RESET}"
 
-export REGION="${ZONE%-*}"
+export ZONE=$(gcloud compute project-info describe \
+--format="value(commonInstanceMetadata.items[google-compute-default-zone])")
+export REGION=$(echo "$ZONE" | cut -d '-' -f 1-2)
 gcloud config set compute/region $REGION
 export PROJECT_ID=$(gcloud config get-value project)
 
@@ -124,7 +126,6 @@ functions.cloudEvent('helloStorage', (cloudevent) => {
 });
 EOF_END
 
-
 cat > package.json <<EOF_END
 {
   "name": "nodejs-functions-gen2-codelab",
@@ -135,7 +136,6 @@ cat > package.json <<EOF_END
   }
 }
 EOF_END
-
 
 BUCKET="gs://gcf-gen2-storage-$PROJECT_ID"
 gsutil mb -l $REGION $BUCKET
@@ -205,7 +205,6 @@ gcloud compute instances create instance-1 --zone=$ZONE
 
 mkdir ~/hello-world-colored && cd $_
 touch main.py
-
 
 cat > main.py <<EOF_END
 import os
