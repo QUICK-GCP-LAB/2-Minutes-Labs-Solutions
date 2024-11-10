@@ -272,7 +272,7 @@ export my_region=$(echo "$REGION" | sed 's/-/--/g; s/$/__/g')
 export full_path="$REGION-docker.pkg.dev/$DEVSHELL_PROJECT_ID/gcf-artifacts/$spcl_project$my_region"
 
 # Append the static part
-export full_path="${full_string}slow--function:version_1"
+export full_path="${full_path}slow--function:version_1"
 
 gcloud run deploy slow-function \
 --image=$full_path \
