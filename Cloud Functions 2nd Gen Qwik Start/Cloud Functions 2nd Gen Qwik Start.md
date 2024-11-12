@@ -1,6 +1,6 @@
 # Cloud Functions 2nd Gen: Qwik Start || [GSP1089](https://www.cloudskillsboost.google/focuses/49757?parent=catalog) ||
 
-## Solution [here](https://youtu.be/WWFzCrPHsCk)
+## Solution [here](https://youtu.be/mTFfyHjp5rw)
 
 ### Run the following Commands in CloudShell
 

@@ -177,7 +177,7 @@ view: order_items {
 }
 ```
 
-* * Replace the following with **products.view** file
+* Replace the following with **products.view** file
 
 ```
 view: products {
