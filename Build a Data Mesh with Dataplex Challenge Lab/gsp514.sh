@@ -25,6 +25,11 @@ RESET=`tput sgr0`
 
 echo "${BG_MAGENTA}${BOLD}Starting Execution${RESET}"
 
+gcloud services enable \
+  dataplex.googleapis.com, \
+  datacatalog.googleapis.com, \
+  dataproc.googleapis.com
+
 export PROJECT_ID=$(gcloud config get-value project)
 
 export ZONE=$(gcloud compute project-info describe \
