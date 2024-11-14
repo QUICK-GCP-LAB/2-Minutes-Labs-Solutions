@@ -1,6 +1,6 @@
 # Build a Data Mesh with Dataplex: Challenge Lab || [GSP514](https://www.cloudskillsboost.google/focuses/67212?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/9eK4Tz71t0I)
 
 ### Run the following Commands in CloudShell
 
