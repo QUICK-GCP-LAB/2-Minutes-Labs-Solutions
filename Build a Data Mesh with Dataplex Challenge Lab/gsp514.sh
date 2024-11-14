@@ -25,20 +25,24 @@ RESET=`tput sgr0`
 
 echo "${BG_MAGENTA}${BOLD}Starting Execution${RESET}"
 
+# Enable necessary Google Cloud services for Dataplex, Data Catalog, and Dataproc
 gcloud services enable \
   dataplex.googleapis.com \
   datacatalog.googleapis.com \
   dataproc.googleapis.com
 
+# Set environment variables for project ID, zone, and region
 export PROJECT_ID=$(gcloud config get-value project)
 export ZONE=$(gcloud compute project-info describe --format="value(commonInstanceMetadata.items[google-compute-default-zone])")
 export REGION=$(echo "$ZONE" | cut -d '-' -f 1-2)
 
+# Create a Dataplex lake named "sales-lake" in the specified region
 gcloud dataplex lakes create sales-lake \
   --location=$REGION \
   --display-name="Sales Lake" \
   --description="Lake for sales data"
 
+# Create a raw data zone within the "sales-lake"
 gcloud dataplex zones create raw-customer-zone \
   --lake=sales-lake \
   --location=$REGION \
@@ -48,6 +52,7 @@ gcloud dataplex zones create raw-customer-zone \
   --discovery-schedule="0 * * * *" \
   --type=RAW
 
+# Create a curated data zone within the "sales-lake"
 gcloud dataplex zones create curated-customer-zone \
   --lake=sales-lake \
   --location=$REGION \
@@ -57,7 +62,7 @@ gcloud dataplex zones create curated-customer-zone \
   --discovery-schedule="0 * * * *" \
   --type=CURATED
 
-
+# Create an asset representing customer engagement data in the raw zone
 gcloud dataplex assets create customer-engagements \
   --lake=sales-lake \
   --zone=raw-customer-zone \
@@ -67,6 +72,7 @@ gcloud dataplex assets create customer-engagements \
   --resource-name=projects/$DEVSHELL_PROJECT_ID/buckets/$DEVSHELL_PROJECT_ID-customer-online-sessions \
   --discovery-enabled
 
+# Create an asset representing customer order data in the curated zone
 gcloud dataplex assets create customer-orders \
   --lake=sales-lake \
   --zone=curated-customer-zone \
@@ -76,12 +82,14 @@ gcloud dataplex assets create customer-orders \
   --resource-name=projects/$DEVSHELL_PROJECT_ID/datasets/customer_orders \
   --discovery-enabled
 
+# Create a Data Catalog tag template for protected customer data
 gcloud data-catalog tag-templates create protected_customer_data_template \
     --location=$REGION \
     --display-name="Protected Customer Data Template" \
     --field=id=raw_data_flag,display-name="Raw Data Flag",type='enum(Yes|No)',required=TRUE \
     --field=id=protected_contact_information_flag,display-name="Protected Contact Information Flag",type='enum(Yes|No)',required=TRUE
 
+# Grant "dataWriter" role to user $USER_2 on the "customer-engagements" asset
 gcloud dataplex assets add-iam-policy-binding customer-engagements \
     --location=$REGION \
     --lake=sales-lake \
@@ -89,6 +97,7 @@ gcloud dataplex assets add-iam-policy-binding customer-engagements \
     --role=roles/dataplex.dataWriter \
     --member=user:$USER_2
 
+# Create a YAML file named "dq-customer-orders.yaml" with the following content:
 cat > dq-customer-orders.yaml <<EOF_CP
 metadata_registry_defaults:
   dataplex:
@@ -121,6 +130,7 @@ rule_bindings:
       - NOT_NULL
 EOF_CP
 
+# Copy the YAML file to a Cloud Storage bucket
 gsutil cp dq-customer-orders.yaml gs://$DEVSHELL_PROJECT_ID-dq-config
 
 echo "${CYAN}${BOLD}Click here: "${RESET}""${BLUE}${BOLD}"https://console.cloud.google.com/dataplex/search?project=$DEVSHELL_PROJECT_ID&qSystems=DATAPLEX""${RESET}"
