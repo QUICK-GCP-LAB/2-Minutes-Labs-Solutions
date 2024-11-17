@@ -39,6 +39,6 @@ wget https://raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/re
 
 rm gsp631.sh
 
-echo "${YELLOW}${BOLD}NOW${RESET}" "${WHITE}${BOLD}FOLLOW${RESET}" "${GREEN}${BOLD}VIDEO'S INSTRUCTIONS${RESET}"
+echo "${YELLOW}${BOLD}NOW${RESET}" "${BLUE}${BOLD}FOLLOW${RESET}" "${GREEN}${BOLD}VIDEO'S INSTRUCTIONS${RESET}"
 
 #-----------------------------------------------------end----------------------------------------------------------#
