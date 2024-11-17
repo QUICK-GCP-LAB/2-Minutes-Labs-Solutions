@@ -1,6 +1,6 @@
 # Introduction to Computer Vision with TensorFlow || [GSP631](https://www.cloudskillsboost.google/focuses/43204?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/pGctBKrBFjA)
 
 * Go to **Workbench Instances** from [here](https://console.cloud.google.com/vertex-ai/workbench?)
 
