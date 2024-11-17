@@ -2,7 +2,7 @@
 
 ## Solution [here]()
 
-* * Go to **Workbench Instances** from [here](https://console.cloud.google.com/vertex-ai/workbench?)
+* Go to **Workbench Instances** from [here](https://console.cloud.google.com/vertex-ai/workbench?)
 
 ### Run the following Commands in Terminal
 
