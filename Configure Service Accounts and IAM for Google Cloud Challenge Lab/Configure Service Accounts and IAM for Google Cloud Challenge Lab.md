@@ -1,6 +1,6 @@
 # Configure Service Accounts and IAM for Google Cloud: Challenge Lab || [ARC134](https://www.cloudskillsboost.google/focuses/67219?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/ug-Xzw3d6Vo)
 
 ### Run the following Commands in CloudShell
 
