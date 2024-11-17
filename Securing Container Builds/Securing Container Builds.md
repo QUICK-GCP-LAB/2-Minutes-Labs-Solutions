@@ -1,6 +1,6 @@
 # Securing Container Builds || [GSP1185](https://www.cloudskillsboost.google/focuses/80692?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/3-6bv2CSG44)
 
 ### Run the following Commands in CloudShell
 
