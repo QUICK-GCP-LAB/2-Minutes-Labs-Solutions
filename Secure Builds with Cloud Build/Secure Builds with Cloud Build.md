@@ -1,6 +1,6 @@
 # Secure Builds with Cloud Build || [GSP1184](https://www.cloudskillsboost.google/focuses/83256?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/DNrBihMIYUo)
 
 ### Run the following Commands in CloudShell
 
