@@ -2,15 +2,13 @@
 
 ## Solution [here](https://youtu.be/6jqBe2o6jPM)
 
-* Go to `Workbench` from [here](https://console.cloud.google.com/vertex-ai/workbench?)
-
-* Download `Jupyter` file from [here](https://github.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/blob/main/Build%20and%20Deploy%20Machine%20Learning%20Solutions%20with%20Vertex%20AI%20Challenge%20Lab/vertex-challenge-lab-v1.0.0.ipynb)
-
 1. In your notebook, click the **Terminal**.
 
 2. Install the required packages for the lab:
 ```
+rm vertex-challenge-lab-v1.0.0.ipynb
 pip3 install -U -r requirements.txt --user
+wget https://raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Build%20and%20Deploy%20Machine%20Learning%20Solutions%20with%20Vertex%20AI%20Challenge%20Lab/vertex-challenge-lab-v1.0.0.ipynb
 ```
 3. In the **File Browser** on the left, click on the **vertex-challenge-lab-v1.0.0.ipynb** file.
 
