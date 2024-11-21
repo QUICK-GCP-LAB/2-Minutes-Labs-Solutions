@@ -1,4 +1,4 @@
-# Redacting Sensitive Data with Cloud Data Loss Prevention || [GSP864](https://www.cloudskillsboost.google/focuses/46234?parent=catalog) ||
+# Redacting Critical Data with Sensitive Data Protection || [GSP864](https://www.cloudskillsboost.google/focuses/46234?parent=catalog) ||
 
 ## Solution [here](https://youtu.be/feE2nwYzIjo)
 
