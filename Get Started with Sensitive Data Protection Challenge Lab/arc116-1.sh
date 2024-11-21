@@ -57,7 +57,7 @@ curl -s \
   https://dlp.googleapis.com/v2/projects/$DEVSHELL_PROJECT_ID/content:deidentify \
   -d @redact-request.json -o redact-response.txt
 
-# Copy response to GCS
+# Copy response to Google Cloud Storage
 echo -e "${GREEN}${BOLD}Uploading redact-response.txt to GCS...${RESET}"
 
 gsutil cp redact-response.txt gs://$DEVSHELL_PROJECT_ID-redact
