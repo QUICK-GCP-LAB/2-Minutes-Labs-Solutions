@@ -25,8 +25,6 @@ RESET=`tput sgr0`
 
 echo "${BG_MAGENTA}${BOLD}Starting Execution...${RESET}"
 
-# Create the first deidentify template
-echo "${BLUE}${BOLD}Creating deidentify template for unstructured data...${RESET}"
 cat > deidentify-template.json <<'EOF_END'
 {
   "deidentifyTemplate": {
@@ -61,8 +59,6 @@ curl -s \
 https://dlp.googleapis.com/v2/projects/$DEVSHELL_PROJECT_ID/deidentifyTemplates \
 -d @deidentify-template.json
 
-# Create the second deidentify template (structured data)
-echo "${BLUE}${BOLD}Creating deidentify template for structured data...${RESET}"
 cat > deidentify-template.json <<'EOF_END'
 {
   "deidentifyTemplate": {
@@ -105,8 +101,6 @@ curl -s \
 https://dlp.googleapis.com/v2/projects/$DEVSHELL_PROJECT_ID/deidentifyTemplates \
 -d @deidentify-template.json
 
-# Create job configuration for the scheduled deidentify job
-echo "${GREEN}${BOLD}Creating job configuration for scheduled deidentification...${RESET}"
 cat > job-configuration.json << EOM
 {
   "triggerId": "DeID_Storage_Demo1",
