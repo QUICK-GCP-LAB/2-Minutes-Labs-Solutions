@@ -58,7 +58,7 @@ curl -s \
   -d @redact-request.json -o redact-response.txt
 
 # Copy response to Google Cloud Storage
-echo -e "${GREEN}${BOLD}Uploading redact-response.txt to GCS...${RESET}"
+echo -e "${GREEN}${BOLD}Uploading redact-response.txt to Google Cloud Storage...${RESET}"
 
 gsutil cp redact-response.txt gs://$DEVSHELL_PROJECT_ID-redact
 
