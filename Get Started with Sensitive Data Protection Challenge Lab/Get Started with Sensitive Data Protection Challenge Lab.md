@@ -5,21 +5,21 @@
 ### Run the following Commands in CloudShell
 
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Analyze%20Images%20with%20the%20Cloud%20Vision%20API%20Challenge%20Lab/arc122.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Get%20Started%20with%20Sensitive%20Data%20Protection%20Challenge%20Lab/arc116-1.sh
 
-sudo chmod +x arc122.sh
+sudo chmod +x arc116-1.sh
 
-./arc122.sh
+./arc116-1.sh
 ```
 
 ### Run again the following Commands in CloudShell
 
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Analyze%20Images%20with%20the%20Cloud%20Vision%20API%20Challenge%20Lab/arc122.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Get%20Started%20with%20Sensitive%20Data%20Protection%20Challenge%20Lab/arc116-2.sh
 
-sudo chmod +x arc122.sh
+sudo chmod +x arc116-2.sh
 
-./arc122.sh
+./arc116-2.sh
 ```
 
 ### Congratulations 🎉 for Completing the Lab!  
