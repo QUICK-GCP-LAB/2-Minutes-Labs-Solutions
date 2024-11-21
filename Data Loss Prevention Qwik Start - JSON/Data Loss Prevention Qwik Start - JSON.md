@@ -1,4 +1,4 @@
-# Cloud Data Loss Prevention API: Qwik Start || [GSP107](https://www.cloudskillsboost.google/focuses/600?parent=catalog) ||
+# Data Loss Prevention: Qwik Start - JSON || [GSP107](https://www.cloudskillsboost.google/focuses/600?parent=catalog) ||
 
 ## Solution [here](https://youtu.be/mzdOs6AG7QQ)
 
