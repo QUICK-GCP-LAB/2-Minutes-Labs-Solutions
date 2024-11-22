@@ -75,7 +75,7 @@ cat > app.yaml <<'EOF_END'
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-runtime: python38
+runtime: python39
 EOF_END
 
 yes | gcloud app deploy
