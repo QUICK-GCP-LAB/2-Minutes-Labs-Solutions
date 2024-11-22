@@ -25,6 +25,8 @@ RESET=`tput sgr0`
 
 echo "${BG_MAGENTA}${BOLD}Starting Execution${RESET}"
 
+gcloud auth list
+
 export BUCKET_NAME=$DEVSHELL_PROJECT_ID-bucket
 
 export PROJECT_ID=$DEVSHELL_PROJECT_ID
