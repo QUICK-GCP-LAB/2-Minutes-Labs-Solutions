@@ -1,8 +1,8 @@
 clear
 
 #!/bin/bash
-
 # Define color variables
+
 BLACK=`tput setaf 0`
 RED=`tput setaf 1`
 GREEN=`tput setaf 2`
@@ -24,9 +24,17 @@ BG_WHITE=`tput setab 7`
 BOLD=`tput bold`
 RESET=`tput sgr0`
 
-# ----------------------------------------------------START----------------------------------------------------
+# Array of color codes excluding black and white
+TEXT_COLORS=($RED $GREEN $YELLOW $BLUE $MAGENTA $CYAN)
+BG_COLORS=($BG_RED $BG_GREEN $BG_YELLOW $BG_BLUE $BG_MAGENTA $BG_CYAN)
 
-echo "${BG_MAGENTA}${BOLD}Starting Execution${RESET}"
+# Pick random colors
+RANDOM_TEXT_COLOR=${TEXT_COLORS[$RANDOM % ${#TEXT_COLORS[@]}]}
+RANDOM_BG_COLOR=${BG_COLORS[$RANDOM % ${#BG_COLORS[@]}]}
+
+#----------------------------------------------------start--------------------------------------------------#
+
+echo "${RANDOM_BG_COLOR}${RANDOM_TEXT_COLOR}${BOLD}Starting Execution${RESET}"
 
 # Step 1: Fetch the default region for resources
 echo "${CYAN}${BOLD}Fetching default region...${RESET}"
