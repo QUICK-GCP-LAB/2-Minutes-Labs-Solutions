@@ -36,16 +36,30 @@ RANDOM_BG_COLOR=${BG_COLORS[$RANDOM % ${#BG_COLORS[@]}]}
 
 echo "${RANDOM_BG_COLOR}${RANDOM_TEXT_COLOR}${BOLD}Starting Execution${RESET}"
 
+#!/bin/bash
+
+# Define color variables
+RED=`tput setaf 1`
+GREEN=`tput setaf 2`
+YELLOW=`tput setaf 3`
+BLUE=`tput setaf 4`
+MAGENTA=`tput setaf 5`
+CYAN=`tput setaf 6`
+BOLD=`tput bold`
+RESET=`tput sgr0`
+
+# ----------------------------------------------------START----------------------------------------------------
+
 # Step 1: Fetch the default region for resources
-echo "${CYAN}${BOLD}Fetch the default region for resources${RESET}"
+echo "${GREEN}${BOLD}Fetch the default region for resources${RESET}"
 export REGION=$(gcloud compute project-info describe --format="value(commonInstanceMetadata.items[google-compute-default-region])")
 
 # Step 2: Enable the IAP (Identity-Aware Proxy) service
-echo "${CYAN}${BOLD}Enable the IAP (Identity-Aware Proxy) service${RESET}"
+echo "${YELLOW}${BOLD}Enable the IAP (Identity-Aware Proxy) service${RESET}"
 gcloud services enable iap.googleapis.com
 
 # Step 3: Set the project in gcloud configuration
-echo "${CYAN}${BOLD}Set the project in gcloud configuration${RESET}"
+echo "${MAGENTA}${BOLD}Set the project in gcloud configuration${RESET}"
 gcloud config set project $DEVSHELL_PROJECT_ID
 
 # Step 4: Clone the Python sample application repository
@@ -53,19 +67,19 @@ echo "${CYAN}${BOLD}Clone the Python sample application repository${RESET}"
 git clone https://github.com/GoogleCloudPlatform/python-docs-samples.git
 
 # Step 5: Navigate to the hello_world directory
-echo "${CYAN}${BOLD}Navigate to the hello_world directory${RESET}"
+echo "${RED}${BOLD}Navigate to the hello_world directory${RESET}"
 cd python-docs-samples/appengine/standard_python3/hello_world/
 
 # Step 6: Create an App Engine application
-echo "${CYAN}${BOLD}Create an App Engine application${RESET}"
+echo "${BLUE}${BOLD}Create an App Engine application${RESET}"
 gcloud app create --project=$(gcloud config get-value project) --region=$REGION
 
 # Step 7: Deploy the application
-echo "${CYAN}${BOLD}Deploy the application${RESET}"
+echo "${MAGENTA}${BOLD}Deploy the application${RESET}"
 gcloud app deploy --quiet
 
 # Step 8: Configure the authentication domain
-echo "${CYAN}${BOLD}Configure the authentication domain${RESET}"
+echo "${GREEN}${BOLD}Configure the authentication domain${RESET}"
 export AUTH_DOMAIN=$(gcloud config get-value project).uc.r.appspot.com
 
 # Step 9: Fetch the developer email and prepare details file
@@ -78,19 +92,21 @@ cat > details.json << EOF
   Authorized domains: $AUTH_DOMAIN
 EOF
 
-echo "${GREEN}Details saved in details.json:${RESET}"
+echo "${BLUE}${BOLD}Details saved in details.json:${RESET}"
 cat details.json
 
 # Step 10: Provide links for consent screen and IAP configuration
-echo "${CYAN}${BOLD}Provide links for consent screen and IAP configuration${RESET}"
+echo "${YELLOW}${BOLD}Provide links for consent screen and IAP configuration${RESET}"
 
 echo -e "\n"  # Adding one blank line
 
-echo "${YELLOW}Go to the following link to configure the OAuth consent screen:${RESET}"
-echo "${BLUE}https://console.cloud.google.com/apis/credentials/consent?project=$DEVSHELL_PROJECT_ID${RESET}"
+echo "${RED}Go to the following link to configure the OAuth consent screen:${RESET}"
+echo "${CYAN}https://console.cloud.google.com/apis/credentials/consent?project=$DEVSHELL_PROJECT_ID${RESET}"
 
-echo "${YELLOW}Go to the following link to configure IAP:${RESET}"
-echo "${BLUE}https://console.cloud.google.com/security/iap?tab=applications&project=$DEVSHELL_PROJECT_ID${RESET}"
+echo "${MAGENTA}Go to the following link to configure IAP:${RESET}"
+echo "${GREEN}https://console.cloud.google.com/security/iap?tab=applications&project=$DEVSHELL_PROJECT_ID${RESET}"
+
+echo -e "\n"  # Adding one blank line
 
 # Function to display a random congratulatory message
 function random_congrats() {
@@ -194,6 +210,8 @@ random_question
 
 # Read the user input
 read -p "Enter your choice: " CHOICE
+
+echo -e "\n"  # Adding one blank line
 
 # Handle user input
 case "${CHOICE^^}" in
