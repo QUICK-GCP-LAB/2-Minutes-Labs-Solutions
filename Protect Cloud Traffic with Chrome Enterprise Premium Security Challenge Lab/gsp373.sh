@@ -75,6 +75,7 @@ EMAIL="$(gcloud config get-value core/account)"
 cat > details.json << EOF
   App name: quickgcplab
   Authorized domains: $AUTH_DOMAIN
+  Developer contact email: $EMAIL
 EOF
 
 echo "${BLUE}${BOLD}Details saved in details.json:${RESET}"
