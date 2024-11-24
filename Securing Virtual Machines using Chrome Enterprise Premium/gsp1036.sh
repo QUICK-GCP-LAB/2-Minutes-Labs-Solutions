@@ -99,7 +99,7 @@ echo -e "IAP Settings URL: ${BLUE}https://console.cloud.google.com/security/iap?
 echo ""
 
 # Step 9: Display the service account
-echo -e "${CYAN}${BOLD}Service Account: PROJECT_NUMBER-compute@developer.gserviceaccount.com${RESET}"
+echo -e "${CYAN}${BOLD}Service Account: $PROJECT_NUMBER-compute@developer.gserviceaccount.com${RESET}"
 
 # Adding one blank line
 echo -e "\n"
