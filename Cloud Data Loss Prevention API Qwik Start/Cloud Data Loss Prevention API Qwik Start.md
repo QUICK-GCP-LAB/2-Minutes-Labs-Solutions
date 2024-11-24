@@ -1,6 +1,6 @@
 # Cloud Data Loss Prevention API: Qwik Start || [GSP107](https://www.cloudskillsboost.google/focuses/600?parent=catalog) ||
 
-## Solution [here](https://youtu.be/mzdOs6AG7QQ)
+## Solution [here](https://youtu.be/NGNYuBVhN6Y)
 
 ### Run the following Commands in CloudShell
 
