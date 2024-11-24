@@ -100,10 +100,10 @@ echo "${YELLOW}${BOLD}Provide links for consent screen and IAP configuration${RE
 
 echo -e "\n"  # Adding one blank line
 
-echo "${RED}Go to the following link to configure the OAuth consent screen:${RESET}"
+echo "${WHITE}Go to the following link to configure the OAuth consent screen:${RESET}"
 echo "${CYAN}https://console.cloud.google.com/apis/credentials/consent?project=$DEVSHELL_PROJECT_ID${RESET}"
 
-echo "${MAGENTA}Go to the following link to configure IAP:${RESET}"
+echo "${WHITE}Go to the following link to configure IAP:${RESET}"
 echo "${GREEN}https://console.cloud.google.com/security/iap?tab=applications&project=$DEVSHELL_PROJECT_ID${RESET}"
 
 echo -e "\n"  # Adding one blank line
