@@ -36,20 +36,6 @@ RANDOM_BG_COLOR=${BG_COLORS[$RANDOM % ${#BG_COLORS[@]}]}
 
 echo "${RANDOM_BG_COLOR}${RANDOM_TEXT_COLOR}${BOLD}Starting Execution${RESET}"
 
-#!/bin/bash
-
-# Define color variables
-RED=`tput setaf 1`
-GREEN=`tput setaf 2`
-YELLOW=`tput setaf 3`
-BLUE=`tput setaf 4`
-MAGENTA=`tput setaf 5`
-CYAN=`tput setaf 6`
-BOLD=`tput bold`
-RESET=`tput sgr0`
-
-# ----------------------------------------------------START----------------------------------------------------
-
 # Step 1: Fetch the default region for resources
 echo "${GREEN}${BOLD}Fetch the default region for resources${RESET}"
 export REGION=$(gcloud compute project-info describe --format="value(commonInstanceMetadata.items[google-compute-default-region])")
@@ -88,8 +74,8 @@ EMAIL="$(gcloud config get-value core/account)"
 
 cat > details.json << EOF
   App name: quickgcplab
-  Developer contact email: $EMAIL
   Authorized domains: $AUTH_DOMAIN
+  Developer contact email: $EMAIL
 EOF
 
 echo "${BLUE}${BOLD}Details saved in details.json:${RESET}"
