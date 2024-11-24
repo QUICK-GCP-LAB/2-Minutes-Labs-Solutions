@@ -272,6 +272,8 @@ echo "${CYAN}${BOLD}Access the IAP setup here:${RESET} https://console.cloud.goo
 
 # Step 11: Create details.json with developer email
 echo "${RED}${BOLD}Creating details.json file...${RESET}"
+# Adding one blank line
+echo -e "\n"
 EMAIL="$(gcloud config get-value core/account)"
 cat > details.json << EOF
   App name: IAP Example
