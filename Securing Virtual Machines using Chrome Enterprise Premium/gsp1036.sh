@@ -33,8 +33,6 @@ echo -e "${CYAN}${BOLD}Retrieving Project ID and Project Number...${RESET}"
 export PROJECT_ID=$(gcloud config get-value project)
 export PROJECT_NUMBER=$(gcloud projects describe ${PROJECT_ID} \
     --format="value(projectNumber)")
-echo -e "${YELLOW}${BOLD}Project ID: $PROJECT_ID${RESET}"
-echo -e "${YELLOW}${BOLD}Project Number: $PROJECT_NUMBER${RESET}"
 
 # Step 2: Get the zone from gcloud
 echo -e "${CYAN}${BOLD}Retrieving the zone...${RESET}"
