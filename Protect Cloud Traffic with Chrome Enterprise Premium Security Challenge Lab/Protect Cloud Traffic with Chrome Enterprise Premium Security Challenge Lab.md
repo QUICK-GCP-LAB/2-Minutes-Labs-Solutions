@@ -14,9 +14,9 @@ sudo chmod +x gsp373.sh
 
 ### Congratulations 🎉 for Completing the Lab!  
 
-##### *You Have Successfully Demonstrated Your Skills and Determination.*  
+##### *You Have Successfully Demonstrated Your Skills and Perseverance.*  
 
-#### *Well Done!*  
+#### *Outstanding Effort—Well Done!* 
 
 #### Stay connected and updated—join the [Telegram Channel](https://t.me/quickgcplab) and [Discussion Group](https://t.me/quickgcplabchats) today!  
 
