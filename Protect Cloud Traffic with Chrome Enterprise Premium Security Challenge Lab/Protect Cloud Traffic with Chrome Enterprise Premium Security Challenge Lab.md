@@ -5,19 +5,19 @@
 ### Run the following Commands in CloudShell
 
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Analyze%20Images%20with%20the%20Cloud%20Vision%20API%20Challenge%20Lab/arc122.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Protect%20Cloud%20Traffic%20with%20Chrome%20Enterprise%20Premium%20Security%20Challenge%20Lab/gsp373.sh
 
-sudo chmod +x arc122.sh
+sudo chmod +x gsp373.sh
 
-./arc122.sh
+./gsp373.sh
 ```
 
-### Congratulations 🎉 for completing the Lab !
+### Congratulations 🎉 for Completing the Lab!  
 
-##### *You Have Successfully Demonstrated Your Skills And Determination.*
+##### *You Have Successfully Demonstrated Your Skills and Determination.*  
 
-#### *Well done!*
+#### *Well Done!*  
 
-#### Don't Forget to Join the [Telegram Channel](https://t.me/quickgcplab) & [Discussion group](https://t.me/quickgcplabchats)
+#### Stay connected and updated—join the [Telegram Channel](https://t.me/quickgcplab) and [Discussion Group](https://t.me/quickgcplabchats) today!  
 
-# [QUICK GCP LAB](https://www.youtube.com/@quickgcplab)
+# [QUICK GCP LAB](https://www.youtube.com/@quickgcplab)  
