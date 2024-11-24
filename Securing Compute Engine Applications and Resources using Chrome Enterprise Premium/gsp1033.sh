@@ -73,15 +73,18 @@ gcloud beta compute instance-groups managed create my-managed-instance-group \
 # Step 6: Generate SSL certificate
 echo "${MAGENTA}${BOLD}Generating SSL certificate...${RESET}"
 openssl genrsa -out PRIVATE_KEY_FILE 2048
+
 cat > ssl_config <<EOF
 [req]
 default_bits = 2048
 req_extensions = extension_requirements
 distinguished_name = dn_requirements
 prompt = no
+
 [extension_requirements]
 basicConstraints = CA:FALSE
 keyUsage = nonRepudiation, digitalSignature, keyEncipherment
+
 [dn_requirements]
 countryName = US
 stateOrProvinceName = CA
@@ -106,9 +109,9 @@ openssl x509 -req \
 # Step 7: Create SSL certificate in GCP
 echo "${CYAN}${BOLD}Creating SSL certificate in GCP...${RESET}"
 gcloud compute ssl-certificates create my-cert \
-  --certificate=CERTIFICATE_FILE.pem \
-  --private-key=PRIVATE_KEY_FILE \
-  --global
+ --certificate=CERTIFICATE_FILE.pem \
+ --private-key=PRIVATE_KEY_FILE \
+ --global
 
 # Step 8: Configure backend service and security policies
 echo "${YELLOW}${BOLD}Configuring backend service and security policies...${RESET}"
