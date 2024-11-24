@@ -1,5 +1,3 @@
-clear
-
 #!/bin/bash
 # Define color variables
 
@@ -28,10 +26,12 @@ RESET=`tput sgr0`
 
 echo -e "${BG_MAGENTA}${BOLD}Starting Execution...${RESET}"
 
-# Step 1: Export Project Number
-echo -e "${CYAN}${BOLD}Retrieving Project Number...${RESET}"
+# Step 1: Export Project ID and Project Number
+echo -e "${CYAN}${BOLD}Retrieving Project ID and Project Number...${RESET}"
+export PROJECT_ID=$(gcloud config get-value project)
 export PROJECT_NUMBER=$(gcloud projects describe ${PROJECT_ID} \
     --format="value(projectNumber)")
+echo -e "${YELLOW}${BOLD}Project ID: $PROJECT_ID${RESET}"
 echo -e "${YELLOW}${BOLD}Project Number: $PROJECT_NUMBER${RESET}"
 
 # Step 2: Get the zone from gcloud
@@ -99,7 +99,7 @@ echo -e "IAP Settings URL: ${BLUE}https://console.cloud.google.com/security/iap?
 echo ""
 
 # Step 9: Display the service account
-echo -e "${CYAN}${BOLD}Service Account: $PROJECT_NUMBER-compute@developer.gserviceaccount.com${RESET}"
+echo -e "${CYAN}${BOLD}Service Account: PROJECT_NUMBER-compute@developer.gserviceaccount.com${RESET}"
 
 # Adding one blank line
 echo -e "\n"
