@@ -34,7 +34,7 @@ RANDOM_BG_COLOR=${BG_COLORS[$RANDOM % ${#BG_COLORS[@]}]}
 
 #----------------------------------------------------start--------------------------------------------------#
 
-echo "${RANDOM_TEXT_COLOR}${BOLD}Starting Execution${RESET}"
+echo "${RANDOM_BG_COLOR}${RANDOM_TEXT_COLOR}${BOLD}Starting Execution${RESET}"
 
 #!/bin/bash
 
