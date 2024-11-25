@@ -5,11 +5,11 @@
 ### Run the following Commands in CloudShell
 
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Analyze%20Images%20with%20the%20Cloud%20Vision%20API%20Challenge%20Lab/arc122.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Modernizing%20Applications%20with%20Apigee%20X/gsp842.sh
 
-sudo chmod +x arc122.sh
+sudo chmod +x gsp842.sh
 
-./arc122.sh
+./gsp842.sh
 ```
 
 * Specify the following for the Proxy details:
@@ -22,7 +22,7 @@ sudo chmod +x arc122.sh
 
 * Download **get-address-for-location** file from [here](https://drive.google.com/uc?export=download&id=1y8m9GkhU2mTvtC18ptQY7obVGOozBXnJ)
 
-* Download bank-v1 file from [here](https://drive.google.com/uc?export=download&id=1OZFNYAabSVIWHaaHD6JDUPz-TX0QTTSg)
+* Download **bank-v1** file from [here](https://drive.google.com/uc?export=download&id=1OZFNYAabSVIWHaaHD6JDUPz-TX0QTTSg)
 
 ### Congratulations 🎉 for completing the Lab !
 
