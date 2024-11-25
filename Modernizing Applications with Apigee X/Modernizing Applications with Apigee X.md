@@ -1,8 +1,14 @@
 # Modernizing Applications with Apigee X || [GSP842](https://www.cloudskillsboost.google/focuses/25900?parent=catalog) ||
 
-## Solution [here]()
+---
 
-### Run the following Commands in CloudShell
+## 💡 Solution [Click Here]()
+
+---
+
+### 🚀 Run the following commands in **Cloud Shell**:
+
+---
 
 ```
 curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Modernizing%20Applications%20with%20Apigee%20X/gsp842.sh
@@ -12,7 +18,9 @@ sudo chmod +x gsp842.sh
 ./gsp842.sh
 ```
 
-* Specify the following for the Proxy details:
+---
+
+### 🔧 Specify the following Proxy details:
 
 | Property | Value |
 | :---: | :----: |
@@ -20,16 +28,19 @@ sudo chmod +x gsp842.sh
 | Base path | /bank/v1 |
 | Target (Existing API) | Backend URL |
 
-* Download **get-address-for-location** file from [here](https://drive.google.com/uc?export=download&id=1y8m9GkhU2mTvtC18ptQY7obVGOozBXnJ)
+---
 
-* Download **bank-v1** file from [here](https://drive.google.com/uc?export=download&id=1OZFNYAabSVIWHaaHD6JDUPz-TX0QTTSg)
+### 📥 Download Required Files  
 
-### Congratulations 🎉 for completing the Lab !
+- **get-address-for-location**: [Download Here](https://drive.google.com/uc?export=download&id=1y8m9GkhU2mTvtC18ptQY7obVGOozBXnJ)  
+- **bank-v1**: [Download Here](https://drive.google.com/uc?export=download&id=1OZFNYAabSVIWHaaHD6JDUPz-TX0QTTSg)
 
-##### *You Have Successfully Demonstrated Your Skills And Determination.*
+### Congratulations 🎉 for Completing the Lab!  
 
-#### *Well done!*
+##### *You Have Successfully Demonstrated Your Skills and Perseverance.*  
 
-#### Don't Forget to Join the [Telegram Channel](https://t.me/quickgcplab) & [Discussion group](https://t.me/quickgcplabchats)
+#### *Outstanding Effort—Well Done!*  
 
-# [QUICK GCP LAB](https://www.youtube.com/@quickgcplab)
+#### Stay connected and updated—join the [Telegram Channel](https://t.me/quickgcplab) and [Discussion Group](https://t.me/quickgcplabchats) today!  
+
+# [QUICK GCP LAB](https://www.youtube.com/@quickgcplab)  
