@@ -5,17 +5,12 @@
 ### Run the following Commands in CloudShell
 
 ```
-export ZONE=
-```
-```
 curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Vertex%20AI%20Qwik%20Start/gsp917.sh
 
 sudo chmod +x gsp917.sh
 
 ./gsp917.sh
 ```
-
-* Go to `Instances` from [here](https://console.cloud.google.com/vertex-ai/workbench/instances?)
 
 ```
 git clone --depth=1 https://github.com/GoogleCloudPlatform/training-data-analyst
