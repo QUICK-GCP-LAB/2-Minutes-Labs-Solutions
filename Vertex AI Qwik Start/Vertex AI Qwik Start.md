@@ -11,13 +11,15 @@ sudo chmod +x gsp917.sh
 
 ./gsp917.sh
 ```
+### In the open terminal, run the following command to install the lab dependencies:
 
 ```
-git clone --depth=1 https://github.com/GoogleCloudPlatform/training-data-analyst
+git clone https://github.com/GoogleCloudPlatform/training-data-analyst
 cd training-data-analyst/self-paced-labs/vertex-ai/vertex-ai-qwikstart
 pip3 install --user -r requirements.txt
 sudo apt -y install python3-pandas
 sudo apt -y install graphviz
+pip uninstall openpyxl -y
 pip install openpyxl
 ```
 ### Congratulations 🎉 for completing the Lab !
