@@ -1,6 +1,6 @@
 # Protect Cloud Traffic with Chrome Enterprise Premium Security: Challenge Lab || [GSP373](https://www.cloudskillsboost.google/focuses/104667?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/Dtf-jG0BYx8)
 
 ### Run the following Commands in CloudShell
 
