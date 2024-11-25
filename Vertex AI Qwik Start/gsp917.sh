@@ -62,6 +62,12 @@ echo "${MAGENTA}${BOLD}Creating Workbench Instance 'awesome-jupyter'${RESET}"
 gcloud workbench instances create awesome-jupyter \
   --location=$ZONE
 
+# Step 5: Print URL for accessing the Workbench instance
+echo
+# URL to access the Vertex AI Workbench instance in Google Cloud Console
+echo "${CYAN}${BOLD}Access your Workbench instance here:${RESET}"
+echo "${CYAN}https://console.cloud.google.com/vertex-ai/workbench/instances?project=\$DEVSHELL_PROJECT_ID${RESET}"
+
 # Function to display a random congratulatory message
 function random_congrats() {
     MESSAGES=(
@@ -133,5 +139,26 @@ function random_congrats() {
 
 # Display a random congratulatory message
 random_congrats
+
+echo
+
+cd
+
+remove_files() {
+    # Loop through all files in the current directory
+    for file in *; do
+        # Check if the file name starts with "gsp", "arc", or "shell"
+        if [[ "$file" == gsp* || "$file" == arc* || "$file" == shell* ]]; then
+            # Check if it's a regular file (not a directory)
+            if [[ -f "$file" ]]; then
+                # Remove the file and echo the file name
+                rm "$file"
+                echo "File removed: $file"
+            fi
+        fi
+    done
+}
+
+remove_files
 
 #-----------------------------------------------------end----------------------------------------------------------#
