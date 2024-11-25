@@ -66,7 +66,9 @@ gcloud workbench instances create awesome-jupyter \
 echo
 # URL to access the Vertex AI Workbench instance in Google Cloud Console
 echo "${CYAN}${BOLD}Access your Workbench instance here:${RESET}"
-echo "${CYAN}https://console.cloud.google.com/vertex-ai/workbench/instances?project=\$DEVSHELL_PROJECT_ID${RESET}"
+echo "${CYAN}https://console.cloud.google.com/vertex-ai/workbench/instances?project=$DEVSHELL_PROJECT_ID${RESET}"
+
+echo
 
 # Function to display a random congratulatory message
 function random_congrats() {
