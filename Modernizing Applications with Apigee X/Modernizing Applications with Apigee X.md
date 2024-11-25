@@ -14,11 +14,11 @@ sudo chmod +x gsp842.sh
 
 ### 🔧 Specify the following Proxy details:  
 
-| **Property**      | **Value**        |  
-|-------------------|------------------|  
-| **Name**          | bank-v1        |  
-| **Base Path**     | /bank/v1       |  
-| **Target (Existing API)** | Backend URL |
+| Property | Value |
+| :---: | :----: |
+| Name | bank-v1 |
+| Base path | /bank/v1 |
+| Target (Existing API) | Backend URL |
 
 ### 📥 Download Required Files  
 
