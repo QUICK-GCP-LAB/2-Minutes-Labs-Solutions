@@ -1,6 +1,6 @@
 # Securing Compute Engine Applications and Resources using Chrome Enterprise Premium || [GSP1033](https://www.cloudskillsboost.google/focuses/104663?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/2gu-ouGhjow)
 
 ### Run the following Commands in CloudShell
 
