@@ -1,14 +1,8 @@
 # Modernizing Applications with Apigee X || [GSP842](https://www.cloudskillsboost.google/focuses/25900?parent=catalog) ||
 
----
-
 ## 💡 Solution [Click Here]()
 
----
-
 ### 🚀 Run the following commands in **Cloud Shell**:
-
----
 
 ```
 curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Modernizing%20Applications%20with%20Apigee%20X/gsp842.sh
@@ -18,17 +12,13 @@ sudo chmod +x gsp842.sh
 ./gsp842.sh
 ```
 
----
-
 ### 🔧 Specify the following Proxy details:
 
 | Property | Value |
-| :---: | :----: |
+| :: | :-: |
 | Name | bank-v1 |
 | Base path | /bank/v1 |
 | Target (Existing API) | Backend URL |
-
----
 
 ### 📥 Download Required Files  
 
