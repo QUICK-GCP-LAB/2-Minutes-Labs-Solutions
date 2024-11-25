@@ -65,8 +65,7 @@ gcloud workbench instances create awesome-jupyter \
 # Step 5: Print URL for accessing the Workbench instance
 echo
 # URL to access the Vertex AI Workbench instance in Google Cloud Console
-echo "${CYAN}${BOLD}Access your Workbench instance here:${RESET}"
-echo "${CYAN}https://console.cloud.google.com/vertex-ai/workbench/instances?project=$DEVSHELL_PROJECT_ID${RESET}"
+echo "${CYAN}${BOLD}Access your Workbench instance here: ${RESET}""${CYAN}https://console.cloud.google.com/vertex-ai/workbench/instances?project=$DEVSHELL_PROJECT_ID${RESET}"
 
 echo
 
