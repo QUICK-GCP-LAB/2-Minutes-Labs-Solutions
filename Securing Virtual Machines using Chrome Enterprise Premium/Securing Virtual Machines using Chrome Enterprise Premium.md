@@ -1,6 +1,6 @@
 # Securing Virtual Machines using Chrome Enterprise Premium || [GSP1036](https://www.cloudskillsboost.google/focuses/104659?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/6K85vq5rp1M)
 
 ### Run the following Commands in CloudShell
 
