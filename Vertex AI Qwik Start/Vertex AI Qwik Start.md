@@ -1,6 +1,6 @@
 # Vertex AI: Qwik Start || [GSP917](https://www.cloudskillsboost.google/focuses/18940?parent=catalog) ||
 
-## Solution [here](https://youtu.be/AU1OEtWj8eo)
+## Solution [here](https://youtu.be/IKcmDGxp9k0)
 
 ### Run the following Commands in CloudShell
 
@@ -22,12 +22,13 @@ sudo apt -y install graphviz
 pip uninstall openpyxl -y
 pip install openpyxl
 ```
-### Congratulations 🎉 for completing the Lab !
 
-##### *You Have Successfully Demonstrated Your Skills And Determination.*
+### Congratulations 🎉 for Completing the Lab!  
 
-#### *Well done!*
+##### *You Have Successfully Demonstrated Your Skills and Determination.*  
 
-#### Don't Forget to Join the [Telegram Channel](https://t.me/quickgcplab) & [Discussion group](https://t.me/quickgcplabchats)
+#### *Excellent Work—Keep Reaching for New Heights!*  
+
+#### Be part of the community—join the [Telegram Channel](https://t.me/quickgcplab) & [Discussion Group](https://t.me/quickgcplabchats)!  
 
 # [QUICK GCP LAB](https://www.youtube.com/@quickgcplab)
