@@ -150,7 +150,7 @@ echo -e "${BLUE}${BOLD}Go to this link to create an Apigee proxy: ${RESET}""http
 echo
 
 # Display backend URL and service account details
-echo -e "${YELLOW}${BOLD}Backend URL: ${RESET}""Backend URL: $(gcloud run services describe simplebank-rest --platform managed --region $REGION --format='value(status.url)')"
+echo -e "${YELLOW}${BOLD}Backend URL: ${RESET}""$(gcloud run services describe simplebank-rest --platform managed --region $REGION --format='value(status.url)')"
 
 echo
 
