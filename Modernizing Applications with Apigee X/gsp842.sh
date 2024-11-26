@@ -85,13 +85,19 @@ echo "export RESTHOST=${RESTHOST}" >> ~/.bashrc
 echo -e "${GREEN}${BOLD}Check the REST service status${RESET}"
 curl -H "Authorization: Bearer $(gcloud auth print-identity-token)" -X GET "${RESTHOST}/_status"
 
+echo
+
 # Step 11: Add a customer record to the REST service
 echo -e "${YELLOW}${BOLD}Add a customer record to the REST service${RESET}"
 curl -H "Authorization: Bearer $(gcloud auth print-identity-token)" -H "Content-Type: application/json" -X POST "${RESTHOST}/customers" -d '{"lastName": "Diallo", "firstName": "Temeka", "email": "temeka@example.com"}'
 
+echo
+
 # Step 12: Retrieve customer details
 echo -e "${CYAN}${BOLD}Retrieve customer details${RESET}"
 curl -H "Authorization: Bearer $(gcloud auth print-identity-token)" -X GET "${RESTHOST}/customers/temeka@example.com"
+
+echo
 
 # Step 13: Import sample data into Firestore
 echo -e "${GREEN}${BOLD}Import sample data into Firestore${RESET}"
@@ -101,9 +107,13 @@ gcloud firestore import gs://cloud-training/api-dev-quest/firestore/example-data
 echo -e "${YELLOW}${BOLD}List all ATMs using the REST service${RESET}"
 curl -H "Authorization: Bearer $(gcloud auth print-identity-token)" -X GET "${RESTHOST}/atms"
 
+echo
+
 # Step 15: Retrieve a specific ATM's details
 echo -e "${CYAN}${BOLD}Retrieve a specific ATM's details${RESET}"
 curl -H "Authorization: Bearer $(gcloud auth print-identity-token)" -X GET "${RESTHOST}/atms/spruce-goose"
+
+echo
 
 # Step 16: Create a service account for Apigee internal access
 echo -e "${GREEN}${BOLD}Create a service account for Apigee internal access${RESET}"
