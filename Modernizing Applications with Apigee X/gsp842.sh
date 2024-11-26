@@ -145,7 +145,7 @@ export INSTANCE_NAME=eval-instance; export ENV_NAME=eval; export PREV_INSTANCE_S
 echo
 
 # Provide the Apigee proxy creation URL
-echo -e "${BLUE}${BOLD}Go to this link to create an Apigee proxy:${RESET}""https://console.cloud.google.com/apigee/proxy-create?project=$DEVSHELL_PROJECT_ID"
+echo -e "${BLUE}${BOLD}Go to this link to create an Apigee proxy: ${RESET}""https://console.cloud.google.com/apigee/proxy-create?project=$DEVSHELL_PROJECT_ID"
 
 echo
 
