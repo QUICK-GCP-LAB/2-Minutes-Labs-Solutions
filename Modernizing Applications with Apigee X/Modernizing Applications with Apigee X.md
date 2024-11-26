@@ -1,6 +1,6 @@
 # Modernizing Applications with Apigee X || [GSP842](https://www.cloudskillsboost.google/focuses/25900?parent=catalog) ||
 
-## 💡 Solution [Click Here]()
+## 💡 Solution [here]()
 
 ### 🚀 Run the following commands in **Cloud Shell**:
 
