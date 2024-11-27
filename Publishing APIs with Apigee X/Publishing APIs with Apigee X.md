@@ -2,9 +2,9 @@
 
 ## 💡 Solution [here]()
 
-### 🚀 Run the following commands in **Cloud Shell**:
+### 🚀 **Execute the following commands in Cloud Shell:**
 
-```
+```bash
 curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Publishing%20APIs%20with%20Apigee%20X/gsp843.sh
 
 sudo chmod +x gsp843.sh
@@ -12,38 +12,37 @@ sudo chmod +x gsp843.sh
 ./gsp843.sh
 ```
 
-### 🔧 Specify the following Proxy details:  
+### 🛠️ **Proxy Configuration Details:**  
 
-| Property | Value |
-| :---: | :----: |
-| Name | bank-v1 |
-| Base path | /bank/v1 |
-| Target (Existing API) | Backend URL |
+| **Property**   | **Value**     |  
+| :------------: | :------------: |  
+| Name           | bank-v1      |  
+| Base Path      | /bank/v1     |  
+| Target (API)   | *Backend URL*    |
 
-### 📥 Download Required Files  
-  
-- **bank-v1**: [Download Here](https://drive.google.com/uc?export=download&id=1UB2_S6qXXRIXLcrbtRPq1tJnEtcMlSqD)
+### 📥 **Download Required Files:**  
 
-### 🔧 Specify the following details for app:
+- **bank-v1**: [⬇️ Download Here](https://drive.google.com/uc?export=download&id=1UB2_S6qXXRIXLcrbtRPq1tJnEtcMlSqD)
 
-| Property | Value |
-| :---: | :----: |
-| Name | readonly-app |
-| Name | fullaccess-app |
+### 🛠️ **App Configuration Details:**  
 
-### 🔧 Customize the API details to the portal:
+| **Property**   | **Value**           |  
+| :------------: | :-----------------: |  
+| Name           | readonly-app        |  
+| Name           | fullaccess-app      |
 
-| Property | Value |
-| :---: | :----: |
-| Published (listed in the catalog) | selected |
-| Display title	 | SimpleBank |
-| Display description		 | SimpleBank API v1 |
-| API visibility	 | select Public (visible to anyone) |
+### 🖥️ **Customize API Portal Details:**  
 
-* Set the image URL to:
+| **Property**                  | **Value**                   |  
+| :----------------------------: | :--------------------------: |  
+| Published (catalog)            | Selected                    |  
+| Display Title                  | SimpleBank                |  
+| Display Description            | SimpleBank API v1         |  
+| API Visibility                 | Public (visible to anyone)  |  
 
-```
-https://storage.googleapis.com/cloud-training/api-dev-quest/dev-portal/piggy-bank.png
+**Set the image URL to:**  
+```  
+https://storage.googleapis.com/cloud-training/api-dev-quest/dev-portal/piggy-bank.png  
 ```
 
 ### Congratulations 🎉 for completing the Lab !
