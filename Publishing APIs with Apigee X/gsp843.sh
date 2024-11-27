@@ -155,6 +155,8 @@ sed -i 's|<URL>|'"$URL"'|g' simplebank-spec.yaml
 
 cloudshell download simplebank-spec.yaml
 
+echo
+
 echo -e "${BLUE}${BOLD}Go to this link to create an Apigee proxy: ${RESET}""https://console.cloud.google.com/apigee/proxy-create?project=$DEVSHELL_PROJECT_ID"
 
 echo
