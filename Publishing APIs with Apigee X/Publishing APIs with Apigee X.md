@@ -20,6 +20,10 @@ sudo chmod +x gsp843.sh
 | Base path | /bank/v1 |
 | Target (Existing API) | Backend URL |
 
+### 📥 Download Required Files  
+  
+- **bank-v1**: [Download Here](https://drive.google.com/uc?export=download&id=1UB2_S6qXXRIXLcrbtRPq1tJnEtcMlSqD)
+
 ### 🔧 Specify the following details for app:
 
 | Property | Value |
@@ -41,10 +45,6 @@ sudo chmod +x gsp843.sh
 ```
 https://storage.googleapis.com/cloud-training/api-dev-quest/dev-portal/piggy-bank.png
 ```
-
-### 📥 Download Required Files  
-  
-- **bank-v1**: [Download Here](https://drive.google.com/uc?export=download&id=1UB2_S6qXXRIXLcrbtRPq1tJnEtcMlSqD)
 
 ### Congratulations 🎉 for completing the Lab !
 
