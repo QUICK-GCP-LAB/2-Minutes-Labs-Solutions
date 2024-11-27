@@ -157,7 +157,11 @@ cloudshell download simplebank-spec.yaml
 
 echo -e "${BLUE}${BOLD}Go to this link to create an Apigee proxy: ${RESET}""https://console.cloud.google.com/apigee/proxy-create?project=$DEVSHELL_PROJECT_ID"
 
+echo
+
 echo -e "${YELLOW}${BOLD}Backend URL: ${RESET}""$(gcloud run services describe simplebank-rest --platform managed --region $REGION --format='value(status.url)')"
+
+echo
 
 echo -e "${CYAN}${BOLD}Copy this service account: ${RESET}""apigee-internal-access@$DEVSHELL_PROJECT_ID.iam.gserviceaccount.com"
 
