@@ -1,0 +1,608 @@
+openapi: "3.0.0"
+info:
+  version: 1.0.0
+  title: SimpleBank API
+  description: SimpleBank API service
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+servers:
+  - url: "<URL>"
+    description: SimpleBank API proxy (external access)
+tags:
+  - name: customers
+    description: Customers
+  - name: accounts
+    description: Accounts
+  - name: atms
+    description: ATMs
+  - name: transactions
+    description: Transactions
+security:
+  - apikey: []
+paths:
+  /customers:
+    get:
+      summary: get all customers
+      operationId: getCustomers
+      tags:
+        - customers
+      responses:
+        '200':
+          description: complete list of customers
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Customers"
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+    post:
+      summary: create a customer
+      operationId: createCustomer
+      tags:
+        - customers
+      requestBody:
+        description: new customer data
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Customer'
+      responses:
+        '200':
+          description: created customer
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Customer"
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+  /customers/{email}:
+    get:
+      summary: get a specific customer
+      operationId: getCustomer
+      tags:
+        - customers
+      parameters:
+        - name: email
+          in: path
+          required: true
+          description: customer email
+          schema:
+            type: string
+      responses:
+        '200':
+          description: selected customer
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Customer"
+        '404':
+          description: customer not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+    put:
+      summary: update a specific customer
+      operationId: updateCustomer
+      tags:
+        - customers
+      parameters:
+        - name: email
+          in: path
+          required: true
+          description: customer email
+          schema:
+            type: string
+      requestBody:
+        description: customer data to update
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomerUpdate'
+      responses:
+        '200':
+          description: updated customer data
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CustomerUpdate"
+        '404':
+          description: customer not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+  /customers/{email}/accounts:
+    get:
+      summary: get all accounts for a customer
+      operationId: getAccountsForCustomer
+      tags:
+        - accounts
+      parameters:
+        - name: email
+          in: path
+          required: true
+          description: customer email
+          schema:
+            type: string
+      responses:
+        '200':
+          description: list of accounts for customer
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Accounts"
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+    post:
+      summary: create an account for a customer
+      operationId: createAccountForCustomer
+      tags:
+        - accounts
+      parameters:
+        - name: email
+          in: path
+          required: true
+          description: customer email
+          schema:
+            type: string
+      requestBody:
+        description: new account data
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Account'
+      responses:
+        '200':
+          description: created account for customer
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Account"
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+  /customers/{email}/accounts/{name}:
+    get:
+      summary: get a specific account for a customer
+      operationId: getAccountForCustomer
+      tags:
+        - stores
+      parameters:
+        - name: email
+          in: path
+          required: true
+          description: customer email
+          schema:
+            type: string
+        - name: name
+          in: path
+          required: true
+          description: account name
+          schema:
+            type: string
+      responses:
+        '200':
+          description: selected account
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Account"
+        '404':
+          description: account not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+  /atms:
+    get:
+      summary: get all ATMs
+      operationId: getAtms
+      tags:
+        - atms
+      responses:
+        '200':
+          description: complete list of atms
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Atms"
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+    post:
+      summary: create a new ATM
+      operationId: createAtm
+      tags:
+        - atm
+      requestBody:
+        description: new ATM data
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Atm'
+      responses:
+        '200':
+          description: ATM created successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Atm"
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+  /atms/{name}:
+    get:
+      summary: get a specific ATM
+      operationId: getAtm
+      tags:
+        - atms
+      parameters:
+        - name: name
+          in: path
+          required: true
+          description: ATM name
+          schema:
+            type: string
+      responses:
+        '200':
+          description: selected ATM
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Atm"
+        '404':
+          description: ATM not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+    put:
+      summary: update a specific ATM
+      operationId: updateAtm
+      tags:
+        - atms
+      parameters:
+        - name: name
+          in: path
+          required: true
+          description: ATM name
+          schema:
+            type: string
+      requestBody:
+        description: ATM data to update
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AtmUpdate'
+      responses:
+        '200':
+          description: updated ATM fields
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AtmUpdate"
+        '404':
+          description: ATM not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+  /transactions:
+    get:
+      summary: get all transactions
+      operationId: getTransactions
+      tags:
+        - transactions
+      responses:
+        '200':
+          description: complete list of transactions
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Atms"
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+    post:
+      summary: create a new transaction
+      operationId: createTransation
+      tags:
+        - transactions
+      requestBody:
+        description: new transaction data
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Transaction'
+      responses:
+        '200':
+          description: transaction created successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Transaction"
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+  /transactions/{id}:
+    get:
+      summary: get a specific transaction
+      operationId: getTransaction
+      tags:
+        - transactions
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: transaction id
+          schema:
+            type: string
+      responses:
+        '200':
+          description: selected transaction
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Transaction"
+        '404':
+          description: transaction not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+components:
+  securitySchemes:
+    apikey:
+      type: apiKey
+      in: header
+      name: apikey
+
+  schemas:
+    Customer:
+      type: object
+      description: customer
+      required:
+        - email
+        - lastName
+        - firstName
+      properties:
+        email:
+          description: email address
+          type: string
+        lastName:
+          description: last name
+          type: string
+        firstName:
+          description: first name
+          type: string
+
+    CustomerUpdate:
+      type: object
+      description: customer update fields
+      properties:
+        lastName:
+          description: last name
+          type: string
+        firstName:
+          description: first name
+          type: string
+
+    Customers:
+      type: array
+      description: array of customers
+      items:
+        $ref: "#/components/schemas/Customer"
+
+    Account:
+      type: object
+      description: customer account
+      required:
+        - name
+      properties:
+        name:
+          description: account name
+          type: string
+        balance:
+          description: account balance
+          type: number
+          format: float
+        overdraftAllowed:
+          description: is overdraft allowed?
+          type: boolean
+
+    Accounts:
+      type: array
+      description: array of customer accounts
+      items:
+        $ref: "#/components/schemas/Account"
+
+    Atm:
+      type: object
+      description: ATM
+      required:
+        - name
+        - latitude
+        - longitude
+      properties:
+        name:
+          description: ATM name
+          type: string
+        description:
+          description: description of ATM
+          type: string
+        latitude:
+          description: latitude in decimal degrees
+          type: number
+          format: float
+          minimum: -90
+          maximum: 90
+        longitude:
+          description: longitude in decimal degrees
+          type: number
+          format: float
+          minimum: -180
+          maximum: 180
+
+    AtmUpdate:
+      type: object
+      description: ATM update fields
+      properties:
+        description:
+          description: description of ATM
+          type: string
+        latitude:
+          description: latitude in decimal degrees
+          type: number
+          format: float
+          minimum: -90
+          maximum: 90
+        longitude:
+          description: longitude in decimal degrees
+          type: number
+          format: float
+          minimum: -180
+          maximum: 180
+
+    Atms:
+      type: object
+      description: list of ATMs
+      additionalProperties:
+        $ref: "#/components/schemas/Atm"
+
+    Transaction:
+      type: object
+      description: transaction
+      required:
+        - customerEmail
+        - accountName
+        - transactionType
+        - amount
+      properties:
+        customerEmail:
+          description: customer email address
+          type: string
+        accountName:
+          description: customer account name
+          type: string
+        transactionType:
+          description: transaction type
+          schema: 
+          $ref: "#/components/schemas/TransactionType"
+        amount:
+          description: account balance
+          type: number
+          format: float
+        toCustomerEmail:
+          description: customer email address that receives transfer
+          type: string
+        toAccountName:
+          description: customer account name that receives transfer
+          type: string
+
+    Transactions:
+      type: object
+      description: list of transactions
+      additionalProperties:
+        $ref: "#/components/schemas/Transaction"
+
+    TransactionType:
+      type: string
+      enum:
+        - DEPOSIT
+        - WITHDRAWAL
+        - TRANSFER
+
+    Error:
+      type: object
+      description: error response
+      required:
+        - statusText
+        - messages
+      properties:
+        statusText:
+          type: string
+        messages:
+          type: array
+          items:
+            description: error message
+            type: string
+          minItems: 1
