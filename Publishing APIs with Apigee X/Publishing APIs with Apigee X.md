@@ -36,7 +36,7 @@ https://storage.googleapis.com/cloud-training/api-dev-quest/dev-portal/piggy-ban
 
 ### 📥 Download Required Files  
   
-- **bank-v1**: [Download Here](hhttps://drive.google.com/uc?export=download&id=1UB2_S6qXXRIXLcrbtRPq1tJnEtcMlSqD)
+- **bank-v1**: [Download Here](https://drive.google.com/uc?export=download&id=1UB2_S6qXXRIXLcrbtRPq1tJnEtcMlSqD)
 
 ### Congratulations 🎉 for completing the Lab !
 
