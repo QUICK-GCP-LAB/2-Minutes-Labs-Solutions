@@ -145,7 +145,7 @@ curl -X POST "https://apigee.googleapis.com/v1/organizations/$DEVSHELL_PROJECT_I
     "email": "joe@example.com"
   }'
 
-curl https://raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Publishing%20APIs%20with%20Apigee%20X/simplebank-spec.yaml
+curl -LO https://raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Publishing%20APIs%20with%20Apigee%20X/simplebank-spec.yaml
 
 export IP_ADDRESS=$(curl -s -H "Authorization: Bearer $(gcloud auth print-access-token)" -X GET "https://apigee.googleapis.com/v1/organizations/${GOOGLE_CLOUD_PROJECT}/envgroups/eval-group" | jq -r '.hostnames[1]')
 
