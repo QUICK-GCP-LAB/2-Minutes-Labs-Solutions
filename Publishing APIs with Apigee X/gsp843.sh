@@ -36,11 +36,17 @@ RANDOM_BG_COLOR=${BG_COLORS[$RANDOM % ${#BG_COLORS[@]}]}
 
 echo "${RANDOM_BG_COLOR}${RANDOM_TEXT_COLOR}${BOLD}Starting Execution${RESET}"
 
+# Step 1: Retrieve the default compute region
+echo "${GREEN}${BOLD}Retrieving Default Compute Region${RESET}"
 export REGION=$(gcloud compute project-info describe \
 --format="value(commonInstanceMetadata.items[google-compute-default-region])")
 
+# Step 2: Monitor Apigee instance status
+echo "${YELLOW}${BOLD}Monitoring Apigee Instance Status${RESET}"
 export INSTANCE_NAME=eval-instance; export ENV_NAME=eval; export PREV_INSTANCE_STATE=; echo "waiting for runtime instance ${INSTANCE_NAME} to be active"; while : ; do export INSTANCE_STATE=$(curl -s -H "Authorization: Bearer $(gcloud auth print-access-token)" -X GET "https://apigee.googleapis.com/v1/organizations/${GOOGLE_CLOUD_PROJECT}/instances/${INSTANCE_NAME}" | jq "select(.state != null) | .state" --raw-output); [[ "${INSTANCE_STATE}" == "${PREV_INSTANCE_STATE}" ]] || (echo; echo "INSTANCE_STATE=${INSTANCE_STATE}"); export PREV_INSTANCE_STATE=${INSTANCE_STATE}; [[ "${INSTANCE_STATE}" != "ACTIVE" ]] || break; echo -n "."; sleep 5; done; echo; echo "instance created, waiting for environment ${ENV_NAME} to be attached to instance"; while : ; do export ATTACHMENT_DONE=$(curl -s -H "Authorization: Bearer $(gcloud auth print-access-token)" -X GET "https://apigee.googleapis.com/v1/organizations/${GOOGLE_CLOUD_PROJECT}/instances/${INSTANCE_NAME}/attachments" | jq "select(.attachments != null) | .attachments[] | select(.environment == \"${ENV_NAME}\") | .environment" --join-output); [[ "${ATTACHMENT_DONE}" != "${ENV_NAME}" ]] || break; echo -n "."; sleep 5; done; echo "***ORG IS READY TO USE***";
 
+# Step 3: Create 'bank-fullaccess' API product
+echo "${MAGENTA}${BOLD}Creating 'bank-fullaccess' API Product${RESET}"
 cat > bank-fullaccess.json <<EOF_END
 {
   "name": "bank-fullaccess",
@@ -88,12 +94,15 @@ cat > bank-fullaccess.json <<EOF_END
 }
 EOF_END
 
-
+# Step 4: Upload 'bank-fullaccess' configuration
+echo "${BLUE}${BOLD}Uploading 'bank-fullaccess' Configuration${RESET}"
 curl -X POST "https://apigee.googleapis.com/v1/organizations/$DEVSHELL_PROJECT_ID/apiproducts" \
   -H "Authorization: Bearer $(gcloud auth print-access-token)" \
   -H "Content-Type: application/json" \
   -d @bank-fullaccess.json
 
+# Step 5: Create 'bank-readonly' API product
+echo "${GREEN}${BOLD}Creating 'bank-readonly' API Product${RESET}"
 cat > bank-readonly.json <<EOF_END
 {
   "name": "bank-readonly",
@@ -129,12 +138,15 @@ cat > bank-readonly.json <<EOF_END
 }
 EOF_END
 
-
+# Step 6: Upload 'bank-readonly' configuration
+echo "${YELLOW}${BOLD}Uploading 'bank-readonly' Configuration${RESET}"
 curl -X POST "https://apigee.googleapis.com/v1/organizations/$DEVSHELL_PROJECT_ID/apiproducts" \
   -H "Authorization: Bearer $(gcloud auth print-access-token)" \
   -H "Content-Type: application/json" \
   -d @bank-readonly.json
 
+# Step 7: Create a developer in Apigee
+echo "${CYAN}${BOLD}Creating Developer Account${RESET}"
 curl -X POST "https://apigee.googleapis.com/v1/organizations/$DEVSHELL_PROJECT_ID/developers" \
   -H "Authorization: Bearer $(gcloud auth print-access-token)" \
   -H "Content-Type: application/json" \
@@ -145,8 +157,12 @@ curl -X POST "https://apigee.googleapis.com/v1/organizations/$DEVSHELL_PROJECT_I
     "email": "joe@example.com"
   }'
 
+# Step 8: Download OpenAPI specification
+echo "${MAGENTA}${BOLD}Downloading OpenAPI Specification${RESET}"
 curl -LO https://raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Publishing%20APIs%20with%20Apigee%20X/simplebank-spec.yaml
 
+# Step 9: Update OpenAPI spec with correct URL
+echo "${BLUE}${BOLD}Updating OpenAPI Specification with API URL${RESET}"
 export IP_ADDRESS=$(curl -s -H "Authorization: Bearer $(gcloud auth print-access-token)" -X GET "https://apigee.googleapis.com/v1/organizations/${GOOGLE_CLOUD_PROJECT}/envgroups/eval-group" | jq -r '.hostnames[1]')
 
 export URL=https://eval.${IP_ADDRESS}/bank/v1
@@ -154,6 +170,11 @@ export URL=https://eval.${IP_ADDRESS}/bank/v1
 sed -i 's|<URL>|'"$URL"'|g' simplebank-spec.yaml
 
 cloudshell download simplebank-spec.yaml
+
+echo 
+
+# Step 10: Display final instructions
+echo "${CYAN}${BOLD}Final Instructions${RESET}"
 
 echo
 
