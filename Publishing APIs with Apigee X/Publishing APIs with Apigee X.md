@@ -12,6 +12,14 @@ sudo chmod +x gsp843.sh
 ./gsp843.sh
 ```
 
+### 🔧 Specify the following Proxy details:  
+
+| Property | Value |
+| :---: | :----: |
+| Name | bank-v1 |
+| Base path | /bank/v1 |
+| Target (Existing API) | Backend URL |
+
 ### 🔧 Specify the following details for app:
 
 | Property | Value |
