@@ -48,10 +48,10 @@ https://storage.googleapis.com/cloud-training/api-dev-quest/dev-portal/piggy-ban
 
 ### Congratulations 🎉 for completing the Lab !
 
-##### *You Have Successfully Demonstrated Your Skills And Determination.*
+##### *You've successfully conquered the lab! Your dedication and skills truly shine.*
 
-#### *Well done!*
+#### *Keep pushing forward—great things await! 🚀*
 
-#### Don't Forget to Join the [Telegram Channel](https://t.me/quickgcplab) & [Discussion group](https://t.me/quickgcplabchats)
+#### Don't miss out on joining the [Telegram Channel](https://t.me/quickgcplab) & [Discussion group](https://t.me/quickgcplabchats)
 
 # [QUICK GCP LAB](https://www.youtube.com/@quickgcplab)
