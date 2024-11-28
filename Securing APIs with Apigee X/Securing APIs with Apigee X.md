@@ -1,35 +1,37 @@
 # Securing APIs with Apigee X || [GSP844](https://www.cloudskillsboost.google/focuses/29996?parent=catalog) ||
 
-## Solution [here]()
+## 💡 Solution [here]()
 
-### Run the following Commands in CloudShell
+### 🚀 **Commands to Execute in Cloud Shell:**
 
 ```bash
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Analyze%20Images%20with%20the%20Cloud%20Vision%20API%20Challenge%20Lab/arc122.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Securing%20APIs%20with%20Apigee%20X/gsp844.sh
 
-sudo chmod +x arc122.sh
+sudo chmod +x gsp844.sh
 
-./arc122.sh
+./gsp844.sh
 ```
 
 ### 🛠️ **Proxy Configuration Details:**  
 
-| **Property**   | **Value**     |  
-| :------------: | :------------: |  
-| Name           | bank-v1      |  
-| Base Path      | /bank/v1     |  
-| Target (API)   | *Backend URL*    |
+|**Property**| **Value**       |  
+|------------|-----------------|  
+| Name       | bank-v1         |  
+| Base Path  | /bank/v1        |  
+| Target (API) | `ackend URL   |  
+
 
 ### 📥 **Download Required Files:**  
 
-- **bank-v1**: [⬇️ Download Here](https://drive.google.com/uc?export=download&id=1UB2_S6qXXRIXLcrbtRPq1tJnEtcMlSqD)
+- **bank-v1**: [⬇️ Download Here](https://drive.google.com/uc?export=download&id=1nciWY-FuXm9QrkoZy3vllHPCe5uGU7zS)
 
-### 🛠️ **App Configuration Details:**  
 
-| **Property**   | **Value**           |  
-| :------------: | :-----------------: |  
-| Name           | readonly-app        |  
-| Developer      | select joe@example.com|
+### 🛠️ **Application Configuration Details:**  
+
+|**Property**| **Value**             |  
+|------------|-----------------------|  
+| Name       | readonly-app          |  
+| Developer  | joe@example.com       |
 
 ### Congratulations 🎉 for completing the Lab !
 
