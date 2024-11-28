@@ -31,7 +31,7 @@ sudo chmod +x gsp844.sh
 |**Property**| **Value**             |  
 |------------|-----------------------|  
 | Name       | readonly-app          |  
-| Developer  | joe@example.com       |
+| Developer  | select joe@example.com|
 
 ### Congratulations 🎉 for completing the Lab !
 
