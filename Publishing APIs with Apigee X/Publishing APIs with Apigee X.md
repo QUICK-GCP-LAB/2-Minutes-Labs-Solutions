@@ -1,6 +1,6 @@
 # Publishing APIs with Apigee X || [GSP843](https://www.cloudskillsboost.google/focuses/32175?parent=catalog) ||
 
-## 💡 Solution [here]()
+## 💡 Solution [here](https://youtu.be/VYY4ZNVTdWg)
 
 ### 🚀 **Execute the following commands in Cloud Shell:**
 
