@@ -84,14 +84,12 @@ cat > bank-readonly.json <<EOF_END
 }
 EOF_END
 
-# Step 4: Upload the 'bank-readonly' configuration
-echo "${RED}${BOLD}Uploading 'bank-readonly' Configuration${RESET}"
 curl -X POST "https://apigee.googleapis.com/v1/organizations/$DEVSHELL_PROJECT_ID/apiproducts" \
   -H "Authorization: Bearer $(gcloud auth print-access-token)" \
   -H "Content-Type: application/json" \
   -d @bank-readonly.json
 
-# Step 5: Create a new developer
+# Step 4: Create a new developer
 echo "${MAGENTA}${BOLD}Creating New Developer${RESET}"
 curl -X POST "https://apigee.googleapis.com/v1/organizations/$DEVSHELL_PROJECT_ID/developers" \
   -H "Authorization: Bearer $(gcloud auth print-access-token)" \
@@ -105,7 +103,7 @@ curl -X POST "https://apigee.googleapis.com/v1/organizations/$DEVSHELL_PROJECT_I
 
 echo
 
-# Step 6: Provide final instructions
+# Step 5: Provide final instructions
 echo "${CYAN}${BOLD}Final Instructions${RESET}"
 
 echo -e "${BLUE}${BOLD}Go to this link to create an Apigee proxy: ${RESET}""https://console.cloud.google.com/apigee/proxy-create?project=$DEVSHELL_PROJECT_ID"
