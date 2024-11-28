@@ -28,10 +28,10 @@ sudo chmod +x gsp844.sh
 
 ### 🛠️ **Application Configuration Details:**  
 
-|**Property**| **Value**             |  
-|------------|-----------------------|  
-| Name       | readonly-app          |  
-| Developer  | select joe@example.com|
+|**Property**  | **Value**               |  
+|:------------:|:-----------------------:|  
+| Name         | readonly-app            |  
+| Developer    | select joe@example.com  |
 
 ### Congratulations 🎉 for completing the Lab !
 
