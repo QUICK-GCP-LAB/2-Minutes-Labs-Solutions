@@ -15,10 +15,10 @@ sudo chmod +x gsp844.sh
 ### 🛠️ **Proxy Configuration Details:**  
 
 |**Property**| **Value**       |  
-|------------|-----------------|  
+|:------------:|:-----------------:|  
 | Name       | bank-v1         |  
 | Base Path  | /bank/v1        |  
-| Target (API) | `ackend URL   |  
+| Target (API) | Backend URL   |  
 
 
 ### 📥 **Download Required Files:**  
