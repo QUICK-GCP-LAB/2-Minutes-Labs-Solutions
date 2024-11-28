@@ -48,7 +48,7 @@ echo "${MAGENTA}${BOLD}Waiting for runtime instance ${INSTANCE_NAME} to Become A
 export INSTANCE_NAME=eval-instance; export ENV_NAME=eval; export PREV_INSTANCE_STATE=; while : ; do export INSTANCE_STATE=$(curl -s -H "Authorization: Bearer $(gcloud auth print-access-token)" -X GET "https://apigee.googleapis.com/v1/organizations/${GOOGLE_CLOUD_PROJECT}/instances/${INSTANCE_NAME}" | jq "select(.state != null) | .state" --raw-output); [[ "${INSTANCE_STATE}" == "${PREV_INSTANCE_STATE}" ]] || (echo; echo "INSTANCE_STATE=${INSTANCE_STATE}"); export PREV_INSTANCE_STATE=${INSTANCE_STATE}; [[ "${INSTANCE_STATE}" != "ACTIVE" ]] || break; echo -n "."; sleep 5; done; echo; echo "instance created, waiting for environment ${ENV_NAME} to be attached to instance"; while : ; do export ATTACHMENT_DONE=$(curl -s -H "Authorization: Bearer $(gcloud auth print-access-token)" -X GET "https://apigee.googleapis.com/v1/organizations/${GOOGLE_CLOUD_PROJECT}/instances/${INSTANCE_NAME}/attachments" | jq "select(.attachments != null) | .attachments[] | select(.environment == \"${ENV_NAME}\") | .environment" --join-output); [[ "${ATTACHMENT_DONE}" != "${ENV_NAME}" ]] || break; echo -n "."; sleep 5; done; echo "***ORG IS READY TO USE***";
 
 # Step 3: Create the 'bank-readonly' configuration file
-echo "${GREEN}${BOLD}Creating 'bank-readonly' Configuration File${RESET}"
+echo "${GREEN}${BOLD}Creating 'bank-readonly' API Product${RESET}"
 cat > bank-readonly.json <<EOF_END
 {
   "name": "bank-readonly",
@@ -83,7 +83,6 @@ cat > bank-readonly.json <<EOF_END
   }
 }
 EOF_END
-echo "Configuration 'bank-readonly' created."
 
 # Step 4: Upload the 'bank-readonly' configuration
 echo "${RED}${BOLD}Uploading 'bank-readonly' Configuration${RESET}"
@@ -103,6 +102,8 @@ curl -X POST "https://apigee.googleapis.com/v1/organizations/$DEVSHELL_PROJECT_I
     "userName": "joe",  
     "email": "joe@example.com"
   }'
+
+echo
 
 # Step 6: Provide final instructions
 echo "${CYAN}${BOLD}Final Instructions${RESET}"
