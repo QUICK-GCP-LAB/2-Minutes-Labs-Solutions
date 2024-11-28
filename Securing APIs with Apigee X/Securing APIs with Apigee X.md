@@ -1,6 +1,6 @@
 # Securing APIs with Apigee X || [GSP844](https://www.cloudskillsboost.google/focuses/29996?parent=catalog) ||
 
-## 💡 Solution [here]()
+## 💡 Solution [here](https://youtu.be/VK2Gh35BJ1g)
 
 ### 🚀 **Commands to Execute in Cloud Shell:**
 
