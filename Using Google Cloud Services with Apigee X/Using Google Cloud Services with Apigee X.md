@@ -5,11 +5,11 @@
 ### 🚀 **Execute the following commands in Cloud Shell:**
 
 ```bash
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Publishing%20APIs%20with%20Apigee%20X/gsp843.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Using%20Google%20Cloud%20Services%20with%20Apigee%20X/gsp845.sh
 
-sudo chmod +x gsp843.sh
+sudo chmod +x gsp845.sh
 
-./gsp843.sh
+./gsp845.sh
 ```
 
 ### 🛠️ **Proxy Configuration Details:**  
