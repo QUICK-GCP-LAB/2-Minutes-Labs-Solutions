@@ -45,6 +45,8 @@ echo "${CYAN}${BOLD}Creating Apigee Service Account${RESET}"
 gcloud iam service-accounts create apigee-gc-service-access \
   --display-name "Apigee GC Service Access"
 
+sleep 15
+
 # Step 3: Assign Pub/Sub publisher role to the service account
 echo "${MAGENTA}${BOLD}Assigning Pub/Sub Publisher Role${RESET}"
 gcloud projects add-iam-policy-binding $DEVSHELL_PROJECT_ID \
