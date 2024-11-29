@@ -1,4 +1,4 @@
-# Using Google Cloud Services with Apigee X || [GSP845](https://www.cloudskillsboost.google/focuses/32172?parent=catalog) ||
+# Develop and Secure APIs with Apigee X: Challenge Lab || [GSP363](https://www.cloudskillsboost.google/focuses/32171?parent=catalog) ||
 
 ## 💡 Solution [here]()
 
@@ -16,12 +16,18 @@ sudo chmod +x gsp845.sh
 
 | **Property**   | **Value**     |  
 | :------------: | :------------: |  
-| Name           | services-v1    |  
-| Base Path      | /services/v1   |
+| Name           | translate-v1   |  
+| Base Path      | /translate/v1  |
 
 ### 📥 **Download Required Files:**  
 
-- **services-v1**: [⬇️ Download Here](https://drive.google.com/uc?export=download&id=1gc2HySP1Mudz-HeYynDohhZlQFWEOzIv)
+- **translate-v1**: [⬇️ Download Here](https://drive.google.com/uc?export=download&id=1IxJMjqAJ-FVKWOdg2HnJ79wY7BBlbjbJ)
+
+### 🛠️ **App Configuration Details:**  
+
+| **Property**   | **Value**           |  
+| :------------: | :-----------------: |  
+| Name           | translate-app       |
 
 ### Congratulations 🎉 for completing the Lab !
 
