@@ -1,6 +1,6 @@
 # Create a Cosmetic Anomaly Detection Model using Visual Inspection AI || [GSP897](https://www.cloudskillsboost.google/focuses/34181?parent=catalog) ||
 
-## 💡 Solution [here]()
+## 💡 Solution [here](https://youtu.be/X95kc9AZk5c)
 
 ### 🚀 **Execute the following commands in Cloud Shell:**
 
