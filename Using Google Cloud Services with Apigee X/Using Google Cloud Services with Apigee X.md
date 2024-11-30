@@ -1,6 +1,6 @@
 # Using Google Cloud Services with Apigee X || [GSP845](https://www.cloudskillsboost.google/focuses/32172?parent=catalog) ||
 
-## 💡 Solution [here]()
+## 💡 Solution [here](https://youtu.be/VJ1o_HuKQUk)
 
 ### 🚀 **Execute the following commands in Cloud Shell:**
 
