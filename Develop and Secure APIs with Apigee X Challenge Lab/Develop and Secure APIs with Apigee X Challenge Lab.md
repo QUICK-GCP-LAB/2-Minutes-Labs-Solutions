@@ -1,6 +1,6 @@
 # Develop and Secure APIs with Apigee X: Challenge Lab || [GSP363](https://www.cloudskillsboost.google/focuses/32171?parent=catalog) ||
 
-## 💡 Solution [here]()
+## 💡 Solution [here](https://youtu.be/DQPZsyge3vk)
 
 ### 🚀 **Execute the following commands in Cloud Shell:**
 
