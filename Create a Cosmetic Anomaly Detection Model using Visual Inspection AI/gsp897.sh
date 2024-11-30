@@ -38,8 +38,8 @@ RANDOM_BG_COLOR=${BG_COLORS[$RANDOM % ${#BG_COLORS[@]}]}
 echo "${RANDOM_BG_COLOR}${RANDOM_TEXT_COLOR}${BOLD}Starting Execution${RESET}"
 
 # Step 2: Enable the Vision API service
-echo "${GREEN}${BOLD}Enabling Vision API Service${RESET}"
-gcloud services enable vision.googleapis.com
+echo "${GREEN}${BOLD}Enabling Visual Inspection AI API Service${RESET}"
+gcloud services enable visualinspection.googleapis.com
 
 # Step 3: Get the current project ID and set it as an environment variable
 echo "${CYAN}${BOLD}Setting Project ID${RESET}"
