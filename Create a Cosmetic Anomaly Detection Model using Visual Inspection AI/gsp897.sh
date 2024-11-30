@@ -70,7 +70,7 @@ echo "${CYAN}${BOLD}Go to this link to create a Visual Inspection dataset:${RESE
 echo
 
 # Step 9: Display the dataset name
-echo "${YELLOW}${BOLD}Dataset name: cosmetic${RESET}"
+echo "${YELLOW}${BOLD}Dataset name: ${RESET}""cosmetic"
 
 echo
 
