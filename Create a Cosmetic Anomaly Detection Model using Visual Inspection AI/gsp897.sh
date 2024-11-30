@@ -1,3 +1,5 @@
+clear
+
 #!/bin/bash
 # Define color variables
 
