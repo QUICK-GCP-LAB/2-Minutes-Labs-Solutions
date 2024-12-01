@@ -65,13 +65,7 @@ kubectl -n gmp-test apply -f https://raw.githubusercontent.com/kyleabenson/flask
 echo "${CYAN}${BOLD}Fetching Service URL${RESET}"
 url=$(kubectl get services -n gmp-test -o jsonpath='{.items[*].status.loadBalancer.ingress[0].ip}')
 
-# Step 9: Check if the URL was retrieved successfully
-if [[ -z "$url" ]]; then
-  echo "${RED}${BOLD}Failed to fetch the service URL. Please ensure the service is running and has an external IP.${RESET}"
-  exit 1
-fi
-
-# Step 10: Monitor metrics output for the keyword
+# Step 9: Monitor metrics output for the keyword
 echo "${YELLOW}${BOLD}Monitoring Metrics for 'flask_exporter_info' Keyword${RESET}"
 
 keyword="flask_exporter_info"
@@ -88,18 +82,18 @@ while true; do
   fi
 
   # Wait for 5 seconds before the next iteration
-  sleep 5
+  sleep 15
 done
 
-# Step 11: Deploy Prometheus configuration
+# Step 10: Deploy Prometheus configuration
 echo "${BLUE}${BOLD}Deploying Prometheus Configuration${RESET}"
 kubectl -n gmp-test apply -f https://raw.githubusercontent.com/kyleabenson/flask_telemetry/master/gmp_prom_setup/prom_deploy.yaml
 
-# Step 12: Generate traffic to the Flask application
+# Step 11: Generate traffic to the Flask application
 echo "${MAGENTA}${BOLD}Generating Traffic to Flask Application${RESET}"
 timeout 120 bash -c -- 'while true; do curl $(kubectl get services -n gmp-test -o jsonpath="{.items[*].status.loadBalancer.ingress[0].ip}"); sleep $((RANDOM % 4)) ; done'
 
-# Step 13: Create a Cloud Monitoring dashboard
+# Step 12: Create a Cloud Monitoring dashboard
 echo "${CYAN}${BOLD}Creating Cloud Monitoring Dashboard${RESET}"
 gcloud monitoring dashboards create --config='''
 {
