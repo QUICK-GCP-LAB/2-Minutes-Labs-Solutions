@@ -64,38 +64,11 @@ kubectl -n gmp-test apply -f https://raw.githubusercontent.com/kyleabenson/flask
 # Step 8: Monitor metrics output for the keyword
 echo "${YELLOW}${BOLD}Monitoring Metrics for 'flask_exporter_info' Keyword${RESET}"
 
-# Function to check metrics output in a loop
-check_metrics() {
-  # Fetch the URL dynamically from the Kubernetes service
-  url=$(kubectl get services -n gmp-test -o jsonpath='{.items[*].status.loadBalancer.ingress[0].ip}')
+sleep 120
 
-  # Keyword to look for in the metrics output
-  keyword="flask_exporter_info"
+url=$(kubectl get services -n gmp-test -o jsonpath='{.items[*].status.loadBalancer.ingress[0].ip}')
 
-  # Loop to continuously check the metrics
-  while true; do
-    # Run curl command and capture its output
-    output=$(curl -s "$url/metrics")
-
-    # Print the output (optional)
-    echo "$output"
-
-    # Check if the keyword is in the output
-    if echo "$output" | grep -q "$keyword"; then
-      echo "Keyword '$keyword' found! Exiting loop."
-      break
-    else
-      # Print a random message if the keyword is not found
-      echo "Output not found yet. Patience is a virtue!"
-    fi
-
-    # Wait for 15 seconds before the next iterationy
-    sleep 15
-  done
-}
-
-# Call the function
-check_metrics
+curl $url/metrics
 
 # Step 9: Deploy Prometheus configuration
 echo "${BLUE}${BOLD}Deploying Prometheus Configuration${RESET}"
