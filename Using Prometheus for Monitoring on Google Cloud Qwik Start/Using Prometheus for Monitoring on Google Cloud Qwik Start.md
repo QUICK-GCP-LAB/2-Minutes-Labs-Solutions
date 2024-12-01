@@ -12,7 +12,7 @@ sudo chmod +x gsp1024.sh
 ./gsp1024.sh
 ```
 
-### 🎉 Congratulations for Completing the Lab! 🎉  
+### Congratulations for Completing the Lab! 🎉  
 
 ##### *You've showcased outstanding skills and determination.*  
 
