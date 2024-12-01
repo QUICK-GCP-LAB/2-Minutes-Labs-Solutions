@@ -61,39 +61,51 @@ kubectl -n gmp-test apply -f https://raw.githubusercontent.com/kyleabenson/flask
 echo "${GREEN}${BOLD}Deploying Flask Service${RESET}"
 kubectl -n gmp-test apply -f https://raw.githubusercontent.com/kyleabenson/flask_telemetry/master/gmp_prom_setup/flask_service.yaml
 
-# Step 8: Fetch the service URL
-echo "${CYAN}${BOLD}Fetching Service URL${RESET}"
-url=$(kubectl get services -n gmp-test -o jsonpath='{.items[*].status.loadBalancer.ingress[0].ip}')
-
-# Step 9: Monitor metrics output for the keyword
+# Step 8: Monitor metrics output for the keyword
 echo "${YELLOW}${BOLD}Monitoring Metrics for 'flask_exporter_info' Keyword${RESET}"
 
-keyword="flask_exporter_info"
+# Function to check metrics output in a loop
+check_metrics() {
+  # Fetch the URL dynamically from the Kubernetes service
+  url=$(kubectl get services -n gmp-test -o jsonpath='{.items[*].status.loadBalancer.ingress[0].ip}')
 
-while true; do
-  output=$(curl -s "http://$url/metrics")
-  echo "$output"
-  if echo "$output" | grep -q "$keyword"; then
-    echo "${GREEN}${BOLD}Keyword '$keyword' found! Exiting loop.${RESET}"
-    break
-  else
-    # Print a random message if the keyword is not found
-    echo "Keyword not found. Keep calm, we’re still looking!"
-  fi
+  # Keyword to look for in the metrics output
+  keyword="flask_exporter_info"
 
-  # Wait for 5 seconds before the next iteration
-  sleep 15
-done
+  # Loop to continuously check the metrics
+  while true; do
+    # Run curl command and capture its output
+    output=$(curl -s "$url/metrics")
 
-# Step 10: Deploy Prometheus configuration
+    # Print the output (optional)
+    echo "$output"
+
+    # Check if the keyword is in the output
+    if echo "$output" | grep -q "$keyword"; then
+      echo "Keyword '$keyword' found! Exiting loop."
+      break
+    else
+      # Print a random message if the keyword is not found
+      echo "Output not found yet. Patience is a virtue!"
+    fi
+
+    # Wait for 15 seconds before the next iterationy
+    sleep 15
+  done
+}
+
+# Call the function
+check_metrics
+
+# Step 9: Deploy Prometheus configuration
 echo "${BLUE}${BOLD}Deploying Prometheus Configuration${RESET}"
 kubectl -n gmp-test apply -f https://raw.githubusercontent.com/kyleabenson/flask_telemetry/master/gmp_prom_setup/prom_deploy.yaml
 
-# Step 11: Generate traffic to the Flask application
+# Step 10: Generate traffic to the Flask application
 echo "${MAGENTA}${BOLD}Generating Traffic to Flask Application${RESET}"
 timeout 120 bash -c -- 'while true; do curl $(kubectl get services -n gmp-test -o jsonpath="{.items[*].status.loadBalancer.ingress[0].ip}"); sleep $((RANDOM % 4)) ; done'
 
-# Step 12: Create a Cloud Monitoring dashboard
+# Step 11: Create a Cloud Monitoring dashboard
 echo "${CYAN}${BOLD}Creating Cloud Monitoring Dashboard${RESET}"
 gcloud monitoring dashboards create --config='''
 {
