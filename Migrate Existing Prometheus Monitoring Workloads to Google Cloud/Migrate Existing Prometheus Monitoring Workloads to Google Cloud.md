@@ -12,12 +12,12 @@ sudo chmod +x gsp1025.sh
 ./gsp1025.sh
 ```
 
-### Congratulations 🎉 for completing the Lab !
+### Congratulations 🎉 for completing the Lab !  
 
-##### *You Have Successfully Demonstrated Your Skills And Determination.*
+##### *You've demonstrated incredible skill and perseverance.*  
 
-#### *Well done!*
+#### *Your journey is just beginning—keep reaching for the stars! 🚀*  
 
-#### Don't Forget to Join the [Telegram Channel](https://t.me/quickgcplab) & [Discussion group](https://t.me/quickgcplabchats)
+#### Stay connected by joining the [Telegram Channel](https://t.me/quickgcplab) & [Discussion Group](https://t.me/quickgcplabchats).  
 
 # [QUICK GCP LAB](https://www.youtube.com/@quickgcplab)
