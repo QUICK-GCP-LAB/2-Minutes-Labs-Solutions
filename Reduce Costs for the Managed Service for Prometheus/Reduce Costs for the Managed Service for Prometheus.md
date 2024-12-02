@@ -5,11 +5,11 @@
 ### 🚀 **Execute the following commands in Cloud Shell:**
 
 ```bash
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Publishing%20APIs%20with%20Apigee%20X/gsp843.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Reduce%20Costs%20for%20the%20Managed%20Service%20for%20Prometheus/gsp1027.sh
 
-sudo chmod +x gsp843.sh
+sudo chmod +x gsp1027.sh
 
-./gsp843.sh
+./gsp1027.sh
 ```
 
 ### Congratulations on Completing the Lab! 🎉  
