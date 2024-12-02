@@ -25,7 +25,8 @@ RESET=`tput sgr0`
 
 echo "${BG_MAGENTA}${BOLD}Starting Execution${RESET}"
 
-export ZONE=us-east1-c
+export ZONE=$(gcloud compute project-info describe \
+--format="value(commonInstanceMetadata.items[google-compute-default-zone])")
 
 gcloud container clusters create gmp-cluster --num-nodes=3 --zone=$ZONE
 
