@@ -41,11 +41,11 @@ export OAUTH2_TOKEN=$(gcloud auth print-access-token)
 export USERNAME=$(gcloud config get-value core/account | sed 's/-/_/g; s/@.*//')
 
 # Step 2: Enable Google Fitness API
-echo "${BLUE}Enabling Google Fitness API...${RESET}"
+echo "${BOLD}${BLUE}Enabling Google Fitness API...${RESET}"
 gcloud services enable fitness.googleapis.com
 
 # Step 3: Create JSON configuration for Google Cloud Storage bucket
-echo "${CYAN}Creating bucket configuration...${RESET}"
+echo "${BOLD}${CYAN}Creating bucket configuration...${RESET}"
 echo '{
   "name": "'"$DEVSHELL_PROJECT_ID"'-bucket",
   "location": "us",
@@ -53,18 +53,18 @@ echo '{
 }' > values.json
 
 # Step 4: Create Google Cloud Storage bucket via API call
-echo "${MAGENTA}Creating Google Cloud Storage bucket...${RESET}"
+echo "${BOLD}${MAGENTA}Creating Google Cloud Storage bucket...${RESET}"
 curl -X POST --data-binary @values.json \
     -H "Authorization: Bearer $OAUTH2_TOKEN" \
     -H "Content-Type: application/json" \
     "https://www.googleapis.com/storage/v1/b?project=$DEVSHELL_PROJECT_ID"
 
 # Step 5: Download demo image
-echo "${YELLOW}Downloading demo image...${RESET}"
+echo "${BOLD}${YELLOW}Downloading demo image...${RESET}"
 curl -LO https://raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Introduction%20to%20APIs%20in%20Google%20Cloud/demo-image.png
 
 # Step 6: Upload demo image to the bucket
-echo "${GREEN}Uploading demo image to the bucket...${RESET}"
+echo "${BOLD}${GREEN}Uploading demo image to the bucket...${RESET}"
 curl -X POST --data-binary @/home/$USERNAME/demo-image.png \
     -H "Authorization: Bearer $OAUTH2_TOKEN" \
     -H "Content-Type: image/png" \
