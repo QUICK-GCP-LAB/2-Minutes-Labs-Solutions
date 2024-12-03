@@ -1,6 +1,6 @@
 # Migrate Existing Prometheus Monitoring Workloads to Google Cloud || [GSP1025](https://www.cloudskillsboost.google/focuses/33331?parent=catalog) ||
 
-## 💡 Solution [here]()
+## 💡 Solution [here](https://youtu.be/TWv3hnr8bQM)
 
 ### 🚀 **Execute the following commands in Cloud Shell:**
 
