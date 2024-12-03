@@ -1,6 +1,6 @@
 # Reduce Costs for the Managed Service for Prometheus || [GSP1027](https://www.cloudskillsboost.google/focuses/33334?parent=catalog) ||
 
-## 💡 Solution [here]()
+## 💡 Solution [here](https://youtu.be/bm8BpN1dUSk)
 
 ### 🚀 **Execute the following commands in Cloud Shell:**
 
