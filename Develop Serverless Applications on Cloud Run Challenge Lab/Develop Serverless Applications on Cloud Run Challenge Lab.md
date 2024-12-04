@@ -17,11 +17,11 @@ export FRONTEND_PRODUCTION_SERVICE=
 ## 💻 Execute These Commands in CloudShell
 
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Analyze%20Images%20with%20the%20Cloud%20Vision%20API%20Challenge%20Lab/arc122.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Develop%20Serverless%20Applications%20on%20Cloud%20Run%20Challenge%20Lab/gsp328.sh
 
-sudo chmod +x arc122.sh
+sudo chmod +x gsp328.sh
 
-./arc122.sh
+./gsp328.sh
 ```
 
 ### Congratulations 🎉 for completing the Lab !
