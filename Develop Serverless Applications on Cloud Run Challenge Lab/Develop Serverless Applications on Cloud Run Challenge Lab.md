@@ -1,6 +1,6 @@
 # Develop Serverless Applications on Cloud Run: Challenge Lab || [GSP328](https://www.cloudskillsboost.google/focuses/14744?parent=catalog) ||
 
-## 💡 Solution [here]()
+## 💡 Solution [here](https://youtu.be/3sAq66ct-o8)
 
 ## 🛠️ Export the Following Environment Variables in CloudShell
 
