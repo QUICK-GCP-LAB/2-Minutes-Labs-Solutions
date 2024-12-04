@@ -91,7 +91,6 @@ cd ~/pet-theory/lab07/prod-frontend-billing
 gcloud builds submit --tag gcr.io/$DEVSHELL_PROJECT_ID/frontend-prod:0.1
 gcloud run deploy $FRONTEND_PRODUCTION_SERVICE --image gcr.io/$DEVSHELL_PROJECT_ID/frontend-prod:0.1 --quiet
 
-
 echo
 
 # Function to display a random congratulatory message
