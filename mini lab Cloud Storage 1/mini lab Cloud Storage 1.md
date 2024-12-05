@@ -1,23 +1,23 @@
-# mini lab : Cloud Storage : 1
+# Mini Lab: Cloud Storage: 1
 
-## Solution [here]()
+## 💡 Solution [here]()
 
-### Run the following Commands in CloudShell
+### 🚀 Run the following commands in **Cloud Shell**:
 
+```bash
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/mini%20lab%20Cloud%20Storage%201/shell.sh
+
+sudo chmod +x shell.sh
+
+./shell.sh
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Analyze%20Images%20with%20the%20Cloud%20Vision%20API%20Challenge%20Lab/arc122.sh
 
-sudo chmod +x arc122.sh
+## Congratulations 🎉 on Completing the Lab!
 
-./arc122.sh
-```
+##### You've showcased incredible effort and skill—great job!
 
-### Congratulations 🎉 for completing the Lab !
+#### *Keep up the momentum—big things are on the horizon!*
 
-##### *You Have Successfully Demonstrated Your Skills And Determination.*
-
-#### *Well done!*
-
-#### Don't Forget to Join the [Telegram Channel](https://t.me/quickgcplab) & [Discussion group](https://t.me/quickgcplabchats)
+#### Don’t forget to join the [Telegram Channel](https://t.me/quickgcplab) 📱 & [Discussion Group](https://t.me/quickgcplabchats) 
 
 # [QUICK GCP LAB](https://www.youtube.com/@quickgcplab)
