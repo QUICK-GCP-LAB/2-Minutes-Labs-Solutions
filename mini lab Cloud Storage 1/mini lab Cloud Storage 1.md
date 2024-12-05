@@ -1,4 +1,4 @@
-# Mini Lab: Cloud Storage: 1
+# mini lab : Cloud Storage : 1
 
 ## 💡 Solution [here]()
 
