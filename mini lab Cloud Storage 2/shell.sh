@@ -36,6 +36,8 @@ RANDOM_BG_COLOR=${BG_COLORS[$RANDOM % ${#BG_COLORS[@]}]}
 
 echo "${RANDOM_BG_COLOR}${RANDOM_TEXT_COLOR}${BOLD}Starting Execution${RESET}"
 
+curl -LO https://raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/mini%20lab%20Cloud%20Storage%202/lifecycle.json
+
 # Step 1: Fetch the project ID
 echo "${BOLD}${CYAN}Step 1: Fetching the current Google Cloud project ID...${RESET}"
 export PROJECT_ID=$(gcloud config get-value project)
