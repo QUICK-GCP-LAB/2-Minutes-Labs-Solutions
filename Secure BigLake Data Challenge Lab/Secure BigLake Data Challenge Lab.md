@@ -22,6 +22,6 @@ sudo chmod +x arc129.sh
 
 #### *Keep the momentum going—more success is just around the corner!* 🚀  
 
-💬 **Join the community for more resources and support:** **[Telegram Channel](https://t.me/quickgcplab)** &  **[Discussion Group](https://t.me/quickgcplabchats)**   
+### **Join the community for more resources and support:** **[Telegram Channel](https://t.me/quickgcplab)** &  **[Discussion Group](https://t.me/quickgcplabchats)**   
 
 # [QUICK GCP LAB](https://www.youtube.com/@quickgcplab)  
