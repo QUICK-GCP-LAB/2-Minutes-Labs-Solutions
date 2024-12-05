@@ -36,19 +36,69 @@ RANDOM_BG_COLOR=${BG_COLORS[$RANDOM % ${#BG_COLORS[@]}]}
 
 echo "${RANDOM_BG_COLOR}${RANDOM_TEXT_COLOR}${BOLD}Starting Execution${RESET}"
 
-# Step 1: Fetch project ID
-echo "${BOLD}${CYAN}Fetching the project ID...${RESET}"
+# Step 1: Define the lifecycle configuration file
+echo "${BOLD}${CYAN}Step 1: Creating the lifecycle.json file with the specified rules...${RESET}"
+cat lifecycle.json < EOF
+{
+  "rule": [
+    {
+      "action": {
+        "storageClass": "NEARLINE",
+        "type": "SetStorageClass"
+      },
+      "condition": {
+        "daysSinceNoncurrentTime": 30,
+        "matchesPrefix": [
+          "/projects/active/"
+        ]
+      }
+    },
+    {
+      "action": {
+        "storageClass": "NEARLINE",
+        "type": "SetStorageClass"
+      },
+      "condition": {
+        "daysSinceNoncurrentTime": 90,
+        "matchesPrefix": [
+          "/archive/"
+        ]
+      }
+    },
+    {
+      "action": {
+        "storageClass": "COLDLINE",
+        "type": "SetStorageClass"
+      },
+      "condition": {
+        "daysSinceNoncurrentTime": 180,
+        "matchesPrefix": [
+          "/archive/"
+        ]
+      }
+    },
+    {
+      "action": {
+        "type": "Delete"
+      },
+      "condition": {
+        "age": 7,
+        "matchesPrefix": [
+          "/processing/temp_logs/"
+        ]
+      }
+    }
+  ]
+}
+EOF
+
+# Step 2: Fetch the project ID
+echo "${BOLD}${CYAN}Step 2: Fetching the current Google Cloud project ID...${RESET}"
 export PROJECT_ID=$(gcloud config get-value project)
 
-# Step 2: Update the GCS bucket settings
-echo "${BOLD}${CYAN}Updating storage bucket settings...${RESET}"
-gcloud storage buckets update gs://$PROJECT_ID-bucket --no-uniform-bucket-level-access
-gcloud storage buckets update gs://$PROJECT_ID-bucket --web-main-page-suffix=index.html --web-error-page=error.html
-
-# Step 3: Update the access control settings for specific objects
-echo "${BOLD}${BLUE}Updating access controls for index.html and error.html...${RESET}"
-gcloud storage objects update gs://$PROJECT_ID-bucket/index.html --add-acl-grant=entity=AllUsers,role=READER
-gcloud storage objects update gs://$PROJECT_ID-bucket/error.html --add-acl-grant=entity=AllUsers,role=READER
+# Step 3: Apply the lifecycle configuration to the bucket
+echo "${BOLD}${CYAN}Step 3: Applying the lifecycle configuration to the GCS bucket...${RESET}"
+gsutil lifecycle set lifecycle.json gs://$PROJECT_ID-bucket
 
 echo
 
