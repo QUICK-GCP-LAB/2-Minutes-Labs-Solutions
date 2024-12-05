@@ -2,25 +2,26 @@
 
 ## 💡 Solution [here]()
 
-### 🚀 Run the following commands in **Cloud Shell**:
+
+### 🚀 **Steps to Execute in Cloud Shell:** 
 
 ```
-export USER_2=
+ export USER_2=
 ```
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Analyze%20Images%20with%20the%20Cloud%20Vision%20API%20Challenge%20Lab/arc122.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Secure%20BigLake%20Data%20Challenge%20Lab/arc129.sh
 
-sudo chmod +x arc122.sh
+sudo chmod +x arc129.sh
 
-./arc122.sh
+./arc129.sh
 ```
 
-### Congratulations 🎉 for completing the Lab !
+## 🎉 Congratulations on Completing the Lab!
 
-##### *You Have Successfully Demonstrated Your Skills And Determination.*
+##### *You’ve demonstrated excellent skills and perseverance—great work!*  
 
-#### *Well done!*
+#### *Keep the momentum going—more success is just around the corner!* 🚀  
 
-#### Don't Forget to Join the [Telegram Channel](https://t.me/quickgcplab) & [Discussion group](https://t.me/quickgcplabchats)
+💬 **Join the community for more resources and support:** **[Telegram Channel](https://t.me/quickgcplab)** &  **[Discussion Group](https://t.me/quickgcplabchats)**   
 
-# [QUICK GCP LAB](https://www.youtube.com/@quickgcplab)
+# [QUICK GCP LAB](https://www.youtube.com/@quickgcplab)  
