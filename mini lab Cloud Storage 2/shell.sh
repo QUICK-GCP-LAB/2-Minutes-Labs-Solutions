@@ -36,68 +36,12 @@ RANDOM_BG_COLOR=${BG_COLORS[$RANDOM % ${#BG_COLORS[@]}]}
 
 echo "${RANDOM_BG_COLOR}${RANDOM_TEXT_COLOR}${BOLD}Starting Execution${RESET}"
 
-# Step 1: Define the lifecycle configuration file
-echo "${BOLD}${CYAN}Step 1: Creating the lifecycle.json file with the specified rules...${RESET}"
-cat lifecycle.json < EOF
-{
-  "rule": [
-    {
-      "action": {
-        "storageClass": "NEARLINE",
-        "type": "SetStorageClass"
-      },
-      "condition": {
-        "daysSinceNoncurrentTime": 30,
-        "matchesPrefix": [
-          "/projects/active/"
-        ]
-      }
-    },
-    {
-      "action": {
-        "storageClass": "NEARLINE",
-        "type": "SetStorageClass"
-      },
-      "condition": {
-        "daysSinceNoncurrentTime": 90,
-        "matchesPrefix": [
-          "/archive/"
-        ]
-      }
-    },
-    {
-      "action": {
-        "storageClass": "COLDLINE",
-        "type": "SetStorageClass"
-      },
-      "condition": {
-        "daysSinceNoncurrentTime": 180,
-        "matchesPrefix": [
-          "/archive/"
-        ]
-      }
-    },
-    {
-      "action": {
-        "type": "Delete"
-      },
-      "condition": {
-        "age": 7,
-        "matchesPrefix": [
-          "/processing/temp_logs/"
-        ]
-      }
-    }
-  ]
-}
-EOF
-
-# Step 2: Fetch the project ID
-echo "${BOLD}${CYAN}Step 2: Fetching the current Google Cloud project ID...${RESET}"
+# Step 1: Fetch the project ID
+echo "${BOLD}${CYAN}Step 1: Fetching the current Google Cloud project ID...${RESET}"
 export PROJECT_ID=$(gcloud config get-value project)
 
-# Step 3: Apply the lifecycle configuration to the bucket
-echo "${BOLD}${CYAN}Step 3: Applying the lifecycle configuration to the GCS bucket...${RESET}"
+# Step 2: Apply the lifecycle configuration to the bucket
+echo "${BOLD}${CYAN}Step 2: Applying the lifecycle configuration to the GCS bucket...${RESET}"
 gsutil lifecycle set lifecycle.json gs://$PROJECT_ID-bucket
 
 echo

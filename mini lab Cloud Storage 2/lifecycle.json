@@ -1,0 +1,51 @@
+{
+    "rule": [
+      {
+        "action": {
+          "storageClass": "NEARLINE",
+          "type": "SetStorageClass"
+        },
+        "condition": {
+          "daysSinceNoncurrentTime": 30,
+          "matchesPrefix": [
+            "/projects/active/"
+          ]
+        }
+      },
+      {
+        "action": {
+          "storageClass": "NEARLINE",
+          "type": "SetStorageClass"
+        },
+        "condition": {
+          "daysSinceNoncurrentTime": 90,
+          "matchesPrefix": [
+            "/archive/"
+          ]
+        }
+      },
+      {
+        "action": {
+          "storageClass": "COLDLINE",
+          "type": "SetStorageClass"
+        },
+        "condition": {
+          "daysSinceNoncurrentTime": 180,
+          "matchesPrefix": [
+            "/archive/"
+          ]
+        }
+      },
+      {
+        "action": {
+          "type": "Delete"
+        },
+        "condition": {
+          "age": 7,
+          "matchesPrefix": [
+            "/processing/temp_logs/"
+          ]
+        }
+      }
+    ]
+  }
