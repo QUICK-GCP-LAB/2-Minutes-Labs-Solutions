@@ -1,11 +1,11 @@
-# mini lab : Cloud Storage : 2
+# mini lab : Cloud Storage : 4
 
-## 💡 Solution [here](https://youtu.be/FPKBuGit-74)
+## 💡 Solution [here]()
 
 ### 🚀 Run the following commands in **Cloud Shell**:
 
 ```bash
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/mini%20lab%20Cloud%20Storage%202/shell.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/mini%20lab%20Cloud%20Storage%204/shell.sh
 
 sudo chmod +x shell.sh
 
