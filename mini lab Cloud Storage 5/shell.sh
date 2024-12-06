@@ -36,13 +36,22 @@ RANDOM_BG_COLOR=${BG_COLORS[$RANDOM % ${#BG_COLORS[@]}]}
 
 echo "${RANDOM_BG_COLOR}${RANDOM_TEXT_COLOR}${BOLD}Starting Execution${RESET}"
 
-# Step 1: Fetch the project ID
-echo "${RANDOM_BG_COLOR}${RANDOM_TEXT_COLOR}${BOLD}Fetching project ID...${RESET}"
+# Step 1: Fetching project ID
+echo "${RANDOM_BG_COLOR}${RANDOM_TEXT_COLOR}${BOLD}Fetching Project ID...${RESET}"
 export PROJECT_ID=$(gcloud config get-value project)
 
-# Step 2: Update metadata for index.html
-echo "${RANDOM_BG_COLOR}${RANDOM_TEXT_COLOR}${BOLD}Setting metadata for gs://$PROJECT_ID-bucket/index.html${RESET}"
-gsutil setmeta -h "Content-Type:text/html" gs://$PROJECT_ID-bucket/index.html
+# Step 2: Display bucket IAM policies
+echo "${RANDOM_BG_COLOR}${RANDOM_TEXT_COLOR}${BOLD}Fetching IAM Policies for Bucket gs://$PROJECT_ID-urgent...${RESET}"
+gsutil iam get gs://$PROJECT_ID-urgent
+
+# Step 3: Remove public access from bucket
+echo "${RANDOM_BG_COLOR}${RANDOM_TEXT_COLOR}${BOLD}Removing Public Access from Bucket...${RESET}"
+gsutil iam ch -d allUsers gs://$PROJECT_ID-urgent
+gsutil iam ch -d allAuthenticatedUsers gs://$PROJECT_ID-urgent
+
+# Step 4: Display updated IAM policies
+echo "${RANDOM_BG_COLOR}${RANDOM_TEXT_COLOR}${BOLD}Fetching Updated IAM Policies...${RESET}"
+gsutil iam get gs://$PROJECT_ID-urgent
 
 echo
 
