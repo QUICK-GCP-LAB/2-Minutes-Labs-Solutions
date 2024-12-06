@@ -127,6 +127,8 @@ FROM
   )
 "
 
+echo
+
 # Function to display a random congratulatory message
 function random_congrats() {
     MESSAGES=(

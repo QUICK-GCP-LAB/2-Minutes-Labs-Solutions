@@ -1,23 +1,23 @@
 # [Analyze data with Gemini assistance](https://www.cloudskillsboost.google/focuses/80989?parent=catalog)
 
-## Solution [here]()
+## 💡 Solution [Access Here]()  
 
-### Run the following Commands in CloudShell
+### 🚀 **Execute the Following Commands in Cloud Shell:**
 
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Analyze%20Images%20with%20the%20Cloud%20Vision%20API%20Challenge%20Lab/arc122.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Analyze%20data%20with%20Gemini%20assistance/shell.sh
 
-sudo chmod +x arc122.sh
+sudo chmod +x shell.sh
 
-./arc122.sh
+./shell.sh
 ```
 
 ### Congratulations 🎉 for completing the Lab !
 
-##### *You Have Successfully Demonstrated Your Skills And Determination.*
+##### *Your commitment and expertise have shone through—fantastic work!*
 
-#### *Well done!*
+#### *Keep exploring and learning—success is within your reach!*
 
-#### Don't Forget to Join the [Telegram Channel](https://t.me/quickgcplab) & [Discussion group](https://t.me/quickgcplabchats)
+#### Connect with the community for more insights and updates [Telegram Channel](https://t.me/quickgcplab) & [Discussion group](https://t.me/quickgcplabchats)
 
 # [QUICK GCP LAB](https://www.youtube.com/@quickgcplab)
