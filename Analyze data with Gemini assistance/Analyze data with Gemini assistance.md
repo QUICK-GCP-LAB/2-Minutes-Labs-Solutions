@@ -1,6 +1,6 @@
 # [Analyze data with Gemini assistance](https://www.cloudskillsboost.google/focuses/80989?parent=catalog)
 
-## 💡 Solution [Access Here]()  
+## 💡 Solution [here]()  
 
 ### 🚀 **Execute the Following Commands in Cloud Shell:**
 
