@@ -37,7 +37,7 @@ RANDOM_BG_COLOR=${BG_COLORS[$RANDOM % ${#BG_COLORS[@]}]}
 echo "${RANDOM_BG_COLOR}${RANDOM_TEXT_COLOR}${BOLD}Starting Execution${RESET}"
 
 # Step 1: Set the PROJECT_ID & BUCKET variable
-echo "${BOLD}${BLUE}Fetching the project ID${RESET}"
+echo "${BOLD}${BLUE}Fetching the project ID & Bucket name${RESET}"
 export PROJECT_ID=$(gcloud config get-value project)
 export BUCKET=$(gcloud storage buckets list --format="value(name)" | head -n 1)
 
