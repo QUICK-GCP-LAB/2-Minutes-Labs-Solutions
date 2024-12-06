@@ -36,9 +36,10 @@ RANDOM_BG_COLOR=${BG_COLORS[$RANDOM % ${#BG_COLORS[@]}]}
 
 echo "${RANDOM_BG_COLOR}${RANDOM_TEXT_COLOR}${BOLD}Starting Execution${RESET}"
 
-# Step 1: Set the PROJECT_ID variable
+# Step 1: Set the PROJECT_ID & BUCKET variable
 echo "${BOLD}${BLUE}Fetching the project ID${RESET}"
 export PROJECT_ID=$(gcloud config get-value project)
+export BUCKET=$(gcloud storage buckets list --format="value(name)" | head -n 1)
 
 # Step 2: Create a schema.json file
 echo "${BOLD}${YELLOW}Writing schema.json file${RESET}"
@@ -80,7 +81,7 @@ bq mk --table --schema=schema.json $PROJECT_ID:work_day.employee
 
 # Step 5: Load data into the table from a CSV file
 echo "${BOLD}${RED}Loading data into table 'employee'${RESET}"
-bq load --source_format=CSV --skip_leading_rows=1 --schema=schema.json $PROJECT_ID:work_day.employee gs://$PROJECT_ID-bucket/employees.csv
+bq load --source_format=CSV --skip_leading_rows=1 --schema=schema.json $PROJECT_ID:work_day.employee gs://$BUCKET/employees.csv
 
 echo
 
