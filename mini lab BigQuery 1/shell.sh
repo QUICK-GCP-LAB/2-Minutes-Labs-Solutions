@@ -80,7 +80,7 @@ bq mk --table --schema=schema.json $PROJECT_ID:work_day.employee
 
 # Step 5: Load data into the table from a CSV file
 echo "${BOLD}${RED}Loading data into table 'employee'${RESET}"
-bq load --source_format=CSV --skip_leading_rows=1 --schema=schema.json $PROJECT_ID:work_day.employee gs://qwiklabs-gcp-00-0314bc0c07b2-2zxz-bucket/employees.csv
+bq load --source_format=CSV --skip_leading_rows=1 --schema=schema.json $PROJECT_ID:work_day.employee gs://$PROJECT_ID-bucket/employees.csv
 
 echo
 
