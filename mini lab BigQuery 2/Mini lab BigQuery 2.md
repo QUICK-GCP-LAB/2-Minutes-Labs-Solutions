@@ -1,6 +1,6 @@
 # mini lab : BigQuery : 2
 
-## 💡 Solution [here]()
+## 💡 Solution [here](https://youtu.be/MPlNA7suBEU)
 
 ### 🚀 Run the following commands in **Cloud Shell**:
 

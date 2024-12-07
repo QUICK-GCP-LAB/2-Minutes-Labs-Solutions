@@ -93,7 +93,50 @@ GROUP BY
   product_id
 "
 
-# Step 9: Create a forecasting model
+# Step 9: Fetch top 10 users by average sale price
+echo "${CYAN}Fetching top 10 users by average sale price...${RESET}"
+bq query --use_legacy_sql=false '
+SELECT 
+    u.id AS user_id, 
+    u.first_name, 
+    u.last_name, 
+    AVG(oi.sale_price) AS avg_sale_price
+FROM 
+    `bigquery-public-data.thelook_ecommerce.users` AS u
+JOIN 
+    `bigquery-public-data.thelook_ecommerce.order_items` AS oi
+ON 
+    u.id = oi.user_id
+GROUP BY 
+    u.id, u.first_name, u.last_name
+ORDER BY 
+    avg_sale_price DESC
+LIMIT 10
+'
+
+# Step 10: Fetch total sales by date and product with product name
+echo "${CYAN}Fetching total sales by date and product with product name...${RESET}"
+bq query --use_legacy_sql=false '
+SELECT
+    DATE(order_items.created_at) AS order_date,
+    order_items.product_id,
+    products.name AS product_name,
+    ROUND(SUM(order_items.sale_price), 2) AS total_sales
+FROM
+    `bigquery-public-data.thelook_ecommerce.order_items` AS order_items
+LEFT JOIN
+    `bigquery-public-data.thelook_ecommerce.products` AS products
+ON
+    order_items.product_id = products.id
+GROUP BY
+    order_date,
+    order_items.product_id,
+    product_name
+ORDER BY
+    total_sales DESC
+'
+
+# Step 11: Create a forecasting model
 echo "${CYAN}Creating sales forecasting model...${RESET}"
 bq query --use_legacy_sql=false \
 "
@@ -113,7 +156,7 @@ ON t1.product_id = t2.id
 GROUP BY 2, 3;
 "
 
-# Step 10: Use the forecasting model
+# Step 12: Use the forecasting model
 echo "${CYAN}Running ML.FORECAST query to use the forecasting model...${RESET}"
 bq query --use_legacy_sql=false "
 SELECT
