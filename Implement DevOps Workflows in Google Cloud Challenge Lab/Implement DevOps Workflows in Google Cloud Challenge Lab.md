@@ -1,26 +1,47 @@
 # Implement DevOps Workflows in Google Cloud: Challenge Lab || [GSP330](https://www.cloudskillsboost.google/focuses/13287?parent=catalog) ||
 
-## Solution [here](https://youtu.be/huXZsX_Yy_Q)
+## 💡 **Solution** [Click Here]()  
 
-### Run the following Commands in CloudShell
+### 📋 **Prerequisites**  
+
+* If you do not already have a **GitHub** account, you will need to create a [GitHub account](https://github.com/signup)
+
+### 🔐 **Recommendations**  
+
+* Use an existing **GitHub** account if you have one. **GitHub** is more likely to block a new account as spam.
+
+* Configure [two-factor authentication](https://docs.github.com/en/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication) on your GitHub account to reduce the chances of your account being marked as spam.
+
+## 🖥️ **Steps to Execute in Cloud Shell**  
+
+### Step 1: Download and Run Script Part 1
 
 ```
-export ZONE=
-```
-```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Implement%20DevOps%20Workflows%20in%20Google%20Cloud%20Challenge%20Lab/gsp330.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Implement%20DevOps%20Workflows%20in%20Google%20Cloud%20Challenge%20Lab/gsp330-1.sh
 
-sudo chmod +x gsp330.sh
+sudo chmod +x gsp330-1.sh
 
-./gsp330.sh
+./gsp330-1.sh
+```
+
+### Step 2: Download and Run Script Part 2
+
+```
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Implement%20DevOps%20Workflows%20in%20Google%20Cloud%20Challenge%20Lab/-2.sh
+
+sudo chmod +x gsp330-2.sh
+
+./gsp330-2.sh
 ```
 
 ### Congratulations 🎉 for Completing the Lab !
 
-##### *You Have Successfully Demonstrated Your Skills And Determination.*
+##### *Your dedication and hard work are truly commendable—great job!*
 
-#### *Well done!*
+#### *Keep honing your skills—this is just the beginning of your success!*
 
-#### Don't Forget to Join the [Telegram Channel](https://t.me/quickgcplab) & [Discussion group](https://t.me/quickgcplabchats)
+💬 **Stay Connected with the Community:**  
+- Join the **[Telegram Channel](https://t.me/quickgcplab)** 📱  
+- Participate in the **[Discussion Group](https://t.me/quickgcplabchats)** 💬
 
 # [QUICK GCP LAB](https://www.youtube.com/@quickgcplab)
