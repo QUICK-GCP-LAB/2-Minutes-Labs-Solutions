@@ -71,7 +71,7 @@ git add .
 git commit -m "Awesome Lab" 
 git push -u origin dev
 
-sleep 70
+sleep 120
 
 # Step 4: Switch to the 'master' branch and expose development deployment
 echo "${BOLD}${MAGENTA}Switch to 'master' Branch and Expose Development Deployment${RESET}"
@@ -89,7 +89,7 @@ git add .
 git commit -m "Awesome Lab" 
 git push -u origin master
 
-sleep 70
+sleep 80
 
 # Step 5: Expose the production deployment
 echo "${BOLD}${BLUE}Expose Production Deployment${RESET}"
