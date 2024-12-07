@@ -1,6 +1,6 @@
 # Implement DevOps Workflows in Google Cloud: Challenge Lab || [GSP330](https://www.cloudskillsboost.google/focuses/13287?parent=catalog) ||
 
-## 💡 **Solution** [Click Here]()  
+## 💡 **Solution** [here]()  
 
 ### 📋 **Prerequisites**  
 
@@ -35,7 +35,7 @@ sudo chmod +x gsp330-1.sh
 | **Build Configuration File** | cloudbuild.yaml |  
 
 #### **Development Deployment Trigger:** 
- 
+
 | **Property**                 | **Value**        |  
 | :--------------------------: | :--------------: |  
 | **Name**                     | sample-app-dev-deploy |  
