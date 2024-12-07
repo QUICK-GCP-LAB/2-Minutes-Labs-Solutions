@@ -10,7 +10,7 @@
 
 * Use an existing **GitHub** account if you have one. **GitHub** is more likely to block a new account as spam.
 
-* Configure [two-factor authentication](https://docs.github.com/en/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication) on your GitHub account to reduce the chances of your account being marked as spam.
+* Configure [two-factor authentication](https://docs.github.com/en/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication) on your **GitHub account** to reduce the chances of your account being marked as **spam**.
 
 ## 🖥️ **Steps to Execute in Cloud Shell**  
 
