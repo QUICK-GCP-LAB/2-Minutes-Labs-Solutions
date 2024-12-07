@@ -24,6 +24,24 @@ sudo chmod +x gsp330-1.sh
 ./gsp330-1.sh
 ```
 
+### 🛠️ **Cloud Build Trigger Configuration**  
+
+#### **Production Deployment Trigger:** 
+
+| **Property**                 | **Value**        |  
+| :--------------------------: | :--------------: |  
+| **Name**                     | sample-app-prod-deploy |  
+| **Branch Pattern**           | ^master$       |  
+| **Build Configuration File** | cloudbuild.yaml |  
+
+#### **Development Deployment Trigger:** 
+ 
+| **Property**                 | **Value**        |  
+| :--------------------------: | :--------------: |  
+| **Name**                     | sample-app-dev-deploy |  
+| **Branch Pattern**           | ^dev$          |  
+| **Build Configuration File** | cloudbuild-dev.yaml |  
+
 ### Step 2: Download and Run Script Part 2
 
 ```
