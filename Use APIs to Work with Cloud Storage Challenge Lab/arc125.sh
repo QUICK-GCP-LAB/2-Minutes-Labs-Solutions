@@ -37,7 +37,7 @@ RANDOM_BG_COLOR=${BG_COLORS[$RANDOM % ${#BG_COLORS[@]}]}
 echo "${RANDOM_BG_COLOR}${RANDOM_TEXT_COLOR}${BOLD}Starting Execution${RESET}"
 
 # Step 1: Create bucket1.json
-echo "${RED}Creating bucket1.json...${RESET}"
+echo "${BOLD}${RED}Creating bucket1.json...${RESET}"
 cat > bucket1.json <<EOF
 {  
    "name": "$DEVSHELL_PROJECT_ID-bucket-1",
@@ -47,11 +47,11 @@ cat > bucket1.json <<EOF
 EOF
 
 # Step 2: Create bucket1
-echo "${GREEN}Creating bucket1...${RESET}"
+echo "${BOLD}${GREEN}Creating bucket1...${RESET}"
 curl -X POST -H "Authorization: Bearer $(gcloud auth print-access-token)" -H "Content-Type: application/json" --data-binary @bucket1.json "https://storage.googleapis.com/storage/v1/b?project=$DEVSHELL_PROJECT_ID"
 
 # Step 3: Create bucket2.json
-echo "${YELLOW}Creating bucket2.json...${RESET}"
+echo "${BOLD}${YELLOW}Creating bucket2.json...${RESET}"
 cat > bucket2.json <<EOF
 {  
    "name": "$DEVSHELL_PROJECT_ID-bucket-2",
@@ -61,23 +61,23 @@ cat > bucket2.json <<EOF
 EOF
 
 # Step 4: Create bucket2
-echo "${BLUE}Creating bucket2...${RESET}"
+echo "${BOLD}${BLUE}Creating bucket2...${RESET}"
 curl -X POST -H "Authorization: Bearer $(gcloud auth print-access-token)" -H "Content-Type: application/json" --data-binary @bucket2.json "https://storage.googleapis.com/storage/v1/b?project=$DEVSHELL_PROJECT_ID"
 
 # Step 5: Download the image file
-echo "${MAGENTA}Downloading the image file...${RESET}"
+echo "${BOLD}${MAGENTA}Downloading the image file...${RESET}"
 curl -LO https://raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Use%20APIs%20to%20Work%20with%20Cloud%20Storage%20Challenge%20Lab/world.jpeg
 
 # Step 6: Upload image file to bucket1
-echo "${CYAN}Uploading the image file to bucket1...${RESET}"
+echo "${BOLD}${CYAN}Uploading the image file to bucket1...${RESET}"
 curl -X POST -H "Authorization: Bearer $(gcloud auth print-access-token)" -H "Content-Type: image/jpeg" --data-binary @world.jpeg "https://storage.googleapis.com/upload/storage/v1/b/$DEVSHELL_PROJECT_ID-bucket-1/o?uploadType=media&name=world.jpeg"
 
 # Step 7: Copy the image from bucket1 to bucket2
-echo "${RED}Copying the image from bucket1 to bucket2...${RESET}"
+echo "${BOLD}${RED}Copying the image from bucket1 to bucket2...${RESET}"
 curl -X POST -H "Authorization: Bearer $(gcloud auth print-access-token)" -H "Content-Type: application/json" --data '{"destination": "$DEVSHELL_PROJECT_ID-bucket-2"}' "https://storage.googleapis.com/storage/v1/b/$DEVSHELL_PROJECT_ID-bucket-1/o/world.jpeg/copyTo/b/$DEVSHELL_PROJECT_ID-bucket-2/o/world.jpeg"
 
 # Step 8: Set public access for the image
-echo "${GREEN}Setting public access for the image...${RESET}"
+echo "${BOLD}${GREEN}Setting public access for the image...${RESET}"
 cat > public_access.json <<EOF
 {
   "entity": "allUsers",
@@ -89,11 +89,11 @@ EOF
 curl -X POST --data-binary @public_access.json -H "Authorization: Bearer $(gcloud auth print-access-token)" -H "Content-Type: application/json" "https://storage.googleapis.com/storage/v1/b/$DEVSHELL_PROJECT_ID-bucket-1/o/world.jpeg/acl"
 
 # Step 9: Delete the image from bucket1
-echo "${YELLOW}Deleting the image from bucket1...${RESET}"
+echo "${BOLD}${YELLOW}Deleting the image from bucket1...${RESET}"
 curl -X DELETE -H "Authorization: Bearer $(gcloud auth print-access-token)" "https://storage.googleapis.com/storage/v1/b/$DEVSHELL_PROJECT_ID-bucket-1/o/world.jpeg"
 
 # Step 10: Delete bucket1
-echo "${BLUE}Deleting bucket1...${RESET}"
+echo "${BOLD}${BLUE}Deleting bucket1...${RESET}"
 curl -X DELETE -H "Authorization: Bearer $(gcloud auth print-access-token)" "https://storage.googleapis.com/storage/v1/b/$DEVSHELL_PROJECT_ID-bucket-1"
 
 echo
