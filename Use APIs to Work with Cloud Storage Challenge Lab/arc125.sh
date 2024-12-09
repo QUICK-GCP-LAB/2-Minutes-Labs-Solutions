@@ -35,7 +35,7 @@ RANDOM_BG_COLOR=${BG_COLORS[$RANDOM % ${#BG_COLORS[@]}]}
 # Function to prompt user to check their progress
 function check_progress {
     while true; do
-        echo "${BOLD}${YELLOW}Have you checked your progress up to Task 4? (Y/N): ${RESET}"
+        echo -n "${BOLD}${YELLOW}Have you checked your progress up to Task 4? (Y/N): ${RESET}"
         read -r user_input
         if [[ "$user_input" == "Y" || "$user_input" == "y" ]]; then
             echo "${BOLD}${GREEN}Great! Proceeding to the next steps...${RESET}"
@@ -104,11 +104,13 @@ EOF
 
 curl -X POST --data-binary @public_access.json -H "Authorization: Bearer $(gcloud auth print-access-token)" -H "Content-Type: application/json" "https://storage.googleapis.com/storage/v1/b/$DEVSHELL_PROJECT_ID-bucket-1/o/world.jpeg/acl"
 
+echo
+
 # Call function to check progress before proceeding
 check_progress
 
 # Step 9: Delete the image from bucket1
-echo "${BOLD}${YELLOW}Deleting the image from bucket1...${RESET}"
+echo "${BOLD}${CYAN}Deleting the image from bucket1...${RESET}"
 curl -X DELETE -H "Authorization: Bearer $(gcloud auth print-access-token)" "https://storage.googleapis.com/storage/v1/b/$DEVSHELL_PROJECT_ID-bucket-1/o/world.jpeg"
 
 # Step 10: Delete bucket1
