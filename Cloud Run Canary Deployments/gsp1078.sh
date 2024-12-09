@@ -74,8 +74,8 @@ git config --global user.name "quickgcplab"
 
 # Step 5: Clone the repository
 echo "${BOLD}${MAGENTA}Cloning the software-delivery-workshop repository...${RESET}"
-git clone https://github.com/GoogleCloudPlatform/software-delivery-workshop --branch cloudrun-progression-csr cloudrun-progression
-cd cloudrun-progression/labs/cloudrun-progression
+git clone https://github.com/GoogleCloudPlatform/training-data-analyst
+cd training-data-analyst/self-paced-labs/cloud-run/canary
 rm -rf ../../.git
 
 # Step 6: Update configuration files with region
