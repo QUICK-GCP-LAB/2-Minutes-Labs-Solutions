@@ -78,13 +78,19 @@ git clone https://github.com/GoogleCloudPlatform/software-delivery-workshop --br
 cd cloudrun-progression/labs/cloudrun-progression
 rm -rf ../../.git
 
-# Step 6: Update configuration files with project details
+# Step 6: Update configuration files with region
+echo "${BOLD}${CYAN}Updating configuration files with region...${RESET}"
+sed -i "s/us-central1/$REGION/g" branch-cloudbuild.yaml
+sed -i "s/us-central1/$REGION/g" master-cloudbuild.yaml
+sed -i "s/us-central1/$REGION/g" tag-cloudbuild.yaml
+
+# Step 7: Update configuration files with project details
 echo "${BOLD}${RED}Updating configuration files with project details...${RESET}"
 sed "s/PROJECT/${PROJECT_ID}/g" branch-trigger.json-tmpl > branch-trigger.json
 sed "s/PROJECT/${PROJECT_ID}/g" master-trigger.json-tmpl > master-trigger.json
 sed "s/PROJECT/${PROJECT_ID}/g" tag-trigger.json-tmpl > tag-trigger.json
 
-# Step 7: Initialize and push the source repository
+# Step 8: Initialize and push the source repository
 echo "${BOLD}${GREEN}Initializing and pushing source repository...${RESET}"
 gcloud source repos create cloudrun-progression
 git init
@@ -96,7 +102,7 @@ git push gcp master
 
 sleep 30
 
-# Step 8: Build and deploy Cloud Run service
+# Step 9: Build and deploy Cloud Run service
 echo "${BOLD}${BLUE}Building and deploying Cloud Run service...${RESET}"
 gcloud builds submit --tag gcr.io/$PROJECT_ID/hello-cloudrun
 gcloud run deploy hello-cloudrun \
@@ -105,7 +111,7 @@ gcloud run deploy hello-cloudrun \
 --region $REGION \
 --tag=prod -q
 
-# Step 9: Retrieve and test production URL
+# Step 10: Retrieve and test production URL
 echo "${BOLD}${CYAN}Retrieving and testing production URL...${RESET}"
 PROD_URL=$(gcloud run services describe hello-cloudrun --platform managed --region $REGION --format=json | jq --raw-output ".status.url")
 echo $PROD_URL
@@ -113,15 +119,15 @@ curl -H "Authorization: Bearer $(gcloud auth print-identity-token)" $PROD_URL
 
 sleep 30
 
-# Step 10: Create a branch trigger for new-feature-1
+# Step 11: Create a branch trigger for new-feature-1
 echo "${BOLD}${GREEN}Creating branch trigger for new-feature-1...${RESET}"
 gcloud beta builds triggers create cloud-source-repositories --trigger-config branch-trigger.json
 
-# Step 11: Switch to a new branch for the feature
+# Step 12: Switch to a new branch for the feature
 echo "${BOLD}${CYAN}Creating and switching to new branch: new-feature-1...${RESET}"
 git checkout -b new-feature-1
 
-# Step 12: Update the application
+# Step 13: Update the application
 echo "${BOLD}${YELLOW}Updating app.py with new feature implementation...${RESET}"
 cat > app.py <<EOF
 #!/usr/bin/python
@@ -154,26 +160,26 @@ if __name__ == "__main__":
 
 EOF
 
-# Step 13: Commit and push changes
+# Step 14: Commit and push changes
 echo "${BOLD}${BLUE}Adding, committing, and pushing changes to branch: new-feature-1...${RESET}"
 git add . && git commit -m "updated" && git push gcp new-feature-1
 
-# Step 14: Fetch the URL for the branch version
+# Step 15: Fetch the URL for the branch version
 echo "${BOLD}${CYAN}Fetching URL for new-feature-1 deployment...${RESET}"
 BRANCH_URL=$(gcloud run services describe hello-cloudrun --platform managed --region $REGION --format=json | jq --raw-output ".status.traffic[] | select (.tag==\"new-feature-1\")|.url")
 echo $BRANCH_URL
 
-# Step 15: Test the branch deployment
+# Step 16: Test the branch deployment
 echo "${BOLD}${MAGENTA}Testing new-feature-1 deployment...${RESET}"
 curl -H "Authorization: Bearer $(gcloud auth print-identity-token)" $BRANCH_URL
 
 sleep 30 # Wait for changes to propagate
 
-# Step 16: Create a master trigger for merging
+# Step 17: Create a master trigger for merging
 echo "${BOLD}${GREEN}Creating master trigger for merging...${RESET}"
 gcloud beta builds triggers create cloud-source-repositories --trigger-config master-trigger.json
 
-# Step 17: Merge new-feature-1 into master
+# Step 18: Merge new-feature-1 into master
 echo "${BOLD}${CYAN}Merging new-feature-1 branch into master...${RESET}"
 git checkout master
 git merge new-feature-1
@@ -181,26 +187,26 @@ git push gcp master
 
 sleep 30 # Wait for changes to deploy
 
-# Step 18: Fetch the Canary URL
+# Step 19: Fetch the Canary URL
 echo "${BOLD}${YELLOW}Fetching Canary URL for validation...${RESET}"
 CANARY_URL=$(gcloud run services describe hello-cloudrun --platform managed --region $REGION --format=json | jq --raw-output ".status.traffic[] | select (.tag==\"canary\")|.url")
 echo $CANARY_URL
 
-# Step 19: Test the Canary deployment
+# Step 20: Test the Canary deployment
 echo "${BOLD}${BLUE}Testing Canary deployment...${RESET}"
 curl -H "Authorization: Bearer $(gcloud auth print-identity-token)" $CANARY_URL
 
-# Step 20: Fetch the live service URL
+# Step 21: Fetch the live service URL
 echo "${BOLD}${CYAN}Fetching live service URL...${RESET}"
 LIVE_URL=$(gcloud run services describe hello-cloudrun --platform managed --region $REGION --format=json | jq --raw-output ".status.url")
 
-# Step 21: Test live service with multiple requests
+# Step 22: Test live service with multiple requests
 echo "${BOLD}${YELLOW}Testing live service deployment...${RESET}"
 for i in {0..20};do
 curl -H "Authorization: Bearer $(gcloud auth print-identity-token)" $LIVE_URL; echo \n
 done
 
-# Step 22: Create a trigger for tags and tag the repository
+# Step 23: Create a trigger for tags and tag the repository
 echo "${BOLD}${GREEN}Creating tag trigger and tagging repository with v1.1...${RESET}"
 gcloud beta builds triggers create cloud-source-repositories --trigger-config tag-trigger.json
 
