@@ -118,6 +118,7 @@ echo $PROD_URL
 curl -H "Authorization: Bearer $(gcloud auth print-identity-token)" $PROD_URL
 
 sleep 30
+echo
 
 # Step 11: Create a branch trigger for new-feature-1
 echo "${BOLD}${GREEN}Creating branch trigger for new-feature-1...${RESET}"
