@@ -35,14 +35,19 @@ RANDOM_BG_COLOR=${BG_COLORS[$RANDOM % ${#BG_COLORS[@]}]}
 # Function to prompt user to check their progress
 function check_progress {
     while true; do
+        echo
         echo -n "${BOLD}${YELLOW}Have you checked your progress up to Task 4? (Y/N): ${RESET}"
         read -r user_input
         if [[ "$user_input" == "Y" || "$user_input" == "y" ]]; then
+            echo
             echo "${BOLD}${GREEN}Great! Proceeding to the next steps...${RESET}"
+            echo
             break
         elif [[ "$user_input" == "N" || "$user_input" == "n" ]]; then
+            echo
             echo "${BOLD}${RED}Please check your progress up to Task 4 and then press Y to continue.${RESET}"
         else
+            echo
             echo "${BOLD}${MAGENTA}Invalid input. Please enter Y or N.${RESET}"
         fi
     done
@@ -103,8 +108,6 @@ EOF
 
 
 curl -X POST --data-binary @public_access.json -H "Authorization: Bearer $(gcloud auth print-access-token)" -H "Content-Type: application/json" "https://storage.googleapis.com/storage/v1/b/$DEVSHELL_PROJECT_ID-bucket-1/o/world.jpeg/acl"
-
-echo
 
 # Call function to check progress before proceeding
 check_progress
