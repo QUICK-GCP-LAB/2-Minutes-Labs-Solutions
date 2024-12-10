@@ -72,7 +72,7 @@ gcloud compute addresses describe example-ip --format="get(address)" --global
 
 # Step 9: Create a backend bucket
 echo "${YELLOW}Creating a backend bucket...${RESET}"
-gcloud compute backend-buckets create cp-backend-bucket --gcs-bucket-name=$BUCKET_NAME
+gcloud compute backend-buckets create cp-backend-bucket --gcs-bucket-name=$PROJECT_ID-new
 
 # Step 10: Create a URL map
 echo "${BLUE}Creating a URL map...${RESET}"
