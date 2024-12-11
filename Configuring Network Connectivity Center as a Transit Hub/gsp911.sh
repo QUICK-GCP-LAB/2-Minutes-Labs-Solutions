@@ -37,7 +37,7 @@ RANDOM_BG_COLOR=${BG_COLORS[$RANDOM % ${#BG_COLORS[@]}]}
 echo "${RANDOM_BG_COLOR}${RANDOM_TEXT_COLOR}${BOLD}Starting Execution${RESET}"
 
 # Step 1: Enable required GCP service
-echo "${BLUE}${BOLD}Enabling networkconnectivity.googleapis.com service...${RESET}"
+echo "${MAGENTA}${BOLD}Enabling networkconnectivity.googleapis.com service...${RESET}"
 gcloud services enable networkconnectivity.googleapis.com
 
 # Step 2: Set project ID
