@@ -427,7 +427,7 @@ gcloud compute instances create vpc-b-vm-1 \
     --reservation-affinity=any
 
 # Final URL for Firewall Rule for VPC-A
-echo "${MAGENTA}${BOLD}Click here to manage the Firewall Rule for VPC-A:${RESET}" "https://console.cloud.google.com/net-security/firewall-manager/firewall-policies/details/fw-a?project=$PROJECT_ID"
+echo "${CYAN}${BOLD}Click here to manage the Firewall Rule for VPC-A:${RESET}" "https://console.cloud.google.com/net-security/firewall-manager/firewall-policies/details/fw-a?project=$PROJECT_ID"
 echo
 echo "${MAGENTA}${BOLD}Click here to manage the Firewall Rule for VPC-B:${RESET}" "https://console.cloud.google.com/net-security/firewall-manager/firewall-policies/details/fw-b?project=$PROJECT_ID"
 echo
