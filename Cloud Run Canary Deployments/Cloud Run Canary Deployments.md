@@ -1,6 +1,6 @@
 # Cloud Run Canary Deployments || [GSP1078](https://www.cloudskillsboost.google/focuses/52827?parent=catalog) ||
 
-## 💡 Solution [here]()
+## 💡 Solution [here](https://youtu.be/gOJzyOB9RZA)
 
 ### Execute These Commands in CloudShell
 
