@@ -32,8 +32,6 @@ cat > prepare_disk.sh <<'EOF_END'
 
 gcloud auth login --quiet
 
-gcloud config configurations activate default
-
 export PROJECT_ID=$(gcloud config get-value project)
 
 export ZONE=$(gcloud compute project-info describe \
