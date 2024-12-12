@@ -32,8 +32,6 @@ cat > prepare_disk.sh <<'EOF_END'
 
 gcloud auth login --quiet
 
-gcloud config configurations activate default
-
 export PROJECT_ID=$(gcloud config get-value project)
 
 export ZONE=$(gcloud compute project-info describe \
@@ -49,7 +47,7 @@ gcloud projects add-iam-policy-binding $PROJECT_ID --member serviceAccount:$SA -
 
 gcloud projects add-iam-policy-binding $PROJECT_ID --member serviceAccount:$SA --role=roles/compute.instanceAdmin
 
-gcloud compute instances create vm-2 --machine-type e2-micro --service-account $SA --zone $ZONE --scopes "https://www.googleapis.com/auth/compute"
+gcloud compute instances create vm-2 --zone $ZONE --machine-type e2-micro --service-account $SA --scopes "https://www.googleapis.com/auth/compute"
 
 cat > role-definition.yaml <<EOF
 title: "My Company Admin"
