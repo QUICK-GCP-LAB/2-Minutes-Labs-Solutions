@@ -1,23 +1,23 @@
 # Cloud Operations for GKE || [GSP497](https://www.cloudskillsboost.google/focuses/5157?parent=catalog) ||
 
-## Solution [here]()
+## 💡 **Solution [here]()**
 
-### Run the following Commands in CloudShell
+### 🚀 **Execute the following commands in Cloud Shell:**
 
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Analyze%20Images%20with%20the%20Cloud%20Vision%20API%20Challenge%20Lab/arc122.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Cloud%20Operations%20for%20GKE/gsp497.sh
 
-sudo chmod +x arc122.sh
+sudo chmod +x gsp497.sh
 
-./arc122.sh
+./gsp497.sh
 ```
 
-### Congratulations 🎉 for completing the Lab !
+### 🎊 **Lab Completed! Congratulations!**  
 
-##### *You Have Successfully Demonstrated Your Skills And Determination.*
+##### *Your efforts have paid off, and you’ve nailed it!*  
 
-#### *Well done!*
+#### *Stay motivated—exciting opportunities are ahead! ✨*  
 
-#### Don't Forget to Join the [Telegram Channel](https://t.me/quickgcplab) & [Discussion group](https://t.me/quickgcplabchats)
+#### 🔗 **Connect with us for more insights:** [Telegram Channel](https://t.me/quickgcplab) & [Discussion group](https://t.me/quickgcplabchats)
 
 # [QUICK GCP LAB](https://www.youtube.com/@quickgcplab)
