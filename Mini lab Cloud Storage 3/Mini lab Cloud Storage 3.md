@@ -1,4 +1,4 @@
-# mini lab : Cloud Storage : 2
+# mini lab : Cloud Storage : 3
 
 ## 💡 Solution [here](https://youtu.be/FPKBuGit-74)
 
