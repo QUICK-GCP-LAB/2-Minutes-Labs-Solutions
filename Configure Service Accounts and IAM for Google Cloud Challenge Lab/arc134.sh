@@ -39,6 +39,8 @@ export ZONE=$(gcloud compute project-info describe \
 
 gcloud iam service-accounts create devops --display-name devops
 
+sleep 45
+
 gcloud iam service-accounts list  --filter "displayName=devops"
 
 SA=$(gcloud iam service-accounts list --format="value(email)" --filter "displayName=devops")
