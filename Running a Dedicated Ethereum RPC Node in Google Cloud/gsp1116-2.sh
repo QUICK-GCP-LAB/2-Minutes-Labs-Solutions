@@ -40,7 +40,7 @@ function check_progress {
         read -r user_input
         if [[ "$user_input" == "Y" || "$user_input" == "y" ]]; then
             echo
-            echo "${BOLD}${GREEN}Great! Proceeding to the next steps...${RESET}"
+            echo "${BOLD}${CYAN}Great! Proceeding to the next steps...${RESET}"
             echo
             break
         elif [[ "$user_input" == "N" || "$user_input" == "n" ]]; then
