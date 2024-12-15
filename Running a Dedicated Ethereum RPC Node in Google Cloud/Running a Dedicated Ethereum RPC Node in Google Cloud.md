@@ -1,6 +1,6 @@
 # Running a Dedicated Ethereum RPC Node in Google Cloud || [GSP1116](https://www.cloudskillsboost.google/focuses/61475?parent=catalog) ||
 
-## 💡 **Solution [here]()** 
+## 💡 **Solution [here](https://youtu.be/AfdqhJdgZI0)** 
 
 ####  Download and Run the Initial Script 
 
