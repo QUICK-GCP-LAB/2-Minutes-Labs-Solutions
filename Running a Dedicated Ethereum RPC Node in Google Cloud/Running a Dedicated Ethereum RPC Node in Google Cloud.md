@@ -23,6 +23,8 @@ cd ~
 sudo apt update -y
 sudo apt-get update -y
 sudo apt install -y dstat jq
+```
+```
 curl -sSO https://dl.google.com/cloudagents/add-google-cloud-ops-agent-repo.sh
 sudo bash add-google-cloud-ops-agent-repo.sh --also-install
 rm add-google-cloud-ops-agent-repo.sh
@@ -38,7 +40,6 @@ mkdir /mnt/disks/chaindata-disk/ethereum/lighthouse/logs
 
 sudo add-apt-repository -y ppa:ethereum/ethereum
 sudo apt-get -y install Ethereum
-
 geth version
 
 RELEASE_URL="https://api.github.com/repos/sigp/lighthouse/releases/latest"
@@ -128,7 +129,7 @@ EOF
 
 sudo systemctl stop google-cloud-ops-agent
 sudo systemctl start google-cloud-ops-agent
-
+sudo systemctl status google-cloud-ops-agent
 sudo journalctl -xe | grep "google_cloud_ops_agent_engine"
 ```
 ```
