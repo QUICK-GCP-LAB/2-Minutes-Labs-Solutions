@@ -129,7 +129,7 @@ EOF
 
 sudo systemctl stop google-cloud-ops-agent
 sudo systemctl start google-cloud-ops-agent
-sudo systemctl status google-cloud-ops-agent
+
 sudo journalctl -xe | grep "google_cloud_ops_agent_engine"
 ```
 ```
