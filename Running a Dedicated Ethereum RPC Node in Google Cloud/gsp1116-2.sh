@@ -162,7 +162,7 @@ EOF
 # Call function to check progress before proceeding
 check_progress
 
-echo "${BOLD}${GREEN}if you get output${RESET}" "${BOLD}${RED}Errors${RESET}" "${BOLD}${GREEN}tehen ignore it${RESET}"
+echo "${BOLD}${GREEN}if you get output${RESET}" "${BOLD}${RED}Errors${RESET}" "${BOLD}${GREEN}then ignore it${RESET}"
 
 gcloud compute instances delete eth-mainnet-rpc-node --zone $ZONE --quiet
 
