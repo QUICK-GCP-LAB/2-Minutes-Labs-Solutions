@@ -64,9 +64,8 @@ cd python-helper
 wget https://storage.googleapis.com/cloud-training/OCBL373/requirements.txt
 wget https://storage.googleapis.com/cloud-training/OCBL373/snippets.py
 
-virtualenv env
-source env/bin/activate
 pip install -r requirements.txt
+pip install setuptools
 
 python snippets.py banking-ops-instance --database-id  banking-ops-db insert_data
 
