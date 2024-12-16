@@ -166,9 +166,6 @@ echo "${BOLD}${GREEN}if you get output${RESET}" "${BOLD}${RED}Errors${RESET}" "$
 
 gcloud compute instances delete eth-mainnet-rpc-node --zone $ZONE --quiet
 
-gcloud iam service-accounts create eth-rpc-node-sa \
-  --display-name "eth-rpc-node-sa"
-
 gcloud projects add-iam-policy-binding $DEVSHELL_PROJECT_ID \
     --member="serviceAccount:eth-rpc-node-sa@$DEVSHELL_PROJECT_ID.iam.gserviceaccount.com" \
     --role="roles/compute.osLogin"
