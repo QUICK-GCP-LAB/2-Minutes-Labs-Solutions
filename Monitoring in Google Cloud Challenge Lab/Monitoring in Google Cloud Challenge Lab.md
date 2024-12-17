@@ -12,7 +12,7 @@ sudo chmod +x arc115.sh
 ./arc115.sh
 ```
 
-### NOW FOLLOW [VIDEO'S](https://youtu.be/bJmehGefeek) INSTRUCTIONS.
+### NOW FOLLOW [VIDEO'S](https://youtu.be/cZJn_C_Ry4w) INSTRUCTIONS.
 
 * Go to `Create Uptime Check` from [here](https://console.cloud.google.com/monitoring/uptime/create?)
 
