@@ -26,7 +26,7 @@ sudo chmod +x arc115.sh
 
 * Go to `Create log-based metric` from [here](https://console.cloud.google.com/logs/metrics/edit?)
 
-1. * For Log-based metric name: enter `quickgcplab`
+1. For Log-based metric name: enter `quickgcplab`
 
 2. Paste The Following in `Build filter` & Replace PROJECT_ID
 ```
