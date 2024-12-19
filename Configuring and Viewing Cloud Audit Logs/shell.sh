@@ -32,92 +32,167 @@ BG_COLORS=($BG_RED $BG_GREEN $BG_YELLOW $BG_BLUE $BG_MAGENTA $BG_CYAN)
 RANDOM_TEXT_COLOR=${TEXT_COLORS[$RANDOM % ${#TEXT_COLORS[@]}]}
 RANDOM_BG_COLOR=${BG_COLORS[$RANDOM % ${#BG_COLORS[@]}]}
 
+# Function to prompt user to check their progress
+function check_progress {
+    while true; do
+        echo
+        echo -n "${BOLD}${YELLOW}Have you created sink AuditLogsExport? (Y/N): ${RESET}"
+        read -r user_input
+        if [[ "$user_input" == "Y" || "$user_input" == "y" ]]; then
+            echo
+            echo "${BOLD}${CYAN}Great! Proceeding to the next steps...${RESET}"
+            echo
+            break
+        elif [[ "$user_input" == "N" || "$user_input" == "n" ]]; then
+            echo
+            echo "${BOLD}${RED}Please check your progress up to Task 4 and then press Y to continue.${RESET}"
+        else
+            echo
+            echo "${BOLD}${MAGENTA}Invalid input. Please enter Y or N.${RESET}"
+        fi
+    done
+}
+
 #----------------------------------------------------start--------------------------------------------------#
 
 echo "${RANDOM_BG_COLOR}${RANDOM_TEXT_COLOR}${BOLD}Starting Execution${RESET}"
 
-# Step 1: Set the default zone from project metadata
-echo -e "${GREEN}${BOLD}Step 2: Setting the default zone from project metadata...${RESET}"
+# Step 1: Setting the default zone
+echo -e "${CYAN}${BOLD}Step 1: Setting the default zone...${RESET}"
 export ZONE=$(gcloud compute project-info describe \
 --format="value(commonInstanceMetadata.items[google-compute-default-zone])")
 
-# Step 2: Fetching Project ID and Project Number
-echo -e "${YELLOW}${BOLD}Step 3: Fetching Project ID and Project Number...${RESET}"
-export PROJECT_ID=$(gcloud config get-value project)
+# Step 2: Exporting the current IAM policy
+echo -e "${MAGENTA}${BOLD}Step 2: Exporting the current IAM policy to policy.json...${RESET}"
+gcloud projects get-iam-policy $DEVSHELL_PROJECT_ID \
+--format=json >./policy.json
 
-export PROJECT_NUMBER=$(gcloud projects describe ${PROJECT_ID} \
-    --format="value(projectNumber)")
+# Step 3: Updating the IAM policy to enable audit logging
+echo -e "${BLUE}${BOLD}Step 3: Updating IAM policy to enable audit logging...${RESET}"
+jq '.auditConfigs = [
+  {
+    "service": "allServices",
+    "auditLogConfigs": [
+      { "logType": "ADMIN_READ" },
+      { "logType": "DATA_READ" },
+      { "logType": "DATA_WRITE" }
+    ]
+  }
+] | .' policy.json > updated_policy.json
 
-mkdir stackdriver-lab
-cd stackdriver-lab
+# Step 4: Applying the updated IAM policy
+echo -e "${GREEN}${BOLD}Step 4: Applying the updated IAM policy...${RESET}"
+gcloud projects set-iam-policy $DEVSHELL_PROJECT_ID \
+./updated_policy.json
 
-# Step 3: Download necessary files
-echo -e "${MAGENTA}${BOLD}Step 5: Downloading necessary files for the lab...${RESET}"
-curl -LO https://github.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/raw/refs/heads/main/Configuring%20and%20Using%20Cloud%20Logging%20and%20Cloud%20Monitoring/stackdriver-lab/activity.sh
-curl -LO https://github.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/raw/refs/heads/main/Configuring%20and%20Using%20Cloud%20Logging%20and%20Cloud%20Monitoring/stackdriver-lab/apache2.conf
-curl -LO https://github.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/raw/refs/heads/main/Configuring%20and%20Using%20Cloud%20Logging%20and%20Cloud%20Monitoring/stackdriver-lab/basic-ingress.yaml
-curl -LO https://github.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/raw/refs/heads/main/Configuring%20and%20Using%20Cloud%20Logging%20and%20Cloud%20Monitoring/stackdriver-lab/gke.sh
-curl -LO https://github.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/raw/refs/heads/main/Configuring%20and%20Using%20Cloud%20Logging%20and%20Cloud%20Monitoring/stackdriver-lab/linux_startup.sh
-curl -LO https://github.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/raw/refs/heads/main/Configuring%20and%20Using%20Cloud%20Logging%20and%20Cloud%20Monitoring/stackdriver-lab/pubsub.sh
-curl -LO https://github.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/raw/refs/heads/main/Configuring%20and%20Using%20Cloud%20Logging%20and%20Cloud%20Monitoring/stackdriver-lab/setup.sh
-curl -LO https://github.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/raw/refs/heads/main/Configuring%20and%20Using%20Cloud%20Logging%20and%20Cloud%20Monitoring/stackdriver-lab/sql.sh
-curl -LO https://github.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/raw/refs/heads/main/Configuring%20and%20Using%20Cloud%20Logging%20and%20Cloud%20Monitoring/stackdriver-lab/windows_startup.ps1
+# Step 5: Creating a BigQuery dataset for audit logs
+echo -e "${YELLOW}${BOLD}Step 5: Creating a BigQuery dataset named 'auditlogs_dataset'...${RESET}"
+bq --location=US mk --dataset $DEVSHELL_PROJECT_ID:auditlogs_dataset
 
-# Step 4: Update setup.sh with the current zone
-echo -e "${CYAN}${BOLD}Step 6: Updating 'setup.sh' with the current zone...${RESET}"
-sed -i "s/us-west1-b/$ZONE/g" setup.sh
+# Step 6: Log console instructions
+echo -e "${RED}${BOLD}Step 6: Visit the Logs Explorer in GCP Console...${RESET}"
+echo
+echo "Go to: https://console.cloud.google.com/logs/query"
+echo
+echo "Copy this filter: ""'logName = (\"projects/$DEVSHELL_PROJECT_ID/logs/cloudaudit.googleapis.com%2Factivity\")'"
+echo
+echo "SINK NAME: AuditLogsExport"
+echo
+# Call function to check progress before proceeding
+check_progress
 
-# Step 5: Make necessary scripts executable and run setup
-echo -e "${RED}${BOLD}Step 7: Making scripts executable and running 'setup.sh'...${RESET}"
-chmod +x setup.sh
-chmod +x gke.sh
-chmod +x pubsub.sh
-./setup.sh
+# Step 7: Setting up a Cloud Storage bucket
+echo -e "${BLUE}${BOLD}Step 7: Creating a Cloud Storage bucket and uploading a sample file...${RESET}"
+gsutil mb gs://$DEVSHELL_PROJECT_ID
+echo "this is a sample file" > sample.txt
+gsutil cp sample.txt gs://$DEVSHELL_PROJECT_ID
 
-# Step 6: Create a BigQuery dataset for logs
-echo -e "${GREEN}${BOLD}Step 8: Creating a BigQuery dataset named 'project_logs'...${RESET}"
-bq mk project_logs
+# Step 8: Creating a VPC network and VM instance
+echo -e "${MAGENTA}${BOLD}Step 8: Creating a VPC network and VM instance...${RESET}"
+gcloud compute networks create mynetwork --subnet-mode=auto
+gcloud compute instances create default-us-vm \
+--machine-type=e2-micro \
+--zone="$ZONE" --network=mynetwork
 
-# Step 7: Create logging sinks for VM and Load Balancer logs
-echo -e "${YELLOW}${BOLD}Step 9: Creating logging sinks for VM and Load Balancer logs...${RESET}"
-gcloud logging sinks create vm_logs \
-    bigquery.googleapis.com/projects/$DEVSHELL_PROJECT_ID/datasets/project_logs \
-    --log-filter='resource.type="gce_instance"'
+# Step 9: Deleting the bucket and capturing logs
+echo -e "${GREEN}${BOLD}Step 9: Deleting the bucket and capturing logs...${RESET}"
+gsutil rm -r gs://$DEVSHELL_PROJECT_ID
 
-gcloud logging sinks create load_bal_logs \
-    bigquery.googleapis.com/projects/$DEVSHELL_PROJECT_ID/datasets/project_logs \
-    --log-filter="resource.type=\"http_load_balancer\""
+gcloud logging read \
+"logName=projects/$DEVSHELL_PROJECT_ID/logs/cloudaudit.googleapis.com%2Factivity \
+AND protoPayload.serviceName=storage.googleapis.com \
+AND protoPayload.methodName=storage.buckets.delete"
 
-# Step 8: Add IAM policy for the service account
-echo -e "${BLUE}${BOLD}Step 10: Adding IAM policy for the service account...${RESET}"
-gcloud projects add-iam-policy-binding $DEVSHELL_PROJECT_ID \
-  --member=serviceAccount:service-$PROJECT_NUMBER@gcp-sa-logging.iam.gserviceaccount.com \
-  --role=roles/bigquery.dataEditor
+# Step 10: Creating and testing another bucket
+echo -e "${YELLOW}${BOLD}Step 10: Creating and testing another bucket...${RESET}"
+gsutil mb gs://$DEVSHELL_PROJECT_ID
+gsutil mb gs://$DEVSHELL_PROJECT_ID-test
+echo "this is another sample file" > sample2.txt
+gsutil cp sample.txt gs://$DEVSHELL_PROJECT_ID-test
 
-# Step 9: Pause for 15 seconds to allow setup to complete
-echo -e "${MAGENTA}${BOLD}Step 11: Pausing for 15 seconds...${RESET}"
-sleep 15
+# Step 11: Deleting the VM instance and logging
+echo -e "${RED}${BOLD}Step 11: Deleting the VM instance and logging...${RESET}"
+gcloud compute instances delete --zone="$ZONE" \
+--delete-disks=all default-us-vm --quiet
 
-# Step 10: Fetch the table ID from the BigQuery dataset
-echo -e "${CYAN}${BOLD}Step 12: Fetching the table ID from the 'project_logs' dataset...${RESET}"
-ID=$(bq ls --project_id $DEVSHELL_PROJECT_ID --dataset_id project_logs --format=json | jq -r '.[0].tableReference.tableId')
+# Step 12: Deleting the bucket and capturing logs
+echo -e "${GREEN}${BOLD}Step 9: Deleting the bucket and capturing logs...${RESET}"
+gsutil rm -r gs://$DEVSHELL_PROJECT_ID
+gsutil rm -r gs://$DEVSHELL_PROJECT_ID-test
 
-sleep 15
+# Step 13: Creating VM instance and capturing logs
+echo -e "${MAGENTA}${BOLD}Step 8: Creating a VPC network and VM instance...${RESET}"
+gcloud compute instances create default-us-vm \
+--zone="$ZONE" --network=mynetwork
+gcloud compute instances delete --zone="$ZONE" \
+--delete-disks=all default-us-vm --quiet
 
-# Step 11: Query logs from BigQuery
-echo -e "${RED}${BOLD}Step 13: Querying logs from BigQuery...${RESET}"
-bq query --use_legacy_sql=false \
-"
+# Step 14: BigQuery query for instance deletion logs
+echo -e "${CYAN}${BOLD}Step 12: Querying BigQuery for instance deletion logs...${RESET}"
+bq query --nouse_legacy_sql --project_id=$DEVSHELL_PROJECT_ID '
 SELECT
-  logName, resource.type, resource.labels.zone, resource.labels.project_id,
+  timestamp,
+  resource.labels.instance_id,
+  protopayload_auditlog.authenticationInfo.principalEmail,
+  protopayload_auditlog.resourceName,
+  protopayload_auditlog.methodName
 FROM
-  \`$DEVSHELL_PROJECT_ID.project_logs.$ID\`
-"
-# Step 12: Create a logging metric for 403 errors
-echo -e "${GREEN}${BOLD}Step 14: Creating a logging metric for 403 errors...${RESET}"
-gcloud logging metrics create 403s \
-    --description="Counts syslog entries with resource.type=gce_instance" \
-    --log-filter="resource.type=\"gce_instance\" AND logName=\"projects/$DEVSHELL_PROJECT_ID/logs/syslog\""
+  `auditlogs_dataset.cloudaudit_googleapis_com_activity_*`
+WHERE
+  PARSE_DATE("%Y%m%d", _TABLE_SUFFIX) BETWEEN
+  DATE_SUB(CURRENT_DATE(), INTERVAL 7 DAY) AND
+  CURRENT_DATE()
+  AND resource.type = "gce_instance"
+  AND operation.first IS TRUE
+  AND protopayload_auditlog.methodName = "v1.compute.instances.delete"
+ORDER BY
+  timestamp,
+  resource.labels.instance_id
+LIMIT
+  1000'
+
+# Step 15: BigQuery query for bucket deletion logs
+echo -e "${BLUE}${BOLD}Step 13: Querying BigQuery for bucket deletion logs...${RESET}"
+bq query --nouse_legacy_sql --project_id=$DEVSHELL_PROJECT_ID '
+SELECT
+  timestamp,
+  resource.labels.bucket_name,
+  protopayload_auditlog.authenticationInfo.principalEmail,
+  protopayload_auditlog.resourceName,
+  protopayload_auditlog.methodName
+FROM
+  `auditlogs_dataset.cloudaudit_googleapis_com_activity_*`
+WHERE
+  PARSE_DATE("%Y%m%d", _TABLE_SUFFIX) BETWEEN
+  DATE_SUB(CURRENT_DATE(), INTERVAL 7 DAY) AND
+  CURRENT_DATE()
+  AND resource.type = "gcs_bucket"
+  AND protopayload_auditlog.methodName = "storage.buckets.delete"
+ORDER BY
+  timestamp,
+  resource.labels.bucket_name
+LIMIT
+  1000'
 
 echo
 
