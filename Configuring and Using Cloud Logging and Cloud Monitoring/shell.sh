@@ -32,6 +32,28 @@ BG_COLORS=($BG_RED $BG_GREEN $BG_YELLOW $BG_BLUE $BG_MAGENTA $BG_CYAN)
 RANDOM_TEXT_COLOR=${TEXT_COLORS[$RANDOM % ${#TEXT_COLORS[@]}]}
 RANDOM_BG_COLOR=${BG_COLORS[$RANDOM % ${#BG_COLORS[@]}]}
 
+# Function to fetch the table ID and format it with the desired output pattern
+fetch_table_id() {
+    local project_id=$DEVSHELL_PROJECT_ID
+    local dataset_id="project_logs"
+
+    while true; do
+        # Fetch the table ID from BigQuery
+        local table_id=$(bq ls --project_id "$project_id" --dataset_id "$dataset_id" --format=json \
+            | jq -r '.[0].tableReference.tableId')
+
+        # Check if table_id is empty
+        if [[ -n "$table_id" ]]; then
+            # Format the output as desired
+            echo "$project_id.$dataset_id.${table_id}_*"
+            break
+        fi
+
+        echo "Waiting for table to be available..."
+        sleep 5
+    done
+}
+
 #----------------------------------------------------start--------------------------------------------------#
 
 echo "${RANDOM_BG_COLOR}${RANDOM_TEXT_COLOR}${BOLD}Starting Execution${RESET}"
@@ -100,7 +122,8 @@ sleep 30
 
 # Step 10: Fetch the table ID from the BigQuery dataset
 echo -e "${CYAN}${BOLD}Fetching the table ID from the 'project_logs' dataset...${RESET}"
-ID=$(bq ls --project_id $DEVSHELL_PROJECT_ID --dataset_id project_logs --format=json | jq -r '.[0].tableReference.tableId')
+# Call the function
+fetch_table_id
 
 sleep 15
 
