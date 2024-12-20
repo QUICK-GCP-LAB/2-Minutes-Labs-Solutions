@@ -94,7 +94,7 @@ echo -e "${RED}${BOLD}Visit the Logs Explorer in GCP Console...${RESET}"
 echo
 echo "Go to: https://console.cloud.google.com/logs/query"
 echo
-echo echo "Copy this filter: logName = (\"projects/$DEVSHELL_PROJECT_ID/logs/cloudaudit.googleapis.com%2Factivity\")"
+echo "Copy this filter: logName = (\"projects/$DEVSHELL_PROJECT_ID/logs/cloudaudit.googleapis.com%2Factivity\")"
 echo
 echo "SINK NAME: AuditLogsExport"
 echo
