@@ -6,6 +6,8 @@
 gcloud iam service-accounts create linux-servers --display-name linux-servers
 gcloud iam service-accounts create windows-servers --display-name windows-servers
 
+sleep 15
+
 # assign roles
 gcloud projects add-iam-policy-binding $DEVSHELL_PROJECT_ID --member=serviceAccount:linux-servers@$DEVSHELL_PROJECT_ID.iam.gserviceaccount.com --role='roles/logging.logWriter'
 gcloud projects add-iam-policy-binding $DEVSHELL_PROJECT_ID --member=serviceAccount:linux-servers@$DEVSHELL_PROJECT_ID.iam.gserviceaccount.com --role='roles/monitoring.metricWriter'
