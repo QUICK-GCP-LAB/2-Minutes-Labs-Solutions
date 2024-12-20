@@ -45,7 +45,7 @@ fetch_table_id() {
         # Check if table_id is empty
         if [[ -n "$table_id" ]]; then
             # Format the output as desired
-            echo "$project_id.$dataset_id.${table_id}_*"
+            echo "$project_id.$dataset_id.${table_id}"
             break
         fi
 
