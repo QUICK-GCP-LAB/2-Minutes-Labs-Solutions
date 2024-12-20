@@ -37,12 +37,12 @@ RANDOM_BG_COLOR=${BG_COLORS[$RANDOM % ${#BG_COLORS[@]}]}
 echo "${RANDOM_BG_COLOR}${RANDOM_TEXT_COLOR}${BOLD}Starting Execution${RESET}"
 
 # Step 1: Set the default zone from project metadata
-echo -e "${GREEN}${BOLD}Step 2: Setting the default zone from project metadata...${RESET}"
+echo -e "${GREEN}${BOLD}Setting the default zone from project metadata...${RESET}"
 export ZONE=$(gcloud compute project-info describe \
 --format="value(commonInstanceMetadata.items[google-compute-default-zone])")
 
 # Step 2: Fetching Project ID and Project Number
-echo -e "${YELLOW}${BOLD}Step 3: Fetching Project ID and Project Number...${RESET}"
+echo -e "${YELLOW}${BOLD}Fetching Project ID and Project Number...${RESET}"
 export PROJECT_ID=$(gcloud config get-value project)
 
 export PROJECT_NUMBER=$(gcloud projects describe ${PROJECT_ID} \
@@ -52,7 +52,7 @@ mkdir stackdriver-lab
 cd stackdriver-lab
 
 # Step 3: Download necessary files
-echo -e "${MAGENTA}${BOLD}Step 5: Downloading necessary files for the lab...${RESET}"
+echo -e "${MAGENTA}${BOLD}Downloading necessary files for the lab...${RESET}"
 curl -LO https://github.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/raw/refs/heads/main/Configuring%20and%20Using%20Cloud%20Logging%20and%20Cloud%20Monitoring/stackdriver-lab/activity.sh
 curl -LO https://github.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/raw/refs/heads/main/Configuring%20and%20Using%20Cloud%20Logging%20and%20Cloud%20Monitoring/stackdriver-lab/apache2.conf
 curl -LO https://github.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/raw/refs/heads/main/Configuring%20and%20Using%20Cloud%20Logging%20and%20Cloud%20Monitoring/stackdriver-lab/basic-ingress.yaml
@@ -64,22 +64,22 @@ curl -LO https://github.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/raw/refs/head
 curl -LO https://github.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/raw/refs/heads/main/Configuring%20and%20Using%20Cloud%20Logging%20and%20Cloud%20Monitoring/stackdriver-lab/windows_startup.ps1
 
 # Step 4: Update setup.sh with the current zone
-echo -e "${CYAN}${BOLD}Step 6: Updating 'setup.sh' with the current zone...${RESET}"
+echo -e "${CYAN}${BOLD}Updating 'setup.sh' with the current zone...${RESET}"
 sed -i "s/us-west1-b/$ZONE/g" setup.sh
 
 # Step 5: Make necessary scripts executable and run setup
-echo -e "${RED}${BOLD}Step 7: Making scripts executable and running 'setup.sh'...${RESET}"
+echo -e "${RED}${BOLD}Making scripts executable and running 'setup.sh'...${RESET}"
 chmod +x setup.sh
 chmod +x gke.sh
 chmod +x pubsub.sh
 ./setup.sh
 
 # Step 6: Create a BigQuery dataset for logs
-echo -e "${GREEN}${BOLD}Step 8: Creating a BigQuery dataset named 'project_logs'...${RESET}"
+echo -e "${GREEN}${BOLD}Creating a BigQuery dataset named 'project_logs'...${RESET}"
 bq mk project_logs
 
 # Step 7: Create logging sinks for VM and Load Balancer logs
-echo -e "${YELLOW}${BOLD}Step 9: Creating logging sinks for VM and Load Balancer logs...${RESET}"
+echo -e "${YELLOW}${BOLD}Creating logging sinks for VM and Load Balancer logs...${RESET}"
 gcloud logging sinks create vm_logs \
     bigquery.googleapis.com/projects/$DEVSHELL_PROJECT_ID/datasets/project_logs \
     --log-filter='resource.type="gce_instance"'
@@ -89,23 +89,23 @@ gcloud logging sinks create load_bal_logs \
     --log-filter="resource.type=\"http_load_balancer\""
 
 # Step 8: Add IAM policy for the service account
-echo -e "${BLUE}${BOLD}Step 10: Adding IAM policy for the service account...${RESET}"
+echo -e "${BLUE}${BOLD}Adding IAM policy for the service account...${RESET}"
 gcloud projects add-iam-policy-binding $DEVSHELL_PROJECT_ID \
   --member=serviceAccount:service-$PROJECT_NUMBER@gcp-sa-logging.iam.gserviceaccount.com \
   --role=roles/bigquery.dataEditor
 
 # Step 9: Pause for 15 seconds to allow setup to complete
-echo -e "${MAGENTA}${BOLD}Step 11: Pausing for 15 seconds...${RESET}"
+echo -e "${MAGENTA}${BOLD}Pausing for 15 seconds...${RESET}"
 sleep 15
 
 # Step 10: Fetch the table ID from the BigQuery dataset
-echo -e "${CYAN}${BOLD}Step 12: Fetching the table ID from the 'project_logs' dataset...${RESET}"
+echo -e "${CYAN}${BOLD}Fetching the table ID from the 'project_logs' dataset...${RESET}"
 ID=$(bq ls --project_id $DEVSHELL_PROJECT_ID --dataset_id project_logs --format=json | jq -r '.[0].tableReference.tableId')
 
 sleep 15
 
 # Step 11: Query logs from BigQuery
-echo -e "${RED}${BOLD}Step 13: Querying logs from BigQuery...${RESET}"
+echo -e "${RED}${BOLD}Querying logs from BigQuery...${RESET}"
 bq query --use_legacy_sql=false \
 "
 SELECT
@@ -114,7 +114,7 @@ FROM
   \`$DEVSHELL_PROJECT_ID.project_logs.$ID\`
 "
 # Step 12: Create a logging metric for 403 errors
-echo -e "${GREEN}${BOLD}Step 14: Creating a logging metric for 403 errors...${RESET}"
+echo -e "${GREEN}${BOLD}Creating a logging metric for 403 errors...${RESET}"
 gcloud logging metrics create 403s \
     --description="Counts syslog entries with resource.type=gce_instance" \
     --log-filter="resource.type=\"gce_instance\" AND logName=\"projects/$DEVSHELL_PROJECT_ID/logs/syslog\""
