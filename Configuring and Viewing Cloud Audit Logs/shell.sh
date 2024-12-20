@@ -140,14 +140,7 @@ echo -e "${GREEN}${BOLD}Deleting the bucket and capturing logs...${RESET}"
 gsutil rm -r gs://$DEVSHELL_PROJECT_ID
 gsutil rm -r gs://$DEVSHELL_PROJECT_ID-test
 
-# Step 13: Creating VM instance and capturing logs
-echo -e "${MAGENTA}${BOLD}Creating a VPC network and VM instance...${RESET}"
-gcloud compute instances create default-us-vm \
---zone="$ZONE" --network=mynetwork
-gcloud compute instances delete --zone="$ZONE" \
---delete-disks=all default-us-vm --quiet
-
-# Step 14: BigQuery query for instance deletion logs
+# Step 13: BigQuery query for instance deletion logs
 echo -e "${CYAN}${BOLD}Querying BigQuery for instance deletion logs...${RESET}"
 bq query --nouse_legacy_sql --project_id=$DEVSHELL_PROJECT_ID '
 SELECT
@@ -171,7 +164,7 @@ ORDER BY
 LIMIT
   1000'
 
-# Step 15: BigQuery query for bucket deletion logs
+# Step 14: BigQuery query for bucket deletion logs
 echo -e "${BLUE}${BOLD}Querying BigQuery for bucket deletion logs...${RESET}"
 bq query --nouse_legacy_sql --project_id=$DEVSHELL_PROJECT_ID '
 SELECT
