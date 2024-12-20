@@ -1,6 +1,6 @@
 # [Configuring and Viewing Cloud Audit Logs](https://www.cloudskillsboost.google/focuses/19184?parent=catalog)
 
-## Solution [here]()
+## Solution [here](https://youtu.be/wlgv4lnoqqw)
 
 ### Run the following Commands in CloudShell
 

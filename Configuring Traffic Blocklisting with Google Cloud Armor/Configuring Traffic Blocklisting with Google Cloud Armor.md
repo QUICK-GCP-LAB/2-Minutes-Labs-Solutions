@@ -1,6 +1,6 @@
 # [Configuring Traffic Blocklisting with Google Cloud Armor](https://www.cloudskillsboost.google/focuses/19185?parent=catalog)
 
-## Solution [here]()
+## Solution [here](https://youtu.be/oiZo5pCaA_8)
 
 ### Run the following Commands in CloudShell
 
