@@ -40,9 +40,7 @@ fetch_table_id() {
 
     while true; do
         # Fetch the table ID from BigQuery
-        export table_id=$(bq ls --project_id "$project_id" --dataset_id "$dataset_id" --format=json \
-            | jq -r '.[0].tableReference.tableId')
-
+        export table_id=$(bq ls --project_id $DEVSHELL_PROJECT_ID --dataset_id project_logs --format=json | jq -r '.[0].tableReference.tableId')
         # Check if table_id is empty
         if [[ -n "$table_id" ]]; then
             # Format the output as desired
@@ -133,6 +131,16 @@ sleep 15
 
 # Step 11: Query logs from BigQuery
 echo -e "${RED}${BOLD}Querying logs from BigQuery...${RESET}"
+bq query --use_legacy_sql=false \
+"
+SELECT
+  logName, resource.type, resource.labels.zone, resource.labels.project_id,
+FROM
+  \`$formatted_output\`
+"
+
+sleep 60
+
 bq query --use_legacy_sql=false \
 "
 SELECT
