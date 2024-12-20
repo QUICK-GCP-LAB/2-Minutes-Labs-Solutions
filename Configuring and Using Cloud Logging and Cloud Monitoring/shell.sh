@@ -94,7 +94,7 @@ gcloud projects add-iam-policy-binding $DEVSHELL_PROJECT_ID \
   --member=serviceAccount:service-$PROJECT_NUMBER@gcp-sa-logging.iam.gserviceaccount.com \
   --role=roles/bigquery.dataEditor
 
-# Step 9: Pause for 15 seconds to allow setup to complete
+# Step 9: Pause for 30 seconds to allow setup to complete
 echo -e "${MAGENTA}${BOLD}Pausing for 30 seconds...${RESET}"
 sleep 30
 
