@@ -234,8 +234,3 @@ remove_files() {
 }
 
 remove_files
-        fi
-    done
-}
-
-remove_files
