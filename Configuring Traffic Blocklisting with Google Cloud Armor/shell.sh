@@ -98,6 +98,8 @@ curl -X POST \
     \"type\": \"CLOUD_ARMOR\"
   }"
 
+sleep 30
+
 # Step 5: Attach the security policy to the backend service "web-backend"
 echo -e "${MAGENTA}${BOLD}Attaching the 'blocklist-access-test' security policy to the 'web-backend' service...${RESET}"
 curl -X POST \
