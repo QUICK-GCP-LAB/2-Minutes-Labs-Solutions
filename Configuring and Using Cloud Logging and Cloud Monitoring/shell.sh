@@ -95,8 +95,8 @@ gcloud projects add-iam-policy-binding $DEVSHELL_PROJECT_ID \
   --role=roles/bigquery.dataEditor
 
 # Step 9: Pause for 15 seconds to allow setup to complete
-echo -e "${MAGENTA}${BOLD}Pausing for 15 seconds...${RESET}"
-sleep 15
+echo -e "${MAGENTA}${BOLD}Pausing for 30 seconds...${RESET}"
+sleep 30
 
 # Step 10: Fetch the table ID from the BigQuery dataset
 echo -e "${CYAN}${BOLD}Fetching the table ID from the 'project_logs' dataset...${RESET}"
