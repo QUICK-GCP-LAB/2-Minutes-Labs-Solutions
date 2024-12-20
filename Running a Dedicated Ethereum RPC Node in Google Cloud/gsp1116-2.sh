@@ -45,7 +45,7 @@ function check_progress {
             break
         elif [[ "$user_input" == "N" || "$user_input" == "n" ]]; then
             echo
-            echo "${BOLD}${RED}Please check your progress up to Task 4 and then press Y to continue.${RESET}"
+            echo "${BOLD}${RED}Please check your progress from Task 2 to Task 4 and then press Y to continue.${RESET}"
         else
             echo
             echo "${BOLD}${MAGENTA}Invalid input. Please enter Y or N.${RESET}"
