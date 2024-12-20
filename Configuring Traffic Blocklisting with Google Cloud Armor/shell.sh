@@ -37,22 +37,22 @@ RANDOM_BG_COLOR=${BG_COLORS[$RANDOM % ${#BG_COLORS[@]}]}
 echo "${RANDOM_BG_COLOR}${RANDOM_TEXT_COLOR}${BOLD}Starting Execution${RESET}"
 
 # Step 1: Set the default zone from project metadata
-echo -e "${RED}${BOLD}Step 1: Setting the default zone from project metadata...${RESET}"
+echo -e "${RED}${BOLD}Setting the default zone from project metadata...${RESET}"
 export ZONE=$(gcloud compute project-info describe \
 --format="value(commonInstanceMetadata.items[google-compute-default-zone])")
 
 # Step 2: Create a VM instance named "access-test"
-echo -e "${GREEN}${BOLD}Step 2: Creating a VM instance named 'access-test'...${RESET}"
+echo -e "${GREEN}${BOLD}Creating a VM instance named 'access-test'...${RESET}"
 gcloud compute instances create access-test --project=$DEVSHELL_PROJECT_ID --zone=$ZONE --machine-type=e2-medium --network-interface=network-tier=PREMIUM,stack-type=IPV4_ONLY,subnet=default --metadata=enable-oslogin=true --maintenance-policy=MIGRATE --provisioning-model=STANDARD --scopes=https://www.googleapis.com/auth/devstorage.read_only,https://www.googleapis.com/auth/logging.write,https://www.googleapis.com/auth/monitoring.write,https://www.googleapis.com/auth/service.management.readonly,https://www.googleapis.com/auth/servicecontrol,https://www.googleapis.com/auth/trace.append --create-disk=auto-delete=yes,boot=yes,device-name=access-test,image=projects/debian-cloud/global/images/debian-12-bookworm-v20241210,mode=rw,size=10,type=pd-balanced --no-shielded-secure-boot --shielded-vtpm --shielded-integrity-monitoring --labels=goog-ec-src=vm_add-gcloud --reservation-affinity=any
 
 # Step 3: Get the external IP address of the newly created VM
-echo -e "${BLUE}${BOLD}Step 3: Fetching the external IP address of the 'access-test' VM...${RESET}"
+echo -e "${BLUE}${BOLD}Fetching the external IP address of the 'access-test' VM...${RESET}"
 export VM_EXT_IP=$(gcloud compute instances describe access-test \
     --zone=$ZONE \
   --format='get(networkInterfaces[0].accessConfigs[0].natIP)')
 
 # Step 4: Create a security policy named "blocklist-access-test"
-echo -e "${YELLOW}${BOLD}Step 4: Creating a security policy named 'blocklist-access-test'...${RESET}"
+echo -e "${YELLOW}${BOLD}Creating a security policy named 'blocklist-access-test'...${RESET}"
 curl -X POST \
   -H "Authorization: Bearer $(gcloud auth print-access-token)" \
   -H "Content-Type: application/json" \
@@ -72,7 +72,7 @@ curl -X POST \
         \"match\": {
           \"config\": {
             \"srcIpRanges\": [
-              \"$EXT_IP\"
+              \"$VM_EXT_IP\"
             ]
           },
           \"versionedExpr\": \"SRC_IPS_V1\"
@@ -99,7 +99,7 @@ curl -X POST \
   }"
 
 # Step 5: Attach the security policy to the backend service "web-backend"
-echo -e "${MAGENTA}${BOLD}Step 5: Attaching the 'blocklist-access-test' security policy to the 'web-backend' service...${RESET}"
+echo -e "${MAGENTA}${BOLD}Attaching the 'blocklist-access-test' security policy to the 'web-backend' service...${RESET}"
 curl -X POST \
   -H "Authorization: Bearer $(gcloud auth print-access-token)" \
   -H "Content-Type: application/json" \
