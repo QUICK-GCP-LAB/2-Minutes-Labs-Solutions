@@ -22,10 +22,6 @@ gcloud compute instances add-tags linux-server-$DEVSHELL_PROJECT_ID --zone us-we
 # open firewall for linux server
 gcloud compute firewall-rules create http-server --allow tcp:80 --target-tags http-server
 
-gcloud projects add-iam-policy-binding $DEVSHELL_PROJECT_ID \
-  --member=serviceAccount:service-$PROJECT_NUMBER@gcp-sa-logging.iam.gserviceaccount.com \
-  --role=roles/bigquery.dataEditor
-
 # set up gke
 nohup ./gke.sh &
 
