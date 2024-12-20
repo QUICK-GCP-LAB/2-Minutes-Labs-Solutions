@@ -34,12 +34,12 @@ RANDOM_BG_COLOR=${BG_COLORS[$RANDOM % ${#BG_COLORS[@]}]}
 
 # Function to fetch the table ID and format it with the desired output pattern
 fetch_table_id() {
-    local project_id=$DEVSHELL_PROJECT_ID
-    local dataset_id="project_logs"
+    export project_id=$DEVSHELL_PROJECT_ID
+    export dataset_id="project_logs"
 
     while true; do
         # Fetch the table ID from BigQuery
-        local table_id=$(bq ls --project_id "$project_id" --dataset_id "$dataset_id" --format=json \
+        export table_id=$(bq ls --project_id "$project_id" --dataset_id "$dataset_id" --format=json \
             | jq -r '.[0].tableReference.tableId')
 
         # Check if table_id is empty
