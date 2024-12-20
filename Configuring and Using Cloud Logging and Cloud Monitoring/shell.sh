@@ -67,7 +67,6 @@ export ZONE=$(gcloud compute project-info describe \
 # Step 2: Fetching Project ID and Project Number
 echo -e "${YELLOW}${BOLD}Fetching Project ID and Project Number...${RESET}"
 export PROJECT_ID=$(gcloud config get-value project)
-
 export PROJECT_NUMBER=$(gcloud projects describe ${PROJECT_ID} \
     --format="value(projectNumber)")
 
@@ -76,15 +75,23 @@ cd stackdriver-lab
 
 # Step 3: Download necessary files
 echo -e "${MAGENTA}${BOLD}Downloading necessary files for the lab...${RESET}"
-curl -LO https://github.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/raw/refs/heads/main/Configuring%20and%20Using%20Cloud%20Logging%20and%20Cloud%20Monitoring/stackdriver-lab/activity.sh
-curl -LO https://github.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/raw/refs/heads/main/Configuring%20and%20Using%20Cloud%20Logging%20and%20Cloud%20Monitoring/stackdriver-lab/apache2.conf
-curl -LO https://github.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/raw/refs/heads/main/Configuring%20and%20Using%20Cloud%20Logging%20and%20Cloud%20Monitoring/stackdriver-lab/basic-ingress.yaml
-curl -LO https://github.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/raw/refs/heads/main/Configuring%20and%20Using%20Cloud%20Logging%20and%20Cloud%20Monitoring/stackdriver-lab/gke.sh
-curl -LO https://github.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/raw/refs/heads/main/Configuring%20and%20Using%20Cloud%20Logging%20and%20Cloud%20Monitoring/stackdriver-lab/linux_startup.sh
-curl -LO https://github.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/raw/refs/heads/main/Configuring%20and%20Using%20Cloud%20Logging%20and%20Cloud%20Monitoring/stackdriver-lab/pubsub.sh
-curl -LO https://github.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/raw/refs/heads/main/Configuring%20and%20Using%20Cloud%20Logging%20and%20Cloud%20Monitoring/stackdriver-lab/setup.sh
-curl -LO https://github.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/raw/refs/heads/main/Configuring%20and%20Using%20Cloud%20Logging%20and%20Cloud%20Monitoring/stackdriver-lab/sql.sh
-curl -LO https://github.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/raw/refs/heads/main/Configuring%20and%20Using%20Cloud%20Logging%20and%20Cloud%20Monitoring/stackdriver-lab/windows_startup.ps1
+FILES=( 
+    "activity.sh"
+    "apache2.conf"
+    "basic-ingress.yaml"
+    "gke.sh"
+    "linux_startup.sh"
+    "pubsub.sh"
+    "setup.sh"
+    "sql.sh"
+    "windows_startup.ps1"
+)
+
+BASE_URL="https://github.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/raw/refs/heads/main/Configuring%20and%20Using%20Cloud%20Logging%20and%20Cloud%20Monitoring/stackdriver-lab"
+
+for file in "${FILES[@]}"; do
+    curl -LO "${BASE_URL}/${file}"
+done
 
 # Step 4: Update setup.sh with the current zone
 echo -e "${CYAN}${BOLD}Updating 'setup.sh' with the current zone...${RESET}"
@@ -92,9 +99,7 @@ sed -i "s/us-west1-b/$ZONE/g" setup.sh
 
 # Step 5: Make necessary scripts executable and run setup
 echo -e "${RED}${BOLD}Making scripts executable and running 'setup.sh'...${RESET}"
-chmod +x setup.sh
-chmod +x gke.sh
-chmod +x pubsub.sh
+chmod +x *.sh
 ./setup.sh
 
 # Step 6: Create a BigQuery dataset for logs
@@ -117,35 +122,23 @@ gcloud projects add-iam-policy-binding $DEVSHELL_PROJECT_ID \
   --member=serviceAccount:service-$PROJECT_NUMBER@gcp-sa-logging.iam.gserviceaccount.com \
   --role=roles/bigquery.dataEditor
 
-# Step 9: Pause for 30 seconds to allow setup to complete
-echo -e "${MAGENTA}${BOLD}Pausing for 30 seconds...${RESET}"
-sleep 30
-
-# Step 10: Fetch the table ID from the BigQuery dataset
+# Step 9: Fetch the table ID from the BigQuery dataset
 echo -e "${CYAN}${BOLD}Fetching the table ID from the 'project_logs' dataset...${RESET}"
-# Call the function
 fetch_table_id
-
-# The variables project_id, dataset_id, table_id, and formatted_output are now globally available
 echo "Table Id: $formatted_output"
 
-sleep 15
-
-# Step 11: Query logs from BigQuery
-echo -e "${RED}${BOLD}Querying logs from BigQuery...${RESET}"
-bq query --use_legacy_sql=false \
-"
-SELECT
-  logName, resource.type, resource.labels.zone, resource.labels.project_id,
-FROM
-  \`$formatted_output\`
-"
-
-# Step 12: Create a logging metric for 403 errors
+# Step 11: Create a logging metric for 403 errors
 echo -e "${GREEN}${BOLD}Creating a logging metric for 403 errors...${RESET}"
 gcloud logging metrics create 403s \
     --description="Counts syslog entries with resource.type=gce_instance" \
     --log-filter="resource.type=\"gce_instance\" AND logName=\"projects/$DEVSHELL_PROJECT_ID/logs/syslog\""
+
+# Step 12: Display BigQuery query template
+echo
+echo -e "${BLUE}${BOLD}Go to: https://console.cloud.google.com/bigquery?project=$DEVSHELL_PROJECT_ID${RESET}"
+echo
+echo -e "Copy and run the query below:\n"
+echo -e "${CYAN}${BOLD}SELECT logName, resource.type, resource.labels.zone, resource.labels.project_id FROM \`$formatted_output\`${RESET}"
 
 echo
 
