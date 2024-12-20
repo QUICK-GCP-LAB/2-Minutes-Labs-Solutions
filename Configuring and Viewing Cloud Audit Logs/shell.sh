@@ -58,17 +58,17 @@ function check_progress {
 echo "${RANDOM_BG_COLOR}${RANDOM_TEXT_COLOR}${BOLD}Starting Execution${RESET}"
 
 # Step 1: Setting the default zone
-echo -e "${CYAN}${BOLD}Step 1: Setting the default zone...${RESET}"
+echo -e "${CYAN}${BOLD}Setting the default zone...${RESET}"
 export ZONE=$(gcloud compute project-info describe \
 --format="value(commonInstanceMetadata.items[google-compute-default-zone])")
 
 # Step 2: Exporting the current IAM policy
-echo -e "${MAGENTA}${BOLD}Step 2: Exporting the current IAM policy to policy.json...${RESET}"
+echo -e "${MAGENTA}${BOLD}Exporting the current IAM policy to policy.json...${RESET}"
 gcloud projects get-iam-policy $DEVSHELL_PROJECT_ID \
 --format=json >./policy.json
 
 # Step 3: Updating the IAM policy to enable audit logging
-echo -e "${BLUE}${BOLD}Step 3: Updating IAM policy to enable audit logging...${RESET}"
+echo -e "${BLUE}${BOLD}Updating IAM policy to enable audit logging...${RESET}"
 jq '.auditConfigs = [
   {
     "service": "allServices",
@@ -81,16 +81,16 @@ jq '.auditConfigs = [
 ] | .' policy.json > updated_policy.json
 
 # Step 4: Applying the updated IAM policy
-echo -e "${GREEN}${BOLD}Step 4: Applying the updated IAM policy...${RESET}"
+echo -e "${GREEN}${BOLD}Applying the updated IAM policy...${RESET}"
 gcloud projects set-iam-policy $DEVSHELL_PROJECT_ID \
 ./updated_policy.json
 
 # Step 5: Creating a BigQuery dataset for audit logs
-echo -e "${YELLOW}${BOLD}Step 5: Creating a BigQuery dataset named 'auditlogs_dataset'...${RESET}"
+echo -e "${YELLOW}${BOLD}Creating a BigQuery dataset named 'auditlogs_dataset'...${RESET}"
 bq --location=US mk --dataset $DEVSHELL_PROJECT_ID:auditlogs_dataset
 
 # Step 6: Log console instructions
-echo -e "${RED}${BOLD}Step 6: Visit the Logs Explorer in GCP Console...${RESET}"
+echo -e "${RED}${BOLD}Visit the Logs Explorer in GCP Console...${RESET}"
 echo
 echo "Go to: https://console.cloud.google.com/logs/query"
 echo
@@ -102,20 +102,20 @@ echo
 check_progress
 
 # Step 7: Setting up a Cloud Storage bucket
-echo -e "${BLUE}${BOLD}Step 7: Creating a Cloud Storage bucket and uploading a sample file...${RESET}"
+echo -e "${BLUE}${BOLD}Creating a Cloud Storage bucket and uploading a sample file...${RESET}"
 gsutil mb gs://$DEVSHELL_PROJECT_ID
 echo "this is a sample file" > sample.txt
 gsutil cp sample.txt gs://$DEVSHELL_PROJECT_ID
 
 # Step 8: Creating a VPC network and VM instance
-echo -e "${MAGENTA}${BOLD}Step 8: Creating a VPC network and VM instance...${RESET}"
+echo -e "${MAGENTA}${BOLD}Creating a VPC network and VM instance...${RESET}"
 gcloud compute networks create mynetwork --subnet-mode=auto
 gcloud compute instances create default-us-vm \
 --machine-type=e2-micro \
 --zone="$ZONE" --network=mynetwork
 
 # Step 9: Deleting the bucket and capturing logs
-echo -e "${GREEN}${BOLD}Step 9: Deleting the bucket and capturing logs...${RESET}"
+echo -e "${GREEN}${BOLD}Deleting the bucket and capturing logs...${RESET}"
 gsutil rm -r gs://$DEVSHELL_PROJECT_ID
 
 gcloud logging read \
@@ -124,31 +124,31 @@ AND protoPayload.serviceName=storage.googleapis.com \
 AND protoPayload.methodName=storage.buckets.delete"
 
 # Step 10: Creating and testing another bucket
-echo -e "${YELLOW}${BOLD}Step 10: Creating and testing another bucket...${RESET}"
+echo -e "${YELLOW}${BOLD}Creating and testing another bucket...${RESET}"
 gsutil mb gs://$DEVSHELL_PROJECT_ID
 gsutil mb gs://$DEVSHELL_PROJECT_ID-test
 echo "this is another sample file" > sample2.txt
 gsutil cp sample.txt gs://$DEVSHELL_PROJECT_ID-test
 
 # Step 11: Deleting the VM instance and logging
-echo -e "${RED}${BOLD}Step 11: Deleting the VM instance and logging...${RESET}"
+echo -e "${RED}${BOLD}Deleting the VM instance and logging...${RESET}"
 gcloud compute instances delete --zone="$ZONE" \
 --delete-disks=all default-us-vm --quiet
 
 # Step 12: Deleting the bucket and capturing logs
-echo -e "${GREEN}${BOLD}Step 9: Deleting the bucket and capturing logs...${RESET}"
+echo -e "${GREEN}${BOLD}Deleting the bucket and capturing logs...${RESET}"
 gsutil rm -r gs://$DEVSHELL_PROJECT_ID
 gsutil rm -r gs://$DEVSHELL_PROJECT_ID-test
 
 # Step 13: Creating VM instance and capturing logs
-echo -e "${MAGENTA}${BOLD}Step 8: Creating a VPC network and VM instance...${RESET}"
+echo -e "${MAGENTA}${BOLD}Creating a VPC network and VM instance...${RESET}"
 gcloud compute instances create default-us-vm \
 --zone="$ZONE" --network=mynetwork
 gcloud compute instances delete --zone="$ZONE" \
 --delete-disks=all default-us-vm --quiet
 
 # Step 14: BigQuery query for instance deletion logs
-echo -e "${CYAN}${BOLD}Step 12: Querying BigQuery for instance deletion logs...${RESET}"
+echo -e "${CYAN}${BOLD}Querying BigQuery for instance deletion logs...${RESET}"
 bq query --nouse_legacy_sql --project_id=$DEVSHELL_PROJECT_ID '
 SELECT
   timestamp,
@@ -172,7 +172,7 @@ LIMIT
   1000'
 
 # Step 15: BigQuery query for bucket deletion logs
-echo -e "${BLUE}${BOLD}Step 13: Querying BigQuery for bucket deletion logs...${RESET}"
+echo -e "${BLUE}${BOLD}Querying BigQuery for bucket deletion logs...${RESET}"
 bq query --nouse_legacy_sql --project_id=$DEVSHELL_PROJECT_ID '
 SELECT
   timestamp,
