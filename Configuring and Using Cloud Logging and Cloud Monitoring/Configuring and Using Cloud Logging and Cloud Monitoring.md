@@ -1,6 +1,6 @@
 # [Configuring and Using Cloud Logging and Cloud Monitoring](https://www.cloudskillsboost.google/focuses/19183?parent=catalog)
 
-## Solution [here]()
+## Solution [here](https://youtu.be/ifge7NgrfsA)
 
 ### Run the following Commands in CloudShell
 
