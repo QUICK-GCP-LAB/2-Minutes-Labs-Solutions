@@ -40,7 +40,9 @@ fetch_table_id() {
 
     while true; do
         # Fetch the table ID from BigQuery
-        export table_id=$(bq ls --project_id $DEVSHELL_PROJECT_ID --dataset_id project_logs --format=json | jq -r '.[0].tableReference.tableId')
+        export table_id=$(bq ls --project_id "$project_id" --dataset_id "$dataset_id" --format=json \
+            | jq -r '.[0].tableReference.tableId')
+
         # Check if table_id is empty
         if [[ -n "$table_id" ]]; then
             # Format the output as desired
@@ -125,19 +127,7 @@ echo -e "${CYAN}${BOLD}Fetching the table ID from the 'project_logs' dataset...$
 fetch_table_id
 echo "Table Id: $formatted_output"
 
-sleep 15
-
-# Step 11: Query logs from BigQuery
-echo -e "${RED}${BOLD}Querying logs from BigQuery...${RESET}"
-bq query --use_legacy_sql=false \
-"
-SELECT
-  logName, resource.type, resource.labels.zone, resource.labels.project_id,
-FROM
-  \`$formatted_output\`
-"
-
-# Step 12: Create a logging metric for 403 errors
+# Step 11: Create a logging metric for 403 errors
 echo -e "${GREEN}${BOLD}Creating a logging metric for 403 errors...${RESET}"
 gcloud logging metrics create 403s \
     --description="Counts syslog entries with resource.type=gce_instance" \
@@ -239,6 +229,11 @@ remove_files() {
                 rm "$file"
                 echo "File removed: $file"
             fi
+        fi
+    done
+}
+
+remove_files
         fi
     done
 }
