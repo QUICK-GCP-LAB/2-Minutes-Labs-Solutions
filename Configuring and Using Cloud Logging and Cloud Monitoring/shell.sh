@@ -36,6 +36,7 @@ RANDOM_BG_COLOR=${BG_COLORS[$RANDOM % ${#BG_COLORS[@]}]}
 fetch_table_id() {
     export project_id=$DEVSHELL_PROJECT_ID
     export dataset_id="project_logs"
+    export formatted_output=""
 
     while true; do
         # Fetch the table ID from BigQuery
@@ -45,7 +46,7 @@ fetch_table_id() {
         # Check if table_id is empty
         if [[ -n "$table_id" ]]; then
             # Format the output as desired
-            echo "$project_id.$dataset_id.${table_id}"
+            formatted_output="$project_id.$dataset_id.${table_id}"
             break
         fi
 
@@ -125,6 +126,9 @@ echo -e "${CYAN}${BOLD}Fetching the table ID from the 'project_logs' dataset...$
 # Call the function
 fetch_table_id
 
+# The variables project_id, dataset_id, table_id, and formatted_output are now globally available
+echo "Table Id: $formatted_output"
+
 sleep 15
 
 # Step 11: Query logs from BigQuery
@@ -134,8 +138,9 @@ bq query --use_legacy_sql=false \
 SELECT
   logName, resource.type, resource.labels.zone, resource.labels.project_id,
 FROM
-  \`$DEVSHELL_PROJECT_ID.project_logs.$ID\`
+  \`$formatted_output\`
 "
+
 # Step 12: Create a logging metric for 403 errors
 echo -e "${GREEN}${BOLD}Creating a logging metric for 403 errors...${RESET}"
 gcloud logging metrics create 403s \
