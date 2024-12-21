@@ -95,6 +95,7 @@ echo "${BOLD}${RED}SSH into worker-1-server and Install NGINX${RESET}"
 gcloud config set project $PROJECT_ID_2
 
 gcloud compute ssh --zone "$ZONE" "worker-1-server" --project "$PROJECT_ID_2" --quiet --command "sudo apt-get update && sudo apt-get install -y nginx && ps auwx | grep nginx "
+sleep 15
 
 # Step 5: SSH into worker-2-server and Install NGINX
 echo "${BOLD}${GREEN}SSH into worker-2-server and Install NGINX${RESET}"
