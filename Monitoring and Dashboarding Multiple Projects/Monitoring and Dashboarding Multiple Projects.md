@@ -1,6 +1,6 @@
 # [Monitoring and Dashboarding Multiple Projects](https://www.cloudskillsboost.google/focuses/19475?parent=catalog)
 
-## 🔑 **Solution [here]()**
+## 🔑 **Solution [here](https://youtu.be/4A_iA4MLlmM)**
 
 #### 1️⃣ Download and Run the Script  
 
