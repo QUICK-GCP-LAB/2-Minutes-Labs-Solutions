@@ -1,6 +1,6 @@
 # [Alerting in Google Cloud](https://www.cloudskillsboost.google/focuses/19469?parent=catalog)
 
-## 🔑 Solution [here]()
+## 🔑 Solution [here](https://youtu.be/ZdOGYMYdEDk)
 
 #### 1️⃣ Download and Execute the Script  
 
