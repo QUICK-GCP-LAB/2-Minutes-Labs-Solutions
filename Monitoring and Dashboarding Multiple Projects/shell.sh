@@ -119,6 +119,8 @@ gcloud compute instances update worker-2-server \
     --update-labels=component=frontend,stage=test \
     --zone=$ZONE
 
+gcloud config set project $PROJECT_ID_1
+
 # Step 8: Create an Email Notification Channel
 echo "${BOLD}${YELLOW}Create an Email Notification Channel${RESET}"
 cat > email-channel.json <<EOF_END
