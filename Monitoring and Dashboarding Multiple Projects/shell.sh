@@ -134,6 +134,7 @@ EOF_END
 gcloud beta monitoring channels create --channel-content-from-file="email-channel.json"
 
 # Step 9: Follow Video Instructions to Complete Remaining Tasks
+echo
 echo "${BOLD}${BLUE}Follow Video Instructions to Complete Remaining Tasks${RESET}"
 echo
 echo "https://console.cloud.google.com/monitoring/settings/add-projects?project=$PROJECT_ID_1"

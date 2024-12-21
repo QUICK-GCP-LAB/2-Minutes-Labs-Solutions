@@ -1,23 +1,25 @@
 # [Monitoring and Dashboarding Multiple Projects](https://www.cloudskillsboost.google/focuses/621?parent=catalog)
 
-## Solution [here]()
+## 🔑 **Solution [here]()**
 
-### Run the following Commands in CloudShell
+#### 1️⃣ Download and Run the Script  
 
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Analyze%20Images%20with%20the%20Cloud%20Vision%20API%20Challenge%20Lab/arc122.sh
+curl -LO https://github.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/raw/refs/heads/main/Monitoring%20and%20Dashboarding%20Multiple%20Projects/shell.sh
 
-sudo chmod +x arc122.sh
+sudo chmod +x *.sh
 
-./arc122.sh
+./shell.sh
 ```
 
 ### Congratulations 🎉 for completing the Lab !
 
-##### *You Have Successfully Demonstrated Your Skills And Determination.*
+##### *You have showcased incredible perseverance and skill. Well done on completing the lab!*
 
 #### *Well done!*
 
-#### Don't Forget to Join the [Telegram Channel](https://t.me/quickgcplab) & [Discussion group](https://t.me/quickgcplabchats)
+#### 🌟 **Stay Connected for More:**  
+- 💬 Join the [Telegram Channel](https://t.me/quickgcplab)  
+- 🗣️ Participate in the [Discussion Group](https://t.me/quickgcplabchats)
 
 # [QUICK GCP LAB](https://www.youtube.com/@quickgcplab)
