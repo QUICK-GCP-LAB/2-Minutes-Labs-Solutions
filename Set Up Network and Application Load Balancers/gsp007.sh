@@ -48,8 +48,7 @@ gcloud config set compute/zone $ZONE
 
 # Step 2: Create Compute Instances
 echo "${MAGENTA}${BOLD}Creating Compute Instances${RESET}"
-for i in 1 2 3; do
-  gcloud compute instances create www$i \
+  gcloud compute instances create www1 \
     --zone=$ZONE \
     --tags=network-lb-tag \
     --machine-type=e2-small \
@@ -61,7 +60,32 @@ for i in 1 2 3; do
       service apache2 restart
       echo "
 <h3>Web Server: www1</h3>" | tee /var/www/html/index.html'
-done
+
+  gcloud compute instances create www2 \
+    --zone=$ZONE \
+    --tags=network-lb-tag \
+    --machine-type=e2-small \
+    --image-family=debian-11 \
+    --image-project=debian-cloud \
+    --metadata=startup-script='#!/bin/bash
+      apt-get update
+      apt-get install apache2 -y
+      service apache2 restart
+      echo "
+<h3>Web Server: www2</h3>" | tee /var/www/html/index.html'
+
+  gcloud compute instances create www3 \
+    --zone=$ZONE  \
+    --tags=network-lb-tag \
+    --machine-type=e2-small \
+    --image-family=debian-11 \
+    --image-project=debian-cloud \
+    --metadata=startup-script='#!/bin/bash
+      apt-get update
+      apt-get install apache2 -y
+      service apache2 restart
+      echo "
+<h3>Web Server: www3</h3>" | tee /var/www/html/index.html'
 
 # Step 3: Configure Firewall Rules
 echo "${YELLOW}${BOLD}Configuring Firewall Rules${RESET}"
