@@ -55,9 +55,9 @@ pip3 install -r requirements.txt
 
 # Step 4: Create app.yaml File
 echo "${CYAN}${MAGENTA}${BOLD}Creating app.yaml File${RESET}"
-cat > app.yaml <EOF
+cat > app.yaml <<'EOF_END'
 runtime: python312
-EOF
+EOF_END
 
 # Step 5: Create App Engine Application
 echo "${RED}${GREEN}${BOLD}Creating App Engine Application${RESET}"

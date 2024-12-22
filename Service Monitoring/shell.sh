@@ -123,10 +123,10 @@ cat > email-channel.json <<EOF_END
 }
 EOF_END
 
-# Step 12: Retrieve Channel ID
-echo "${RED}${BOLD}Retrieving Notification Channel ID${RESET}"
 gcloud beta monitoring channels create --channel-content-from-file="email-channel.json"
 
+# Step 12: Retrieve Channel ID
+echo "${RED}${BOLD}Retrieving Notification Channel ID${RESET}"
 channel_info=$(gcloud beta monitoring channels list)
 channel_id=$(echo "$channel_info" | grep -oP 'name: \K[^ ]+' | head -n 1)
 

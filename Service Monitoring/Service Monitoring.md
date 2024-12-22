@@ -1,6 +1,6 @@
 # [Service Monitoring](https://www.cloudskillsboost.google/focuses/19476?parent=catalog)
 
-## 🔑 Solution [here]()
+## 🔑 Solution [here](https://youtu.be/7DlUJMF4hWc)
 
 ### Download and Execute the Script
 
