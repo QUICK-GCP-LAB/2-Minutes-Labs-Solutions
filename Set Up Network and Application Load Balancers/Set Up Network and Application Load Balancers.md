@@ -1,6 +1,6 @@
 # Set Up Network and Application Load Balancers || [GSP007](https://www.cloudskillsboost.google/focuses/12007?parent=catalog) ||
 
-## 🗝️ Solution [here]()
+## 🗝️ Solution [here](https://youtu.be/AkeamF3rtaE)
 
 #### 1️⃣ Download and Execute the Script  
 
