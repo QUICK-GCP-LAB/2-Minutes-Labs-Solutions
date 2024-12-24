@@ -49,13 +49,7 @@ change_zone_automatically() {
     last_char=${ZONE_1: -1}
 
     # Define valid zone characters
-    valid_chars=("a" "b" "c")
-
-    # Special handling for `europe-west1`
-    if [[ "$zone_prefix" == "europe-west1-" ]]; then
-        # Remove `a` from the valid characters for `europe-west1`
-        valid_chars=("b" "c" "d")
-    fi
+    valid_chars=("b" "c" "d")
 
     # Find the next valid character in the list
     new_char=$last_char
