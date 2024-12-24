@@ -34,6 +34,7 @@ RANDOM_BG_COLOR=${BG_COLORS[$RANDOM % ${#BG_COLORS[@]}]}
 
 # Function to chnage ZONE auto
 change_zone_automatically() {
+
     # Check if the command was successful
     if [[ -z "$ZONE_1" ]]; then
         echo "Could not retrieve the current zone. Exiting."
@@ -48,7 +49,7 @@ change_zone_automatically() {
     # Extract the last character
     last_char=${ZONE_1: -1}
 
-    # Define valid zone characters
+    # Define a list of valid zone characters
     valid_chars=("b" "c" "d")
 
     # Find the next valid character in the list
