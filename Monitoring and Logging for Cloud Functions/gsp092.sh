@@ -62,7 +62,7 @@ EOF
 
 
 deploy_function() {  gcloud functions deploy helloWorld \
---trigger-http \
+--trigger-https \
 --runtime nodejs20 \
 --allow-unauthenticated \
 --region $REGION \
