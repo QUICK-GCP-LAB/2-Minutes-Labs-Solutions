@@ -5,11 +5,11 @@
 ### Run the following Commands in CloudShell
 
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Analyze%20Images%20with%20the%20Cloud%20Vision%20API%20Challenge%20Lab/arc122.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Analyze%20Customer%20Reviews%20with%20Gemini%20Using%20Python%20Notebooks/gsp1249.sh
 
-sudo chmod +x arc122.sh
+sudo chmod +x *.sh
 
-./arc122.sh
+./*.sh
 ```
 
 * **Download File from** [here](https://drive.google.com/uc?export=download&id=1QM02LFTLjKeM_Y8aMVSONDP1VJIlpl7u)
