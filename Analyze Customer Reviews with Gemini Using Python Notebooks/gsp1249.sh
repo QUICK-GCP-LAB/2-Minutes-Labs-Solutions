@@ -177,7 +177,7 @@ GROUP BY sentiment'
 
 echo
 
-echo "${PURPLE}${BOLD}Click here:${RESET}" "https://console.cloud.google.com/bigquery?project=$DEVSHELL_PROJECT_ID"
+echo "${BLUE}${BOLD}Click here:${RESET}" "https://console.cloud.google.com/bigquery?project=$DEVSHELL_PROJECT_ID"
 
 echo
 
