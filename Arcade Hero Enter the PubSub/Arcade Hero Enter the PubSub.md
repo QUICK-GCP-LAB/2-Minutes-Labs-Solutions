@@ -1,6 +1,6 @@
 # Arcade Hero: Enter the PubSub || [ARC123-PUBSUB](https://www.cloudskillsboost.google/focuses/83837?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/u2iflA58Sy0)
 
 ### Run the following Commands in CloudShell
 
