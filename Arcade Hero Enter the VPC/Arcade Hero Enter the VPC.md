@@ -1,6 +1,6 @@
 # Arcade Hero: Enter the VPC || [ARC122-VPC](https://www.cloudskillsboost.google/focuses/83836?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/RXvbDxhVgxg)
 
 ### Run the following Commands in CloudShell
 
