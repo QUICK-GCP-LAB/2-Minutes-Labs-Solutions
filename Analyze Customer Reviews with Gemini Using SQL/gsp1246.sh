@@ -36,20 +36,32 @@ RANDOM_BG_COLOR=${BG_COLORS[$RANDOM % ${#BG_COLORS[@]}]}
 
 echo "${RANDOM_BG_COLOR}${RANDOM_TEXT_COLOR}${BOLD}Starting Execution${RESET}"
 
+# Step 1: Create a Cloud Resource Connection
+echo "${BLUE}${BOLD}Creating a Cloud Resource Connection${RESET}"
 bq mk --connection --location=US --project_id=$DEVSHELL_PROJECT_ID --connection_type=CLOUD_RESOURCE gemini_conn
 
+# Step 2: Creating service account
+echo "${GREEN}${BOLD}Creating service account${RESET}"
 export SERVICE_ACCOUNT=$(bq show --format=json --connection $DEVSHELL_PROJECT_ID.US.gemini_conn | jq -r '.cloudResource.serviceAccountId')
 
+# Step 3: Adding IAM Policy Binding for AI Platform User
+echo "${YELLOW}${BOLD}Adding IAM Policy Binding for AI Platform User${RESET}"
 gcloud projects add-iam-policy-binding $DEVSHELL_PROJECT_ID \
     --member=serviceAccount:$SERVICE_ACCOUNT \
     --role="roles/aiplatform.user"
 
+# Step 4: Adding IAM Policy Binding for Storage Object Admin
+echo "${BLUE}${BOLD}Adding IAM Policy Binding for Storage Object Admin${RESET}"
 gcloud storage buckets add-iam-policy-binding gs://$DEVSHELL_PROJECT_ID-bucket \
     --member="serviceAccount:$SERVICE_ACCOUNT" \
     --role="roles/storage.objectAdmin"
 
+# Step 5: Creating BigQuery Dataset gemini_demo
+echo "${MAGENTA}${BOLD}Creating BigQuery Dataset gemini_demo${RESET}"
 bq mk gemini_demo
 
+# Step 6: Loading customer reviews data from CSV
+echo "${CYAN}${BOLD}Loading customer reviews data from CSV${RESET}"
 bq query --use_legacy_sql=false \
 "LOAD DATA OVERWRITE gemini_demo.customer_reviews
 (customer_review_id INT64, customer_id INT64, location_id INT64, review_datetime DATETIME, review_text STRING, social_media_source STRING, social_media_handle STRING)
@@ -59,6 +71,8 @@ FROM FILES (
 
 sleep 15
 
+# Step 7: Creating or replacing external table for review images
+echo "${GREEN}${BOLD}Creating or replacing external table for review images${RESET}"
 bq query --use_legacy_sql=false \
 'CREATE OR REPLACE EXTERNAL TABLE `gemini_demo.review_images`
 WITH CONNECTION `us.gemini_conn`
@@ -67,7 +81,8 @@ OPTIONS (
   uris = ["gs://qwiklabs-gcp-02-01886bdd67db-bucket/gsp1246/images/*"]
 );'
 
-# Create or replace model gemini_pro
+# Step 8: Creating or replacing gemini_pro model
+echo "${YELLOW}${BOLD}Creating or replacing gemini_pro model${RESET}"
 bq query --use_legacy_sql=false \
 "
 CREATE OR REPLACE MODEL \`gemini_demo.gemini_pro\`
@@ -75,7 +90,8 @@ REMOTE WITH CONNECTION \`us.gemini_conn\`
 OPTIONS (endpoint = 'gemini-pro')
 "
 
-# Create or replace model gemini_pro_vision
+# Step 9: Creating or replacing gemini_pro_vision model
+echo "${BLUE}${BOLD}Creating or replacing gemini_pro_vision model${RESET}"
 bq query --use_legacy_sql=false \
 "
 CREATE OR REPLACE MODEL \`gemini_demo.gemini_pro_vision\`
@@ -85,7 +101,8 @@ OPTIONS (endpoint = 'gemini-pro-vision')
 
 sleep 30
 
-# Generate text for review images
+# Step 10: Generating text for review images
+echo "${RED}${BOLD}Generating text for review images${RESET}"
 bq query --use_legacy_sql=false \
 "
 CREATE OR REPLACE TABLE \`gemini_demo.review_images_results\` AS (
@@ -105,7 +122,8 @@ CREATE OR REPLACE TABLE \`gemini_demo.review_images_results\` AS (
 
 sleep 30
 
-# Generate text for review images
+# Step 11: Generating text for review images
+echo "${RED}${BOLD}Generating text for review images${RESET}"
 bq query --use_legacy_sql=false \
 "
 CREATE OR REPLACE TABLE \`gemini_demo.review_images_results\` AS (
@@ -123,13 +141,15 @@ CREATE OR REPLACE TABLE \`gemini_demo.review_images_results\` AS (
 );
 "
 
-# View the generated results
+# Step 12: Viewing the generated results
+echo "${MAGENTA}${BOLD}Viewing the generated results${RESET}"
 bq query --use_legacy_sql=false \
 "
 SELECT * FROM \`gemini_demo.review_images_results\`
 "
 
-# Format the results from review_images_results
+# Step 13: Formatting the review images results
+echo "${CYAN}${BOLD}Formatting the review images results${RESET}"
 bq query --use_legacy_sql=false \
 '
 CREATE OR REPLACE TABLE
@@ -142,13 +162,15 @@ CREATE OR REPLACE TABLE
     `gemini_demo.review_images_results` results )
 '
 
-# View the formatted review images results
+# Step 14: Viewing the formatted review images results
+echo "${GREEN}${BOLD}Viewing the formatted review images results${RESET}"
 bq query --use_legacy_sql=false \
 "
 SELECT * FROM \`gemini_demo.review_images_results_formatted\`
 "
 
-# Generate customer reviews keywords
+# Step 15: Generating customer reviews keywords
+echo "${YELLOW}${BOLD}Generating customer reviews keywords${RESET}"
 bq query --use_legacy_sql=false \
 "
 CREATE OR REPLACE TABLE \`gemini_demo.customer_reviews_keywords\` AS (
@@ -165,13 +187,15 @@ CREATE OR REPLACE TABLE \`gemini_demo.customer_reviews_keywords\` AS (
 );
 "
 
-# View customer reviews keywords
+# Step 16: Viewing customer reviews keywords
+echo "${BLUE}${BOLD}Viewing customer reviews keywords${RESET}"
 bq query --use_legacy_sql=false \
 "
 SELECT * FROM \`gemini_demo.customer_reviews_keywords\`
 "
 
-# Generate sentiment analysis for customer reviews
+# Step 17: Generating sentiment analysis for customer reviews
+echo "${RED}${BOLD}Generating sentiment analysis for customer reviews${RESET}"
 bq query --use_legacy_sql=false \
 "
 CREATE OR REPLACE TABLE \`gemini_demo.customer_reviews_analysis\` AS (
@@ -197,14 +221,16 @@ CREATE OR REPLACE TABLE \`gemini_demo.customer_reviews_analysis\` AS (
 );
 "
 
-# View the customer reviews sentiment analysis
+# Step 18: Viewing customer reviews sentiment analysis
+echo "${MAGENTA}${BOLD}Viewing customer reviews sentiment analysis${RESET}"
 bq query --use_legacy_sql=false \
 "
 SELECT * FROM \`gemini_demo.customer_reviews_analysis\`
 ORDER BY review_datetime
 "
 
-# Create cleaned data view for customer reviews
+# Step 19: Creating cleaned data view for customer reviews
+echo "${CYAN}${BOLD}Creating cleaned data view for customer reviews${RESET}"
 bq query --use_legacy_sql=false \
 "
 CREATE OR REPLACE VIEW gemini_demo.cleaned_data_view AS
@@ -221,14 +247,16 @@ SELECT
 FROM \`gemini_demo.customer_reviews_analysis\`;
 "
 
-# View the cleaned data view
+# Step 20: Viewing cleaned data view
+echo "${GREEN}${BOLD}Viewing cleaned data view${RESET}"
 bq query --use_legacy_sql=false \
 "
 SELECT * FROM \`gemini_demo.cleaned_data_view\`
 ORDER BY review_datetime
 "
 
-# Count sentiment occurrences
+# Step 21: Counting sentiment occurrences
+echo "${YELLOW}${BOLD}Counting sentiment occurrences${RESET}"
 bq query --use_legacy_sql=false \
 "
 SELECT sentiment, COUNT(*) AS count
@@ -237,7 +265,8 @@ WHERE sentiment IN ('positive', 'negative')
 GROUP BY sentiment;
 "
 
-# Count sentiment by social media source
+# Step 22: Counting sentiment by social media source
+echo "${RED}${BOLD}Counting sentiment by social media source${RESET}"
 bq query --use_legacy_sql=false \
 "
 SELECT sentiment, social_media_source, COUNT(*) AS count
@@ -247,7 +276,8 @@ GROUP BY sentiment, social_media_source
 ORDER BY sentiment, count;
 "
 
-# Generate marketing incentives for reviews
+# Step 23: Generating marketing incentives for reviews
+echo "${GREEN}${BOLD}Generating marketing incentives for reviews${RESET}"
 bq query --use_legacy_sql=false \
 "
 CREATE OR REPLACE TABLE \`gemini_demo.customer_reviews_marketing\` AS (
@@ -265,12 +295,15 @@ CREATE OR REPLACE TABLE \`gemini_demo.customer_reviews_marketing\` AS (
 );
 "
 
-# View the customer reviews marketing table
+# Step 24: Viewing the customer reviews marketing table
+echo "${YELLOW}${BOLD}Viewing the customer reviews marketing table${RESET}"
 bq query --use_legacy_sql=false \
 "
 SELECT * FROM \`gemini_demo.customer_reviews_marketing\`
 "
 
+# Step 25: Formatting the marketing responses
+echo "${BLUE}${BOLD}Formatting the marketing responses${RESET}"
 bq query --use_legacy_sql=false \
 '
 CREATE OR REPLACE TABLE
@@ -283,13 +316,15 @@ FROM
    `gemini_demo.customer_reviews_marketing` results )
 '
 
-# View the formatted marketing responses
+# Step 26: Viewing the formatted marketing responses
+echo "${MAGENTA}${BOLD}Viewing the formatted marketing responses${RESET}"
 bq query --use_legacy_sql=false \
 "
 SELECT * FROM \`gemini_demo.customer_reviews_marketing_formatted\`
 "
 
-# Generate customer service responses for reviews
+# Step 27: Generating customer service responses for reviews
+echo "${CYAN}${BOLD}Generating customer service responses for reviews${RESET}"
 bq query --use_legacy_sql=false \
 "
 CREATE OR REPLACE TABLE \`gemini_demo.customer_reviews_cs_response\` AS (
@@ -307,12 +342,15 @@ CREATE OR REPLACE TABLE \`gemini_demo.customer_reviews_cs_response\` AS (
 );
 "
 
-# View customer service responses
+# Step 28: Viewing customer service responses
+echo "${GREEN}${BOLD}Viewing customer service responses${RESET}"
 bq query --use_legacy_sql=false \
 "
 SELECT * FROM \`gemini_demo.customer_reviews_cs_response\`
 "
 
+# Step 29: Formatting the customer service responses
+echo "${YELLOW}${BOLD}Formatting the customer service responses${RESET}"
 bq query --use_legacy_sql=false \
 '
 CREATE OR REPLACE TABLE
@@ -326,13 +364,15 @@ FROM
    `gemini_demo.customer_reviews_cs_response` results )
 '
 
-# View the formatted customer service responses
+# Step 30: Viewing the formatted customer service responses
+echo "${BLUE}${BOLD}Viewing the formatted customer service responses${RESET}"
 bq query --use_legacy_sql=false \
 "
 SELECT * FROM \`gemini_demo.customer_reviews_cs_response_formatted\`
 "
 
-# Generate results from review images with model gemini_pro_vision
+# Step 31: Generating results from review images with model gemini_pro_vision
+echo "${RED}${BOLD}Generating results from review images with model gemini_pro_vision${RESET}"
 bq query --use_legacy_sql=false \
 "
 CREATE OR REPLACE TABLE \`gemini_demo.review_images_results\` AS (
@@ -350,12 +390,15 @@ CREATE OR REPLACE TABLE \`gemini_demo.review_images_results\` AS (
 );
 "
 
-# View the final review images results
+# Step 32: Viewing the final review images results
+echo "${GREEN}${BOLD}Viewing the final review images results${RESET}"
 bq query --use_legacy_sql=false \
 "
 SELECT * FROM \`gemini_demo.review_images_results\`
 "
 
+# Step 33: Formatting the review images results
+echo "${YELLOW}${BOLD}Formatting the review images results${RESET}"
 bq query --use_legacy_sql=false \
 '
 CREATE OR REPLACE TABLE
@@ -368,7 +411,8 @@ CREATE OR REPLACE TABLE
     `gemini_demo.review_images_results` results )
 '
 
-# View the formatted review images results
+# Step 34: Viewing the formatted review images results
+echo "${CYAN}${BOLD}Viewing the formatted review images results${RESET}"
 bq query --use_legacy_sql=false \
 "
 SELECT * FROM \`gemini_demo.review_images_results_formatted\`
