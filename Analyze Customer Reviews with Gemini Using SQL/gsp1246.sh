@@ -81,6 +81,8 @@ OPTIONS (
   uris = ["gs://qwiklabs-gcp-02-01886bdd67db-bucket/gsp1246/images/*"]
 );'
 
+sleep 30
+
 # Step 8: Creating or replacing gemini_pro model
 echo "${YELLOW}${BOLD}Creating or replacing gemini_pro model${RESET}"
 bq query --use_legacy_sql=false \
@@ -89,6 +91,8 @@ CREATE OR REPLACE MODEL \`gemini_demo.gemini_pro\`
 REMOTE WITH CONNECTION \`us.gemini_conn\`
 OPTIONS (endpoint = 'gemini-pro')
 "
+
+sleep 30
 
 # Step 9: Creating or replacing gemini_pro_vision model
 echo "${BLUE}${BOLD}Creating or replacing gemini_pro_vision model${RESET}"
