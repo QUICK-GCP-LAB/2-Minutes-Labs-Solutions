@@ -1,6 +1,6 @@
 # Arcade Hero: Enter the Storage || [ARC120-STORAGE](https://www.cloudskillsboost.google/focuses/83838?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/PpaExT9BQvg)
 
 ### Run the following Commands in CloudShell
 
