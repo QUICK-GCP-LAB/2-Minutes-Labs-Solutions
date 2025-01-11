@@ -57,6 +57,8 @@ FROM FILES (
   format = 'CSV',
   uris = ['gs://$DEVSHELL_PROJECT_ID-bucket/gsp1246/customer_reviews.csv']);"
 
+sleep 15
+
 bq query --use_legacy_sql=false \
 'CREATE OR REPLACE EXTERNAL TABLE `gemini_demo.review_images`
 WITH CONNECTION `us.gemini_conn`
@@ -80,6 +82,28 @@ CREATE OR REPLACE MODEL \`gemini_demo.gemini_pro_vision\`
 REMOTE WITH CONNECTION \`us.gemini_conn\`
 OPTIONS (endpoint = 'gemini-pro-vision')
 "
+
+sleep 30
+
+# Generate text for review images
+bq query --use_legacy_sql=false \
+"
+CREATE OR REPLACE TABLE \`gemini_demo.review_images_results\` AS (
+  SELECT uri,
+         ml_generate_text_llm_result
+  FROM ML.GENERATE_TEXT(
+    MODEL \`gemini_demo.gemini_pro_vision\`,
+    TABLE \`gemini_demo.review_images\`,
+    STRUCT(
+      0.2 AS temperature,
+      'For each image, provide a summary of what is happening in the image and keywords from the summary. Answer in JSON format with two keys: summary, keywords. Summary should be a string, keywords should be a list.' AS PROMPT,
+      TRUE AS FLATTEN_JSON_OUTPUT
+    )
+  )
+);
+"
+
+sleep 30
 
 # Generate text for review images
 bq query --use_legacy_sql=false \
