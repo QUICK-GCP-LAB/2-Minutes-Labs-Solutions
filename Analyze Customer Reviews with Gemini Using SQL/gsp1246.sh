@@ -58,28 +58,33 @@ gcloud storage buckets add-iam-policy-binding gs://$DEVSHELL_PROJECT_ID-bucket \
 
 # Step 5: Creating BigQuery Dataset gemini_demo
 echo "${MAGENTA}${BOLD}Creating BigQuery Dataset gemini_demo${RESET}"
-bq mk gemini_demo
+bq --location=US mk gemini_demo
 
 # Step 6: Loading customer reviews data from CSV
 echo "${CYAN}${BOLD}Loading customer reviews data from CSV${RESET}"
 bq query --use_legacy_sql=false \
-"LOAD DATA OVERWRITE gemini_demo.customer_reviews
+"
+LOAD DATA OVERWRITE gemini_demo.customer_reviews
 (customer_review_id INT64, customer_id INT64, location_id INT64, review_datetime DATETIME, review_text STRING, social_media_source STRING, social_media_handle STRING)
 FROM FILES (
   format = 'CSV',
-  uris = ['gs://$DEVSHELL_PROJECT_ID-bucket/gsp1246/customer_reviews.csv']);"
+  uris = ['gs://$DEVSHELL_PROJECT_ID-bucket/gsp1246/customer_reviews.csv']);
+"
 
 sleep 15
 
 # Step 7: Creating or replacing external table for review images
 echo "${GREEN}${BOLD}Creating or replacing external table for review images${RESET}"
 bq query --use_legacy_sql=false \
-'CREATE OR REPLACE EXTERNAL TABLE `gemini_demo.review_images`
-WITH CONNECTION `us.gemini_conn`
+"
+CREATE OR REPLACE EXTERNAL TABLE
+  \`gemini_demo.review_images\`
+WITH CONNECTION \`us.gemini_conn\`
 OPTIONS (
-  object_metadata = "SIMPLE",
-  uris = ["gs://qwiklabs-gcp-02-01886bdd67db-bucket/gsp1246/images/*"]
-);'
+  object_metadata = 'SIMPLE',
+  uris = ['gs://$DEVSHELL_PROJECT_ID-bucket/gsp1246/images/*']
+  );
+"
 
 sleep 30
 
@@ -109,19 +114,17 @@ sleep 30
 echo "${RED}${BOLD}Generating text for review images${RESET}"
 bq query --use_legacy_sql=false \
 "
-CREATE OR REPLACE TABLE \`gemini_demo.review_images_results\` AS (
-  SELECT uri,
-         ml_generate_text_llm_result
-  FROM ML.GENERATE_TEXT(
-    MODEL \`gemini_demo.gemini_pro_vision\`,
+CREATE OR REPLACE TABLE
+\`gemini_demo.review_images_results\` AS (
+SELECT
+    uri,
+    ml_generate_text_llm_result
+FROM
+    ML.GENERATE_TEXT( MODEL \`gemini_demo.gemini_pro_vision\`,
     TABLE \`gemini_demo.review_images\`,
-    STRUCT(
-      0.2 AS temperature,
-      'For each image, provide a summary of what is happening in the image and keywords from the summary. Answer in JSON format with two keys: summary, keywords. Summary should be a string, keywords should be a list.' AS PROMPT,
-      TRUE AS FLATTEN_JSON_OUTPUT
-    )
-  )
-);
+    STRUCT( 0.2 AS temperature,
+        'For each image, provide a summary of what is happening in the image and keywords from the summary. Answer in JSON format with two keys: summary, keywords. Summary should be a string, keywords should be a list.' AS PROMPT,
+        TRUE AS FLATTEN_JSON_OUTPUT)));
 "
 
 sleep 30
@@ -130,19 +133,17 @@ sleep 30
 echo "${RED}${BOLD}Generating text for review images${RESET}"
 bq query --use_legacy_sql=false \
 "
-CREATE OR REPLACE TABLE \`gemini_demo.review_images_results\` AS (
-  SELECT uri,
-         ml_generate_text_llm_result
-  FROM ML.GENERATE_TEXT(
-    MODEL \`gemini_demo.gemini_pro_vision\`,
+CREATE OR REPLACE TABLE
+\`gemini_demo.review_images_results\` AS (
+SELECT
+    uri,
+    ml_generate_text_llm_result
+FROM
+    ML.GENERATE_TEXT( MODEL \`gemini_demo.gemini_pro_vision\`,
     TABLE \`gemini_demo.review_images\`,
-    STRUCT(
-      0.2 AS temperature,
-      'For each image, provide a summary of what is happening in the image and keywords from the summary. Answer in JSON format with two keys: summary, keywords. Summary should be a string, keywords should be a list.' AS PROMPT,
-      TRUE AS FLATTEN_JSON_OUTPUT
-    )
-  )
-);
+    STRUCT( 0.2 AS temperature,
+        'For each image, provide a summary of what is happening in the image and keywords from the summary. Answer in JSON format with two keys: summary, keywords. Summary should be a string, keywords should be a list.' AS PROMPT,
+        TRUE AS FLATTEN_JSON_OUTPUT)));
 "
 
 # Step 12: Viewing the generated results
@@ -177,18 +178,20 @@ SELECT * FROM \`gemini_demo.review_images_results_formatted\`
 echo "${YELLOW}${BOLD}Generating customer reviews keywords${RESET}"
 bq query --use_legacy_sql=false \
 "
-CREATE OR REPLACE TABLE \`gemini_demo.customer_reviews_keywords\` AS (
-  SELECT ml_generate_text_llm_result, social_media_source, review_text, customer_id, location_id, review_datetime
-  FROM ML.GENERATE_TEXT(
-    MODEL \`gemini_demo.gemini_pro\`,
-    (
-      SELECT social_media_source, customer_id, location_id, review_text, review_datetime,
-             CONCAT('For each review, provide keywords from the review. Answer in JSON format with one key: keywords. Keywords should be a list.', review_text) AS prompt
-      FROM \`gemini_demo.customer_reviews\`
-    ),
-    STRUCT(0.2 AS temperature, TRUE AS flatten_json_output)
-  )
-);
+CREATE OR REPLACE TABLE
+\`gemini_demo.customer_reviews_keywords\` AS (
+SELECT ml_generate_text_llm_result, social_media_source, review_text, customer_id, location_id, review_datetime
+FROM
+ML.GENERATE_TEXT(
+MODEL \`gemini_demo.gemini_pro\`,
+(
+   SELECT social_media_source, customer_id, location_id, review_text, review_datetime, CONCAT(
+      'For each review, provide keywords from the review. Answer in JSON format with one key: keywords. Keywords should be a list.',
+      review_text) AS prompt
+   FROM \`gemini_demo.customer_reviews\`
+),
+STRUCT(
+   0.2 AS temperature, TRUE AS flatten_json_output)));
 "
 
 # Step 16: Viewing customer reviews keywords
@@ -200,8 +203,7 @@ SELECT * FROM \`gemini_demo.customer_reviews_keywords\`
 
 # Step 17: Generating sentiment analysis for customer reviews
 echo "${RED}${BOLD}Generating sentiment analysis for customer reviews${RESET}"
-bq query --use_legacy_sql=false \
-"
+bq query --use_legacy_sql=false "
 CREATE OR REPLACE TABLE \`gemini_demo.customer_reviews_analysis\` AS (
   SELECT 
     ml_generate_text_llm_result, 
@@ -210,18 +212,28 @@ CREATE OR REPLACE TABLE \`gemini_demo.customer_reviews_analysis\` AS (
     customer_id, 
     location_id, 
     review_datetime
-  FROM ML.GENERATE_TEXT(
-    MODEL \`gemini_demo.gemini_pro\`,
-    (
-      SELECT social_media_source, customer_id, location_id, review_text, review_datetime,
-             CONCAT('Classify the sentiment of the following text as positive or negative.',
-                    review_text,
-                    'In your response don\'t include the sentiment explanation. Remove all extraneous information from your response, it should be a boolean response either positive or negative.'
-             ) AS prompt
-      FROM \`gemini_demo.customer_reviews\`
-    ),
-    STRUCT(0.2 AS temperature, TRUE AS flatten_json_output)
-  )
+  FROM
+    ML.GENERATE_TEXT(
+      MODEL \`gemini_demo.gemini_pro\`,
+      (
+        SELECT 
+          social_media_source, 
+          customer_id, 
+          location_id, 
+          review_text, 
+          review_datetime, 
+          CONCAT(
+            'Classify the sentiment of the following text as positive or negative.',
+            review_text, 
+            'In your response don\'t include the sentiment explanation. Remove all extraneous information from your response, it should be a boolean response either positive or negative.'
+          ) AS prompt
+        FROM \`gemini_demo.customer_reviews\`
+      ),
+      STRUCT(
+        0.2 AS temperature, 
+        TRUE AS flatten_json_output
+      )
+    )
 );
 "
 
@@ -238,16 +250,15 @@ echo "${CYAN}${BOLD}Creating cleaned data view for customer reviews${RESET}"
 bq query --use_legacy_sql=false \
 "
 CREATE OR REPLACE VIEW gemini_demo.cleaned_data_view AS
-SELECT 
-  REPLACE(REPLACE(LOWER(ml_generate_text_llm_result), '.', ''), ' ', '') AS sentiment,
-  REGEXP_REPLACE(
-    REGEXP_REPLACE(
-      REGEXP_REPLACE(social_media_source, r'Google(\+|\sReviews|\sLocal|\sMy\sBusiness|\sreviews|\sMaps)?', 'Google'),
-      'YELP', 'Yelp'
-    ),
-    r'SocialMedia1?', 'Social Media'
-  ) AS social_media_source,
-  review_text, customer_id, location_id, review_datetime
+SELECT REPLACE(REPLACE(LOWER(ml_generate_text_llm_result), '.', ''), ' ', '') AS sentiment, 
+REGEXP_REPLACE(
+      REGEXP_REPLACE(
+            REGEXP_REPLACE(social_media_source, r'Google(\+|\sReviews|\sLocal|\sMy\sBusiness|\sreviews|\sMaps)?', 'Google'), 
+            'YELP', 'Yelp'
+      ),
+      r'SocialMedia1?', 'Social Media'
+   ) AS social_media_source,
+review_text, customer_id, location_id, review_datetime
 FROM \`gemini_demo.customer_reviews_analysis\`;
 "
 
@@ -266,7 +277,7 @@ bq query --use_legacy_sql=false \
 SELECT sentiment, COUNT(*) AS count
 FROM \`gemini_demo.cleaned_data_view\`
 WHERE sentiment IN ('positive', 'negative')
-GROUP BY sentiment;
+GROUP BY sentiment; 
 "
 
 # Step 22: Counting sentiment by social media source
@@ -277,26 +288,27 @@ SELECT sentiment, social_media_source, COUNT(*) AS count
 FROM \`gemini_demo.cleaned_data_view\`
 WHERE sentiment IN ('positive') OR sentiment IN ('negative')
 GROUP BY sentiment, social_media_source
-ORDER BY sentiment, count;
+ORDER BY sentiment, count;    
 "
 
 # Step 23: Generating marketing incentives for reviews
 echo "${GREEN}${BOLD}Generating marketing incentives for reviews${RESET}"
 bq query --use_legacy_sql=false \
 "
-CREATE OR REPLACE TABLE \`gemini_demo.customer_reviews_marketing\` AS (
-  SELECT ml_generate_text_llm_result, social_media_source, review_text, customer_id, location_id, review_datetime
-  FROM ML.GENERATE_TEXT(
-    MODEL \`gemini_demo.gemini_pro\`,
-    (
-      SELECT social_media_source, customer_id, location_id, review_text, review_datetime,
-             CONCAT('You are a marketing representative. How could we incentivise this customer with this positive review? Provide a single response, and should be simple and concise, do not include emojis. Answer in JSON format with one key: marketing. Marketing should be a string.', review_text) AS prompt
-      FROM \`gemini_demo.customer_reviews\`
-      WHERE customer_id = 5576
-    ),
-    STRUCT(0.2 AS temperature, TRUE AS flatten_json_output)
-  )
-);
+CREATE OR REPLACE TABLE
+\`gemini_demo.customer_reviews_marketing\` AS (
+SELECT ml_generate_text_llm_result, social_media_source, review_text, customer_id, location_id, review_datetime
+FROM
+ML.GENERATE_TEXT(
+MODEL \`gemini_demo.gemini_pro\`,
+(
+   SELECT social_media_source, customer_id, location_id, review_text, review_datetime, CONCAT(
+      'You are a marketing representative. How could we incentivise this customer with this positive review? Provide a single response, and should be simple and concise, do not include emojis. Answer in JSON format with one key: marketing. Marketing should be a string.', review_text) AS prompt
+   FROM \`gemini_demo.customer_reviews\`
+   WHERE customer_id = 5576
+),
+STRUCT(
+   0.2 AS temperature, TRUE AS flatten_json_output)));
 "
 
 # Step 24: Viewing the customer reviews marketing table
@@ -331,19 +343,20 @@ SELECT * FROM \`gemini_demo.customer_reviews_marketing_formatted\`
 echo "${CYAN}${BOLD}Generating customer service responses for reviews${RESET}"
 bq query --use_legacy_sql=false \
 "
-CREATE OR REPLACE TABLE \`gemini_demo.customer_reviews_cs_response\` AS (
-  SELECT ml_generate_text_llm_result, social_media_source, review_text, customer_id, location_id, review_datetime
-  FROM ML.GENERATE_TEXT(
-    MODEL \`gemini_demo.gemini_pro\`,
-    (
-      SELECT social_media_source, customer_id, location_id, review_text, review_datetime,
-             CONCAT('How would you respond to this customer review? If the customer says the coffee is weak or burnt, respond stating "thank you for the review we will provide your response to the location that you did not like the coffee and it could be improved." Or if the review states the service is bad, respond to the customer stating, "the location they visited has been notified and we are taking action to improve our service at that location." From the customer reviews provide actions that the location can take to improve. The response and the actions should be simple, and to the point. Do not include any extraneous or special characters in your response. Answer in JSON format with two keys: Response, and Actions. Response should be a string. Actions should be a string.', review_text) AS prompt
-      FROM \`gemini_demo.customer_reviews\`
-      WHERE customer_id = 8844
-    ),
-    STRUCT(0.2 AS temperature, TRUE AS flatten_json_output)
-  )
-);
+CREATE OR REPLACE TABLE
+\`gemini_demo.customer_reviews_cs_response\` AS (
+SELECT ml_generate_text_llm_result, social_media_source, review_text, customer_id, location_id, review_datetime
+FROM
+ML.GENERATE_TEXT(
+MODEL \`gemini_demo.gemini_pro\`,
+(
+   SELECT social_media_source, customer_id, location_id, review_text, review_datetime, CONCAT(
+      'How would you respond to this customer review? If the customer says the coffee is weak or burnt, respond stating "thank you for the review we will provide your response to the location that you did not like the coffee and it could be improved." Or if the review states the service is bad, respond to the customer stating, "the location they visited has been notfied and we are taking action to improve our service at that location." From the customer reviews provide actions that the location can take to improve. The response and the actions should be simple, and to the point. Do not include any extraneous or special characters in your response. Answer in JSON format with two keys: Response, and Actions. Response should be a string. Actions should be a string.', review_text) AS prompt
+   FROM \`gemini_demo.customer_reviews\`
+   WHERE customer_id = 8844
+),
+STRUCT(
+   0.2 AS temperature, TRUE AS flatten_json_output)));
 "
 
 # Step 28: Viewing customer service responses
@@ -377,22 +390,18 @@ SELECT * FROM \`gemini_demo.customer_reviews_cs_response_formatted\`
 
 # Step 31: Generating results from review images with model gemini_pro_vision
 echo "${RED}${BOLD}Generating results from review images with model gemini_pro_vision${RESET}"
-bq query --use_legacy_sql=false \
-"
-CREATE OR REPLACE TABLE \`gemini_demo.review_images_results\` AS (
-  SELECT uri,
-         ml_generate_text_llm_result
-  FROM ML.GENERATE_TEXT(
-    MODEL \`gemini_demo.gemini_pro_vision\`,
-    TABLE \`gemini_demo.review_images\`,
-    STRUCT(
-      0.2 AS temperature,
-      'For each image, provide a summary of what is happening in the image and keywords from the summary. Answer in JSON format with two keys: summary, keywords. Summary should be a string, keywords should be a list.' AS PROMPT,
-      TRUE AS FLATTEN_JSON_OUTPUT
-    )
-  )
-);
-"
+bq query --use_legacy_sql=false '
+CREATE OR REPLACE TABLE
+`gemini_demo.review_images_results` AS (
+SELECT
+    uri,
+    ml_generate_text_llm_result
+FROM
+    ML.GENERATE_TEXT( MODEL `gemini_demo.gemini_pro_vision`,
+    TABLE `gemini_demo.review_images`,
+    STRUCT( 0.2 AS temperature,
+        "For each image, provide a summary of what is happening in the image and keywords from the summary. Answer in JSON format with two keys: summary, keywords. Summary should be a string, keywords should be a list." AS PROMPT,
+        TRUE AS FLATTEN_JSON_OUTPUT)));'
 
 # Step 32: Viewing the final review images results
 echo "${GREEN}${BOLD}Viewing the final review images results${RESET}"
