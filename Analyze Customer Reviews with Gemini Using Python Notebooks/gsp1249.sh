@@ -188,10 +188,6 @@ GROUP BY sentiment'
 
 echo
 
-echo "${BLUE}${BOLD}Click here:${RESET}" "https://console.cloud.google.com/bigquery?project=$DEVSHELL_PROJECT_ID"
-
-echo
-
 # Function to display a random congratulatory message
 function random_congrats() {
     MESSAGES=(
