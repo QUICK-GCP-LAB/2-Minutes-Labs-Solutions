@@ -40,8 +40,8 @@ echo "${RANDOM_BG_COLOR}${RANDOM_TEXT_COLOR}${BOLD}Starting Execution${RESET}"
 echo "${BLUE}${BOLD}Creating a Cloud Resource Connection${RESET}"
 bq mk --connection --location=US --project_id=$DEVSHELL_PROJECT_ID --connection_type=CLOUD_RESOURCE gemini_conn
 
-# Step 2: Creating service account
-echo "${GREEN}${BOLD}Creating service account${RESET}"
+# Step 2: Exporting service account
+echo "${GREEN}${BOLD}Exporting service account${RESET}"
 export SERVICE_ACCOUNT=$(bq show --format=json --connection $DEVSHELL_PROJECT_ID.US.gemini_conn | jq -r '.cloudResource.serviceAccountId')
 
 # Step 3: Adding IAM Policy Binding for AI Platform User
