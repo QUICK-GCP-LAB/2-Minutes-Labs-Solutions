@@ -1,6 +1,6 @@
 # Analyze Customer Reviews with Gemini Using Python Notebooks || [GSP1249](https://www.cloudskillsboost.google/focuses/98857?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/gjSoC-9FWMo)
 
 ### Run the following Commands in CloudShell
 
