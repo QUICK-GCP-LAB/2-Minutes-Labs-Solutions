@@ -77,8 +77,19 @@ ORDER BY review_datetime'
 
 echo
 
+sleep 30
+
 # Step 8: Create Remote Model with Connection
 echo "${GREEN}${BOLD}Creating Remote Model with Connection${RESET}"
+bq query --use_legacy_sql=false \
+"
+CREATE OR REPLACE MODEL \`gemini_demo.gemini_pro\`
+REMOTE WITH CONNECTION \`us.gemini_conn\`
+OPTIONS (endpoint = 'gemini-pro')
+"
+
+sleep 30
+
 bq query --use_legacy_sql=false \
 "
 CREATE OR REPLACE MODEL \`gemini_demo.gemini_pro\`
