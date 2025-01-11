@@ -2,10 +2,6 @@
 
 ## Solution [here]()
 
-* Go to **BigQuery** from [here](https://console.cloud.google.com/bigquery?)
-  
-* **Download required [file](https://drive.google.com/uc?export=download&id=1QM02LFTLjKeM_Y8aMVSONDP1VJIlpl7u)**
-
 ### Run the following Commands in CloudShell
 
 ```
@@ -15,6 +11,8 @@ sudo chmod +x *.sh
 
 ./*.sh
 ```
+
+* **Download required [file](https://drive.google.com/uc?export=download&id=1QM02LFTLjKeM_Y8aMVSONDP1VJIlpl7u)**
 
 # 🎉 Woohoo! You Did It! 🎉  
 
