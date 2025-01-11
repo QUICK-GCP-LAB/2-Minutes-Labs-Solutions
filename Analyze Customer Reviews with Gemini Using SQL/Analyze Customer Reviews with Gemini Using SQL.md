@@ -1,6 +1,6 @@
 # Analyze Customer Reviews with Gemini Using SQL || [GSP1246](https://www.cloudskillsboost.google/focuses/98856?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/XfNvYKWEIZg)
 
 ### Run the following Commands in CloudShell
 
