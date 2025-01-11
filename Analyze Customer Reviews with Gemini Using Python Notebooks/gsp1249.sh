@@ -108,7 +108,29 @@ MODEL `gemini_demo.gemini_pro`,
 STRUCT(
    0.2 AS temperature, TRUE AS flatten_json_output)))'
 
-# Step 11: Query Customer Reviews Analysis Table
+# Step 9: Wait for Model to Deploy
+echo "${YELLOW}${BOLD}Waiting for Model to Deploy${RESET}"
+sleep 30
+
+# Step 11: Generate Sentiment Analysis Results
+echo "${MAGENTA}${BOLD}Generating Sentiment Analysis Results${RESET}"
+bq query --nouse_legacy_sql \
+'CREATE OR REPLACE TABLE
+`gemini_demo.customer_reviews_analysis` AS (
+SELECT ml_generate_text_llm_result, social_media_source, review_text, customer_id, location_id, review_datetime
+FROM
+ML.GENERATE_TEXT(
+MODEL `gemini_demo.gemini_pro`,
+(
+   SELECT social_media_source, customer_id, location_id, review_text, review_datetime, CONCAT(
+      "Classify the sentiment of the following text as positive or negative. ",
+      review_text, " In your response don''t include the sentiment explanation. Remove all extraneous information from your response, it should be a boolean response either positive or negative.") AS prompt
+   FROM `gemini_demo.customer_reviews`
+),
+STRUCT(
+   0.2 AS temperature, TRUE AS flatten_json_output)))'
+
+# Step 12: Query Customer Reviews Analysis Table
 echo "${BLUE}${BOLD}Querying Customer Reviews Analysis Table${RESET}"
 bq query --nouse_legacy_sql \
 'SELECT *
@@ -117,7 +139,7 @@ ORDER BY review_datetime'
 
 echo
 
-# Step 12: Create Cleaned Data View
+# Step 13: Create Cleaned Data View
 echo "${GREEN}${BOLD}Creating Cleaned Data View${RESET}"
 bq query --nouse_legacy_sql \
 'CREATE OR REPLACE VIEW `gemini_demo.cleaned_data_view` AS
@@ -136,7 +158,7 @@ SELECT
   review_datetime
 FROM `gemini_demo.customer_reviews_analysis`'
 
-# Step 13: Query Cleaned Data View
+# Step 14: Query Cleaned Data View
 echo "${YELLOW}${BOLD}Querying Cleaned Data View${RESET}"
 bq query --nouse_legacy_sql \
 'SELECT * 
@@ -145,7 +167,7 @@ ORDER BY review_datetime'
 
 echo
 
-# Step 14: Summarize Sentiment Analysis Results
+# Step 15: Summarize Sentiment Analysis Results
 echo "${MAGENTA}${BOLD}Summarizing Sentiment Analysis Results${RESET}"
 bq query --nouse_legacy_sql \
 'SELECT sentiment, COUNT(*) AS count
