@@ -1,6 +1,6 @@
 # Fraud Detection on Financial Transactions with Machine Learning on Google Cloud || [GSP774](https://www.cloudskillsboost.google/focuses/17976?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/-1yvO1yVaKA)
 
 ### Run the following Commands in CloudShell
 
