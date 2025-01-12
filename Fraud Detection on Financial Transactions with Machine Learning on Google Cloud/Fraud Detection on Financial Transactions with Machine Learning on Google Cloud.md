@@ -5,11 +5,11 @@
 ### Run the following Commands in CloudShell
 
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Analyze%20Images%20with%20the%20Cloud%20Vision%20API%20Challenge%20Lab/arc122.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Fraud%20Detection%20on%20Financial%20Transactions%20with%20Machine%20Learning%20on%20Google%20Cloud/gsp774.sh
 
-sudo chmod +x arc122.sh
+sudo chmod +x *.sh
 
-./arc122.sh
+./*.sh
 ```
 
 # 🎉 Woohoo! You Did It! 🎉  
