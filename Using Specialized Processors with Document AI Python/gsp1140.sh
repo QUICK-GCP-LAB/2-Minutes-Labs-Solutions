@@ -75,7 +75,7 @@ pip3 install --upgrade google-cloud-documentai
 echo
 
 # Step 4: Prompt user to create Processor
-echo "${YELLOW}${BOLD}Click here to create Processor: https://console.cloud.google.com/ai/document-ai/processor-library?project=$PROJECT_ID${RESET}"
+echo "${BLUE}${BOLD}Click here to create Processor:${RESET}" "https://console.cloud.google.com/ai/document-ai/processor-library?project=$PROJECT_ID"
 
 echo
 
