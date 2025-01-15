@@ -60,7 +60,7 @@ gcloud workbench instances create cnn-challenge \
 
 # Step 4: Provide a link to the Workbench instances page
 echo
-echo "${YELLOW}${BOLD}Click here to view your Workbench instance: ${RESET}""https://console.cloud.google.com/vertex-ai/workbench/instances?project=$DEVSHELL_PROJECT_ID"
+echo "${BLUE}${BOLD}Click here to view your Workbench instance: ${RESET}""https://console.cloud.google.com/vertex-ai/workbench/instances?project=$DEVSHELL_PROJECT_ID"
 echo
 echo "${YELLOW}${BOLD}NOW${RESET}" "${WHITE}${BOLD}FOLLOW${RESET}" "${GREEN}${BOLD}VIDEO'S INSTRUCTIONS${RESET}"
 
