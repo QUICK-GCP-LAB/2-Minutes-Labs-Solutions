@@ -48,6 +48,8 @@ gcloud services enable \
   container.googleapis.com \
   datacatalog.googleapis.com
 
+sleep 30
+
 # Step 2: Set up the default zone
 echo "${GREEN}${BOLD}Retrieving default compute zone...${RESET}"
 export ZONE=$(gcloud compute project-info describe \
