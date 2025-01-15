@@ -1,6 +1,6 @@
 # Using Specialized Processors with Document AI (Python) || [GSP1140](https://www.cloudskillsboost.google/focuses/67859?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/jR2E_bgqmkg)
 
 ### Run the following Commands in CloudShell
 
