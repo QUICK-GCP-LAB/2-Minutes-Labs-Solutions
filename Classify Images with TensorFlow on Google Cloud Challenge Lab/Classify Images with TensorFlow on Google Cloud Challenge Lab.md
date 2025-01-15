@@ -15,7 +15,7 @@ sudo chmod +x gsp398.sh
 ./gsp398.sh
 ```
 
-* Go to `User-managed Notebooks` from [here](https://console.cloud.google.com/vertex-ai/workbench/user-managed?)
+* Go to `User-managed Notebooks` from [here](https://console.cloud.google.com/vertex-ai/workbench/instances?)
 
 ```
 git clone https://github.com/GoogleCloudPlatform/training-data-analyst
