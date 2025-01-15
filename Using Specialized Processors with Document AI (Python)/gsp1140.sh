@@ -32,37 +32,180 @@ BG_COLORS=($BG_RED $BG_GREEN $BG_YELLOW $BG_BLUE $BG_MAGENTA $BG_CYAN)
 RANDOM_TEXT_COLOR=${TEXT_COLORS[$RANDOM % ${#TEXT_COLORS[@]}]}
 RANDOM_BG_COLOR=${BG_COLORS[$RANDOM % ${#BG_COLORS[@]}]}
 
+# Function to prompt user to check their progress
+function check_progress {
+    while true; do
+        echo
+        echo -n "${BOLD}${YELLOW}Have you created lab-invoice-parser Processor? (Y/N): ${RESET}"
+        read -r user_input
+        if [[ "$user_input" == "Y" || "$user_input" == "y" ]]; then
+            echo
+            echo "${BOLD}${CYAN}Great! Proceeding to the next steps...${RESET}"
+            echo
+            break
+        elif [[ "$user_input" == "N" || "$user_input" == "n" ]]; then
+            echo
+            echo "${BOLD}${RED}Please create Processor named lab-invoice-parser and then press Y to continue.${RESET}"
+        else
+            echo
+            echo "${BOLD}${MAGENTA}Invalid input. Please enter Y or N.${RESET}"
+        fi
+    done
+}
+
 #----------------------------------------------------start--------------------------------------------------#
 
 echo "${RANDOM_BG_COLOR}${RANDOM_TEXT_COLOR}${BOLD}Starting Execution${RESET}"
 
-# Step 1: Enable required APIs
-echo "${BLUE}${BOLD}Enabling required Google Cloud APIs...${RESET}"
-gcloud services enable \
-  compute.googleapis.com \
-  monitoring.googleapis.com \
-  logging.googleapis.com \
-  notebooks.googleapis.com \
-  aiplatform.googleapis.com \
-  artifactregistry.googleapis.com \
-  container.googleapis.com \
-  datacatalog.googleapis.com
+# Step 1: Set up project details
+echo "${MAGENTA}${BOLD}Set up project details...${RESET}"
+PROJECT_ID=$(gcloud config get-value project)
+TOKEN=$(gcloud auth application-default print-access-token)
 
-# Step 2: Set up the default zone
-echo "${GREEN}${BOLD}Retrieving default compute zone...${RESET}"
-export ZONE=$(gcloud compute project-info describe \
---format="value(commonInstanceMetadata.items[google-compute-default-zone])")
+# Step 2: Enable Document AI API
+echo "${BLUE}${BOLD}Enabling Document AI API...${RESET}"
+gcloud services enable documentai.googleapis.com
 
-# Step 3: Create a Vertex AI Workbench instance
-echo "${CYAN}${BOLD}Creating a Vertex AI Workbench instance named 'cnn-challenge' in zone $ZONE...${RESET}"
-gcloud workbench instances create cnn-challenge \
-  --location=$ZONE
+# Step 3: Install required packages
+echo "${GREEN}${BOLD}Installing required Python packages...${RESET}"
+pip3 install --upgrade pandas
 
-# Step 4: Provide a link to the Workbench instances page
+pip3 install --upgrade google-cloud-documentai
+
 echo
-echo "${YELLOW}${BOLD}Click here to view your Workbench instance: ${RESET}""https://console.cloud.google.com/vertex-ai/workbench/instances?project=$DEVSHELL_PROJECT_ID"
+
+# Step 4: Prompt user to create Processor
+echo "${YELLOW}${BOLD}Click here to create Processor: https://console.cloud.google.com/ai/document-ai/processor-library?project=$PROJECT_ID${RESET}"
+
 echo
-echo "${YELLOW}${BOLD}NOW${RESET}" "${WHITE}${BOLD}FOLLOW${RESET}" "${GREEN}${BOLD}VIDEO'S INSTRUCTIONS${RESET}"
+
+check_progress
+
+echo
+
+# Step 5: Retrieve Processor ID
+echo "${MAGENTA}${BOLD}Retrieving Processor ID...${RESET}"
+PROCESSOR_ID=$(curl -X GET \
+  -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
+  -H "Content-Type: application/json" \
+  "https://documentai.googleapis.com/v1/projects/$PROJECT_ID/locations/us/processors" | \
+  grep '"name":' | \
+  sed -E 's/.*"name": "projects\/[0-9]+\/locations\/us\/processors\/([^"]+)".*/\1/')
+
+export PROCESSOR_ID
+
+# Step 6: Download sample documents
+echo "${CYAN}${BOLD}Downloading sample documents...${RESET}"
+gcloud storage cp gs://cloud-samples-data/documentai/codelabs/specialized-processors/procurement_multi_document.pdf .
+
+gcloud storage cp gs://cloud-samples-data/documentai/codelabs/specialized-processors/google_invoice.pdf .
+
+# Step 7: Create the extraction script
+echo "${RED}${BOLD}Creating extraction script...${RESET}"
+cat > extraction.py <<EOF_END
+import pandas as pd
+from google.cloud import documentai_v1 as documentai
+
+
+def online_process(
+    project_id: str,
+    location: str,
+    processor_id: str,
+    file_path: str,
+    mime_type: str,
+) -> documentai.Document:
+    """
+    Processes a document using the Document AI Online Processing API.
+    """
+
+    opts = {"api_endpoint": f"{location}-documentai.googleapis.com"}
+
+    # Instantiates a client
+    documentai_client = documentai.DocumentProcessorServiceClient(client_options=opts)
+
+    # The full resource name of the processor, e.g.:
+    # projects/project-id/locations/location/processor/processor-id
+    # You must create new processors in the Cloud Console first
+    resource_name = documentai_client.processor_path(project_id, location, processor_id)
+
+    # Read the file into memory
+    with open(file_path, "rb") as file:
+        file_content = file.read()
+
+    # Load Binary Data into Document AI RawDocument Object
+    raw_document = documentai.RawDocument(content=file_content, mime_type=mime_type)
+
+    # Configure the process request
+    request = documentai.ProcessRequest(name=resource_name, raw_document=raw_document)
+
+    # Use the Document AI client to process the sample form
+    result = documentai_client.process_document(request=request)
+
+    return result.document
+
+
+PROJECT_ID = "$PROJECT_ID"
+LOCATION = "us"  # Format is 'us' or 'eu'
+PROCESSOR_ID = "$PROCESSOR_ID"  # Create processor in Cloud Console
+
+# The local file in your current working directory
+FILE_PATH = "google_invoice.pdf"
+# Refer to https://cloud.google.com/document-ai/docs/processors-list
+# for supported file types
+MIME_TYPE = "application/pdf"
+
+document = online_process(
+    project_id=PROJECT_ID,
+    location=LOCATION,
+    processor_id=PROCESSOR_ID,
+    file_path=FILE_PATH,
+    mime_type=MIME_TYPE,
+)
+
+types = []
+raw_values = []
+normalized_values = []
+confidence = []
+
+# Grab each key/value pair and their corresponding confidence scores.
+for entity in document.entities:
+    types.append(entity.type_)
+    raw_values.append(entity.mention_text)
+    normalized_values.append(entity.normalized_value.text)
+    confidence.append(f"{entity.confidence:.0%}")
+
+    # Get Properties (Sub-Entities) with confidence scores
+    for prop in entity.properties:
+        types.append(prop.type_)
+        raw_values.append(prop.mention_text)
+        normalized_values.append(prop.normalized_value.text)
+        confidence.append(f"{prop.confidence:.0%}")
+
+# Create a Pandas Dataframe to print the values in tabular format.
+df = pd.DataFrame(
+    {
+        "Type": types,
+        "Raw Value": raw_values,
+        "Normalized Value": normalized_values,
+        "Confidence": confidence,
+    }
+)
+
+print(df)
+EOF_END
+
+# Step 8: Run the extraction script
+echo "${BLUE}${BOLD}Running the extraction script...${RESET}"
+python3 extraction.py
+
+# Step 9: Create and upload outputs to a GCS bucket
+echo "${GREEN}${BOLD}Creating and uploading outputs to a GCS bucket...${RESET}"
+# Create a bucket
+gsutil mb gs://$PROJECT_ID-docai
+
+# Create and upload the file
+python3 extraction.py > docai_outputs.txt
+gsutil cp docai_outputs.txt gs://$PROJECT_ID-docai
 
 echo
 
