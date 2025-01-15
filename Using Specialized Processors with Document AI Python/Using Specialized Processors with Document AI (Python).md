@@ -5,7 +5,7 @@
 ### Run the following Commands in CloudShell
 
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Using%20Specialized%20Processors%20with%20Document%20AI%20(Python)/gsp1140.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Using%20Specialized%20Processors%20with%20Document%20AI%20Python/gsp1140.sh
 
 sudo chmod +x *.sh
 
