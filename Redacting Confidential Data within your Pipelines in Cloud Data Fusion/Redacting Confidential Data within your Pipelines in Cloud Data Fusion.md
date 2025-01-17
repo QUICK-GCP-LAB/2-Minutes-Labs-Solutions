@@ -1,6 +1,6 @@
 # Redacting Confidential Data within your Pipelines in Cloud Data Fusion || [GSP811](https://www.cloudskillsboost.google/focuses/12373?parent=catalog) ||
 
-## Solution [here]()
+## Solution [here](https://youtu.be/GbrVmFi-SgI)
 
 ### Run the following Commands in CloudShell
 
