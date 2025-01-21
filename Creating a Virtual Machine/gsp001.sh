@@ -25,6 +25,9 @@ RESET=`tput sgr0`
 
 echo "${BG_MAGENTA}${BOLD}Starting Execution${RESET}"
 
+export ZONE=$(gcloud compute project-info describe \
+--format="value(commonInstanceMetadata.items[google-compute-default-zone])")
+
 export PROJECT_ID=$(gcloud config get-value project)
 
 export PROJECT_NUMBER=$(gcloud projects describe ${PROJECT_ID} \
