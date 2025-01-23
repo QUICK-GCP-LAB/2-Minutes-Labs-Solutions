@@ -63,7 +63,7 @@ head events.json
 
 rm my_pipeline.py
 
-curl -LO 
+curl -LO https://raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Serverless%20Data%20Processing%20with%20Dataflow%20-%20Writing%20an%20ETL%20Pipeline%20using%20Apache%20Beam%20and%20Dataflow%20Python/my_pipeline.py
 
 cd $BASE_DIR
 
@@ -88,7 +88,7 @@ cat schema.json
 export PROJECT_ID=$(gcloud config get-value project)
 gcloud storage cp schema.json gs://${PROJECT_ID}/
 
-curl -LO 
+curl -LO https://raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Serverless%20Data%20Processing%20with%20Dataflow%20-%20Writing%20an%20ETL%20Pipeline%20using%20Apache%20Beam%20and%20Dataflow%20Python/transform.js
 
 export PROJECT_ID=$(gcloud config get-value project)
 gcloud storage cp *.js gs://${PROJECT_ID}/
