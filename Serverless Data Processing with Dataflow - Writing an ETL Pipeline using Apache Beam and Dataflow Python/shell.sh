@@ -83,9 +83,11 @@ curl -LO https://raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solution
 
 cd $BASE_DIR
 
-# Step 9: Set Google Cloud project ID
-echo "${BLUE}${BOLD}Setting up Google Cloud project ID...${RESET}"
+# Step 9: Set Google Cloud project ID & Region
+echo "${BLUE}${BOLD}Setting up Google Cloud project ID & Region...${RESET}"
 export PROJECT_ID=$(gcloud config get-value project)
+export REGION=$(gcloud compute project-info describe \
+--format="value(commonInstanceMetadata.items[google-compute-default-region])")
 
 # Step 10: Run the pipeline
 echo "${MAGENTA}${BOLD}Running the Apache Beam pipeline...${RESET}"
