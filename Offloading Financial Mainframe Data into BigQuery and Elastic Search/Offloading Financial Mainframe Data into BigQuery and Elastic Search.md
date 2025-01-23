@@ -5,11 +5,11 @@
 ### ⚙️ Execute the Following Commands in Cloud Shell
 
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Analyze%20Images%20with%20the%20Cloud%20Vision%20API%20Challenge%20Lab/arc122.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Offloading%20Financial%20Mainframe%20Data%20into%20BigQuery%20and%20Elastic%20Search/gsp1153.sh
 
-sudo chmod +x arc122.sh
+sudo chmod +x *.sh
 
-./arc122.sh
+./*.sh
 ```
 
 # 🎉 Woohoo! You Did It! 🎉  
