@@ -36,17 +36,17 @@ RANDOM_BG_COLOR=${BG_COLORS[$RANDOM % ${#BG_COLORS[@]}]}
 
 echo "${RANDOM_BG_COLOR}${RANDOM_TEXT_COLOR}${BOLD}Starting Execution${RESET}"
 
-# Step 2: Enable Cloud Data Fusion API
+# Step 1: Enable Cloud Data Fusion API
 echo "${GREEN}${BOLD}Enabling Cloud Data Fusion API...${RESET}"
 gcloud services enable datafusion.googleapis.com
 
 sleep 15
 
-# Step 3: Get project details
+# Step 2: Get project details
 echo "${YELLOW}${BOLD}Fetching project details...${RESET}"
 export PROJECT_ID=$(gcloud config get-value project)
 
-# Step 4: Grant IAM roles
+# Step 3: Grant IAM roles
 echo "${BLUE}${BOLD}Granting IAM roles to service accounts...${RESET}"
 export PROJECT_NUMBER=$(gcloud projects describe ${PROJECT_ID} \
     --format="value(projectNumber)")
@@ -60,7 +60,7 @@ gcloud projects add-iam-policy-binding $PROJECT_ID \
     --member="serviceAccount:$PROJECT_NUMBER-compute@developer.gserviceaccount.com" \
     --role="roles/datafusion.admin"
 
-# Step 5: Create Cloud Data Fusion instance
+# Step 4: Create Cloud Data Fusion instance
 echo "${MAGENTA}${BOLD}Creating Cloud Data Fusion instance...${RESET}"
 create_data_fusion_instance() {
     instance_name="cdf-lab-instance"
@@ -104,13 +104,13 @@ echo
 # Call the function to create the instance
 create_data_fusion_instance
 
-# Step 7: Grant service agent IAM role
+# Step 5: Grant service agent IAM role
 echo "${BLUE}${BOLD}Granting service agent IAM role...${RESET}"
 gcloud projects add-iam-policy-binding $PROJECT_ID \
     --member="serviceAccount:$PROJECT_NUMBER-compute@developer.gserviceaccount.com" \
     --role="roles/datafusion.serviceAgent"
 
-# Step 8: Retrieve instance URL
+# Step 6: Retrieve instance URL
 echo "${MAGENTA}${BOLD}Fetching instance service endpoint URL...${RESET}"
 INSTANCE_URL=$(gcloud beta data-fusion instances describe cdf-lab-instance --location=us-central1 --format=json | jq -r '.serviceEndpoint')
 

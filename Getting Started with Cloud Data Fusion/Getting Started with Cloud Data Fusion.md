@@ -11,6 +11,10 @@ sudo chmod +x arc122.sh
 
 ./arc122.sh
 ```
+```
+bq query --use_legacy_sql=false \
+"SELECT * FROM \`${DEVSHELL_PROJECT_ID}.GCPQuickStart.top_rated_inexpensive\` LIMIT 10"
+```
 
 # 🎉 Woohoo! You Did It! 🎉  
 
