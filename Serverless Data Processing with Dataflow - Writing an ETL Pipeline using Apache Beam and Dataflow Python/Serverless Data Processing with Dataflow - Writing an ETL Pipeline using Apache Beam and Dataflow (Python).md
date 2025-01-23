@@ -5,11 +5,11 @@
 ### 🚀 **Execute the following commands in Cloud Shell:**  
 
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Analyze%20Images%20with%20the%20Cloud%20Vision%20API%20Challenge%20Lab/arc122.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Serverless%20Data%20Processing%20with%20Dataflow%20-%20Writing%20an%20ETL%20Pipeline%20using%20Apache%20Beam%20and%20Dataflow%20Python/shell.sh
 
-sudo chmod +x arc122.sh
+sudo chmod +x *.sh
 
-./arc122.sh
+./*.sh
 ```
 
 # 🎉 Woohoo! You Did It! 🎉  
