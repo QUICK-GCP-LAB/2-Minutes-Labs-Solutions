@@ -131,6 +131,8 @@ gcloud dataflow jobs run quickgcplab \
     --staging-location gs://$PROJECT_ID/temp \
     --parameters inputFilePattern=gs://$PROJECT_ID/events.json,JSONPath=gs://$PROJECT_ID/schema.json,outputTable=$PROJECT_ID:logs.logs,bigQueryLoadingTemporaryDirectory=gs://$PROJECT_ID/temp_dir,javascriptTextTransformGcsPath=gs://$PROJECT_ID/transform.js,javascriptTextTransformFunctionName=transform
 
+echo
+
 echo "${BLUE}${BOLD}Click here to view Dataflow job: ${RESET}""https://console.cloud.google.com/dataflow/jobs?project=$PROJECT_ID"
 
 echo 
