@@ -65,9 +65,13 @@ python3 -m pip install apache-beam[gcp]
 echo "${CYAN}${BOLD}Enabling Google Cloud Dataflow service...${RESET}"
 gcloud services enable dataflow.googleapis.com
 
+# Step 7: Download pipeline script
+echo "${YELLOW}${BOLD}Downloading Apache Beam pipeline script...${RESET}"
 rm my_pipeline.py
 
-# Step 7: Execute batch scripts
+curl -LO https://raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Serverless%20Data%20Processing%20with%20Dataflow%20-%20Writing%20an%20ETL%20Pipeline%20using%20Apache%20Beam%20and%20Dataflow%20Python/my_pipeline.py
+
+# Step 8: Execute batch scripts
 echo "${GREEN}${BOLD}Executing batch scripts...${RESET}"
 cd $BASE_DIR/../..
 
@@ -76,11 +80,6 @@ source create_batch_sinks.sh
 bash generate_batch_events.sh
 
 head events.json
-
-# Step 8: Download pipeline script
-echo "${YELLOW}${BOLD}Downloading Apache Beam pipeline script...${RESET}"
-
-curl -LO https://raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Serverless%20Data%20Processing%20with%20Dataflow%20-%20Writing%20an%20ETL%20Pipeline%20using%20Apache%20Beam%20and%20Dataflow%20Python/my_pipeline.py
 
 cd $BASE_DIR
 
@@ -126,7 +125,7 @@ gcloud storage cp *.js gs://${PROJECT_ID}/
 
 # Step 16: Run Dataflow job
 echo "${MAGENTA}${BOLD}Running Google Cloud Dataflow job...${RESET}"
-gcloud dataflow jobs run quickgcplab3 \
+gcloud dataflow jobs run quickgcplab \
     --gcs-location gs://dataflow-templates-$REGION/latest/GCS_Text_to_BigQuery \
     --region $REGION \
     --staging-location gs://$PROJECT_ID/temp \
