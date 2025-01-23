@@ -65,6 +65,8 @@ python3 -m pip install apache-beam[gcp]
 echo "${CYAN}${BOLD}Enabling Google Cloud Dataflow service...${RESET}"
 gcloud services enable dataflow.googleapis.com
 
+rm my_pipeline.py
+
 # Step 7: Execute batch scripts
 echo "${GREEN}${BOLD}Executing batch scripts...${RESET}"
 cd $BASE_DIR/../..
@@ -77,7 +79,6 @@ head events.json
 
 # Step 8: Download pipeline script
 echo "${YELLOW}${BOLD}Downloading Apache Beam pipeline script...${RESET}"
-rm my_pipeline.py
 
 curl -LO https://raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Serverless%20Data%20Processing%20with%20Dataflow%20-%20Writing%20an%20ETL%20Pipeline%20using%20Apache%20Beam%20and%20Dataflow%20Python/my_pipeline.py
 
