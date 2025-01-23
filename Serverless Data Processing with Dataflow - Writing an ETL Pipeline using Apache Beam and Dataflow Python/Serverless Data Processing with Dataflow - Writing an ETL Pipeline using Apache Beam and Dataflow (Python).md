@@ -2,7 +2,7 @@
 
 ## 💡 **Solution [here]()**
 
-### 🚀 **Execute the following commands in Cloud Shell:**  
+### 🚀 **Execute the following commands in Notebook Terminal:**  
 
 ```
 curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Serverless%20Data%20Processing%20with%20Dataflow%20-%20Writing%20an%20ETL%20Pipeline%20using%20Apache%20Beam%20and%20Dataflow%20Python/shell.sh
