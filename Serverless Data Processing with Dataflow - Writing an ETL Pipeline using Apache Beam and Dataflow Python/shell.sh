@@ -36,23 +36,37 @@ RANDOM_BG_COLOR=${BG_COLORS[$RANDOM % ${#BG_COLORS[@]}]}
 
 echo "${RANDOM_BG_COLOR}${RANDOM_TEXT_COLOR}${BOLD}Starting Execution${RESET}"
 
+# Step 1: Clone the repository
+echo "${GREEN}${BOLD}Cloning the Google Cloud training repository...${RESET}"
 git clone https://github.com/GoogleCloudPlatform/training-data-analyst
 cd /home/jupyter/training-data-analyst/quests/dataflow_python/
 
+# Step 2: Navigate to lab directory
+echo "${YELLOW}${BOLD}Navigating to lab directory...${RESET}"
 cd 1_Basic_ETL/lab
 export BASE_DIR=$(pwd)
 
+# Step 3: Install Python virtual environment
+echo "${BLUE}${BOLD}Installing Python virtual environment...${RESET}"
 sudo apt-get update && sudo apt-get install -y python3-venv
 
+# Step 4: Create and activate virtual environment
+echo "${MAGENTA}${BOLD}Creating and activating virtual environment...${RESET}"
 python3 -m venv df-env
 
 source df-env/bin/activate
 
+# Step 5: Install required Python packages
+echo "${RED}${BOLD}Installing required Python packages...${RESET}"
 python3 -m pip install -q --upgrade pip setuptools wheel
 python3 -m pip install apache-beam[gcp]
 
+# Step 6: Enable Google Cloud Dataflow service
+echo "${CYAN}${BOLD}Enabling Google Cloud Dataflow service...${RESET}"
 gcloud services enable dataflow.googleapis.com
 
+# Step 7: Execute batch scripts
+echo "${GREEN}${BOLD}Executing batch scripts...${RESET}"
 cd $BASE_DIR/../..
 
 source create_batch_sinks.sh
@@ -61,16 +75,20 @@ bash generate_batch_events.sh
 
 head events.json
 
+# Step 8: Download pipeline script
+echo "${YELLOW}${BOLD}Downloading Apache Beam pipeline script...${RESET}"
 rm my_pipeline.py
 
 curl -LO https://raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Serverless%20Data%20Processing%20with%20Dataflow%20-%20Writing%20an%20ETL%20Pipeline%20using%20Apache%20Beam%20and%20Dataflow%20Python/my_pipeline.py
 
 cd $BASE_DIR
 
-# Set up environment variables
+# Step 9: Set Google Cloud project ID
+echo "${BLUE}${BOLD}Setting up Google Cloud project ID...${RESET}"
 export PROJECT_ID=$(gcloud config get-value project)
 
-# Run the pipeline
+# Step 10: Run the pipeline
+echo "${MAGENTA}${BOLD}Running the Apache Beam pipeline...${RESET}"
 python3 my_pipeline.py \
   --project=${PROJECT_ID} \
   --region=us-central1 \
@@ -78,28 +96,40 @@ python3 my_pipeline.py \
   --tempLocation=gs://$PROJECT_ID/temp/ \
   --runner=DirectRunner
 
+# Step 11: View BigQuery schema
+echo "${RED}${BOLD}Viewing BigQuery schema...${RESET}"
 cd $BASE_DIR/../..
 bq show --schema --format=prettyjson logs.logs
 
+# Step 12: Save schema to JSON file
+echo "${CYAN}${BOLD}Saving schema to JSON file...${RESET}"
 bq show --schema --format=prettyjson logs.logs | sed '1s/^/{"BigQuery Schema":/' | sed '$s/$/}/' > schema.json
 
 cat schema.json
 
+# Step 13: Upload schema to Cloud Storage
+echo "${GREEN}${BOLD}Uploading schema to Cloud Storage...${RESET}"
 export PROJECT_ID=$(gcloud config get-value project)
 gcloud storage cp schema.json gs://${PROJECT_ID}/
 
+# Step 14: Download JavaScript transformation script
+echo "${YELLOW}${BOLD}Downloading JavaScript transformation script...${RESET}"
 curl -LO https://raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Serverless%20Data%20Processing%20with%20Dataflow%20-%20Writing%20an%20ETL%20Pipeline%20using%20Apache%20Beam%20and%20Dataflow%20Python/transform.js
 
+# Step 15: Upload JavaScript script to Cloud Storage
+echo "${BLUE}${BOLD}Uploading JavaScript script to Cloud Storage...${RESET}"
 export PROJECT_ID=$(gcloud config get-value project)
 gcloud storage cp *.js gs://${PROJECT_ID}/
 
+# Step 16: Run Dataflow job
+echo "${MAGENTA}${BOLD}Running Google Cloud Dataflow job...${RESET}"
 gcloud dataflow jobs run quickgcplab3 \
     --gcs-location gs://dataflow-templates-$REGION/latest/GCS_Text_to_BigQuery \
     --region $REGION \
     --staging-location gs://$PROJECT_ID/temp \
     --parameters inputFilePattern=gs://$PROJECT_ID/events.json,JSONPath=gs://$PROJECT_ID/schema.json,outputTable=$PROJECT_ID:logs.logs,bigQueryLoadingTemporaryDirectory=gs://$PROJECT_ID/temp_dir,javascriptTextTransformGcsPath=gs://$PROJECT_ID/transform.js,javascriptTextTransformFunctionName=transform
 
-echo Click here: https://console.cloud.google.com/dataflow/jobs?project=$PROJECT_ID
+echo "${BLUE}${BOLD}Click here to view Dataflow job: ${RESET}""https://console.cloud.google.com/dataflow/jobs?project=$PROJECT_ID"
 
 echo 
 
