@@ -111,6 +111,8 @@ export API_KEY=QzU4ZGtwUUIzR1didmxheUxPTXM6Z09aSGE1WmdRQ2lYVnZ5eWQ3YXRCZw==
 echo -e "${BOLD}${YELLOW}Running Dataflow job to load data into Elasticsearch...${RESET}"
 gcloud dataflow flex-template run bqtoelastic-`date +%s` --worker-machine-type=e2-standard-2 --template-file-gcs-location gs://dataflow-templates-$REGION/latest/flex/BigQuery_to_Elasticsearch --region $REGION --num-workers 1 --parameters index=transactions,maxNumWorkers=1,query="select * from \`$GOOGLE_CLOUD_PROJECT\`.mainframe_import.account_transactions",connectionUrl=$CONNECTION_URL,apiKey=$API_KEY
 
+echo
+
 echo -e "${BOLD}${BLUE}Click here to monitor Dataflow job: ${RESET}""https://console.cloud.google.com/dataflow/jobs?project=$GOOGLE_CLOUD_PROJECT"
 
 echo
