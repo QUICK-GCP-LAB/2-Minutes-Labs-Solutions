@@ -81,7 +81,11 @@ gcloud iam service-accounts create awesome \
 gcloud iam service-accounts keys create ~/key.json \
   --iam-account awesome@${GOOGLE_CLOUD_PROJECT}.iam.gserviceaccount.com
 
+sleep 15
+
 export GOOGLE_APPLICATION_CREDENTIALS="/home/$USER/key.json"
+
+sleep 30
 
 gcloud auth activate-service-account awesome@${GOOGLE_CLOUD_PROJECT}.iam.gserviceaccount.com --key-file=$GOOGLE_APPLICATION_CREDENTIALS
 
