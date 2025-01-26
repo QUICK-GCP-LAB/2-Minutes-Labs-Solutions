@@ -77,7 +77,7 @@ EOF
 echo "${RED}${BOLD}Creating BigQuery external connection...${RESET}"
 bq mk \
   --connection \
-  --location=us-east1 \
+  --location=$REGION \
   --project_id=${GCP_PROJECT_ID} \
   --connection_type=CLOUD_RESOURCE \
   mybiglakegcsconnector
