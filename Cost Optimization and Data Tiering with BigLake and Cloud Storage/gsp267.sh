@@ -88,7 +88,7 @@ bq show --connection ${GCP_PROJECT_NUM}.$REGION.mybiglakegcsconnector
 
 # Step 9: Grant IAM permission to the connection service account
 echo "${MAGENTA}${BOLD}Granting IAM permissions to the service account...${RESET}"
-export CONNECTION_SA=$(bq show --format=json --connection ${GCP_PROJECT_NUM}.us-east1.mybiglakegcsconnector  | jq ".cloudResource" | jq ".serviceAccountId" |tr -d '"')
+export CONNECTION_SA=$(bq show --format=json --connection ${GCP_PROJECT_NUM}.$REGION.mybiglakegcsconnector  | jq ".cloudResource" | jq ".serviceAccountId" |tr -d '"')
 
 gsutil iam ch serviceAccount:${CONNECTION_SA}:objectViewer gs://${GCP_PROJECT_ID}-cymbal-bq-opt-big-lake
 
