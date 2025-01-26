@@ -78,7 +78,7 @@ assign_projects() {
 assign_projects
 
 # Step 2: Setting gcloud project
-echo "${BOLD}${YELLOW}Setting gcloud project to PROJECT_2...${RESET}"
+echo "${BOLD}${YELLOW}Setting gcloud project to $PROJECT_2...${RESET}"
 gcloud config set project $PROJECT_2
 
 # Step 3: Get the zone and create a VM instance
@@ -95,13 +95,11 @@ echo
 # Step 4: Provide a link to monitor the metric scope
 echo "${BOLD}${GREEN}Click here to monitor metrics: ${RESET}""https://console.cloud.google.com/monitoring/settings/metric-scope?project=$PROJECT_2"
 
-echo
-
 # Function to prompt user to check their progress
 function check_progress {
     while true; do
         echo
-        echo -n "${BOLD}${YELLOW}Have you created Group DemoGroup &  Uptime check "DemoGroup uptime check"? (Y/N): ${RESET}"
+        echo -n "${BOLD}${YELLOW}Have you created Group DemoGroup (instance) & Uptime check '"DemoGroup uptime check"'? (Y/N): ${RESET}"
         read -r user_input
         if [[ "$user_input" == "Y" || "$user_input" == "y" ]]; then
             echo
