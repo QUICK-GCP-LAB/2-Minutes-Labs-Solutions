@@ -1,6 +1,6 @@
 # Offloading Financial Mainframe Data into BigQuery and Elastic Search || [GSP1153](https://www.cloudskillsboost.google/focuses/64744?parent=catalog) ||
 
-## 🔑 Solution [here]()
+## 🔑 Solution [here](https://youtu.be/X8ydBgeiHaM)
 
 ### ⚙️ Execute the Following Commands in Cloud Shell
 
