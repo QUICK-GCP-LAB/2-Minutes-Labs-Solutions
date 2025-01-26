@@ -1,41 +1,25 @@
 # Monitoring Multiple Projects with Cloud Monitoring || [GSP090](https://www.cloudskillsboost.google/focuses/621?parent=catalog) ||
 
-## Solution [here](https://youtu.be/NLQ0j9y2ZaU)
+## 🔑 Solution [here]()
 
-### Run the following Commands in CloudShell
-```
-export PROJECT_2=
-export ZONE=
-```
-```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Monitoring%20Multiple%20Projects%20with%20Cloud%20Monitoring/gsp090-1.sh
-
-sudo chmod +x gsp090-1.sh
-
-./gsp090-1.sh
-```
-* Go to `Create group` from [here](https://console.cloud.google.com/monitoring/groups?)
-
-* Name your group `DemoGroup`
-
-* In the third field (Value), type in `instance`
-
-* For Uptime check Title: enter `DemoGroup uptime check`
+### ⚙️ Execute the Following Commands in Cloud Shell
 
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Monitoring%20Multiple%20Projects%20with%20Cloud%20Monitoring/gsp090-2.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Monitoring%20Multiple%20Projects%20with%20Cloud%20Monitoring/gsp090.sh
 
-sudo chmod +x gsp090-2.sh
+sudo chmod +x *.sh
 
-./gsp090-2.sh
+./*.sh
 ```
 
-### Congratulations 🎉 for completing the Lab !
+# 🎉 Woohoo! You Did It! 🎉  
 
-##### *You Have Successfully Demonstrated Your Skills And Determination.*
+Your hard work and determination paid off! 💻  
+You've successfully completed the lab. **Way to go!** 🚀
 
-#### *Well done!*
-
-#### Don't Forget to Join the [Telegram Channel](https://t.me/quickgcplab) & [Discussion group](https://t.me/quickgcplabchats)
+### 💬 Stay Connected with Our Community!  
+👉 Join the conversation and never miss an update:  
+📢 [Telegram Channel](https://t.me/quickgcplab)  
+👥 [Discussion Group](https://t.me/quickgcplabchats)  
 
 # [QUICK GCP LAB](https://www.youtube.com/@quickgcplab)
