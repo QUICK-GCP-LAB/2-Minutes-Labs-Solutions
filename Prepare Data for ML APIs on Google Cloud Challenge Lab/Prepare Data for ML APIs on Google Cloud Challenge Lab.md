@@ -1,33 +1,25 @@
 # Prepare Data for ML APIs on Google Cloud: Challenge Lab || [GSP323](https://www.cloudskillsboost.google/focuses/11044?parent=catalog) ||
 
-## Solution [here](https://youtu.be/qzpS71aabTY)
+## 🔑 Solution [here]()
 
-### Run the following Commands in CloudShell
+### ⚙️ Execute the Following Commands in Cloud Shell
 
-```
-export DATASET=
-export BUCKET=
-export REGION=
-export TABLE=
-export BUCKET_URL_1=
-export BUCKET_URL_2=
-```
 ```
 curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Prepare%20Data%20for%20ML%20APIs%20on%20Google%20Cloud%20Challenge%20Lab/gsp323.sh
 
-sudo chmod +x gsp323.sh
+sudo chmod +x *.sh
 
-./gsp323.sh
+./*.sh
 ```
 
-* * Go to `Create a Dataproc cluster on Compute Engine` from [here](https://console.cloud.google.com/dataproc/clusters?)
+# 🎉 Woohoo! You Did It! 🎉  
 
-### Congratulations 🎉 for completing the Lab !
+Your hard work and determination paid off! 💻  
+You've successfully completed the lab. **Way to go!** 🚀
 
-##### *You Have Successfully Demonstrated Your Skills And Determination.*
-
-#### *Well done!*
-
-#### Don't Forget to Join the [Telegram Channel](https://t.me/quickgcplab) & [Discussion group](https://t.me/quickgcplabchats)
+### 💬 Stay Connected with Our Community!  
+👉 Join the conversation and never miss an update:  
+📢 [Telegram Channel](https://t.me/quickgcplab)  
+👥 [Discussion Group](https://t.me/quickgcplabchats)  
 
 # [QUICK GCP LAB](https://www.youtube.com/@quickgcplab)
