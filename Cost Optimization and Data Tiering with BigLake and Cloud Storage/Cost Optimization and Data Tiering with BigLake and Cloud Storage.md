@@ -1,6 +1,6 @@
 # Cost Optimization and Data Tiering with BigLake and Cloud Storage || [GSP267](https://www.cloudskillsboost.google/focuses/80700?parent=catalog) ||
 
-## 🔑 Solution [here]()
+## 🔑 Solution [here](https://youtu.be/YSl3uvAFuns)
 
 ### ⚙️ Execute the Following Commands in Cloud Shell
 
