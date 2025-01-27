@@ -1,6 +1,6 @@
 # Prepare Data for ML APIs on Google Cloud: Challenge Lab || [GSP323](https://www.cloudskillsboost.google/focuses/11044?parent=catalog) ||
 
-## 🔑 Solution [here]()
+## 🔑 Solution [here](https://youtu.be/5sVbeF_fsco)
 
 ### ⚙️ Execute the Following Commands in Cloud Shell
 
