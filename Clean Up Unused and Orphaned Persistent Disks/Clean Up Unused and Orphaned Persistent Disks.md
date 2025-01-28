@@ -5,7 +5,7 @@
 ### ⚙️ Execute the Following Commands in Cloud Shell
 
 ```
-curl -LO 
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Clean%20Up%20Unused%20and%20Orphaned%20Persistent%20Disks/gsp648.sh
 
 sudo chmod +x *.sh
 
