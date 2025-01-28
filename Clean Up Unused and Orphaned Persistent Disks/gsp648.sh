@@ -130,6 +130,8 @@ sleep 5
 
 gcloud services enable cloudfunctions.googleapis.com
 
+sleep 30
+
 # Step 14: Add IAM policy binding for Artifact Registry reader role
 echo "${BOLD}${BLUE}Adding IAM policy binding for Artifact Registry reader...${RESET}"
 gcloud projects add-iam-policy-binding qwiklabs-gcp-01-7864202acea1 \
