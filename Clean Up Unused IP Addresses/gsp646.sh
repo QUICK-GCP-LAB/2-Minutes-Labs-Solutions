@@ -66,10 +66,12 @@ gcloud projects add-iam-policy-binding $PROJECT_ID \
 --member="serviceAccount:$PROJECT_ID@appspot.gserviceaccount.com" \
 --role="roles/artifactregistry.reader"
 
+gcloud services enable run.googleapis.com
+
 sleep 60
 
 gcloud functions deploy unused_ip_function \
-    --runtime nodejs12 \
+    --runtime nodejs20 \
     --region $REGION \
     --trigger-http \
     --allow-unauthenticated
