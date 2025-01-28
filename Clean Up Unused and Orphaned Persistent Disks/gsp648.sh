@@ -56,6 +56,7 @@ gcloud services enable cloudscheduler.googleapis.com
 echo "${BOLD}${CYAN}Copying required files and changing to the working directory...${RESET}"
 gsutil cp -r gs://spls/gsp648 . && cd gsp648
 
+export PROJECT_ID=$(gcloud config list --format 'value(core.project)' 2>/dev/null)
 WORKDIR=$(pwd)
 cd $WORKDIR/unattached-pd
 
