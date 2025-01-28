@@ -25,7 +25,11 @@ RESET=`tput sgr0`
 
 echo "${BG_MAGENTA}${BOLD}Starting Execution${RESET}"
 
-export REGION="${ZONE%-*}"
+export ZONE=$(gcloud compute project-info describe \
+--format="value(commonInstanceMetadata.items[google-compute-default-zone])")
+
+export REGION=$(gcloud compute project-info describe \
+--format="value(commonInstanceMetadata.items[google-compute-default-region])")
 
 gcloud services enable cloudscheduler.googleapis.com
 
@@ -76,7 +80,7 @@ gcloud functions deploy unused_ip_function \
     --trigger-http \
     --allow-unauthenticated
 
-export FUNCTION_URL=$(gcloud functions describe unused_ip_function --region=$REGION --format=json | jq -r '.httpsTrigger.url')
+export FUNCTION_URL=$(gcloud functions describe unused_ip_function --region=$REGION --format=json | jq -r '.url')
 
 gcloud app create --region $REGION
 
