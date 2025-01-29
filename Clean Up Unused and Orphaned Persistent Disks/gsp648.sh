@@ -56,6 +56,7 @@ gcloud services enable cloudscheduler.googleapis.com
 echo "${BOLD}${CYAN}Copying required files and changing to the working directory...${RESET}"
 gsutil cp -r gs://spls/gsp648 . && cd gsp648
 
+export PROJECT_ID=$(gcloud config list --format 'value(core.project)' 2>/dev/null)
 WORKDIR=$(pwd)
 cd $WORKDIR/unattached-pd
 
@@ -128,6 +129,8 @@ gcloud services disable cloudfunctions.googleapis.com
 sleep 5
 
 gcloud services enable cloudfunctions.googleapis.com
+
+sleep 30
 
 # Step 14: Add IAM policy binding for Artifact Registry reader role
 echo "${BOLD}${BLUE}Adding IAM policy binding for Artifact Registry reader...${RESET}"
