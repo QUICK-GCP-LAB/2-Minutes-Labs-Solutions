@@ -134,7 +134,7 @@ sleep 30
 
 # Step 14: Add IAM policy binding for Artifact Registry reader role
 echo "${BOLD}${BLUE}Adding IAM policy binding for Artifact Registry reader...${RESET}"
-gcloud projects add-iam-policy-binding qwiklabs-gcp-01-7864202acea1 \
+gcloud projects add-iam-policy-binding $PROJECT_ID \
 --member="serviceAccount:qwiklabs-gcp-01-7864202acea1@appspot.gserviceaccount.com" \
 --role="roles/artifactregistry.reader"
 
