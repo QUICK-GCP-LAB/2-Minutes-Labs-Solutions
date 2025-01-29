@@ -164,6 +164,8 @@ gcloud scheduler jobs create http unattached-pd-job \
 --uri=$FUNCTION_URL \
 --location=$REGION
 
+sleep 60
+
 # Step 20: Run the Cloud Scheduler job
 echo "${BOLD}${BLUE}Running the Cloud Scheduler job...${RESET}"
 gcloud scheduler jobs run unattached-pd-job \
