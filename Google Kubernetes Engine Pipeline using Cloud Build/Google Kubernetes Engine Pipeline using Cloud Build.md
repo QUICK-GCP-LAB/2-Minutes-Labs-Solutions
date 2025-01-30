@@ -1,6 +1,6 @@
 # Google Kubernetes Engine Pipeline using Cloud Build || [GSP1077](https://www.cloudskillsboost.google/focuses/52829?parent=catalog) ||
 
-## 🔑 Solution [here](https://youtu.be/e7HVHXEz9vs)
+## 🔑 Solution [here](https://youtu.be/zhZgk7naW2U)
 
 **Prerequisites**
 
