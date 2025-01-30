@@ -132,7 +132,7 @@ COMMIT_ID="$(git rev-parse --short=7 HEAD)"
 
 gcloud builds submit --tag="${REGION}-docker.pkg.dev/${PROJECT_ID}/my-repository/hello-cloudbuild:${COMMIT_ID}" .
 
-echo "${BOLD}${YELLOW}Click here to set up triggers: ${RESET}""https://console.cloud.google.com/cloud-build/triggers;region=global/add?project=$PROJECT_ID"
+echo "${BOLD}${BLUE}Click here to set up triggers: ${RESET}""https://console.cloud.google.com/cloud-build/triggers;region=global/add?project=$PROJECT_ID"
 
 # Call function to check progress before proceeding
 check_progress
