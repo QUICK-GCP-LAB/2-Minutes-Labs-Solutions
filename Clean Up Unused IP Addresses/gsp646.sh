@@ -89,10 +89,14 @@ gcloud scheduler jobs create http unused-ip-job \
 --uri=$FUNCTION_URL \
 --location=$REGION
 
+sleep 30
+
 gcloud scheduler jobs run unused-ip-job \
 --location=$REGION
 
 gcloud compute addresses list --filter="region:($REGION)"
+
+sleep 30
 
 gcloud scheduler jobs run unused-ip-job \
 --location=$REGION
