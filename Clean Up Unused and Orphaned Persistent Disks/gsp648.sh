@@ -94,7 +94,7 @@ gcloud compute disks describe $ORPHANED_DISK --zone=$ZONE --format=json | jq
 function check_progress {
     while true; do
         echo
-        echo -n "${BOLD}${YELLOW}Have you checked your progress upto Task 3? (Y/N): ${RESET}"
+        echo -n "${BOLD}${YELLOW}Have you checked your progress upto Task 3 ? (Y/N): ${RESET}"
         read -r user_input
         if [[ "$user_input" == "Y" || "$user_input" == "y" ]]; then
             echo
