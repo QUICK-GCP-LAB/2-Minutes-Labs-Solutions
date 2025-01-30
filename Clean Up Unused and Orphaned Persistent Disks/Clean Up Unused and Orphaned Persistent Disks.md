@@ -1,6 +1,6 @@
 # Clean Up Unused and Orphaned Persistent Disks || [GSP648](https://www.cloudskillsboost.google/focuses/7797?parent=catalog) ||
 
-## 🔑 Solution [here]()
+## 🔑 Solution [here](https://youtu.be/_-4F21rZWM0)
 
 ### ⚙️ Execute the Following Commands in Cloud Shell
 
