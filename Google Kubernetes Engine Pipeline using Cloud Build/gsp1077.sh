@@ -72,21 +72,21 @@ gcloud services enable container.googleapis.com \
     secretmanager.googleapis.com \
     containeranalysis.googleapis.com
 
- Create Artifact Registry repository
-echo "${BOLD}${BLUE}Step 4: Creating Artifact Registry repository${RESET}"
+# Step 3: Create Artifact Registry repository
+echo "${BOLD}${BLUE}Creating Artifact Registry repository${RESET}"
 gcloud artifacts repositories create my-repository \
   --repository-format=docker \
   --location=$REGION
 
-# Step 3: Create GKE cluster
+# Step 4: Create GKE cluster
 echo "${BOLD}${MAGENTA}Creating GKE Cluster${RESET}"
 gcloud container clusters create hello-cloudbuild --num-nodes 1 --region $REGION
 
-# Step 4: Install GitHub CLI
+# Step 5: Install GitHub CLI
 echo "${BOLD}${CYAN}Installing GitHub CLI${RESET}"
 curl -sS https://webi.sh/gh | sh
 
-# Step 5: Authenticate GitHub
+# Step 6: Authenticate GitHub
 echo "${BOLD}${GREEN} Authenticating with GitHub${RESET}"
 gh auth login 
 gh api user -q ".login"
@@ -96,13 +96,13 @@ git config --global user.email "${USER_EMAIL}"
 echo ${GITHUB_USERNAME}
 echo ${USER_EMAIL}
 
-# Step 6: Create GitHub Repositories
+# Step 7: Create GitHub Repositories
 echo "${BOLD}${YELLOW}Creating GitHub repositories${RESET}"
 gh repo create  hello-cloudbuild-app --private 
 
 gh repo create  hello-cloudbuild-env --private
 
-# Step 7: Clone Google Storage files
+# Step 8: Clone Google Storage files
 echo "${BOLD}${MAGENTA}Cloning source files${RESET}"
 cd ~
 mkdir hello-cloudbuild-app
@@ -111,14 +111,14 @@ gcloud storage cp -r gs://spls/gsp1077/gke-gitops-tutorial-cloudbuild/* hello-cl
 
 cd ~/hello-cloudbuild-app
 
-# Step 8: Update region values in files
+# Step 9: Update region values in files
 echo "${BOLD}${CYAN}Updating region values in configuration files${RESET}"
 sed -i "s/us-central1/$REGION/g" cloudbuild.yaml
 sed -i "s/us-central1/$REGION/g" cloudbuild-delivery.yaml
 sed -i "s/us-central1/$REGION/g" cloudbuild-trigger-cd.yaml
 sed -i "s/us-central1/$REGION/g" kubernetes.yaml.tpl
 
-# Step 9: Initialize git repository
+# Step 10: Initialize git repository
 echo "${BOLD}${GREEN}Initializing Git repository${RESET}"
 git init
 git config credential.helper gcloud.sh
@@ -126,7 +126,7 @@ git remote add google https://github.com/${GITHUB_USERNAME}/hello-cloudbuild-app
 git branch -m master
 git add . && git commit -m "initial commit"
 
-# Step 10: Submit build to Cloud Build
+# Step 11: Submit build to Cloud Build
 echo "${BOLD}${BLUE}Submitting build to Cloud Build${RESET}"
 COMMIT_ID="$(git rev-parse --short=7 HEAD)"
 
@@ -137,7 +137,7 @@ echo "${BOLD}${BLUE}Click here to set up triggers: ${RESET}""https://console.clo
 # Call function to check progress before proceeding
 check_progress
 
-# Step 11: Commit and push changes
+# Step 12: Commit and push changes
 echo "${BOLD}${MAGENTA}Pushing changes to GitHub${RESET}"
 git add .
 
@@ -147,20 +147,20 @@ git push google master
 
 cd ~
 
-# Step 12: Create SSH Key for GitHub authentication
+# Step 13: Create SSH Key for GitHub authentication
 echo "${BOLD}${CYAN}Generating SSH key for GitHub${RESET}"
 mkdir workingdir
 cd workingdir
 
 ssh-keygen -t rsa -b 4096 -N '' -f id_github -C "${USER_EMAIL}"
 
-# Step 13: Store SSH key in Secret Manager
+# Step 14: Store SSH key in Secret Manager
 echo "${BOLD}${GREEN}Storing SSH key in Secret Manager${RESET}"
 gcloud secrets create ssh_key_secret --replication-policy="automatic"
 
 gcloud secrets versions add ssh_key_secret --data-file=id_github
 
-# Step 14: Add SSH key to GitHub
+# Step 15: Add SSH key to GitHub
 echo "${BOLD}${BLUE}Adding SSH key to GitHub${RESET}"
 GITHUB_TOKEN=$(gh auth token)
 
@@ -174,7 +174,7 @@ gh api --method POST -H "Accept: application/vnd.github.v3+json" \
 
 rm id_github*
 
-# Step 15: Grant permissions
+# Step 16: Grant permissions
 echo "${BOLD}${YELLOW}Granting IAM permissions${RESET}"
 gcloud projects add-iam-policy-binding ${PROJECT_NUMBER} \
 --member=serviceAccount:${PROJECT_NUMBER}-compute@developer.gserviceaccount.com \
@@ -186,12 +186,12 @@ gcloud projects add-iam-policy-binding ${PROJECT_NUMBER} \
 --member=serviceAccount:${PROJECT_NUMBER}@cloudbuild.gserviceaccount.com \
 --role=roles/container.developer
 
-# Step 16: Clone environment repository
+# Step 17: Clone environment repository
 echo "${BOLD}${MAGENTA}Cloning environment repository${RESET}"
 mkdir hello-cloudbuild-env
 gcloud storage cp -r gs://spls/gsp1077/gke-gitops-tutorial-cloudbuild/* hello-cloudbuild-env
 
-# Step 17: Modify files and push
+# Step 18: Modify files and push
 echo "${BOLD}${CYAN}Modifying files and pushing to GitHub${RESET}"
 cd hello-cloudbuild-env
 sed -i "s/us-central1/$REGION/g" cloudbuild.yaml
@@ -209,7 +209,7 @@ git branch -m master
 git add . && git commit -m "initial commit"
 git push google master
 
-# Step 18: Checkout and modify deployment branch
+# Step 19: Checkout and modify deployment branch
 echo "${BOLD}${GREEN}Configuring deployment pipeline${RESET}"
 git checkout -b production
 
@@ -232,7 +232,7 @@ git push google production
 
 git push google candidate
 
-# Step 19: Trigger CD pipeline
+# Step 20: Trigger CD pipeline
 echo "${BOLD}${YELLOW}Triggering the CD pipeline${RESET}"
 cd ~/hello-cloudbuild-app
 ssh-keyscan -t rsa github.com > known_hosts.github
