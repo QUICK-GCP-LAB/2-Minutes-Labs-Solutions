@@ -1,6 +1,6 @@
 # Analyze BigQuery Usage with Log Analytics || [GSP1250](https://www.cloudskillsboost.google/focuses/89264?parent=catalog) ||
 
-## 🔑 Solution [here]()
+## 🔑 Solution [here](https://youtu.be/hsJzobxITRY)
 
 ### ⚙️ Execute the Following Commands in Cloud Shell
 
