@@ -23,7 +23,7 @@ steps:
   - '-f'
   - 'kubernetes.yaml'
   env:
-  - 'CLOUDSDK_COMPUTE_REGION=REGION'
+  - 'CLOUDSDK_COMPUTE_REGION=REGION-'
   - 'CLOUDSDK_CONTAINER_CLUSTER=hello-cloudbuild'
 
 # Access the id_github file from Secret Manager, and setup SSH
