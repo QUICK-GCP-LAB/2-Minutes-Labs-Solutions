@@ -36,107 +36,45 @@ RANDOM_BG_COLOR=${BG_COLORS[$RANDOM % ${#BG_COLORS[@]}]}
 
 echo "${RANDOM_BG_COLOR}${RANDOM_TEXT_COLOR}${BOLD}Starting Execution${RESET}"
 
-# Step 1: Viewing installhugo.sh script
-echo "${BLUE}${BOLD}Viewing installhugo.sh script...${RESET}"
-cat /tmp/installhugo.sh
+# Step 2: Creating a service account
+echo "${BLUE}${BOLD}Creating service account...${RESET}"
+gcloud iam service-accounts create test-account \
+  --description="Test account for project management" \
+  --display-name="Test Account"
 
-# Step 2: Executing installhugo.sh script
-echo "${CYAN}${BOLD}Executing installhugo.sh script...${RESET}"
-cd ~
-/tmp/installhugo.sh
+# Step 3: Assigning IAM policy binding
+echo "${MAGENTA}${BOLD}Assigning IAM policy binding...${RESET}"
+gcloud projects add-iam-policy-binding $DEVSHELL_PROJECT_ID \
+  --member="serviceAccount:test-account@$DEVSHELL_PROJECT_ID.iam.gserviceaccount.com" \
+  --role="roles/owner"
 
-# Step 3: Updating package lists
-echo "${GREEN}${BOLD}Updating package lists...${RESET}"
-sudo apt-get update
+# Step 4: Creating a key for the service account
+echo "${CYAN}${BOLD}Creating service account key...${RESET}"
+gcloud iam service-accounts keys create ~/test-account.json \
+    --iam-account="test-account@$DEVSHELL_PROJECT_ID.iam.gserviceaccount.com"
 
-# Step 4: Installing Git
-echo "${YELLOW}${BOLD}Installing Git...${RESET}"
-sudo apt-get install git
+# Step 5: Setting project and service account variables
+echo "${GREEN}${BOLD}Setting project variables...${RESET}"
+export PROJECT_ID=$(gcloud info --format='value(config.project)')
+export SA_NAME="test-account@${PROJECT_ID}.iam.gserviceaccount.com"
 
-# Step 5: Creating Cloud Source Repository
-echo "${BLUE}${BOLD}Creating Cloud Source Repository...${RESET}"
-cd ~
-gcloud source repos create my_hugo_site
+# Step 6: Authenticating service account
+echo "${YELLOW}${BOLD}Authenticating service account...${RESET}"
+gcloud auth activate-service-account ${SA_NAME} --key-file=test-account.json
 
-# Step 6: Cloning Cloud Source Repository
-echo "${MAGENTA}${BOLD}Cloning Cloud Source Repository...${RESET}"
-gcloud source repos clone my_hugo_site
+# Step 7: Adding IAM policy binding for user
+echo "${BLUE}${BOLD}Adding IAM policy binding for user...${RESET}"
+gcloud projects add-iam-policy-binding $PROJECT_ID --member user:$STUDENT2 --role roles/editor
 
-# Step 7: Creating Hugo site
-echo "${CYAN}${BOLD}Creating Hugo site...${RESET}"
-cd ~
-/tmp/hugo new site my_hugo_site --force	
+# Step 8: Logging in user
+echo "${MAGENTA}${BOLD}Logging in $USER_2...${RESET}"
+gcloud auth login $USER_2 --quiet
 
-# Step 8: Cloning Hugo theme
-echo "${YELLOW}${BOLD}Cloning Hugo theme...${RESET}"
-cd ~/my_hugo_site
-git clone \
-  https://github.com/rhazdon/hugo-theme-hello-friend-ng.git themes/hello-friend-ng
-echo 'theme = "hello-friend-ng"' >> config.toml
+# Step 9: Retrieving and deleting service account key
+echo "${CYAN}${BOLD}Retrieving and deleting service account key...${RESET}"
+export KEY_ID=$(gcloud iam service-accounts keys list --iam-account test-account@$DEVSHELL_PROJECT_ID.iam.gserviceaccount.com --format='value(KEY_ID)' | awk 'NR==1')
 
-# Step 9: Removing Git files from theme
-echo "${MAGENTA}${BOLD}Removing Git files from theme...${RESET}"
-sudo rm -r themes/hello-friend-ng/.git
-sudo rm themes/hello-friend-ng/.gitignore 
-
-# Step 10: Starting Hugo server
-echo "${CYAN}${BOLD}Starting Hugo server...${RESET}"
-cd ~/my_hugo_site
-/tmp/hugo server -D --bind 0.0.0.0 --port 8080
-
-# Step 11: Installing Firebase CLI
-echo "${GREEN}${BOLD}Installing Firebase CLI...${RESET}"
-curl -sL https://firebase.tools | bash
-
-# Step 12: Initializing Firebase
-echo "${YELLOW}${BOLD}Initializing Firebase...${RESET}"
-cd ~/my_hugo_site
-firebase init
-
-# Step 13: Deploying Hugo site with Firebase
-echo "${BLUE}${BOLD}Deploying Hugo site with Firebase...${RESET}"
-/tmp/hugo && firebase deploy
-
-# Step 14: Configuring Git
-echo "${MAGENTA}${BOLD}Configuring Git...${RESET}"
-git config --global user.name "hugo"
-git config --global user.email "hugo@blogger.com"
-
-# Step 15: Ignoring resources directory
-echo "${CYAN}${BOLD}Ignoring resources directory...${RESET}"
-cd ~/my_hugo_site
-echo "resources" >> .gitignore
-
-# Step 16: Adding and committing files to Git
-echo "${GREEN}${BOLD}Adding and committing files to Git...${RESET}"
-git add .
-git commit -m "Add app to Cloud Source Repositories"
-git push -u origin master
-
-# Step 17: Copying cloudbuild.yaml
-echo "${YELLOW}${BOLD}Copying cloudbuild.yaml...${RESET}"
-cd ~/my_hugo_site
-cp /tmp/cloudbuild.yaml .
-
-# Step 18: Viewing cloudbuild.yaml
-echo "${BLUE}${BOLD}Viewing cloudbuild.yaml...${RESET}"
-cat cloudbuild.yaml
-
-# Step 19: Importing build trigger
-echo "${MAGENTA}${BOLD}Importing build trigger...${RESET}"
-gcloud alpha builds triggers import --source=/tmp/trigger.yaml
-
-# Step 20: Updating site title and pushing changes
-echo "${CYAN}${BOLD}Updating site title and pushing changes...${RESET}"
-git add .
-git commit -m "I updated the site title"
-git push -u origin master
-
-sleep 60
-
-# Step 21: Viewing build logs
-echo "${YELLOW}${BOLD}Viewing build logs...${RESET}"
-gcloud builds log $(gcloud builds list --format='value(ID)' --filter=$(git rev-parse HEAD))
+gcloud iam service-accounts keys delete $KEY_ID --iam-account test-account@$DEVSHELL_PROJECT_ID.iam.gserviceaccount.com --quiet
 
 echo
 
