@@ -1,11 +1,11 @@
-# Deploy a Hugo Website with Cloud Build and Firebase Pipeline || [GSP747](https://www.cloudskillsboost.google/focuses/14353?parent=catalog) ||
+# [Explore false positives through incident detection](https://www.cloudskillsboost.google/paths/419/course_templates/969/labs/490432)
 
 ## 🔑 Solution [here]()
 
 ### ⚙️ Execute the Following Commands in Cloud Shell
 
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Deploy%20a%20Hugo%20Website%20with%20Cloud%20Build%20and%20Firebase%20Pipeline/gsp747.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Explore%20false%20positives%20through%20incident%20detection/shell.sh
 
 sudo chmod +x *.sh
 
