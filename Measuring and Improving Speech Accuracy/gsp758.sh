@@ -34,7 +34,7 @@ sleep 15
 export NOTEBOOK_NAME="awesome-jupyter"
 export MACHINE_TYPE="e2-standard-2"
 
-gcloud notebooks instances create lol \
+gcloud notebooks instances create $NOTEBOOK_NAME \
   --location=$ZONE \
   --vm-image-project=deeplearning-platform-release \
   --vm-image-family=tf-latest-cpu
