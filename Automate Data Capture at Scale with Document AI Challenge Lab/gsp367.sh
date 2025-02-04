@@ -119,16 +119,18 @@ PROCESSOR_ID=$(curl -X GET \
 export PROCESSOR_ID
 
 gcloud functions deploy process-invoices \
+  --gen2 \
   --region=${CLOUD_FUNCTION_LOCATION} \
   --entry-point=process_invoice \
   --runtime=python39 \
+  --service-account=${PROJECT_ID}@appspot.gserviceaccount.com \
   --source=cloud-functions/process-invoices \
   --timeout=400 \
+  --env-vars-file=cloud-functions/process-invoices/.env.yaml \
   --trigger-resource=gs://${PROJECT_ID}-input-invoices \
-  --trigger-event=google.storage.object.finalize \
-  --update-env-vars=PROCESSOR_ID=${PROCESSOR_ID},PARSER_LOCATION=us,PROJECT_ID=${PROJECT_ID} \
-  --service-account=$PROJECT_NUMBER-compute@developer.gserviceaccount.com \
-  --no-gen2
+  --trigger-event=google.storage.object.finalize\
+  --service-account $PROJECT_NUMBER-compute@developer.gserviceaccount.com \
+  --allow-unauthenticated
 
 export PROJECT_ID=$(gcloud config get-value core/project)
 gsutil -m cp -r gs://cloud-training/gsp367/* \
