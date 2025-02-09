@@ -37,13 +37,13 @@ RANDOM_BG_COLOR=${BG_COLORS[$RANDOM % ${#BG_COLORS[@]}]}
 echo "${RANDOM_BG_COLOR}${RANDOM_TEXT_COLOR}${BOLD}Starting Execution${RESET}"
 
 # Step 1: Create Pub/Sub topics
-echo "${GREEN}Creating Pub/Sub topics...${RESET}"
+echo "${GREEN}${BOLD}Creating Pub/Sub topics...${RESET}"
 gcloud pubsub topics create sports_topic
 
 gcloud pubsub topics create app_topic
 
 # Step 2: Create Pub/Sub subscription
-echo "${BLUE}Creating Pub/Sub subscription...${RESET}"
+echo "${BLUE}${BOLD}Creating Pub/Sub subscription...${RESET}"
 gcloud pubsub subscriptions create app_subscription --topic=app_topic
 
 echo
