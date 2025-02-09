@@ -37,12 +37,12 @@ RANDOM_BG_COLOR=${BG_COLORS[$RANDOM % ${#BG_COLORS[@]}]}
 echo "${RANDOM_BG_COLOR}${RANDOM_TEXT_COLOR}${BOLD}Starting Execution${RESET}"
 
 # Step 1: Get the default region from Google Cloud project metadata
-echo "${GREEN}${BOLD}Step 2: Fetching default region from Google Cloud project metadata...${RESET}"
+echo "${GREEN}${BOLD}Fetching default region from Google Cloud project metadata...${RESET}"
 export REGION=$(gcloud compute project-info describe \
 --format="value(commonInstanceMetadata.items[google-compute-default-region])")
 
 # Step 2: Create Firestore database in the retrieved region
-echo "${BLUE}${BOLD}Step 3: Creating Firestore database in region: $REGION${RESET}"
+echo "${BLUE}${BOLD}Creating Firestore database in region: $REGION${RESET}"
 gcloud firestore databases create \
   --location=$REGION \
   --type=firestore-native
