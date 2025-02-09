@@ -47,7 +47,7 @@ export REGION=$(gcloud compute project-info describe \
 --format="value(commonInstanceMetadata.items[google-compute-default-region])")
 
 # Step 2: Deploy private-backend
-echo "${YELLOW}Deploying private-backend...${RESET}"
+echo "${YELLOW}${BOLD}Deploying private-backend...${RESET}"
 gcloud run deploy private-backend \
 --image=us-docker.pkg.dev/cloudrun/container/hello \
 --no-allow-unauthenticated \
@@ -58,7 +58,7 @@ gcloud run deploy private-backend \
 --project=$DEVSHELL_PROJECT_ID
 
 # Step 3: Deploy public-frontend
-echo "${YELLOW}Deploying public-frontend...${RESET}"
+echo "${BLUE}${BOLD}Deploying public-frontend...${RESET}"
 gcloud run deploy public-frontend \
 --image=us-docker.pkg.dev/cloudrun/container/hello \
 --no-allow-unauthenticated \
