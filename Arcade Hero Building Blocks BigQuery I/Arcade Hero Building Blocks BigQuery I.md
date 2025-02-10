@@ -1,6 +1,6 @@
 # Arcade Hero: Building Blocks BigQuery I || [arc1201](https://www.cloudskillsboost.google/focuses/115687?parent=catalog) ||
 
-## 🔑 Solution [here]()
+## 🔑 Solution [here](https://youtu.be/zrBKkreZAPg)
 
 ### ⚙️ Execute the Following Commands in Cloud Shell
 
