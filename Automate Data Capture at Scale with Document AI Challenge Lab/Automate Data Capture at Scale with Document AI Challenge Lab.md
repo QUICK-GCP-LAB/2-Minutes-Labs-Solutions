@@ -7,6 +7,7 @@
 ```
 export PROCESSOR=
 ```
+> PROCESSOR variable above is "Processor Name"
 ```
 curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Automate%20Data%20Capture%20at%20Scale%20with%20Document%20AI%20Challenge%20Lab/gsp367.sh
 
