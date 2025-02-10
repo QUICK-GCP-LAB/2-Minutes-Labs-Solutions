@@ -8,11 +8,11 @@
 export ZONE=
 ```
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Service%20Accounts%20and%20Roles%20Fundamentals/gsp199.sh
+curl -LO raw.githubusercontent.com/quiccklabs/Labs_solutions/master/Service%20Accounts%20and%20Roles%20Fundamentals/quicklabgsp199.sh
 
-sudo chmod +x gsp199.sh
+sudo chmod +x quicklabgsp199.sh
 
-./gsp199.sh
+./quicklabgsp199.sh
 ```
 
 ### Congratulations 🎉 for completing the Lab !
