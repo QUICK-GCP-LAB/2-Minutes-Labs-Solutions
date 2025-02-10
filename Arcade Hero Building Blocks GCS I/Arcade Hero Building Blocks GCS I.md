@@ -1,6 +1,6 @@
 # Arcade Hero: Building Blocks GCS I || [arc1200](https://www.cloudskillsboost.google/focuses/115690?parent=catalog) ||
 
-## 🔑 Solution [here]()
+## 🔑 Solution [here](https://youtu.be/Pn2dTJ5d3HU)
 
 ### ⚙️ Execute the Following Commands in Cloud Shell
 
