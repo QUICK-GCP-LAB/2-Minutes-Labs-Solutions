@@ -1,6 +1,6 @@
 # Arcade Hero: Building Blocks Firestore I || [arc1206](https://www.cloudskillsboost.google/focuses/115689?parent=catalog) ||
 
-## 🔑 Solution [here]()
+## 🔑 Solution [here](https://youtu.be/agOzBeiTqFk)
 
 ### ⚙️ Execute the Following Commands in Cloud Shell
 
