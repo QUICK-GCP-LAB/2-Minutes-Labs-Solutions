@@ -1,6 +1,6 @@
 # Arcade Hero: Building Blocks VPC I || [arc1202](https://www.cloudskillsboost.google/focuses/115693?parent=catalog) ||
 
-## 🔑 Solution [here]()
+## 🔑 Solution [here](https://youtu.be/siMs61Nwtm4)
 
 ### ⚙️ Execute the Following Commands in Cloud Shell
 
