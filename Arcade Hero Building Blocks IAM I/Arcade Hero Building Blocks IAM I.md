@@ -1,6 +1,6 @@
 # Arcade Hero: Building Blocks IAM I || [arc1203](https://www.cloudskillsboost.google/focuses/115691?parent=catalog) ||
 
-## 🔑 Solution [here]()
+## 🔑 Solution [here](https://youtu.be/Bd2YhAm6sdk)
 
 ### ⚙️ Execute the Following Commands in Cloud Shell
 
