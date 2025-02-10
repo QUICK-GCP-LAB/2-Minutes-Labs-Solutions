@@ -1,6 +1,6 @@
 # Arcade Hero: Building Blocks Cloud Run I || [arc1205](https://www.cloudskillsboost.google/focuses/115688?parent=catalog) ||
 
-## 🔑 Solution [here]()
+## 🔑 Solution [here](https://youtu.be/9TI4A6FFtVY)
 
 ### ⚙️ Execute the Following Commands in Cloud Shell
 
