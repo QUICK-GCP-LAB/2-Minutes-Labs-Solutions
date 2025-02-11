@@ -66,7 +66,7 @@ wget https://raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/re
 
 # Step 7: Upload chef.py to the Cloud Storage bucket
 echo "${CYAN}${BOLD}[Step 7] Uploading 'chef.py' to Cloud Storage bucket...${RESET}"
-gcloud storage cp chef.py gs://qwiklabs-gcp-00-fc65f12e705e-generative-ai/
+gcloud storage cp chef.py gs://$DEVSHELL_PROJECT_ID-generative-ai/
 
 # Step 8: Set project and region variables
 echo "${GREEN}${BOLD}[Step 8] Setting GCP project and region variables...${RESET}"
@@ -114,9 +114,9 @@ echo "${GREEN}${BOLD}[Step 14] Fetching Cloud Run service URL...${RESET}"
 CLOUD_RUN_URL=$(gcloud run services describe "$SERVICE_NAME" --region="$GCP_REGION" --format='value(status.url)')
 
 echo
-echo "${YELLOW}${BOLD}Streamlit running at: http://localhost:8080${RESET}"
+echo "${YELLOW}${BOLD}Streamlit running at: ${RESET}""http://localhost:8080"
 echo
-echo "${MAGENTA}${BOLD}Cloud Run Service is available at: $CLOUD_RUN_URL${RESET}"
+echo "${MAGENTA}${BOLD}Cloud Run Service is available at: ${RESET}""$CLOUD_RUN_URL"
 echo
 
 # Function to display a random congratulatory message
