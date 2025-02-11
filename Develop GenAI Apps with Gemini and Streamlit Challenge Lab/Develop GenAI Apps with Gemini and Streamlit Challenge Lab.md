@@ -2,7 +2,7 @@
 
 ## Solution [here](https://youtu.be/DwOxKDyh1RU)
 
-* Navigate to `Workbench ` from [here](https://console.cloud.google.com/vertex-ai/workbench/instances)
+* Navigate to `Workbench ` from [here](https://console.cloud.google.com/vertex-ai/workbench/instances?)
 
 * Download `Jupyter` file from [here](https://github.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/blob/main/Develop%20GenAI%20Apps%20with%20Gemini%20and%20Streamlit%20Challenge%20Lab/prompt.ipynb)
 
