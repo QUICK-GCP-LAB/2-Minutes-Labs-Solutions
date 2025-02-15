@@ -59,6 +59,8 @@ gcloud compute addresses create google-managed-services-default \
     --prefix-length=24 \
     --network=default
 
+sleep 30
+
 # Step 5: Establish VPC Peering with the Google Cloud SQL service
 echo "${MAGENTA}${BOLD}Establishing VPC Peering with Google Cloud SQL${RESET}"
 gcloud services vpc-peerings connect \
