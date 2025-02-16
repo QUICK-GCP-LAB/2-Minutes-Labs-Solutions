@@ -100,7 +100,8 @@ sudo rm themes/hello-friend-ng/.gitignore
 
 # Step 12: Start Hugo server in the background
 echo "${BOLD}${RED}Starting Hugo server in the background...${RESET}"
-nohup /tmp/hugo server -D --bind 0.0.0.0 --port 8080 > hugo.log 2>&1 &
+tmux new -s hugo
+/tmp/hugo server -D --bind 0.0.0.0 --port 8080
 
 # Step 13: Install Firebase CLI
 echo "${BOLD}${GREEN}Installing Firebase CLI...${RESET}"
@@ -143,7 +144,7 @@ gcloud builds connections create github cloud-build-connection --project=$PROJEC
 echo
 
 # Step 20: Display Cloud Build Repositories Console Link
-echo "${BOLD}${BLUE}Open Cloud Build Repositories Console...${RESET}""https://console.cloud.google.com/cloud-build/repositories/2nd-gen?project=$PROJECT_ID"
+echo "${BOLD}${BLUE}Open Cloud Build Repositories Console: ${RESET}""https://console.cloud.google.com/cloud-build/repositories/2nd-gen?project=$PROJECT_ID"
 
 # Function to prompt user to check their progress
 function check_progress {
@@ -197,6 +198,8 @@ echo "${BOLD}${GREEN}Adding, committing, and pushing changes to Git...${RESET}"
 git add .
 git commit -m "I updated the site title"
 git push -u origin master
+
+sleep 15
 
 # Step 26: List all builds in Cloud Build
 echo "${BOLD}${YELLOW}Listing Cloud Builds...${RESET}"
