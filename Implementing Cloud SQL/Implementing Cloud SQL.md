@@ -1,6 +1,6 @@
 # [Implementing Cloud SQL](https://www.cloudskillsboost.google/focuses/19086?parent=catalog)
 
-## 🔑 Solution [here]()
+## 🔑 Solution [here](https://youtu.be/loixqGIrU-c)
 
 ### ⚙️ Execute the Following Commands in Cloud Shell
 
