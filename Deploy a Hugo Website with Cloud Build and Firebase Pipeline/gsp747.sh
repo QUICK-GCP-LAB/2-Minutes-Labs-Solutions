@@ -105,6 +105,30 @@ nohup /tmp/hugo server -D --bind 0.0.0.0 --port 8080 > hugo.log 2>&1 &
 echo "Hugo server is running in the background with PID: $!"
 echo "To stop it, run: kill $!"
 
+# Function to prompt user to check their progress
+function check_progress {
+    while true; do
+        echo
+        echo -n "${BOLD}${YELLOW}Have you checked your progress upto Task 1 ? (Y/N): ${RESET}"
+        read -r user_input
+        if [[ "$user_input" == "Y" || "$user_input" == "y" ]]; then
+            echo
+            echo "${BOLD}${GREEN}Great! Proceeding to the next steps...${RESET}"
+            echo
+            break
+        elif [[ "$user_input" == "N" || "$user_input" == "n" ]]; then
+            echo
+            echo "${BOLD}${RED}Please check your progress upto Task 1 and then press Y to continue.${RESET}"
+        else
+            echo
+            echo "${BOLD}${MAGENTA}Invalid input. Please enter Y or N.${RESET}"
+        fi
+    done
+}
+
+# Call function to check progress before proceeding
+check_progress
+
 # Step 13: Install Firebase CLI
 echo "${BOLD}${GREEN}Installing Firebase CLI...${RESET}"
 curl -sL https://firebase.tools | bash
