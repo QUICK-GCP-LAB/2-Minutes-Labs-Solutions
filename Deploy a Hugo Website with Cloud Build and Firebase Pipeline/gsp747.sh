@@ -100,8 +100,10 @@ sudo rm themes/hello-friend-ng/.gitignore
 
 # Step 12: Start Hugo server in the background
 echo "${BOLD}${RED}Starting Hugo server in the background...${RESET}"
-tmux new -s hugo
-/tmp/hugo server -D --bind 0.0.0.0 --port 8080
+nohup /tmp/hugo server -D --bind 0.0.0.0 --port 8080 > hugo.log 2>&1 &
+
+echo "Hugo server is running in the background with PID: $!"
+echo "To stop it, run: kill $!"
 
 # Step 13: Install Firebase CLI
 echo "${BOLD}${GREEN}Installing Firebase CLI...${RESET}"
