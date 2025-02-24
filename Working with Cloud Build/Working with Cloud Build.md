@@ -1,6 +1,6 @@
 # [Working with Cloud Build](https://www.cloudskillsboost.google/focuses/19110?parent=catalog)
 
-## 🔑 Solution [here]()
+## 🔑 Solution [here](https://youtu.be/xP7f-l5hO70)
 
 ### ⚙️ Execute the Following Commands in Cloud Shell
 
