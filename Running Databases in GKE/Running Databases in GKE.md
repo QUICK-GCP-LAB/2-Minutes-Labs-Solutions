@@ -1,6 +1,6 @@
 # [Running Databases in GKE](https://www.cloudskillsboost.google/paths/22/course_templates/145/labs/515095)
 
-## 🔑 Solution [here]()
+## 🔑 Solution [here](https://youtu.be/mnwyZL9OGO8)
 
 ### ⚙️ Execute the Following Commands in Cloud Shell
 
