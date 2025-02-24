@@ -77,6 +77,7 @@ host=$(gcloud workstations describe ${WS_NAME} \
   --format="value(host)")
 
 # Step 8: Output Workstation URL
+echo
 echo "${BLUE}${BOLD}Workstation URL: ${RESET}""https://80-${host}/?authuser=0"
 
 echo
