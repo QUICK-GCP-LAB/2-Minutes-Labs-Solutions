@@ -1,6 +1,6 @@
 # [Deploying GKE Autopilot Clusters](https://www.cloudskillsboost.google/focuses/72686?parent=catalog)
 
-## 🔑 Solution [here]()
+## 🔑 Solution [here](https://youtu.be/7ayj40cFE68)
 
 ### ⚙️ Execute the Following Commands in Cloud Shell
 
