@@ -1,6 +1,6 @@
 # Introduction to Cloud Dataproc: Hadoop and Spark on Google Cloud || [GSP123](https://www.cloudskillsboost.google/focuses/672?parent=catalog) ||
 
-## 🔑 Solution [here]()
+## 🔑 Solution [here](https://youtu.be/uYEBNgZVNhc)
 
 ### ⚙️ Execute the Following Commands in Cloud Shell
 
