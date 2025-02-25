@@ -47,7 +47,7 @@ gcloud services enable notebooks.googleapis.com
 gcloud services enable aiplatform.googleapis.com
 
 # Step 3: Create a Jupyter Workbench instance
-echo "${MAGENTA}${BOLD}Creating Workbench Instance 'awesome-jupyter'${RESET}"
+echo "${MAGENTA}${BOLD}Creating Workbench Instance 'lab-workbench'${RESET}"
 gcloud workbench instances create lab-workbench \
   --location=$ZONE
 
