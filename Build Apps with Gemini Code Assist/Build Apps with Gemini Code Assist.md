@@ -1,6 +1,6 @@
 # [Build Apps with Gemini Code Assist](https://www.cloudskillsboost.google/paths/19/course_templates/1166/labs/509927)
 
-## 🔑 Solution [here]()
+## 🔑 Solution [here](https://youtu.be/djPcgx96OBE)
 
 ### ⚙️ Execute the Following Commands in Cloud Shell
 
