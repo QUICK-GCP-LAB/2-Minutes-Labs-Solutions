@@ -1,28 +1,25 @@
 # Reinforcement Learning: Qwik Start || [GSP691](https://www.cloudskillsboost.google/focuses/10285?parent=catalog) ||
 
-## Solution [here](https://youtu.be/SvCEF-vamWU)
+## 🔑 Solution [here]()
 
-### Run the following Commands in CloudShell
+### ⚙️ Execute the Following Commands in Cloud Shell
 
-```
-export ZONE=
-```
 ```
 curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Reinforcement%20Learning%20Qwik%20Start/gsp691.sh
 
-sudo chmod +x gsp691.sh
+sudo chmod +x *.sh
 
-./gsp691.sh
+./*.sh
 ```
 
-* Go to `User-managed Notebooks` from [here](https://console.cloud.google.com/vertex-ai/workbench/user-managed?)
+# 🎉 Woohoo! You Did It! 🎉  
 
-### Congratulations 🎉 for completing the Lab !
+Your hard work and determination paid off! 💻  
+You've successfully completed the lab. **Way to go!** 🚀
 
-##### *You Have Successfully Demonstrated Your Skills And Determination.*
-
-#### *Well done!*
-
-#### Don't Forget to Join the [Telegram Channel](https://t.me/quickgcplab) & [Discussion group](https://t.me/quickgcplabchats)
+### 💬 Stay Connected with Our Community!  
+👉 Join the conversation and never miss an update:  
+📢 [Telegram Channel](https://t.me/quickgcplab)  
+👥 [Discussion Group](https://t.me/quickgcplabchats)  
 
 # [QUICK GCP LAB](https://www.youtube.com/@quickgcplab)
