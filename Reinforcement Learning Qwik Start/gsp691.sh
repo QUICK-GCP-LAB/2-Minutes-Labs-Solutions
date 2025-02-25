@@ -45,6 +45,7 @@ export ZONE=$(gcloud compute project-info describe \
 echo "${CYAN}${BOLD}Enabling Required Google Cloud Services${RESET}"
 gcloud services enable notebooks.googleapis.com
 gcloud services enable aiplatform.googleapis.com
+gcloud services enable datacatalog.googleapis.com
 
 # Step 3: Create a Jupyter Workbench instance
 echo "${MAGENTA}${BOLD}Creating Workbench Instance 'lab-workbench'${RESET}"
