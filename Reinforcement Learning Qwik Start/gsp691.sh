@@ -25,18 +25,18 @@ RESET=`tput sgr0`
 
 echo "${BG_MAGENTA}${BOLD}Starting Execution${RESET}"
 
+export ZONE=$(gcloud compute project-info describe \
+--format="value(commonInstanceMetadata.items[google-compute-default-zone])")
+
 gcloud services enable notebooks.googleapis.com
 
 gcloud services enable aiplatform.googleapis.com
 
-export NOTEBOOK_NAME="awesome-jupyter"
-export MACHINE_TYPE="e2-standard-2"
-
-gcloud notebooks instances create $NOTEBOOK_NAME \
+gcloud notebooks instances create lab-workbench \
   --location=$ZONE \
   --vm-image-project=deeplearning-platform-release \
-  --vm-image-family=tf-2-11-cu113-notebooks \
-  --machine-type=$MACHINE_TYPE
+  --vm-image-family=tf-latest-cpu \
+  --machine-type=e2-standard-2
 
 echo "${BG_RED}${BOLD}Congratulations For Completing The Lab !!!${RESET}"
 
