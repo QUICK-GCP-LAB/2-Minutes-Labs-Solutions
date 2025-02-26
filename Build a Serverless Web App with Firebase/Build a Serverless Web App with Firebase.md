@@ -4,19 +4,15 @@
 
 * Register your app name as **Pet Theory**
 
-* For Collection ID Paste the Following
+* For Collection ID Type or Paste **customers**
 
-```
-customers
-```
-
-* For Document ID Paste Your `Username`
+* For Document ID Enter your `Username`
 
 * Now Paste the following
 
 | Field |  Type  | Value |
 | :---: | :----: | :----: |
-| email | string | Username |
+| email | string | Your username |
 | name  | string | John |
 | phone | string | 98473757454 |
 
