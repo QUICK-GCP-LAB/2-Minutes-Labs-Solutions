@@ -4,6 +4,11 @@
 
 * Register your app name as **Pet Theory**
 
+* Enter the following domain:
+  ```
+  student-bucket-REPLACE_PROJECT_ID-1.web.app
+  ```
+
 * For Collection ID Type or Paste **customers**
 
 * For Document ID copy and paste your `Username`
