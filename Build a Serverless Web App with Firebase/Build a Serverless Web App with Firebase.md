@@ -6,7 +6,7 @@
 
 * For Collection ID Type or Paste **customers**
 
-* For Document ID Enter your `Username`
+* For Document ID copy and paste your `Username`
 
 * Now Paste the following
 
