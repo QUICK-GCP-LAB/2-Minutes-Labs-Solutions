@@ -2,8 +2,6 @@
 
 ## 🔑 Solution [here]()
 
-* Go to **Firebase Console** from [here](https://console.firebase.google.com/)
-
 * Register your app name as **Pet Theory**
 
 * For Collection ID Paste the Following
