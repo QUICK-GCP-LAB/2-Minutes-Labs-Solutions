@@ -1,6 +1,6 @@
 # Introduction to BigQuery SQL translation
 
-## 🔑 Solution [here]()
+## 🔑 Solution [here](https://youtu.be/4iv8Vc0k7gQ)
 
 ### ⚙️ Execute the Following Commands in Cloud Shell
 
