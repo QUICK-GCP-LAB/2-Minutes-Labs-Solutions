@@ -36,159 +36,88 @@ RANDOM_BG_COLOR=${BG_COLORS[$RANDOM % ${#BG_COLORS[@]}]}
 
 echo "${RANDOM_BG_COLOR}${RANDOM_TEXT_COLOR}${BOLD}Starting Execution${RESET}"
 
-# Function to prompt user for input and export it as PROCESSOR
-get_processor_input() {
-    # Prompt user for input
-    echo
-    echo -n "${MAGENTA}${BOLD}Enter the processor name:${RESET}"
-    read -r processor_input
-    
-    # Export the input as an environment variable
-    export PROCESSOR="$processor_input"
-    
-    # Print confirmation
-    echo
-    echo "${GREEN}${BOLD}Thanks for your input!${RESET}"
-    echo
+# Step 1: Set the default compute zone
+echo "${YELLOW}${BOLD}Setting the default compute zone${RESET}"
+export ZONE=$(gcloud compute project-info describe \
+--format="value(commonInstanceMetadata.items[google-compute-default-zone])")
 
-}
-
-# Call the function
-get_processor_input
-
-# Step 1: Retrieve project details
-echo "${CYAN}${BOLD}Fetching Project Details...${RESET}"
-export PROJECT_ID=$(gcloud config get-value core/project)
-PROJECT_NUMBER=$(gcloud projects describe $PROJECT_ID --format='value(projectNumber)')
-export ZONE=$(gcloud compute instances list lab-vm --format 'csv[no-heading](zone)')
+# Step 2: Set the default compute region
+echo "${GREEN}${BOLD}Setting the default compute region${RESET}"
 export REGION=$(gcloud compute project-info describe \
 --format="value(commonInstanceMetadata.items[google-compute-default-region])")
-export BUCKET_LOCATION=$REGION
 
-# Step 2: Enable required Google Cloud services
-echo "${BLUE}${BOLD}Enabling Required Services...${RESET}"
-gcloud services enable documentai.googleapis.com      
-gcloud services enable cloudfunctions.googleapis.com  
-gcloud services enable cloudbuild.googleapis.com    
-gcloud services enable geocoding-backend.googleapis.com 
-gcloud services enable eventarc.googleapis.com
-gcloud services enable run.googleapis.com
+# Step 3: Enable required Google Cloud services
+echo "${CYAN}${BOLD}Enabling required Google Cloud services${RESET}"
+gcloud services enable servicenetworking.googleapis.com
+gcloud services enable sqladmin.googleapis.com
 
-# Step 3: Create a local directory and copy files
-echo "${YELLOW}${BOLD}Setting up local environment...${RESET}"
-  mkdir ./document-ai-challenge
-  gsutil -m cp -r gs://spls/gsp367/* \
-    ~/document-ai-challenge/
+# Step 4: Create a VPC Peering IP address range
+echo "${BLUE}${BOLD}Creating a VPC Peering IP address range${RESET}"
+gcloud compute addresses create google-managed-services-default \
+    --global \
+    --purpose=VPC_PEERING \
+    --prefix-length=24 \
+    --network=default
 
-# Step 4: Obtain authentication token
-echo "${CYAN}${BOLD}Fetching authentication token...${RESET}"
-ACCESS_TOKEN=$(gcloud auth application-default print-access-token)
+sleep 30
 
-# Step 5: Create a processor
-echo "${MAGENTA}${BOLD}Creating Processor...${RESET}"
-curl -X POST \
-  -H "Authorization: Bearer $ACCESS_TOKEN" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "display_name": "'"$PROCESSOR"'",
-    "type": "FORM_PARSER_PROCESSOR"
-  }' \
-  "https://documentai.googleapis.com/v1/projects/$PROJECT_ID/locations/us/processors"
+# Step 5: Establish VPC Peering with the Google Cloud SQL service
+echo "${MAGENTA}${BOLD}Establishing VPC Peering with Google Cloud SQL${RESET}"
+gcloud services vpc-peerings connect \
+    --service=servicenetworking.googleapis.com \
+    --network=default \
+    --ranges=google-managed-services-default
 
-# Step 6: Create Cloud Storage buckets
-echo "${BLUE}${BOLD}Creating Cloud Storage Buckets...${RESET}"
-gsutil mb -c standard -l ${BUCKET_LOCATION} -b on \
- gs://${PROJECT_ID}-input-invoices
-gsutil mb -c standard -l ${BUCKET_LOCATION} -b on \
- gs://${PROJECT_ID}-output-invoices
-gsutil mb -c standard -l ${BUCKET_LOCATION} -b on \
- gs://${PROJECT_ID}-archived-invoices
+# Step 6: Create a Cloud SQL instance
+echo "${RED}${BOLD}Creating a Cloud SQL instance${RESET}"
+gcloud sql instances create wordpress-db \
+    --database-version=MYSQL_8_0 \
+    --tier=db-custom-1-3840 \
+    --region=$REGION \
+    --storage-size=10GB \
+    --storage-type=SSD \
+    --root-password=awesome \
+    --network=default \
+    --no-assign-ip \
+    --enable-google-private-path
 
-# Step 7: Create BigQuery dataset and table
-echo "${CYAN}${BOLD}Setting up BigQuery Dataset and Table...${RESET}"
-bq --location="US" mk  -d \
-    --description "Form Parser Results" \
-    ${PROJECT_ID}:invoice_parser_results
-    
-cd ~/document-ai-challenge/scripts/table-schema/
+# Step 7: Create a database within the Cloud SQL instance
+echo "${CYAN}${BOLD}Creating the 'wordpress' database${RESET}"
+gcloud sql databases create wordpress \
+  --instance=wordpress-db \
+  --charset=utf8 \
+  --collation=utf8_general_ci
 
-bq mk --table \
-invoice_parser_results.doc_ai_extracted_entities \
-doc_ai_extracted_entities.json
+# Step 8: Create a script to prepare the disk and Cloud SQL Proxy
+echo "${YELLOW}${BOLD}Creating a script to prepare the disk and Cloud SQL Proxy${RESET}"
+cat > prepare_disk.sh <<'EOF_END'
 
-cd ~/document-ai-challenge/scripts 
+export PROJECT_ID=$(gcloud config get-value project)
 
-# Step 8: Grant IAM permissions
-echo "${MAGENTA}${BOLD}Granting IAM Permissions...${RESET}"
-SERVICE_ACCOUNT=$(gcloud storage service-agent --project=$PROJECT_ID)
+export ZONE=$(gcloud compute project-info describe \
+  --format="value(commonInstanceMetadata.items[google-compute-default-zone])")
 
-gcloud projects add-iam-policy-binding $PROJECT_ID \
-  --member serviceAccount:$SERVICE_ACCOUNT \
-  --role roles/pubsub.publisher
+export REGION=$(gcloud compute project-info describe \
+  --format="value(commonInstanceMetadata.items[google-compute-default-region])")
 
-# Step 9: Set Cloud Function location and deploy function
-echo "${BLUE}${BOLD}Deploying Cloud Function...${RESET}"
-export CLOUD_FUNCTION_LOCATION=$REGION
+wget https://dl.google.com/cloudsql/cloud_sql_proxy.linux.amd64 -O cloud_sql_proxy && chmod +x cloud_sql_proxy
 
-sleep 20
+export SQL_CONNECTION=$PROJECT_ID:$REGION:wordpress-db
 
-deploy_function() {
-gcloud functions deploy process-invoices \
-  --gen2 \
-  --region=${CLOUD_FUNCTION_LOCATION} \
-  --entry-point=process_invoice \
-  --runtime=python39 \
-  --service-account=${PROJECT_ID}@appspot.gserviceaccount.com \
-  --source=cloud-functions/process-invoices \
-  --timeout=400 \
-  --env-vars-file=cloud-functions/process-invoices/.env.yaml \
-  --trigger-resource=gs://${PROJECT_ID}-input-invoices \
-  --trigger-event=google.storage.object.finalize\
-  --service-account $PROJECT_NUMBER-compute@developer.gserviceaccount.com \
-  --allow-unauthenticated
-}
+./cloud_sql_proxy -instances=$SQL_CONNECTION=tcp:3306 &
 
-deploy_success=false
+EOF_END
 
-while [ "$deploy_success" = false ]; do
-  if deploy_function; then
-    echo "${GREEN}${BOLD}Function deployed successfully.${RESET}"
-    deploy_success=true
-  else
-    echo "${RED}${BOLD}Deployment failed, retrying in 30 seconds...${RESET}"
-    sleep 30
-  fi
-done
+# Step 9: Copy the script to the remote instance
+echo "${GREEN}${BOLD}Copying the script to the remote instance${RESET}"
+gcloud compute scp prepare_disk.sh wordpress-proxy:/tmp \
+  --project=$(gcloud config get-value project) --zone=$ZONE --quiet
 
-# Step 10: Fetch and update PROCESSOR_ID
-echo "${CYAN}${BOLD}Fetching Processor ID...${RESET}"
-PROCESSOR_ID=$(curl -X GET \
-  -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
-  -H "Content-Type: application/json" \
-  "https://documentai.googleapis.com/v1/projects/$PROJECT_ID/locations/us/processors" | \
-  grep '"name":' | \
-  sed -E 's/.*"name": "projects\/[0-9]+\/locations\/us\/processors\/([^"]+)".*/\1/')
-
-export PROCESSOR_ID
-
-# Step 11: Update Cloud Function
-echo "${BLUE}${BOLD}Updating Cloud Function...${RESET}"
-gcloud functions deploy process-invoices \
-  --gen2 \
-  --region=${CLOUD_FUNCTION_LOCATION} \
-  --entry-point=process_invoice \
-  --runtime=python39 \
-  --service-account=${PROJECT_ID}@appspot.gserviceaccount.com \
-  --source=cloud-functions/process-invoices \
-  --timeout=400 \
-  --env-vars-file=cloud-functions/process-invoices/.env.yaml \
-  --trigger-resource=gs://${PROJECT_ID}-input-invoices \
-
-
-# Step 12: Upload invoices
-echo "${MAGENTA}${BOLD}Uploading Sample Invoices...${RESET}"
-gsutil -m cp -r gs://cloud-training/gsp367/* \
-~/document-ai-challenge/invoices gs://${PROJECT_ID}-input-invoices/
+# Step 10: Execute the script on the remote instance
+echo "${BLUE}${BOLD}Executing the script on the remote instance${RESET}"
+gcloud compute ssh wordpress-proxy \
+  --project=$(gcloud config get-value project) --zone=$ZONE --quiet \
+  --command="bash /tmp/prepare_disk.sh"
 
 echo
 

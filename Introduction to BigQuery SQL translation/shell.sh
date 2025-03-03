@@ -36,159 +36,64 @@ RANDOM_BG_COLOR=${BG_COLORS[$RANDOM % ${#BG_COLORS[@]}]}
 
 echo "${RANDOM_BG_COLOR}${RANDOM_TEXT_COLOR}${BOLD}Starting Execution${RESET}"
 
-# Function to prompt user for input and export it as PROCESSOR
-get_processor_input() {
-    # Prompt user for input
-    echo
-    echo -n "${MAGENTA}${BOLD}Enter the processor name:${RESET}"
-    read -r processor_input
-    
-    # Export the input as an environment variable
-    export PROCESSOR="$processor_input"
-    
-    # Print confirmation
-    echo
-    echo "${GREEN}${BOLD}Thanks for your input!${RESET}"
-    echo
+# Step 1: Enable BigQuery migration API
+echo "${BOLD}${CYAN}Enabling BigQuery Migration API...${RESET}"
+gcloud services enable bigquerymigration.googleapis.com
 
-}
-
-# Call the function
-get_processor_input
-
-# Step 1: Retrieve project details
-echo "${CYAN}${BOLD}Fetching Project Details...${RESET}"
-export PROJECT_ID=$(gcloud config get-value core/project)
-PROJECT_NUMBER=$(gcloud projects describe $PROJECT_ID --format='value(projectNumber)')
-export ZONE=$(gcloud compute instances list lab-vm --format 'csv[no-heading](zone)')
-export REGION=$(gcloud compute project-info describe \
---format="value(commonInstanceMetadata.items[google-compute-default-region])")
-export BUCKET_LOCATION=$REGION
-
-# Step 2: Enable required Google Cloud services
-echo "${BLUE}${BOLD}Enabling Required Services...${RESET}"
-gcloud services enable documentai.googleapis.com      
-gcloud services enable cloudfunctions.googleapis.com  
-gcloud services enable cloudbuild.googleapis.com    
-gcloud services enable geocoding-backend.googleapis.com 
-gcloud services enable eventarc.googleapis.com
-gcloud services enable run.googleapis.com
-
-# Step 3: Create a local directory and copy files
-echo "${YELLOW}${BOLD}Setting up local environment...${RESET}"
-  mkdir ./document-ai-challenge
-  gsutil -m cp -r gs://spls/gsp367/* \
-    ~/document-ai-challenge/
-
-# Step 4: Obtain authentication token
-echo "${CYAN}${BOLD}Fetching authentication token...${RESET}"
-ACCESS_TOKEN=$(gcloud auth application-default print-access-token)
-
-# Step 5: Create a processor
-echo "${MAGENTA}${BOLD}Creating Processor...${RESET}"
-curl -X POST \
-  -H "Authorization: Bearer $ACCESS_TOKEN" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "display_name": "'"$PROCESSOR"'",
-    "type": "FORM_PARSER_PROCESSOR"
-  }' \
-  "https://documentai.googleapis.com/v1/projects/$PROJECT_ID/locations/us/processors"
-
-# Step 6: Create Cloud Storage buckets
-echo "${BLUE}${BOLD}Creating Cloud Storage Buckets...${RESET}"
-gsutil mb -c standard -l ${BUCKET_LOCATION} -b on \
- gs://${PROJECT_ID}-input-invoices
-gsutil mb -c standard -l ${BUCKET_LOCATION} -b on \
- gs://${PROJECT_ID}-output-invoices
-gsutil mb -c standard -l ${BUCKET_LOCATION} -b on \
- gs://${PROJECT_ID}-archived-invoices
-
-# Step 7: Create BigQuery dataset and table
-echo "${CYAN}${BOLD}Setting up BigQuery Dataset and Table...${RESET}"
-bq --location="US" mk  -d \
-    --description "Form Parser Results" \
-    ${PROJECT_ID}:invoice_parser_results
-    
-cd ~/document-ai-challenge/scripts/table-schema/
-
-bq mk --table \
-invoice_parser_results.doc_ai_extracted_entities \
-doc_ai_extracted_entities.json
-
-cd ~/document-ai-challenge/scripts 
-
-# Step 8: Grant IAM permissions
-echo "${MAGENTA}${BOLD}Granting IAM Permissions...${RESET}"
-SERVICE_ACCOUNT=$(gcloud storage service-agent --project=$PROJECT_ID)
-
-gcloud projects add-iam-policy-binding $PROJECT_ID \
-  --member serviceAccount:$SERVICE_ACCOUNT \
-  --role roles/pubsub.publisher
-
-# Step 9: Set Cloud Function location and deploy function
-echo "${BLUE}${BOLD}Deploying Cloud Function...${RESET}"
-export CLOUD_FUNCTION_LOCATION=$REGION
-
-sleep 20
-
-deploy_function() {
-gcloud functions deploy process-invoices \
-  --gen2 \
-  --region=${CLOUD_FUNCTION_LOCATION} \
-  --entry-point=process_invoice \
-  --runtime=python39 \
-  --service-account=${PROJECT_ID}@appspot.gserviceaccount.com \
-  --source=cloud-functions/process-invoices \
-  --timeout=400 \
-  --env-vars-file=cloud-functions/process-invoices/.env.yaml \
-  --trigger-resource=gs://${PROJECT_ID}-input-invoices \
-  --trigger-event=google.storage.object.finalize\
-  --service-account $PROJECT_NUMBER-compute@developer.gserviceaccount.com \
-  --allow-unauthenticated
-}
-
-deploy_success=false
-
-while [ "$deploy_success" = false ]; do
-  if deploy_function; then
-    echo "${GREEN}${BOLD}Function deployed successfully.${RESET}"
-    deploy_success=true
-  else
-    echo "${RED}${BOLD}Deployment failed, retrying in 30 seconds...${RESET}"
-    sleep 30
-  fi
-done
-
-# Step 10: Fetch and update PROCESSOR_ID
-echo "${CYAN}${BOLD}Fetching Processor ID...${RESET}"
-PROCESSOR_ID=$(curl -X GET \
-  -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
-  -H "Content-Type: application/json" \
-  "https://documentai.googleapis.com/v1/projects/$PROJECT_ID/locations/us/processors" | \
-  grep '"name":' | \
-  sed -E 's/.*"name": "projects\/[0-9]+\/locations\/us\/processors\/([^"]+)".*/\1/')
-
-export PROCESSOR_ID
-
-# Step 11: Update Cloud Function
-echo "${BLUE}${BOLD}Updating Cloud Function...${RESET}"
-gcloud functions deploy process-invoices \
-  --gen2 \
-  --region=${CLOUD_FUNCTION_LOCATION} \
-  --entry-point=process_invoice \
-  --runtime=python39 \
-  --service-account=${PROJECT_ID}@appspot.gserviceaccount.com \
-  --source=cloud-functions/process-invoices \
-  --timeout=400 \
-  --env-vars-file=cloud-functions/process-invoices/.env.yaml \
-  --trigger-resource=gs://${PROJECT_ID}-input-invoices \
+# Step 2: Create SQL script file
+echo "${BOLD}${GREEN}Creating source_teradata.txt file...${RESET}"
+cat > source_teradata.txt <<EOF
+-- Create a new table named "Customers"
+CREATE TABLE Customers (
+  CustomerID INTEGER PRIMARY KEY,
+  FirstName VARCHAR(255),
+  LastName VARCHAR(255),
+  Email VARCHAR(255)
+);
 
 
-# Step 12: Upload invoices
-echo "${MAGENTA}${BOLD}Uploading Sample Invoices...${RESET}"
-gsutil -m cp -r gs://cloud-training/gsp367/* \
-~/document-ai-challenge/invoices gs://${PROJECT_ID}-input-invoices/
+-- Insert some data into the "Customers" table
+INSERT INTO Customers (CustomerID, FirstName, LastName, Email)
+VALUES (1, 'John', 'Doe', 'johndoe@example.com');
+
+INSERT INTO Customers (CustomerID, FirstName, LastName, Email)
+VALUES (2, 'Jane', 'Smith', 'janesmith@example.com');
+
+INSERT INTO Customers (CustomerID, FirstName, LastName, Email)
+VALUES (3, 'Bob', 'Johnson', 'bobjohnson@example.com');
+
+
+-- Select all data from the "Customers" table
+SELECT * FROM Customers;
+
+
+-- Add a new column to the "Customers" table
+ALTER TABLE Customers ADD Address VARCHAR(255);
+
+
+-- Update the email address for a specific customer
+UPDATE Customers SET Email = 'johndoe2@example.com' WHERE CustomerID = 1;
+
+
+-- Delete a customer record from the "Customers" table
+DELETE FROM Customers WHERE CustomerID = 3;
+
+
+-- Select customers whose first name starts with 'J'
+SELECT * FROM Customers WHERE FirstName LIKE 'J%';
+EOF
+
+# Step 3: Create a Cloud Storage bucket
+echo "${BOLD}${MAGENTA}Creating Cloud Storage bucket...${RESET}"
+gsutil mb gs://$DEVSHELL_PROJECT_ID
+
+# Step 4: Upload SQL script to Cloud Storage
+echo "${BOLD}${GREEN}Uploading source_teradata.txt to Cloud Storage...${RESET}"
+gsutil cp source_teradata.txt gs://$DEVSHELL_PROJECT_ID/source/source_teradata.txt
+
+# Step 5: Print BigQuery Migration Console link
+echo
+echo "${BOLD}${BLUE}Access BigQuery Migration Console at: ${RESET}" "https://console.cloud.google.com/bigquery/migrations/batch-translation/start-translation?project=$DEVSHELL_PROJECT_ID"
 
 echo
 

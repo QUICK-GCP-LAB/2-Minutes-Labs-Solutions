@@ -36,159 +36,49 @@ RANDOM_BG_COLOR=${BG_COLORS[$RANDOM % ${#BG_COLORS[@]}]}
 
 echo "${RANDOM_BG_COLOR}${RANDOM_TEXT_COLOR}${BOLD}Starting Execution${RESET}"
 
-# Function to prompt user for input and export it as PROCESSOR
-get_processor_input() {
-    # Prompt user for input
-    echo
-    echo -n "${MAGENTA}${BOLD}Enter the processor name:${RESET}"
-    read -r processor_input
-    
-    # Export the input as an environment variable
-    export PROCESSOR="$processor_input"
-    
-    # Print confirmation
-    echo
-    echo "${GREEN}${BOLD}Thanks for your input!${RESET}"
-    echo
-
-}
-
-# Call the function
-get_processor_input
-
-# Step 1: Retrieve project details
-echo "${CYAN}${BOLD}Fetching Project Details...${RESET}"
-export PROJECT_ID=$(gcloud config get-value core/project)
-PROJECT_NUMBER=$(gcloud projects describe $PROJECT_ID --format='value(projectNumber)')
-export ZONE=$(gcloud compute instances list lab-vm --format 'csv[no-heading](zone)')
+# Step 1: Fetch Project ID, User & Region
+echo "${GREEN}${BOLD}Fetching Project ID, User & Region${RESET}"
+export PROJECT_ID=$(gcloud config list project --format="value(core.project)")
+export USER=$(gcloud config list account --format "value(core.account)")
 export REGION=$(gcloud compute project-info describe \
 --format="value(commonInstanceMetadata.items[google-compute-default-region])")
-export BUCKET_LOCATION=$REGION
 
-# Step 2: Enable required Google Cloud services
-echo "${BLUE}${BOLD}Enabling Required Services...${RESET}"
-gcloud services enable documentai.googleapis.com      
-gcloud services enable cloudfunctions.googleapis.com  
-gcloud services enable cloudbuild.googleapis.com    
-gcloud services enable geocoding-backend.googleapis.com 
-gcloud services enable eventarc.googleapis.com
-gcloud services enable run.googleapis.com
+export CLUSTER_NAME=my-cluster
+export CONFIG_NAME=my-config
+export WS_NAME=my-workstation
 
-# Step 3: Create a local directory and copy files
-echo "${YELLOW}${BOLD}Setting up local environment...${RESET}"
-  mkdir ./document-ai-challenge
-  gsutil -m cp -r gs://spls/gsp367/* \
-    ~/document-ai-challenge/
+# Step 2: Enable Cloud AI Companion Service
+echo "${BLUE}${BOLD}Enabling Cloud AI Companion Service${RESET}"
+gcloud services enable cloudaicompanion.googleapis.com --project ${PROJECT_ID}
 
-# Step 4: Obtain authentication token
-echo "${CYAN}${BOLD}Fetching authentication token...${RESET}"
-ACCESS_TOKEN=$(gcloud auth application-default print-access-token)
+# Step 3: Add IAM Policy Bindings
+echo "${MAGENTA}${BOLD}Adding IAM Policy Bindings${RESET}"
+gcloud projects add-iam-policy-binding ${PROJECT_ID} --member user:${USER} --role=roles/cloudaicompanion.user
+gcloud projects add-iam-policy-binding ${PROJECT_ID} --member user:${USER} --role=roles/serviceusage.serviceUsageViewer
 
-# Step 5: Create a processor
-echo "${MAGENTA}${BOLD}Creating Processor...${RESET}"
-curl -X POST \
-  -H "Authorization: Bearer $ACCESS_TOKEN" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "display_name": "'"$PROCESSOR"'",
-    "type": "FORM_PARSER_PROCESSOR"
-  }' \
-  "https://documentai.googleapis.com/v1/projects/$PROJECT_ID/locations/us/processors"
+# Step 4: Create Workstation Config
+echo "${CYAN}${BOLD}Creating Workstation Config${RESET}"
+gcloud workstations configs create ${CONFIG_NAME} --cluster=${CLUSTER_NAME} --region=${REGION} --machine-type="e2-standard-4" --pd-disk-size=200 --pd-disk-type="pd-standard" --pool-size=1
 
-# Step 6: Create Cloud Storage buckets
-echo "${BLUE}${BOLD}Creating Cloud Storage Buckets...${RESET}"
-gsutil mb -c standard -l ${BUCKET_LOCATION} -b on \
- gs://${PROJECT_ID}-input-invoices
-gsutil mb -c standard -l ${BUCKET_LOCATION} -b on \
- gs://${PROJECT_ID}-output-invoices
-gsutil mb -c standard -l ${BUCKET_LOCATION} -b on \
- gs://${PROJECT_ID}-archived-invoices
+# Step 5: Create Workstation
+echo "${GREEN}${BOLD}Creating Workstation${RESET}"
+gcloud workstations create ${WS_NAME} --cluster=${CLUSTER_NAME} --config=${CONFIG_NAME} --region=${REGION}
 
-# Step 7: Create BigQuery dataset and table
-echo "${CYAN}${BOLD}Setting up BigQuery Dataset and Table...${RESET}"
-bq --location="US" mk  -d \
-    --description "Form Parser Results" \
-    ${PROJECT_ID}:invoice_parser_results
-    
-cd ~/document-ai-challenge/scripts/table-schema/
+# Step 6: Start Workstation
+echo "${YELLOW}${BOLD}Starting Workstation${RESET}"
+gcloud workstations start ${WS_NAME} --cluster=${CLUSTER_NAME} --config=${CONFIG_NAME} --region=${REGION}
 
-bq mk --table \
-invoice_parser_results.doc_ai_extracted_entities \
-doc_ai_extracted_entities.json
+# Step 7: Retrieve Workstation Host
+echo "${MAGENTA}${BOLD}Retrieving Workstation Host${RESET}"
+host=$(gcloud workstations describe ${WS_NAME} \
+  --cluster=${CLUSTER_NAME} \
+  --config=${CONFIG_NAME} \
+  --region=${REGION} \
+  --format="value(host)")
 
-cd ~/document-ai-challenge/scripts 
-
-# Step 8: Grant IAM permissions
-echo "${MAGENTA}${BOLD}Granting IAM Permissions...${RESET}"
-SERVICE_ACCOUNT=$(gcloud storage service-agent --project=$PROJECT_ID)
-
-gcloud projects add-iam-policy-binding $PROJECT_ID \
-  --member serviceAccount:$SERVICE_ACCOUNT \
-  --role roles/pubsub.publisher
-
-# Step 9: Set Cloud Function location and deploy function
-echo "${BLUE}${BOLD}Deploying Cloud Function...${RESET}"
-export CLOUD_FUNCTION_LOCATION=$REGION
-
-sleep 20
-
-deploy_function() {
-gcloud functions deploy process-invoices \
-  --gen2 \
-  --region=${CLOUD_FUNCTION_LOCATION} \
-  --entry-point=process_invoice \
-  --runtime=python39 \
-  --service-account=${PROJECT_ID}@appspot.gserviceaccount.com \
-  --source=cloud-functions/process-invoices \
-  --timeout=400 \
-  --env-vars-file=cloud-functions/process-invoices/.env.yaml \
-  --trigger-resource=gs://${PROJECT_ID}-input-invoices \
-  --trigger-event=google.storage.object.finalize\
-  --service-account $PROJECT_NUMBER-compute@developer.gserviceaccount.com \
-  --allow-unauthenticated
-}
-
-deploy_success=false
-
-while [ "$deploy_success" = false ]; do
-  if deploy_function; then
-    echo "${GREEN}${BOLD}Function deployed successfully.${RESET}"
-    deploy_success=true
-  else
-    echo "${RED}${BOLD}Deployment failed, retrying in 30 seconds...${RESET}"
-    sleep 30
-  fi
-done
-
-# Step 10: Fetch and update PROCESSOR_ID
-echo "${CYAN}${BOLD}Fetching Processor ID...${RESET}"
-PROCESSOR_ID=$(curl -X GET \
-  -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
-  -H "Content-Type: application/json" \
-  "https://documentai.googleapis.com/v1/projects/$PROJECT_ID/locations/us/processors" | \
-  grep '"name":' | \
-  sed -E 's/.*"name": "projects\/[0-9]+\/locations\/us\/processors\/([^"]+)".*/\1/')
-
-export PROCESSOR_ID
-
-# Step 11: Update Cloud Function
-echo "${BLUE}${BOLD}Updating Cloud Function...${RESET}"
-gcloud functions deploy process-invoices \
-  --gen2 \
-  --region=${CLOUD_FUNCTION_LOCATION} \
-  --entry-point=process_invoice \
-  --runtime=python39 \
-  --service-account=${PROJECT_ID}@appspot.gserviceaccount.com \
-  --source=cloud-functions/process-invoices \
-  --timeout=400 \
-  --env-vars-file=cloud-functions/process-invoices/.env.yaml \
-  --trigger-resource=gs://${PROJECT_ID}-input-invoices \
-
-
-# Step 12: Upload invoices
-echo "${MAGENTA}${BOLD}Uploading Sample Invoices...${RESET}"
-gsutil -m cp -r gs://cloud-training/gsp367/* \
-~/document-ai-challenge/invoices gs://${PROJECT_ID}-input-invoices/
+# Step 8: Output Workstation URL
+echo
+echo "${BLUE}${BOLD}Workstation URL: ${RESET}""https://80-${host}/?authuser=0"
 
 echo
 

@@ -26,7 +26,7 @@ RESET=`tput sgr0`
 echo "${BG_MAGENTA}${BOLD}Starting Execution${RESET}"
 
 gcloud sql instances create myinstance \
-  --root-password=quicklab \
+  --root-password=awesome \
   --database-version=MYSQL_8_0 \
   --tier=db-n1-standard-4 \
   --region="${ZONE%-*}"

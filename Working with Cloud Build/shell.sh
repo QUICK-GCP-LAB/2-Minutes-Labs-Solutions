@@ -36,159 +36,101 @@ RANDOM_BG_COLOR=${BG_COLORS[$RANDOM % ${#BG_COLORS[@]}]}
 
 echo "${RANDOM_BG_COLOR}${RANDOM_TEXT_COLOR}${BOLD}Starting Execution${RESET}"
 
-# Function to prompt user for input and export it as PROCESSOR
-get_processor_input() {
-    # Prompt user for input
-    echo
-    echo -n "${MAGENTA}${BOLD}Enter the processor name:${RESET}"
-    read -r processor_input
-    
-    # Export the input as an environment variable
-    export PROCESSOR="$processor_input"
-    
-    # Print confirmation
-    echo
-    echo "${GREEN}${BOLD}Thanks for your input!${RESET}"
-    echo
-
-}
-
-# Call the function
-get_processor_input
-
-# Step 1: Retrieve project details
-echo "${CYAN}${BOLD}Fetching Project Details...${RESET}"
-export PROJECT_ID=$(gcloud config get-value core/project)
-PROJECT_NUMBER=$(gcloud projects describe $PROJECT_ID --format='value(projectNumber)')
-export ZONE=$(gcloud compute instances list lab-vm --format 'csv[no-heading](zone)')
+# Step 1: Fetch REGION
+echo "${GREEN}${BOLD}Fetching REGION${RESET}"
 export REGION=$(gcloud compute project-info describe \
 --format="value(commonInstanceMetadata.items[google-compute-default-region])")
-export BUCKET_LOCATION=$REGION
 
-# Step 2: Enable required Google Cloud services
-echo "${BLUE}${BOLD}Enabling Required Services...${RESET}"
-gcloud services enable documentai.googleapis.com      
-gcloud services enable cloudfunctions.googleapis.com  
-gcloud services enable cloudbuild.googleapis.com    
-gcloud services enable geocoding-backend.googleapis.com 
-gcloud services enable eventarc.googleapis.com
-gcloud services enable run.googleapis.com
+# Step 2: Enable Cloud Build Service
+echo "${YELLOW}${BOLD}Enabling Cloud Build Service${RESET}"
+gcloud services enable cloudbuild.googleapis.com
 
-# Step 3: Create a local directory and copy files
-echo "${YELLOW}${BOLD}Setting up local environment...${RESET}"
-  mkdir ./document-ai-challenge
-  gsutil -m cp -r gs://spls/gsp367/* \
-    ~/document-ai-challenge/
+# Step 3: Enable Artifact Registry
+echo "${BLUE}${BOLD}Enabling Artifact Registry${RESET}"
+gcloud services enable artifactregistry.googleapis.com
 
-# Step 4: Obtain authentication token
-echo "${CYAN}${BOLD}Fetching authentication token...${RESET}"
-ACCESS_TOKEN=$(gcloud auth application-default print-access-token)
+# Step 4: Create Quickstart Script
+echo "${MAGENTA}${BOLD}Creating Quickstart Script${RESET}"
+cat <<EOF > quickstart.sh
+#!/bin/sh
+echo "Hello, world! The time is \$(date)."
+EOF
 
-# Step 5: Create a processor
-echo "${MAGENTA}${BOLD}Creating Processor...${RESET}"
-curl -X POST \
-  -H "Authorization: Bearer $ACCESS_TOKEN" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "display_name": "'"$PROCESSOR"'",
-    "type": "FORM_PARSER_PROCESSOR"
-  }' \
-  "https://documentai.googleapis.com/v1/projects/$PROJECT_ID/locations/us/processors"
+# Step 5: Create Dockerfile
+echo "${CYAN}${BOLD}Creating Dockerfile${RESET}"
+cat <<EOF > Dockerfile
+FROM alpine
+COPY quickstart.sh /
+CMD ["/quickstart.sh"]
+EOF
 
-# Step 6: Create Cloud Storage buckets
-echo "${BLUE}${BOLD}Creating Cloud Storage Buckets...${RESET}"
-gsutil mb -c standard -l ${BUCKET_LOCATION} -b on \
- gs://${PROJECT_ID}-input-invoices
-gsutil mb -c standard -l ${BUCKET_LOCATION} -b on \
- gs://${PROJECT_ID}-output-invoices
-gsutil mb -c standard -l ${BUCKET_LOCATION} -b on \
- gs://${PROJECT_ID}-archived-invoices
+# Step 6: Make Quickstart Script Executable
+echo "${RED}${BOLD}Making Quickstart Script Executable${RESET}"
+chmod +x quickstart.sh
 
-# Step 7: Create BigQuery dataset and table
-echo "${CYAN}${BOLD}Setting up BigQuery Dataset and Table...${RESET}"
-bq --location="US" mk  -d \
-    --description "Form Parser Results" \
-    ${PROJECT_ID}:invoice_parser_results
-    
-cd ~/document-ai-challenge/scripts/table-schema/
+# Step 7: Create Artifact Repository
+echo "${GREEN}${BOLD}Creating Artifact Repository${RESET}"
+gcloud artifacts repositories create quickstart-docker-repo --repository-format=docker \
+    --location=$REGION --description="Docker repository"
 
-bq mk --table \
-invoice_parser_results.doc_ai_extracted_entities \
-doc_ai_extracted_entities.json
+# Step 8: Submit Initial Build
+echo "${YELLOW}${BOLD}Submitting Initial Build${RESET}"
+gcloud builds submit --tag $REGION-docker.pkg.dev/${DEVSHELL_PROJECT_ID}/quickstart-docker-repo/quickstart-image:tag1
 
-cd ~/document-ai-challenge/scripts 
+# Step 9: Create Cloud Build YAML
+echo "${BLUE}${BOLD}Creating Cloud Build YAML${RESET}"
+cat <<EOF > cloudbuild.yaml
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: [ 'build', '-t', 'YourRegionHere-docker.pkg.dev/\$PROJECT_ID/quickstart-docker-repo/quickstart-image:tag1', '.' ]
+images:
+- 'YourRegionHere-docker.pkg.dev/\$PROJECT_ID/quickstart-docker-repo/quickstart-image:tag1'
+EOF
 
-# Step 8: Grant IAM permissions
-echo "${MAGENTA}${BOLD}Granting IAM Permissions...${RESET}"
-SERVICE_ACCOUNT=$(gcloud storage service-agent --project=$PROJECT_ID)
+# Step 10: Update Cloud Build YAML with Region
+echo "${MAGENTA}${BOLD}Updating Cloud Build YAML with Region${RESET}"
+sed -i "s/YourRegionHere/$REGION/g" cloudbuild.yaml
 
-gcloud projects add-iam-policy-binding $PROJECT_ID \
-  --member serviceAccount:$SERVICE_ACCOUNT \
-  --role roles/pubsub.publisher
+# Step 11: Submit Cloud Build
+echo "${CYAN}${BOLD}Submitting Cloud Build${RESET}"
+gcloud builds submit --config cloudbuild.yaml
 
-# Step 9: Set Cloud Function location and deploy function
-echo "${BLUE}${BOLD}Deploying Cloud Function...${RESET}"
-export CLOUD_FUNCTION_LOCATION=$REGION
+# Step 12: Update Quickstart Script
+echo "${RED}${BOLD}Updating Quickstart Script${RESET}"
+cat <<EOF > quickstart.sh
+#!/bin/sh
+if [ -z "$1" ]
+then
+	echo "Hello, world! The time is $(date)."
+	exit 0
+else
+	exit 1
+fi
+EOF
 
-sleep 20
+# Step 13: Create Cloud Build 2 YAML
+echo "${GREEN}${BOLD}Creating Cloud Build 2 YAML${RESET}"
+cat <<EOF > cloudbuild2.yaml
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: [ 'build', '-t', 'YourRegionHere-docker.pkg.dev/\$PROJECT_ID/quickstart-docker-repo/quickstart-image:tag1', '.' ]
+- name: 'YourRegionHere-docker.pkg.dev/\$PROJECT_ID/quickstart-docker-repo/quickstart-image:tag1'
+  args: ['fail']
+images:
+- 'YourRegionHere-docker.pkg.dev/\$PROJECT_ID/quickstart-docker-repo/quickstart-image:tag1'
+EOF
 
-deploy_function() {
-gcloud functions deploy process-invoices \
-  --gen2 \
-  --region=${CLOUD_FUNCTION_LOCATION} \
-  --entry-point=process_invoice \
-  --runtime=python39 \
-  --service-account=${PROJECT_ID}@appspot.gserviceaccount.com \
-  --source=cloud-functions/process-invoices \
-  --timeout=400 \
-  --env-vars-file=cloud-functions/process-invoices/.env.yaml \
-  --trigger-resource=gs://${PROJECT_ID}-input-invoices \
-  --trigger-event=google.storage.object.finalize\
-  --service-account $PROJECT_NUMBER-compute@developer.gserviceaccount.com \
-  --allow-unauthenticated
-}
+# Step 14: Update Cloud Build 2 YAML with Region
+echo "${YELLOW}${BOLD}Updating Cloud Build 2 YAML with Region${RESET}"
+sed -i "s/YourRegionHere/$REGION/g" cloudbuild2.yaml
 
-deploy_success=false
+# Step 15: Display Cloud Build 2 YAML
+echo "${BLUE}${BOLD}Displaying Cloud Build 2 YAML${RESET}"
+cat cloudbuild2.yaml
 
-while [ "$deploy_success" = false ]; do
-  if deploy_function; then
-    echo "${GREEN}${BOLD}Function deployed successfully.${RESET}"
-    deploy_success=true
-  else
-    echo "${RED}${BOLD}Deployment failed, retrying in 30 seconds...${RESET}"
-    sleep 30
-  fi
-done
-
-# Step 10: Fetch and update PROCESSOR_ID
-echo "${CYAN}${BOLD}Fetching Processor ID...${RESET}"
-PROCESSOR_ID=$(curl -X GET \
-  -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
-  -H "Content-Type: application/json" \
-  "https://documentai.googleapis.com/v1/projects/$PROJECT_ID/locations/us/processors" | \
-  grep '"name":' | \
-  sed -E 's/.*"name": "projects\/[0-9]+\/locations\/us\/processors\/([^"]+)".*/\1/')
-
-export PROCESSOR_ID
-
-# Step 11: Update Cloud Function
-echo "${BLUE}${BOLD}Updating Cloud Function...${RESET}"
-gcloud functions deploy process-invoices \
-  --gen2 \
-  --region=${CLOUD_FUNCTION_LOCATION} \
-  --entry-point=process_invoice \
-  --runtime=python39 \
-  --service-account=${PROJECT_ID}@appspot.gserviceaccount.com \
-  --source=cloud-functions/process-invoices \
-  --timeout=400 \
-  --env-vars-file=cloud-functions/process-invoices/.env.yaml \
-  --trigger-resource=gs://${PROJECT_ID}-input-invoices \
-
-
-# Step 12: Upload invoices
-echo "${MAGENTA}${BOLD}Uploading Sample Invoices...${RESET}"
-gsutil -m cp -r gs://cloud-training/gsp367/* \
-~/document-ai-challenge/invoices gs://${PROJECT_ID}-input-invoices/
+# Step 16: Submit Cloud Build 2
+echo "${MAGENTA}${BOLD}Submitting Cloud Build 2${RESET}"
+gcloud builds submit --config cloudbuild2.yaml
 
 echo
 

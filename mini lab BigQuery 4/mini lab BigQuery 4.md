@@ -1,11 +1,11 @@
-# Reinforcement Learning: Qwik Start || [GSP691](https://www.cloudskillsboost.google/focuses/10285?parent=catalog) ||
+# mini lab : BigQuery : 4
 
-## 🔑 Solution [here](https://youtu.be/FsnW7TlVzjw)
+## 🔑 Solution [here](https://youtu.be/k7huQyHg73U)
 
 ### ⚙️ Execute the Following Commands in Cloud Shell
 
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Reinforcement%20Learning%20Qwik%20Start/gsp691.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/mini%20lab%20BigQuery%204/shell.sh
 
 sudo chmod +x *.sh
 

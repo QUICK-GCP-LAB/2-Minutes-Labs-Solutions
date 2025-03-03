@@ -29,6 +29,8 @@ gcloud compute instances create dev-instance --project=$DEVSHELL_PROJECT_ID --zo
 
 gcloud compute firewall-rules create allow-http --allow tcp:80 --description "Allow HTTP traffic" --direction INGRESS --target-tags http-server --network default
 
+sleep 30
+
 cat > prepare_disk.sh <<'EOF_END'
 sudo apt-get update
 sudo apt-get install git -y

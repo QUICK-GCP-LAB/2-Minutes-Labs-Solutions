@@ -30,6 +30,8 @@ gcloud services enable cloudasset.googleapis.com \
 
 gcloud beta services identity create --service=cloudasset.googleapis.com --project=$GOOGLE_PROJECT
 
+sleep 60
+
 gcloud projects add-iam-policy-binding ${GOOGLE_PROJECT}  \
    --member=serviceAccount:service-$(gcloud projects list --filter="$GOOGLE_PROJECT" --format="value(PROJECT_NUMBER)")@gcp-sa-cloudasset.iam.gserviceaccount.com \
    --role=roles/storage.admin

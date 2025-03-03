@@ -1,11 +1,11 @@
-# Reinforcement Learning: Qwik Start || [GSP691](https://www.cloudskillsboost.google/focuses/10285?parent=catalog) ||
+# Introduction to BigQuery SQL translation
 
-## 🔑 Solution [here](https://youtu.be/FsnW7TlVzjw)
+## 🔑 Solution [here](https://youtu.be/4iv8Vc0k7gQ)
 
 ### ⚙️ Execute the Following Commands in Cloud Shell
 
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Reinforcement%20Learning%20Qwik%20Start/gsp691.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Introduction%20to%20BigQuery%20SQL%20translation/shell.sh
 
 sudo chmod +x *.sh
 

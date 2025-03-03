@@ -1,11 +1,11 @@
-# Reinforcement Learning: Qwik Start || [GSP691](https://www.cloudskillsboost.google/focuses/10285?parent=catalog) ||
+# Arcade Hero: Building Blocks IAM I || [arc1203](https://www.cloudskillsboost.google/focuses/115691?parent=catalog) ||
 
-## 🔑 Solution [here](https://youtu.be/FsnW7TlVzjw)
+## 🔑 Solution [here](https://youtu.be/Bd2YhAm6sdk)
 
 ### ⚙️ Execute the Following Commands in Cloud Shell
 
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Reinforcement%20Learning%20Qwik%20Start/gsp691.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Arcade%20Hero%20Building%20Blocks%20IAM%20I/arc1203.sh
 
 sudo chmod +x *.sh
 

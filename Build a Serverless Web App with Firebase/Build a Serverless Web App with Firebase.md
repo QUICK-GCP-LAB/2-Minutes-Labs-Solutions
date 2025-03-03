@@ -1,37 +1,36 @@
 # Build a Serverless Web App with Firebase || [GSP643](https://www.cloudskillsboost.google/focuses/8391?parent=catalog) ||
 
-## Solution [here](https://youtu.be/68qNZlz21kg)
+## 🔑 Solution [here](https://youtu.be/2fhkexvwMEY)
 
-* Go to `Firebase Console` from [here](https://console.firebase.google.com/)
+* Register your app name as **Pet Theory**
 
-### NOW FOLLOW VIDEOS'S INSTRUCTION
+* Enter the following domain:
+  ```
+  student-bucket-REPLACE_PROJECT_ID-1.web.app
+  ```
 
-* Register your app name as `Pet Theory`
+* For Collection ID Type or Paste **customers**
 
-* For Collection ID Paste the Following
-
-```
-customers
-```
-
-* For Document ID Paste Your `Username`
+* For Document ID copy and paste your `Username`
 
 * Now Paste the following
 
 | Field |  Type  | Value |
 | :---: | :----: | :----: |
-| email | string | Username |
+| email | string | Your username |
 | name  | string | John |
 | phone | string | 98473757454 |
 
 * Now Click `Save`
 
-### Congratulations 🎉 for completing the Lab !
+# 🎉 Woohoo! You Did It! 🎉  
 
-##### *You Have Successfully Demonstrated Your Skills And Determination.*
+Your hard work and determination paid off! 💻  
+You've successfully completed the lab. **Way to go!** 🚀
 
-#### *Well done!*
-
-#### Don't Forget to Join the [Telegram Channel](https://t.me/quickgcplab) & [Discussion group](https://t.me/quickgcplabchats)
+### 💬 Stay Connected with Our Community!  
+👉 Join the conversation and never miss an update:  
+📢 [Telegram Channel](https://t.me/quickgcplab)  
+👥 [Discussion Group](https://t.me/quickgcplabchats)  
 
 # [QUICK GCP LAB](https://www.youtube.com/@quickgcplab)

@@ -1,11 +1,11 @@
-# Reinforcement Learning: Qwik Start || [GSP691](https://www.cloudskillsboost.google/focuses/10285?parent=catalog) ||
+# Introduction to Cloud Dataproc: Hadoop and Spark on Google Cloud || [GSP123](https://www.cloudskillsboost.google/focuses/672?parent=catalog) ||
 
-## 🔑 Solution [here](https://youtu.be/FsnW7TlVzjw)
+## 🔑 Solution [here](https://youtu.be/uYEBNgZVNhc)
 
 ### ⚙️ Execute the Following Commands in Cloud Shell
 
 ```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Reinforcement%20Learning%20Qwik%20Start/gsp691.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Introduction%20to%20Cloud%20Dataproc%20Hadoop%20and%20Spark%20on%20Google%20Cloud/gsp123.sh
 
 sudo chmod +x *.sh
 

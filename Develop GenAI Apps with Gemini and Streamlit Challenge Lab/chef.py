@@ -101,6 +101,8 @@ ingredient_3 = st.text_input(
 # Task 2.5
 # Complete Streamlit framework code for the user interface, add the wine preference radio button to the interface.
 # https://docs.streamlit.io/library/api-reference/widgets/st.radio
+
+
 wine = st.radio (
     "What wine do you prefer?\n\n", ["Red", "White", "None"], key="wine", horizontal=True
 )
@@ -120,12 +122,11 @@ The customer's wine preference is {wine} \n
 Please provide some for meal recommendations.
 For each recommendation include preparation instructions,
 time to prepare
-and the recipe title at the begining of the response.
+and the recipe title at the beginning of the response.
 Then include the wine paring for each recommendation.
 At the end of the recommendation provide the calories associated with the meal
 and the nutritional facts.
 """
-
 
 config = {
     "temperature": 0.8,
