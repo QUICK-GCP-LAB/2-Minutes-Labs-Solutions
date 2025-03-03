@@ -1,27 +1,25 @@
 # Automate Data Capture at Scale with Document AI: Challenge Lab || [GSP367](https://www.cloudskillsboost.google/focuses/34185?parent=catalog) ||
 
-## Solution [here](https://youtu.be/wIkQxId8I8s)
+## 🔑 Solution [here](https://youtu.be/wIkQxId8I8s)
 
-### Run the following Commands in CloudShell
+### ⚙️ Execute the Following Commands in Cloud Shell
 
-```
-export PROCESSOR=
-```
-> PROCESSOR variable above is "Processor Name"
 ```
 curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Automate%20Data%20Capture%20at%20Scale%20with%20Document%20AI%20Challenge%20Lab/gsp367.sh
 
-sudo chmod +x gsp367.sh
+sudo chmod +x *.sh
 
-./gsp367.sh
+./*.sh
 ```
 
-### Congratulations 🎉 for completing the Lab !
+# 🎉 Woohoo! You Did It! 🎉  
 
-##### *You Have Successfully Demonstrated Your Skills And Determination.*
+Your hard work and determination paid off! 💻  
+You've successfully completed the lab. **Way to go!** 🚀
 
-#### *Well done!*
-
-#### Don't Forget to Join the [Telegram Channel](https://t.me/quickgcplab) & [Discussion group](https://t.me/quickgcplabchats)
+### 💬 Stay Connected with Our Community!  
+👉 Join the conversation and never miss an update:  
+📢 [Telegram Channel](https://t.me/quickgcplab)  
+👥 [Discussion Group](https://t.me/quickgcplabchats)  
 
 # [QUICK GCP LAB](https://www.youtube.com/@quickgcplab)
