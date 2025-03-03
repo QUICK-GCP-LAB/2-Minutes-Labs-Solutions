@@ -40,7 +40,7 @@ echo "${RANDOM_BG_COLOR}${RANDOM_TEXT_COLOR}${BOLD}Starting Execution${RESET}"
 get_processor_input() {
     # Prompt user for input
     echo
-    echo -n "${MAGENTA}${BOLD}Enter the processor name:${RESET}"
+    echo -n "${MAGENTA}${BOLD}Enter the processor name: ${RESET}"
     read -r processor_input
     
     # Export the input as an environment variable
