@@ -1,6 +1,6 @@
 # Automate Data Capture at Scale with Document AI: Challenge Lab || [GSP367](https://www.cloudskillsboost.google/focuses/34185?parent=catalog) ||
 
-## 🔑 Solution [here](https://youtu.be/wIkQxId8I8s)
+## 🔑 Solution [here](https://youtu.be/nc-KxqFlung)
 
 ### ⚙️ Execute the Following Commands in Cloud Shell
 
