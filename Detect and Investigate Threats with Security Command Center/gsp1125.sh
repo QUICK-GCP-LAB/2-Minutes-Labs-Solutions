@@ -93,7 +93,7 @@ gcloud projects add-iam-policy-binding $DEVSHELL_PROJECT_ID \
   --role=roles/cloudresourcemanager.projectIamAdmin 2>/dev/null
 
 # Step 10: Create Compute Instance
-echo "${RED}${BOLD}Creating Compute Instance...${RESET}"
+echo "${BLUE}${BOLD}Creating Compute Instance...${RESET}"
 gcloud compute instances create instance-1 \
 --zone=$ZONE \
 --machine-type=e2-medium \
