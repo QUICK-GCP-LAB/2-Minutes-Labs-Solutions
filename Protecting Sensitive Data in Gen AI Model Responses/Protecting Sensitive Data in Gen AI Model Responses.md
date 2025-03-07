@@ -1,6 +1,6 @@
 # Protecting Sensitive Data in Gen AI Model Responses || [GSP1283](https://www.cloudskillsboost.google/focuses/109505?parent=catalog) ||
 
-## 🔑 Solution [here]()
+## 🔑 Solution [here](https://youtu.be/JgosZioIMLw)
 
 ### ⚙️ Execute the Following Commands in Notebook Terminal
 
