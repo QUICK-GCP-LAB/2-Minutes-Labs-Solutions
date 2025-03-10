@@ -37,44 +37,44 @@ RANDOM_BG_COLOR=${BG_COLORS[$RANDOM % ${#BG_COLORS[@]}]}
 echo "${RANDOM_BG_COLOR}${RANDOM_TEXT_COLOR}${BOLD}Starting Execution${RESET}"
 
 # Step 1: Get the Project ID
-echo "${BOLD}${GREEN}Step 1: Fetching Project ID...${RESET}"
+echo "${BOLD}${GREEN}Fetching Project ID...${RESET}"
 export PROJECT_ID=$(gcloud config get-value project)
 
 # Step 2: Get the Project Number
-echo "${BOLD}${CYAN}Step 2: Fetching Project Number...${RESET}"
+echo "${BOLD}${CYAN}Fetching Project Number...${RESET}"
 export PROJECT_NUMBER=$(gcloud projects describe ${PROJECT_ID} \
     --format="value(projectNumber)")
 
 # Step 3: Create a Tag Key
-echo "${BOLD}${YELLOW}Step 3: Creating Tag Key 'sensitivity-level'...${RESET}"
+echo "${BOLD}${YELLOW}Creating Tag Key 'sensitivity-level'...${RESET}"
 gcloud resource-manager tags keys create sensitivity-level \
     --parent=projects/$PROJECT_NUMBER \
     --description="Sensitivity level tagged as low, moderate, high, and unknown"
 
 # Step 4: Get the Tag Key ID
-echo "${BOLD}${BLUE}Step 4: Fetching Tag Key ID...${RESET}"
+echo "${BOLD}${BLUE}Fetching Tag Key ID...${RESET}"
 TAG_KEY_ID=$(gcloud resource-manager tags keys list --parent="projects/${PROJECT_NUMBER}" --format="value(NAME)")
 
 # Step 5: Create Tag Value 'low'
-echo "${BOLD}${MAGENTA}Step 5: Creating Tag Value 'low'...${RESET}"
+echo "${BOLD}${MAGENTA}Creating Tag Value 'low'...${RESET}"
 gcloud resource-manager tags values create low \
     --parent=$TAG_KEY_ID \
     --description="Tag value to attach to low-sensitivity data"
 
 # Step 6: Create Tag Value 'moderate'
-echo "${BOLD}${RED}Step 6: Creating Tag Value 'moderate'...${RESET}"
+echo "${BOLD}${RED}Creating Tag Value 'moderate'...${RESET}"
 gcloud resource-manager tags values create moderate \
     --parent=$TAG_KEY_ID \
     --description="Tag value to attach to moderate-sensitivity data"
 
 # Step 7: Create Tag Value 'high'
-echo "${BOLD}${GREEN}Step 7: Creating Tag Value 'high'...${RESET}"
+echo "${BOLD}${GREEN}Creating Tag Value 'high'...${RESET}"
 gcloud resource-manager tags values create high \
     --parent=$TAG_KEY_ID \
     --description="Tag value to attach to high-sensitivity data"
 
 # Step 8: Create Tag Value 'unknown'
-echo "${BOLD}${CYAN}Step 8: Creating Tag Value 'unknown'...${RESET}"
+echo "${BOLD}${CYAN}Creating Tag Value 'unknown'...${RESET}"
 gcloud resource-manager tags values create unknown \
     --parent=$TAG_KEY_ID \
     --description="Tag value to attach to resources with an unknown sensitivity level"
@@ -82,7 +82,7 @@ gcloud resource-manager tags values create unknown \
 sleep 10
 
 # Step 9: Assign IAM policy for tags
-echo "${BOLD}${YELLOW}Step 9: Assigning IAM policy to allow tagging...${RESET}"
+echo "${BOLD}${YELLOW}Assigning IAM policy to allow tagging...${RESET}"
 gcloud projects add-iam-policy-binding $PROJECT_ID --member=serviceAccount:service-$PROJECT_NUMBER@dlp-api.iam.gserviceaccount.com --role=roles/resourcemanager.tagUser
 
 echo
