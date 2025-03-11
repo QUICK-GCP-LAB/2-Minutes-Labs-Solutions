@@ -1,6 +1,6 @@
 # Enabling Sensitive Data Protection Discovery for Cloud Storage || [GSP1281](https://www.cloudskillsboost.google/focuses/109504?parent=catalog) ||
 
-## 🔑 Solution [here]()
+## 🔑 Solution [here](https://youtu.be/tnNqVFqqQks)
 
 * Go to **Sensitive Data Protection** from [here](https://console.cloud.google.com/security/sensitive-data-protection/create/discoveryConfiguration;source=DATA_PROFILE_COVERAGE_DASHBOARD;discoveryType=4?project=)
 
