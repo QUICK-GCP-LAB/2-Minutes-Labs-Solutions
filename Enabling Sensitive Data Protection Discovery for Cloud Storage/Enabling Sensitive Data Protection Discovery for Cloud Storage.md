@@ -7,7 +7,7 @@
 ### ⚙️ Execute the Following Commands in Cloud Shell
 
 ```
-curl -LO 
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Enabling%20Sensitive%20Data%20Protection%20Discovery%20for%20Cloud%20Storage/gsp1281.sh
 
 sudo chmod +x *.sh
 
