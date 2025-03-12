@@ -1,6 +1,6 @@
 # Secure Software Supply Chain: Using Cloud Build & Cloud Deploy to Deploy Containerized Applications || [GSP1092](https://www.cloudskillsboost.google/focuses/50453?parent=catalog) ||
 
-## 🔑 Solution [here]()
+## 🔑 Solution [here](https://youtu.be/626KNcBotCk)
 
 ### ⚙️ Execute the Following Commands in Cloud Shell
 
