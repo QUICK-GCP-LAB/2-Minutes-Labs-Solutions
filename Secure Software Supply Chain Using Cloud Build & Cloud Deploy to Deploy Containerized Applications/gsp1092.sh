@@ -81,7 +81,7 @@ EOF
 
 # Step 6: Create index.js
 echo "${GREEN}${BOLD}Creating index.js${RESET}"
-cat <<EOF > index.js
+cat > index.js <<'EOF_END'
 const express = require('express');
 const app = express();
 
@@ -94,7 +94,7 @@ const port = parseInt(process.env.PORT) || 8080;
 app.listen(port, () => {
   console.log(`helloworld: listening on port ${port}`);
 });
-EOF
+EOF_END
 
 # Step 7: Build and submit the image
 echo "${BLUE}${BOLD}Submitting build to Cloud Build${RESET}"
