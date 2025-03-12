@@ -207,7 +207,7 @@ deploy_and_promote() {
         PHASE_STATUS=$(gcloud deploy rollouts list --release=$RELEASE_NAME --delivery-pipeline=$DELIVERY_PIPELINE --region=$REGION --format="value(phases[0].state)" --limit=1)
         
         echo "${YELLOW}${BOLD}📢 Current Rollout State: $STATUS${RESET}"
-        echo "${YELLOW}${BOLD}📢 Deployment Phase State: $PHASE_STATUS${RESET}"
+        echo "${MAGENTA}${BOLD}📢 Deployment Phase State: $PHASE_STATUS${RESET}"
 
         if [[ "$STATUS" == "SUCCEEDED" && "$PHASE_STATUS" == "SUCCEEDED" ]]; then
                     echo "${GREEN}${BOLD}✅ Rollout succeeded! Promoting release...${RESET}"
@@ -218,8 +218,8 @@ deploy_and_promote() {
             echo "${RED}${BOLD}❌ Rollout failed! Exiting...${RESET}"
             exit 1
         else
-            echo "${CYAN}${BOLD}⏳ Rollout in progress... Checking again in 30 seconds...${RESET}"
-            sleep 30
+            echo "${CYAN}${BOLD}⏳ Rollout in progress... Checking again in 1 Minute...${RESET}"
+            sleep 60
         fi
     done
 }
