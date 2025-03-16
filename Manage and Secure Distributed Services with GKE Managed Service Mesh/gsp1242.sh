@@ -272,7 +272,7 @@ kubectl --context=cluster2 get pod,service -n asm-ingress
 
 # Step 24: Cloning Bank of Anthos repository
 echo "${RED}${BOLD}Cloning Bank of Anthos repository...${RESET}"
-git clone https://github.com/GoogleCloudPlatform/bank-of-anthos.git ${HOME}/bank-of-Anthos
+git clone https://github.com/GoogleCloudPlatform/bank-of-anthos.git ${HOME}/bank-of-anthos
 
 # Step 25: Setting up Bank of Anthos namespaces
 echo "${GREEN}${BOLD}Setting up Bank of Anthos namespaces...${RESET}"
