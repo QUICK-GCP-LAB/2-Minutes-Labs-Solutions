@@ -176,6 +176,30 @@ gcloud container clusters update cluster2 \
 echo "${GREEN}${BOLD}Enabling automatic fleet mesh management...${RESET}"
 gcloud container fleet mesh update --management automatic --memberships cluster1,cluster2
 
+# Function to prompt user to check their progress
+function check_progress {
+    while true; do
+        echo
+        echo -n "${BOLD}${YELLOW}Have you checked your progress upto Task 3? (Y/N): ${RESET}"
+        read -r user_input
+        if [[ "$user_input" == "Y" || "$user_input" == "y" ]]; then
+            echo
+            echo "${BOLD}${GREEN}Great! Proceeding to the next steps...${RESET}"
+            echo
+            break
+        elif [[ "$user_input" == "N" || "$user_input" == "n" ]]; then
+            echo
+            echo "${BOLD}${RED}Please check your progress upto Task 3 and then press Y to continue.${RESET}"
+        else
+            echo
+            echo "${BOLD}${MAGENTA}Invalid input. Please enter Y or N.${RESET}"
+        fi
+    done
+}
+
+# Call function to check progress before proceeding
+check_progress
+
 # Step 20: Waiting for 'REVISION_READY' status
 echo "${CYAN}${BOLD}Waiting for 'REVISION_READY' status...${RESET}"
 wait_for_revision_ready() {
@@ -293,30 +317,6 @@ kubectl --context=cluster2 -n bank-of-anthos apply -f ${HOME}/bank-of-anthos/ext
 echo "${MAGENTA}${BOLD}Deploying Bank of Anthos application...${RESET}"
 kubectl --context=cluster1 -n bank-of-anthos apply -f ${HOME}/bank-of-anthos/kubernetes-manifests
 kubectl --context=cluster2 -n bank-of-anthos apply -f ${HOME}/bank-of-anthos/kubernetes-manifests
-
-# Function to prompt user to check their progress
-function check_progress {
-    while true; do
-        echo
-        echo -n "${BOLD}${YELLOW}Have you checked your progress upto Task 3? (Y/N): ${RESET}"
-        read -r user_input
-        if [[ "$user_input" == "Y" || "$user_input" == "y" ]]; then
-            echo
-            echo "${BOLD}${GREEN}Great! Proceeding to the next steps...${RESET}"
-            echo
-            break
-        elif [[ "$user_input" == "N" || "$user_input" == "n" ]]; then
-            echo
-            echo "${BOLD}${RED}Please check your progress upto Task 3 and then press Y to continue.${RESET}"
-        else
-            echo
-            echo "${BOLD}${MAGENTA}Invalid input. Please enter Y or N.${RESET}"
-        fi
-    done
-}
-
-# Call function to check progress before proceeding
-check_progress
 
 # Step 28: Removing redundant statefulsets from cluster2
 echo "${YELLOW}${BOLD}Removing redundant statefulsets from cluster2...${RESET}"
