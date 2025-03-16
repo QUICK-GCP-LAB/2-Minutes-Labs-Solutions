@@ -179,7 +179,6 @@ gcloud container fleet mesh update --management automatic --memberships cluster1
 # Step 20: Waiting for 'REVISION_READY' status
 echo "${CYAN}${BOLD}Waiting for 'REVISION_READY' status...${RESET}"
 wait_for_revision_ready() {
-    echo -e "${BLUE}${BOLD}Waiting for 'REVISION_READY' status...${RESET}"
     while true; do
         # Run the command and check if 'REVISION_READY' appears at least once
         if gcloud container fleet mesh describe | grep -q "code: REVISION_READY"; then
