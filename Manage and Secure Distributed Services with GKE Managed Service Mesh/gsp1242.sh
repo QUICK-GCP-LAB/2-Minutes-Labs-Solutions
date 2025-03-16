@@ -179,11 +179,11 @@ gcloud container fleet mesh update --management automatic --memberships cluster1
 # Step 20: Waiting for 'REVISION_READY' status
 echo "${CYAN}${BOLD}Waiting for 'REVISION_READY' status...${RESET}"
 wait_for_revision_ready() {
-    "${BLUE}${BOLD}Waiting for 'REVISION_READY' status...${RESET}"
+    echo -e "${BLUE}${BOLD}Waiting for 'REVISION_READY' status...${RESET}"
     while true; do
         # Run the command and check if 'REVISION_READY' appears at least once
         if gcloud container fleet mesh describe | grep -q "code: REVISION_READY"; then
-            "${GREEN}${BOLD}'REVISION_READY' detected. Proceeding...${RESET}"
+            echo -e "${GREEN}${BOLD}'REVISION_READY' detected. Proceeding...${RESET}"
             break
         fi
         sleep 5  # Check every 5 seconds
@@ -282,6 +282,8 @@ kubectl label --context=cluster1 namespace bank-of-anthos istio-injection=enable
 
 kubectl create --context=cluster2 namespace bank-of-anthos
 kubectl label --context=cluster2 namespace bank-of-anthos istio-injection=enabled
+
+sleep 30
 
 # Step 26: Applying JWT secret to clusters
 echo "${CYAN}${BOLD}Applying JWT secret to clusters...${RESET}"
