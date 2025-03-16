@@ -185,7 +185,7 @@ wait_for_revision_ready() {
             echo -e "${GREEN}${BOLD}'REVISION_READY' detected. Proceeding...${RESET}"
             break
         fi
-        sleep 5  # Check every 5 seconds
+        sleep 30  # Check every 30 seconds
     done
 }
 
