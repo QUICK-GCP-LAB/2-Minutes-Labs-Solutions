@@ -510,6 +510,10 @@ hey -n 10 -c 10 $SLOW_CONCURRENT_URL
 
 echo
 
+echo "${BOLD}${CYAN}Manage or edit your deployment here: ${RESET}""https://console.cloud.google.com/run/deploy/$REGION/slow-concurrent-function?project=$DEVSHELL_PROJECT_ID"
+
+echo
+
 # Function to display a random congratulatory message
 function random_congrats() {
     MESSAGES=(
