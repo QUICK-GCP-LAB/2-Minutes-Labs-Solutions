@@ -5,7 +5,7 @@
 ### ⚙️ Execute the Following Commands in Cloud Shell
 
 ```
-curl -LO 
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Using%20BigQuery%20in%20the%20Google%20Cloud%20Console/gsp406.sh
 
 sudo chmod +x *.sh
 
