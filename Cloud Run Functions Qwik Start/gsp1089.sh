@@ -496,8 +496,9 @@ gcloud run deploy slow-concurrent-function \
 --cpu=1 \
 --max-instances=4 \
 --set-env-vars=LOG_EXECUTION_ID=true \
---region=$REGION
- &&  && gcloud run services update-traffic slow-concurrent-function --to-latest --region=$REGION
+--region=$REGION \
+--project=$DEVSHELL_PROJECT_ID \
+ && gcloud run services update-traffic slow-concurrent-function --to-latest --region=$REGION
 
 # Step 42: Retrieve the function's URL
 echo "${BOLD}${YELLOW}Retrieving the slow-concurrent-function URL...${RESET}"
