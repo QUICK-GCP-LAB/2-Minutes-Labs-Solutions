@@ -1,6 +1,6 @@
 # Using BigQuery in the Google Cloud Console || [GSP406](https://www.cloudskillsboost.google/focuses/3616?parent=catalog) ||
 
-## 🔑 Solution [here]()
+## 🔑 Solution [here](https://youtu.be/8ABuSfgb-00)
 
 ### ⚙️ Execute the Following Commands in Cloud Shell
 
