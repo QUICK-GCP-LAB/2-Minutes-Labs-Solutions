@@ -48,6 +48,8 @@ bq query --use_legacy_sql=false \
  FROM `bigquery-public-data.new_york_citibike.citibike_stations` 
  WHERE num_bikes_available > 30'
 
+echo
+
 # Step 3: Providing Visualization Link
 echo "${MAGENTA}${BOLD}Click here: ${RESET}""https://bigquerygeoviz.appspot.com/"
 
