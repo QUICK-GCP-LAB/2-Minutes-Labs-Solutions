@@ -1,6 +1,6 @@
 # Getting Started with BigQuery GIS for Data Analysts || [GSP866](https://www.cloudskillsboost.google/focuses/17817?parent=catalog) ||
 
-## 🔑 Solution [here]()
+## 🔑 Solution [here](https://youtu.be/zQpg_ZPsASs)
 
 ### ⚙️ Execute the Following Commands in Cloud Shell
 
