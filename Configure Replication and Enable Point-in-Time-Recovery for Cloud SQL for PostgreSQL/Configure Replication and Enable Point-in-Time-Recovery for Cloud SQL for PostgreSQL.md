@@ -47,7 +47,7 @@ SELECT COUNT(*) FROM distribution_centers;
 \q
 ```
 ```
-curl -LO 
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Configure%20Replication%20and%20Enable%20Point-in-Time-Recovery%20for%20Cloud%20SQL%20for%20PostgreSQL/gsp922.sh
 
 sudo chmod +x *.sh
 
