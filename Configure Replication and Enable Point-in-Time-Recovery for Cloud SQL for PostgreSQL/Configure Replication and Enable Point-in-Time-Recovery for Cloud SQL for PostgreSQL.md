@@ -28,9 +28,11 @@ gcloud sql connect postgres-orders --user=postgres --quiet
 ```
 supersecret!
 ```
+* In psql, change to the orders database:
 ```
 \c orders
 ```
+* When prompted, enter the password again.
 ```
 supersecret!
 ```
@@ -45,30 +47,11 @@ SELECT COUNT(*) FROM distribution_centers;
 \q
 ```
 ```
-export NEW_INSTANCE_NAME=postgres-orders-pitr
+curl -LO 
 
-# Start the clone operation and capture the operation ID
-OPERATION_ID=$(gcloud sql instances clone $CLOUD_SQL_INSTANCE $NEW_INSTANCE_NAME --point-in-time "$TIMESTAMP" --async --format="value(name)")
+sudo chmod +x *.sh
 
-wait_for_sql_operation() {
-
-    echo "⏳ Waiting for Cloud SQL operation: $OPERATION_ID"
-
-    while true; do
-        if gcloud beta sql operations wait "$OPERATION_ID" --project="$PROJECT_ID"; then
-            echo "✅ Operation $OPERATION_ID completed successfully!"
-            break
-        else
-            echo "⚠️ Operation $OPERATION_ID is taking longer than expected. Retrying in 5 seconds..."
-            sleep 5
-        fi
-    done
-}
-
-wait_for_sql_operation
-
-
-gcloud sql connect postgres-orders-pitr --user=postgres --quiet
+./*.sh
 ```
 ```
 supersecret!
