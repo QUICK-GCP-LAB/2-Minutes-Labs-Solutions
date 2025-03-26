@@ -36,6 +36,8 @@ RANDOM_BG_COLOR=${BG_COLORS[$RANDOM % ${#BG_COLORS[@]}]}
 
 echo "${RANDOM_BG_COLOR}${RANDOM_TEXT_COLOR}${BOLD}Starting Execution${RESET}"
 
+bq ls
+
 PROJECT_ID=$(gcloud config get-value project)
 REGION="us"
 
