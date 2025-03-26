@@ -9,7 +9,7 @@ PROJECT_ID=$(gcloud config get-value project)
 export CLOUD_SQL_INSTANCE=postgres-orders
 gcloud sql instances describe $CLOUD_SQL_INSTANCE
 
-BACKUP_TIME=$(date +"%R")
+export BACKUP_TIME=$(date +"%R")
 
 gcloud sql instances patch $CLOUD_SQL_INSTANCE \
     --backup-start-time=$BACKUP_TIME
