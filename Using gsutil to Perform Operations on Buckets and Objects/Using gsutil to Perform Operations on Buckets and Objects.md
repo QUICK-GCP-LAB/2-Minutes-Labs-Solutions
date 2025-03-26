@@ -5,7 +5,7 @@
 ### ⚙️ Execute the Following Commands in Cloud Shell
 
 ```
-curl -LO 
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Using%20gsutil%20to%20Perform%20Operations%20on%20Buckets%20and%20Objects/gsp130.sh
 
 sudo chmod +x *.sh
 
