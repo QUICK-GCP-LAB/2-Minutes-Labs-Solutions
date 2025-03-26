@@ -1,6 +1,6 @@
 # Using gsutil to Perform Operations on Buckets and Objects || [GSP130](https://www.cloudskillsboost.google/focuses/7530?parent=catalog) ||
 
-## 🔑 Solution [here]()
+## 🔑 Solution [here](https://youtu.be/rRPOGrrv-9w)
 
 ### ⚙️ Execute the Following Commands in Cloud Shell
 
