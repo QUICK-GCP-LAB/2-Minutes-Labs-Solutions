@@ -5,7 +5,7 @@
 ### ⚙️ Execute the Following Commands in Cloud Shell
 
 ```
-PROJECT_ID=$(gcloud config get-value project)
+export PROJECT_ID=$(gcloud config get-value project)
 export CLOUD_SQL_INSTANCE=postgres-orders
 gcloud sql instances describe $CLOUD_SQL_INSTANCE
 
@@ -18,7 +18,7 @@ gcloud sql instances patch $CLOUD_SQL_INSTANCE \
      --enable-point-in-time-recovery \
      --retained-transaction-log-days=1
 
-TIMESTAMP=$(date --rfc-3339=seconds)
+export TIMESTAMP=$(date --rfc-3339=seconds)
 
 gcloud sql connect postgres-orders --user=postgres --quiet
 ```
