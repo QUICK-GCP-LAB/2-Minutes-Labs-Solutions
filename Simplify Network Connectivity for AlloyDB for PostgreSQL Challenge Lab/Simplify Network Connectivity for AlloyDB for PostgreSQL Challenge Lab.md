@@ -5,7 +5,7 @@
 ### ⚙️ Execute the Following Commands in Cloud Shell
 
 ```
-curl -LO 
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Simplify%20Network%20Connectivity%20for%20AlloyDB%20for%20PostgreSQL%20Challenge%20Lab/gcc040.sh
 
 sudo chmod +x *.sh
 
