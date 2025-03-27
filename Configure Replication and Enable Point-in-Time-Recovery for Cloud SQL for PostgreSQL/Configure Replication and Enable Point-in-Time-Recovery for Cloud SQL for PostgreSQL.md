@@ -1,6 +1,6 @@
 # Configure Replication and Enable Point-in-Time-Recovery for Cloud SQL for PostgreSQL || [GSP922](https://www.cloudskillsboost.google/focuses/22795?parent=catalog) ||
 
-## 🔑 Solution [here]()
+## 🔑 Solution [here](https://youtu.be/91LVHWZH9_U)
 
 ### ⚙️ Execute the Following Commands in Cloud Shell
 
