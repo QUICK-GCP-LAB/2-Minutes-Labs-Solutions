@@ -36,6 +36,8 @@ RANDOM_BG_COLOR=${BG_COLORS[$RANDOM % ${#BG_COLORS[@]}]}
 
 echo "${RANDOM_BG_COLOR}${RANDOM_TEXT_COLOR}${BOLD}Starting Execution${RESET}"
 
+export PROJECT_ID=$(gcloud config get-value project)
+export CLOUD_SQL_INSTANCE=postgres-orders
 export NEW_INSTANCE_NAME=postgres-orders-pitr
 
 # Start the clone operation and capture the operation ID
