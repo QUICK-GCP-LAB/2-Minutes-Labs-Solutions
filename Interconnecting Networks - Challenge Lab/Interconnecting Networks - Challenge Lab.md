@@ -5,7 +5,7 @@
 ### ⚙️ Execute the Following Commands in Cloud Shell
 
 ```
-curl -LO 
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Interconnecting%20Networks%20-%20Challenge%20Lab/shell.sh
 
 sudo chmod +x *.sh
 
