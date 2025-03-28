@@ -1,6 +1,6 @@
 # Simplify Network Connectivity for AlloyDB for PostgreSQL: Challenge Lab || [GCC040](https://www.cloudskillsboost.google/games/5961/labs/37981) ||
 
-## 🔑 Solution [here]()
+## 🔑 Solution [here](https://youtu.be/BrDqPgwMnN4)
 
 ### ⚙️ Execute the Following Commands in Cloud Shell
 
