@@ -1,8 +1,8 @@
 # Cloud Monitoring: Qwik Start || [GSP089](https://www.cloudskillsboost.google/focuses/10599?parent=catalog) ||
 
-## Solution [here](https://youtu.be/TO6FqSk_Or8)
+## 🔑 Solution [here]()
 
-### Run the following Commands in CloudShell
+### ⚙️ Execute the Following Commands in Cloud Shell
 
 ```
 curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Cloud%20Monitoring%20Qwik%20Start/gsp089.sh
@@ -12,16 +12,17 @@ sudo chmod +x gsp089.sh
 ./gsp089.sh
 ```
 
-* Go to `Create Uptime Check` from [here](https://console.cloud.google.com/monitoring/uptime/create?)
+# 🎉 Woohoo! You Did It! 🎉
 
-* For Title, type `Lamp Uptime Check`.
+Your hard work and determination paid off! 💻
+You've successfully completed the lab. **Way to go!** 🚀
 
-### Congratulations 🎉 for completing the Lab !
+### 💬 Stay Connected with Our Community!
 
-##### *You Have Successfully Demonstrated Your Skills And Determination.*
+👉 Join the conversation and never miss an update:
 
-#### *Well done!*
-
-#### Don't Forget to Join the [Telegram Channel](https://t.me/quickgcplab) & [Discussion group](https://t.me/quickgcplabchats)
+💚 [𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 𝗖𝗼𝗺𝗺𝘂𝗻𝗶𝘁𝘆](https://chat.whatsapp.com/ECJ9h8GA3CA1ksaI9m5NrX)
+📢 [Telegram Channel](https://t.me/quickgcplab)
+👥 [Discussion Group](https://t.me/quickgcplabchats)
 
 # [QUICK GCP LAB](https://www.youtube.com/@quickgcplab)
