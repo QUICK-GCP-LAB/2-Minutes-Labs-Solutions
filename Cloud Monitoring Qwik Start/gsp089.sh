@@ -84,7 +84,7 @@ cat > prepare_disk.sh <<'EOF_END'
 
 sudo apt-get update
 
-sudo apt-get install apache2 php7.0
+sudo apt-get install -y apache2 php7.0
 
 sudo service apache2 restart
 
