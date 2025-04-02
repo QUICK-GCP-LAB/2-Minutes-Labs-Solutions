@@ -5,7 +5,7 @@
 ### ⚙️ Execute the Following Commands in Cloud Shell
 
 ```
-curl -LO 
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/A%20Tour%20of%20Google%20Cloud%20Hands-on%20Labs/gsp282.sh
 
 sudo chmod +x *.sh
 
