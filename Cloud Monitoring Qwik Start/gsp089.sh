@@ -76,6 +76,8 @@ gcloud compute firewall-rules create allow-http \
     --source-ranges=0.0.0.0/0 \
     --target-tags=http-server
 
+sleep 45
+
 # Step 6: Create and Transfer Startup Script
 echo "${BOLD}${CYAN}Creating and Transferring Startup Script${RESET}"
 cat > prepare_disk.sh <<'EOF_END'
