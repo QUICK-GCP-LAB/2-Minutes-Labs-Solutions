@@ -39,7 +39,7 @@ echo "${RANDOM_BG_COLOR}${RANDOM_TEXT_COLOR}${BOLD}Starting Execution${RESET}"
 # Step 1: Add IAM policy binding
 echo "${GREEN}${BOLD}Adding IAM policy binding${RESET}"
 gcloud projects add-iam-policy-binding $(gcloud config get-value project) \
-    --member="user:$USER_EMAIL" \
+    --member="user:$USER_2" \
     --role="roles/viewer"
 
 # Step 2: Enable Dialogflow API
