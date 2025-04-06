@@ -1,6 +1,6 @@
 # Compute Engine: Qwik Start - Windows || [GSP093](https://www.cloudskillsboost.google/focuses/560?parent=catalog) ||
 
-## 🔑 Solution [here]()
+## 🔑 Solution [here](https://youtu.be/INMNYHF9x4w)
 
 ### ⚙️ Execute the Following Commands in Cloud Shell
 
