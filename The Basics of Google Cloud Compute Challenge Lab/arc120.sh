@@ -43,7 +43,7 @@ gcloud compute instances attach-disk my-instance \
     --disk=mydisk \
     --zone=$ZONE
 
-sleep 15
+sleep 30
 
 cat > prepare_disk.sh <<'EOF_END'
 
