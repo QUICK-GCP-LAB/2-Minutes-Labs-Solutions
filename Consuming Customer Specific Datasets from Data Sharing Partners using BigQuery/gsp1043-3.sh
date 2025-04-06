@@ -38,7 +38,7 @@ echo "${RANDOM_BG_COLOR}${RANDOM_TEXT_COLOR}${BOLD}Starting Execution${RESET}"
 
 # Step 3: Prompting for Project ID
 echo "${BOLD}${CYAN}Getting Project ID${RESET}"
-
+echo
 get_project_id() {
 
   read -p "Please enter PROJECT_ID: " PROJECT_ID
@@ -48,6 +48,8 @@ get_project_id() {
 
 # Call the function
 get_project_id
+
+echo
 
 # Step 5: Create a View in customer_dataset
 echo "${BOLD}${BLUE}Creating View in customer_dataset${RESET}"

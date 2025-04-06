@@ -42,6 +42,7 @@ echo
 get_value() {
 
   read -p "Please enter PROJECT_ID: " PROJECT_ID
+  echo
   read -p "Please enter TWIN_USER: " TWIN_USER
 
   export PROJECT_ID="$PROJECT_ID"
@@ -50,6 +51,8 @@ get_value() {
 
 # Call the function
 get_value
+
+echo
 
 # Step 2: Create Authorized View in Data Publisher Dataset
 echo "${BOLD}${BLUE}Creating Authorized View in Data Publisher Dataset${RESET}"

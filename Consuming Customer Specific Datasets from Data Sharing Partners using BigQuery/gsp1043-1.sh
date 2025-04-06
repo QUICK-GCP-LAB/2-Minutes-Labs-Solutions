@@ -37,11 +37,13 @@ RANDOM_BG_COLOR=${BG_COLORS[$RANDOM % ${#BG_COLORS[@]}]}
 echo "${RANDOM_BG_COLOR}${RANDOM_TEXT_COLOR}${BOLD}Starting Execution${RESET}"
 
 # Step 1: Get User IDs
+echo
 echo "${BOLD}${CYAN}Getting User IDs${RESET}"
 echo
 get_users_ids() {
 
   read -p "Please enter PUB_USER: " PUB_USER
+  echo
   read -p "Please enter TWIN_USER: " TWIN_USER
 
   export PUB_USER="$PUB_USER"
@@ -50,6 +52,8 @@ get_users_ids() {
 
 # Call the function
 get_users_ids
+
+echo
 
 # Step 2: Create BigQuery Table
 echo "${BOLD}${BLUE}Creating BigQuery Table with Top 10 Cities by Area${RESET}"
