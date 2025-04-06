@@ -1,6 +1,6 @@
 # Consuming Customer Specific Datasets from Data Sharing Partners using BigQuery || [GSP1043](https://www.cloudskillsboost.google/focuses/42015?parent=catalog) ||
 
-## 🔑 Solution [here]()
+## 🔑 Solution [here](https://youtu.be/Qb3JYr_syG0)
 
 ### ⚙️ Execute the Following Commands in Cloud Shell (Data Sharing Partner Project Console)
 
