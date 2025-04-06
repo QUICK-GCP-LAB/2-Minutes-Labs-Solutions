@@ -1,6 +1,6 @@
 # APIs Explorer: Compute Engine || [GSP293](https://www.cloudskillsboost.google/focuses/3523?parent=catalog) ||
 
-## 🔑 Solution [here]()
+## 🔑 Solution [here](https://youtu.be/kt1szxq7JNY)
 
 ### ⚙️ Execute the Following Commands in Cloud Shell
 
