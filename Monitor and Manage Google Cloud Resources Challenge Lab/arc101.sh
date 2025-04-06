@@ -185,7 +185,7 @@ gsutil cp travel.jpg gs://$BUCKET_NAME
 
 cat > app-engine-error-percent-policy.json <<EOF_END
 {
-    "displayName": "Active Cloud Function Instances",
+    "displayName": "Active Cloud Run Function Instances",
     "userLabels": {},
     "conditions": [
       {
