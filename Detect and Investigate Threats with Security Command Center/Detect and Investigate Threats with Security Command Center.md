@@ -1,6 +1,6 @@
 # Detect and Investigate Threats with Security Command Center || [GSP1125](https://www.cloudskillsboost.google/focuses/71932?parent=catalog) ||
 
-## 🔑 Solution [here]()
+## 🔑 Solution [here](https://youtu.be/JE2qJiPoWtg)
 
 ### ⚙️ Execute the Following Commands in Cloud Shell
 
