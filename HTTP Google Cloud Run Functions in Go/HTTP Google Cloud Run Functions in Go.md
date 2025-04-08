@@ -1,6 +1,6 @@
 # HTTP Google Cloud Run Functions in Go || [GSP602](https://www.cloudskillsboost.google/focuses/5171?parent=catalog) ||
 
-## 🔑 Solution [here]()
+## 🔑 Solution [here](https://youtu.be/pPl-6kQ5wFA)
 
 ### ⚙️ Execute the Following Commands in Cloud Shell
 
