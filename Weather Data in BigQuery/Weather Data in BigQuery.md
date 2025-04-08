@@ -5,7 +5,7 @@
 ### ⚙️ Execute the Following Commands in Cloud Shell
 
 ```
-curl -LO 
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Weather%20Data%20in%20BigQuery/gsp009.sh
 
 sudo chmod +x *.sh
 
