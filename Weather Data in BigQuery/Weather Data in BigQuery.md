@@ -1,6 +1,6 @@
 # Weather Data in BigQuery || [GSP009](https://www.cloudskillsboost.google/focuses/609?parent=catalog) ||
 
-## 🔑 Solution [here]()
+## 🔑 Solution [here](https://youtu.be/R2dN9eFZDEA)
 
 ### ⚙️ Execute the Following Commands in Cloud Shell
 
