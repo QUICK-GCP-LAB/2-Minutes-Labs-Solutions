@@ -411,6 +411,8 @@ cat > job-configuration.json << EOM
 }
 EOM
 
+sleep 15
+
 # Step 6: Create DLP Job
 echo "${GREEN}${BOLD}Creating DLP Job${RESET}"
 curl -s \
