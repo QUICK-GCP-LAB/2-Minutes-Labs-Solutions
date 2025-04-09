@@ -7,11 +7,19 @@
 ### ⚙️ Execute the Following Commands in Cloud Shell
 
 ```
-curl -LO 
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Discover%20and%20Protect%20Sensitive%20Data%20Across%20Your%20Ecosystem%20Challenge%20Lab/gssp522.sh
 
 sudo chmod +x *.sh
 
 ./*.sh
+```
+
+### ⚙️ Execute the Following Commands in Notebook Terminal
+
+```
+rm deidentify-model-response-challenge-lab-v1.0.0.ipynb
+
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Discover%20and%20Protect%20Sensitive%20Data%20Across%20Your%20Ecosystem%20Challenge%20Lab/deidentify-model-response-challenge-lab-v1.0.0.ipynb
 ```
 
 # 🎉 Woohoo! You Did It! 🎉
