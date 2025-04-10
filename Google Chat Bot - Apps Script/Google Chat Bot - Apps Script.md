@@ -10,7 +10,7 @@
 
 3. In the Edit project name dialog, rename the project to **Attendance Bot** and then click Rename.
 
-* Copy and replace the following in `Code.gs`
+4. Copy and replace the following in `Code.gs`
 
 ```
 /**
@@ -64,7 +64,7 @@ function onRemoveFromSpace(event) {
       (event.space.name ? event.space.name : "this chat"));
 }
 ```
-4. Click **Save** to save the `Code.gs` file
+5. Click **Save** to save the `Code.gs` file
 
 ### Task 2. Publish the bot
 
@@ -85,7 +85,7 @@ function onRemoveFromSpace(event) {
 
 * Go to **Google Chat API Configuration Page** from [here](https://console.cloud.google.com/apis/api/chat.googleapis.com/hangouts-chat?)
 
-* In the **Configuration** dialog, set the fields with the following values:
+1. In the **Configuration** dialog, set the fields with the following values:
 
 | Field | Value |
 | :---: | :----: |
@@ -96,7 +96,7 @@ function onRemoveFromSpace(event) {
 | Connection settings | Check **Apps Script project** and paste the **Head Deployment ID** into the **Deployment ID** field |
 | Visibility | Your user email address |
 
-5. After the changes are saved, scroll to the top of the **Configuration** dialog to update the **App Status** to **LIVE – available to users**
+2. After the changes are saved, scroll to the top of the **Configuration** dialog to update the **App Status** to **LIVE – available to users**
 
 * Click the [Google Chat](https://chat.google.com/) link to open Google Chat.
 
