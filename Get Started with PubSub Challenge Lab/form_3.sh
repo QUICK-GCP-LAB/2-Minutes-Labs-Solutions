@@ -33,9 +33,13 @@ gcloud pubsub subscriptions create cloud-pubsub-subscription --topic=cloud-pubsu
 
 gcloud services enable cloudscheduler.googleapis.com
 
-gcloud scheduler jobs create pubsub cron-scheduler-job --schedule="* * * * *" --location $LOCATION --topic cron-job-pubsub-topic --message-body="$MSG_BODY"
+gcloud scheduler jobs create pubsub cron-scheduler-job \
+  --location=$LOCATION \
+  --schedule="* * * * *" \
+  --topic=cloud-pubsub-topic \
+  --message-body="Hello World!"
 
-gcloud pubsub subscriptions pull cron-job-pubsub-subscription --limit 5
+gcloud pubsub subscriptions pull cloud-pubsub-subscription --limit 5
 
 echo "${BG_RED}${BOLD}Congratulations For Completing The Lab !!!${RESET}"
 
