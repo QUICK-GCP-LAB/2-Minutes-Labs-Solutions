@@ -8,7 +8,7 @@
 
 2. Click Untitled project (the current name).
 
-3. In the Edit project name dialog, rename the project to **Attendance Bot**, and then click Rename.
+3. In the Edit project name dialog, rename the project to **Attendance Bot** and then click Rename.
 
 * Copy and replace the following in `Code.gs`
 
