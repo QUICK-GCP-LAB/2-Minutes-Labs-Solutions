@@ -68,17 +68,20 @@ function onRemoveFromSpace(event) {
 
 ### Task 2. Publish the bot
 
-* Go to **OAuth consent screen** from [here](https://console.cloud.google.com/apis/credentials/consent?)
+* Go to **OAuth consent screen** from [here](https://console.cloud.google.com/auth/overview?)
 
-1. Set **User Type** to **Internal**, and click **Create**.
-
-2. On the next page, (the **OAuth consent** screen), configure the following:
+1. On the Project configuration page, for App Information configure the following and click Next:
 
 | Field | Value |
 | :---: | :----: |
 | App name | Attendance Bot |
 | User support email | Select the email ID from the dropdown |
-| Developer contact information | Your user email address |
+
+2. For **Audience**, select **Internal** and click Next.
+
+3. For the **Contact Information** type or paste your **user email** address and click Next.
+
+4. For **GCP Project number**, enter your project number.
 
 * Go to **Google Chat API Configuration Page** from [here](https://console.cloud.google.com/apis/api/chat.googleapis.com/hangouts-chat?)
 
@@ -90,18 +93,18 @@ function onRemoveFromSpace(event) {
 | Avatar URL | https://goo.gl/kv2ENA |
 | Description | Apps Script lab bot |
 | Functionality | Select **Receive 1:1 messages** and **Join spaces and group conversations** |
-| Connection settings | Check **Apps Script project** and paste the Head Deployment ID into the Deployment ID field |
+| Connection settings | Check **Apps Script project** and paste the **Head Deployment ID** into the **Deployment ID** field |
 | Visibility | Your user email address |
 
-3. After the changes are saved, scroll to the top of the **Configuration** dialog to update the **App Status** to `LIVE – available to users`
+5. After the changes are saved, scroll to the top of the **Configuration** dialog to update the **App Status** to **LIVE – available to users**
 
-4. Click the [Google Chat](https://chat.google.com/) link to open Google Chat.
+* Click the [Google Chat](https://chat.google.com/) link to open Google Chat.
 
-5. Select **Start a chat** in the **Chat** section.
+1. Select **Start a chat** in the **Chat** section.
 
-6. Search for **Attendance bot**
+2. Search for **Attendance bot**
 
-7. From the results, select the Attendance Bot, Apps Script lab bot that you created, and click **Start chat**
+3. From the results, select the **Attendance Bot**, Apps Script lab bot that you created, and click **Start chat**
 
 ### Task 3. Define a card-formatted response
 
