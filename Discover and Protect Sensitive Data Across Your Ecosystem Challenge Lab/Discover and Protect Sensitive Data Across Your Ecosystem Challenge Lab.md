@@ -1,6 +1,6 @@
 # Discover and Protect Sensitive Data Across Your Ecosystem: Challenge Lab || [GSP522](https://www.cloudskillsboost.google/focuses/109502?parent=catalog) ||
 
-## 🔑 Solution [here]()
+## 🔑 Solution [here](https://youtu.be/zssjtgjUPpw)
 
 * Go to **Sensitive Data Protection** from [here](https://console.cloud.google.com/security/sensitive-data-protection/create/discoveryConfiguration;source=DATA_PROFILE_COVERAGE_DASHBOARD;discoveryType=4?project=)
 
