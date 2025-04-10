@@ -55,42 +55,51 @@ gcloud pubsub topics create temp-topic \
         --message-encoding=JSON \
         --schema=temperature-schema
 
-mkdir gcf_hello_world && cd $_
+gcloud services enable eventarc.googleapis.com
+gcloud services enable run.googleapis.com
 
 cat > index.js <<'EOF_END'
-/**
- * Triggered from a message on a Cloud Pub/Sub topic.
- *
- * @param {!Object} event Event payload.
- * @param {!Object} context Metadata for the event.
- */
-exports.helloPubSub = (event, context) => {
-  const message = event.data
-    ? Buffer.from(event.data, 'base64').toString()
-    : 'Hello, World';
-  console.log(message);
-};
+const functions = require('@google-cloud/functions-framework');
+
+// Register a CloudEvent callback with the Functions Framework that will
+// be executed when the Pub/Sub trigger topic receives a message.
+functions.cloudEvent('helloPubSub', cloudEvent => {
+  // The Pub/Sub message is passed as the CloudEvent's data payload.
+  const base64name = cloudEvent.data.message.data;
+
+  const name = base64name
+    ? Buffer.from(base64name, 'base64').toString()
+    : 'World';
+
+  console.log(`Hello, ${name}!`);
+});
 EOF_END
 
 cat > package.json <<'EOF_END'
 {
-  "name": "sample-pubsub",
-  "version": "0.0.1",
+  "name": "gcf_hello_world",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "dependencies": {
-    "@google-cloud/pubsub": "^0.18.0"
+    "@google-cloud/functions-framework": "^3.0.0"
   }
 }
 EOF_END
 
 deploy_function() {
 gcloud functions deploy gcf-pubsub \
-  --trigger-topic=gcf-topic \
-  --runtime=nodejs20 \
-  --no-gen2 \
-  --entry-point=helloPubSub \
+  --gen2 \
+  --runtime=nodejs22 \
+  --region=$LOCATION \
   --source=. \
-  --region=$LOCATION
-}
+  --entry-point=helloPubSub \
+  --trigger-topic gcf-topic \
+  --quiet
+  }
 
 deploy_success=false
 
