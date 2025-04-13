@@ -84,9 +84,9 @@ done
 
 echo "Running the next code..."
 
-curl -LO 'https://github.com/tsenart/vegeta/releases/download/v6.3.0/vegeta-v6.3.0-linux-386.tar.gz'
+curl -LO 'https://github.com/tsenart/vegeta/releases/download/v12.12.0/vegeta_12.12.0_linux_386.tar.gz'
 
-tar xvzf vegeta-v6.3.0-linux-386.tar.gz
+tar -xvzf vegeta_12.12.0_linux_386.tar.gz
 
 gcloud logging metrics create CloudFunctionLatency-Logs \
     --project=$DEVSHELL_PROJECT_ID \
