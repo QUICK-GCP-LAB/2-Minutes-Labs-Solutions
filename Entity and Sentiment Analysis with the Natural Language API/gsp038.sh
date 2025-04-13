@@ -25,6 +25,9 @@ RESET=`tput sgr0`
 
 echo "${YELLOW}${BOLD}Starting${RESET}" "${GREEN}${BOLD}Execution${RESET}"
 
+export ZONE=$(gcloud compute project-info describe \
+--format="value(commonInstanceMetadata.items[google-compute-default-zone])")
+
 cat > prepare_disk.sh <<'EOF_END'
 
 gcloud services enable apikeys.googleapis.com
@@ -37,9 +40,7 @@ API_KEY=$(gcloud alpha services api-keys get-key-string $KEY_NAME --format="valu
 
 echo $API_KEY
 
-touch request.json
-
-tee request.json <<EOF
+cat <<EOF > request.json
 {
   "document":{
     "type":"PLAIN_TEXT",
@@ -49,9 +50,8 @@ tee request.json <<EOF
 }
 EOF
 
-cat request.json
-
-curl "https://language.googleapis.com/v1/documents:analyzeEntities?key=${API_KEY}" -s -X POST -H "Content-Type: application/json" --data-binary @request.json > result.json
+curl "https://language.googleapis.com/v1/documents:analyzeEntities?key=${API_KEY}" \
+  -s -X POST -H "Content-Type: application/json" --data-binary @request.json > result.json
 
 cat result.json
 
