@@ -49,6 +49,7 @@ export PROJECT_NUMBER=$(gcloud projects describe $PROJECT_ID --format="value(pro
 echo "${BOLD}${CYAN}Enabling Cloud Scheduler and Cloud Run APIs${RESET}"
 gcloud services enable cloudscheduler.googleapis.com
 gcloud services enable run.googleapis.com
+gcloud services enable cloudfunctions.googleapis.com
 
 # Step 3: Add IAM policy binding for Artifact Registry
 echo "${BOLD}${RED}Granting Artifact Registry reader role to Compute Engine default service account${RESET}"
