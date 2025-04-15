@@ -34,56 +34,6 @@ gcloud services enable \
   logging.googleapis.com \
   pubsub.googleapis.com
 
-mkdir ~/hello-http && cd $_
-touch index.js && touch package.json
-
-cat > index.js <<EOF
-/**
- * Responds to any HTTP request.
- *
- * @param {!express:Request} req HTTP request context.
- * @param {!express:Response} res HTTP response context.
- */
-exports.helloWorld = (req, res) => {
-    let message = req.query.message || req.body.message || 'Hello World!';
-    res.status(200).send(message);
-  };
-  
-EOF
-
-cat > package.json <<EOF
-{
-    "name": "sample-http",
-    "version": "0.0.1"
-  }
-  
-EOF
-
-
-
-deploy_function() {  gcloud functions deploy helloWorld \
---trigger-http \
---runtime nodejs22 \
---allow-unauthenticated \
---region $REGION \
---no-gen2 \
---max-instances 5
-}
-
-deploy_success=false
-
-while [ "$deploy_success" = false ]; do
-  if deploy_function; then
-    echo "Cloud Run service is created. Exiting the loop."
-    deploy_success=true
-  else
-    echo "Waiting for Cloud Run service to be created..."
-    sleep 60
-  fi
-done
-
-echo "Running the next code..."
-
 curl -LO 'https://github.com/tsenart/vegeta/releases/download/v12.12.0/vegeta_12.12.0_linux_386.tar.gz'
 
 tar -xvzf vegeta_12.12.0_linux_386.tar.gz
@@ -91,7 +41,7 @@ tar -xvzf vegeta_12.12.0_linux_386.tar.gz
 gcloud logging metrics create CloudFunctionLatency-Logs \
     --project=$DEVSHELL_PROJECT_ID \
     --description="awesome lab" \
-    --log-filter='resource.type="cloud_function" AND resource.labels.function_name="helloWorld" AND log_name="projects/$DEVSHELL_PROJECT_ID/logs/cloudaudit.googleapis.com%2Factivity" AND resource.labels.region="$REGION"'
+    --log-filter='resource.type="cloud_run_revision" AND resource.labels.function_name="helloWorld"'
 
 echo "${BG_RED}${BOLD}Congratulations For Completing The Lab !!!${RESET}"
 
