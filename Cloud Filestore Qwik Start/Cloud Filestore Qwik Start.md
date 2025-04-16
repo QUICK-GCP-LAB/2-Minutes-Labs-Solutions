@@ -1,6 +1,6 @@
 # Cloud Filestore: Qwik Start || [GSP244](https://www.cloudskillsboost.google/focuses/1802?parent=catalog) ||
 
-## 🔑 Solution [here]()
+## 🔑 Solution [here](https://youtu.be/G7r15HpDfeI)
 
 ### ⚙️ Execute the Following Commands in Cloud Shell
 
