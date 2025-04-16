@@ -1,6 +1,6 @@
 # Monitoring and Logging for Cloud Run Functions || [GSP092](https://www.cloudskillsboost.google/focuses/1833?parent=catalog) ||
 
-## 🔑 Solution [here]()
+## 🔑 Solution [here](https://youtu.be/Ayl6x5ntxN0)
 
 * Go to Cloud Run from [here](https://console.cloud.google.com/run?)
 
