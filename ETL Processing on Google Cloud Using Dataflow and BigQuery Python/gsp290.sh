@@ -45,7 +45,7 @@ gcloud storage cp gs://spls/gsp290/data_files/head_usa_names.csv gs://$PROJECT/d
 bq mk lake
 
 docker run -it \
-  -e PROJECT_ID=$PROJECT_ID \
+  -e PROJECT=$PROJECT \
   -e REGION=$REGION \
   -v $(pwd)/dataflow-python-examples:/dataflow \
   python:3.8 /bin/bash
