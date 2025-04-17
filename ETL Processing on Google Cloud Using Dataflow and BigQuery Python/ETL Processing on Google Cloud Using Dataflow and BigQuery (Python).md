@@ -1,74 +1,28 @@
 # ETL Processing on Google Cloud Using Dataflow and BigQuery (Python) || [GSP290](https://www.cloudskillsboost.google/focuses/3460?parent=catalog) ||
 
-## Solution [here](https://youtu.be/3n1Fkmm_bdI)
+## 🔑 Solution [here]()
 
-### Run the following Commands in CloudShell
+### ⚙️ Execute the Following Commands in Cloud Shell
 
-```
-export REGION=
-```
 ```
 curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/ETL%20Processing%20on%20Google%20Cloud%20Using%20Dataflow%20and%20BigQuery%20Python/gsp290.sh
 
-sudo chmod +x gsp290.sh
+sudo chmod +x *.sh
 
-./gsp290.sh
-```
-```
-pip install apache-beam[gcp]==2.59.0
-
-cd dataflow/
-
-python dataflow_python_examples/data_ingestion.py \
-  --project=$PROJECT \
-  --region=$REGION \
-  --runner=DataflowRunner \
-  --machine_type=e2-standard-2 \
-  --staging_location=gs://$PROJECT/test \
-  --temp_location gs://$PROJECT/test \
-  --input gs://$PROJECT/data_files/head_usa_names.csv \
-  --save_main_session
-
-python dataflow_python_examples/data_transformation.py \
-  --project=$PROJECT \
-  --region=$REGION \
-  --runner=DataflowRunner \
-  --machine_type=e2-standard-2 \
-  --staging_location=gs://$PROJECT/test \
-  --temp_location gs://$PROJECT/test \
-  --input gs://$PROJECT/data_files/head_usa_names.csv \
-  --save_main_session
-
-sed -i "s/values = \[x.decode('utf8') for x in csv_row\]/values = \[x for x in csv_row\]/" data_enrichment.py
-
-python dataflow_python_examples/data_enrichment.py \
-  --project=$PROJECT \
-  --region=$REGION \
-  --runner=DataflowRunner \
-  --machine_type=e2-standard-2 \
-  --staging_location=gs://$PROJECT/test \
-  --temp_location gs://$PROJECT/test \
-  --input gs://$PROJECT/data_files/head_usa_names.csv \
-  --save_main_session
-
-python dataflow_python_examples/data_lake_to_mart.py \
-  --worker_disk_type="compute.googleapis.com/projects//zones//diskTypes/pd-ssd" \
-  --max_num_workers=4 \
-  --project=$PROJECT \
-  --runner=DataflowRunner \
-  --machine_type=e2-standard-2 \
-  --staging_location=gs://$PROJECT/test \
-  --temp_location gs://$PROJECT/test \
-  --save_main_session \
-  --region=$REGION
+./*.sh
 ```
 
-### Congratulations 🎉 for completing the Lab !
+# 🎉 Woohoo! You Did It! 🎉
 
-##### *You Have Successfully Demonstrated Your Skills And Determination.*
+Your hard work and determination paid off! 💻
+You've successfully completed the lab. **Way to go!** 🚀
 
-#### *Well done!*
+### 💬 Stay Connected with Our Community!
 
-#### Don't Forget to Join the [Telegram Channel](https://t.me/quickgcplab) & [Discussion group](https://t.me/quickgcplabchats)
+👉 Join the conversation and never miss an update:
+
+💚 [𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 𝗖𝗼𝗺𝗺𝘂𝗻𝗶𝘁𝘆](https://chat.whatsapp.com/ECJ9h8GA3CA1ksaI9m5NrX)
+📢 [Telegram Channel](https://t.me/quickgcplab)
+👥 [Discussion Group](https://t.me/quickgcplabchats)
 
 # [QUICK GCP LAB](https://www.youtube.com/@quickgcplab)
