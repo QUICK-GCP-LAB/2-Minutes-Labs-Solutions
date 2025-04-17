@@ -153,7 +153,7 @@ sleep 60
 deploy_function() {
     gcloud functions deploy $FUNCTION_NAME \
     --gen2 \
-    --runtime nodejs20 \
+    --runtime nodejs22 \
     --trigger-resource $BUCKET_NAME \
     --trigger-event google.storage.object.finalize \
     --entry-point thumbnail \
