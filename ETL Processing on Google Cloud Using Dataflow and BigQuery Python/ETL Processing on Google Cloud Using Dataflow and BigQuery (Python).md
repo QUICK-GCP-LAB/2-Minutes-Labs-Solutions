@@ -15,7 +15,7 @@ sudo chmod +x gsp290.sh
 ./gsp290.sh
 ```
 ```
-pip install apache-beam[gcp]==2.24.0
+pip install apache-beam[gcp]==2.59.0
 
 cd dataflow/
 
