@@ -25,12 +25,14 @@ RESET=`tput sgr0`
 
 echo "${BG_MAGENTA}${BOLD}Starting Execution${RESET}"
 
+export PROJECT=$(gcloud config get-value project)
+export REGION=$(gcloud compute project-info describe \
+  --format="value(commonInstanceMetadata.items[google-compute-default-region])")
+
 gcloud services disable dataflow.googleapis.com
 gcloud services enable dataflow.googleapis.com
 
 gcloud storage cp -r gs://spls/gsp290/dataflow-python-examples .
-
-export PROJECT=$(gcloud config get-value project)
 
 gcloud config set project $PROJECT
 
@@ -42,7 +44,11 @@ gcloud storage cp gs://spls/gsp290/data_files/head_usa_names.csv gs://$PROJECT/d
 
 bq mk lake
 
-docker run -it -e PROJECT=$PROJECT -v $(pwd)/dataflow-python-examples:/dataflow python:3.8 /bin/bash
+docker run -it \
+  -e PROJECT_ID=$PROJECT_ID \
+  -e REGION=$REGION \
+  -v $(pwd)/dataflow-python-examples:/dataflow \
+  python:3.8 /bin/bash
 
 echo "${BG_RED}${BOLD}Congratulations For Completing The Lab !!!${RESET}"
 
