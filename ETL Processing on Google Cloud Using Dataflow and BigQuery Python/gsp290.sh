@@ -42,7 +42,7 @@ gsutil cp gs://spls/gsp290/data_files/head_usa_names.csv gs://$PROJECT/data_file
 
 bq mk lake
 
-docker run -it -e PROJECT=$PROJECT -v $(pwd)/dataflow-python-examples:/dataflow python:3.7 /bin/bash
+docker run -it -e PROJECT=$PROJECT -v $(pwd)/dataflow-python-examples:/dataflow python:3.8 /bin/bash
 
 echo "${BG_RED}${BOLD}Congratulations For Completing The Lab !!!${RESET}"
 
