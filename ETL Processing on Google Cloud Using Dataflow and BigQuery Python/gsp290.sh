@@ -28,17 +28,17 @@ echo "${BG_MAGENTA}${BOLD}Starting Execution${RESET}"
 gcloud services disable dataflow.googleapis.com
 gcloud services enable dataflow.googleapis.com
 
-gsutil -m cp -R gs://spls/gsp290/dataflow-python-examples .
+gcloud storage cp -r gs://spls/gsp290/dataflow-python-examples .
 
 export PROJECT=$(gcloud config get-value project)
 
 gcloud config set project $PROJECT
 
-gsutil mb -c regional -l $REGION  gs://$PROJECT
+gcloud storage buckets create gs://$PROJECT --location=$REGION
 
-gsutil cp gs://spls/gsp290/data_files/usa_names.csv gs://$PROJECT/data_files/
+gcloud storage cp gs://spls/gsp290/data_files/usa_names.csv gs://$PROJECT/data_files/
 
-gsutil cp gs://spls/gsp290/data_files/head_usa_names.csv gs://$PROJECT/data_files/
+gcloud storage cp gs://spls/gsp290/data_files/head_usa_names.csv gs://$PROJECT/data_files/
 
 bq mk lake
 
