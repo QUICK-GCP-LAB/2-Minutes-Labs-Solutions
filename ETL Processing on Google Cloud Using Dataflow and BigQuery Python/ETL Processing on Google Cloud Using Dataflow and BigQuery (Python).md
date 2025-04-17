@@ -39,7 +39,7 @@ python dataflow_python_examples/data_transformation.py \
   --input gs://$PROJECT/data_files/head_usa_names.csv \
   --save_main_session
 
-sed -i "s/values = \[x.decode('utf8') for x in csv_row\]/values = \[x for x in csv_row\]/" ./dataflow_python_examples/data_enrichment.py
+sed -i "s/values = \[x.decode('utf8') for x in csv_row\]/values = \[x for x in csv_row\]/" data_enrichment.py
 
 python dataflow_python_examples/data_enrichment.py \
   --project=$PROJECT \
