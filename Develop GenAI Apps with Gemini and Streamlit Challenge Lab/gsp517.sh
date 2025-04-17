@@ -95,7 +95,7 @@ SERVICE_NAME='chef-streamlit-app'
 gcloud artifacts repositories create "$AR_REPO" --location="$GCP_REGION" --repository-format=Docker
 
 # Step 12: Submit Cloud Build
-echo "${RED}${BOLD}ubmitting Cloud Build...${RESET}"
+echo "${RED}${BOLD}Submitting Cloud Build...${RESET}"
 gcloud builds submit --tag "$GCP_REGION-docker.pkg.dev/$GCP_PROJECT/$AR_REPO/$SERVICE_NAME"
 
 # Step 13: Deploy Cloud Run Service
