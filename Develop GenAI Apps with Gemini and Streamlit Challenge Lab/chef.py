@@ -27,11 +27,11 @@ vertexai.init(project=PROJECT_ID, location=LOCATION)
 
 @st.cache_resource
 def load_models():
-    text_model_pro = GenerativeModel("gemini-pro")
-    return text_model_pro
+    text_model_flash = GenerativeModel("gemini-2.0-flash-001")
+    return text_model_flash
 
 
-def get_gemini_pro_text_response(
+def get_gemini_flash_text_response(
     model: GenerativeModel,
     contents: str,
     generation_config: GenerationConfig,
@@ -63,9 +63,9 @@ def get_gemini_pro_text_response(
     return " ".join(final_response)
 
 st.header("Vertex AI Gemini API", divider="gray")
-text_model_pro = load_models()
+text_model_flash = load_models()
 
-st.write("Using Gemini Pro - Text only model")
+st.write("Using Gemini Flash - Text only model")
 st.subheader("AI Chef")
 
 cuisine = st.selectbox(
@@ -101,7 +101,6 @@ ingredient_3 = st.text_input(
 # Task 2.5
 # Complete Streamlit framework code for the user interface, add the wine preference radio button to the interface.
 # https://docs.streamlit.io/library/api-reference/widgets/st.radio
-
 
 wine = st.radio (
     "What wine do you prefer?\n\n", ["Red", "White", "None"], key="wine", horizontal=True
@@ -139,8 +138,8 @@ if generate_t2t and prompt:
     with st.spinner("Generating your recipes using Gemini..."):
         first_tab1, first_tab2 = st.tabs(["Recipes", "Prompt"])
         with first_tab1:
-            response = get_gemini_pro_text_response(
-                text_model_pro,
+            response = get_gemini_flash_text_response(
+                text_model_flash,
                 prompt,
                 generation_config=config,
             )

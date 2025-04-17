@@ -1,4 +1,4 @@
-streamlit
-google-genai
+streamlit==1.44.1
+google-genai==1.9.0
 google-cloud-logging
 google-cloud-aiplatform
