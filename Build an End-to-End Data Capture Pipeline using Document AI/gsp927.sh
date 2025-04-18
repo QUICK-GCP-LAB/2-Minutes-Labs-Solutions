@@ -130,6 +130,8 @@ echo "${BOLD}${CYAN}Creating service account and assigning roles${RESET}"
 gcloud iam service-accounts create "service-$PROJECT_NUMBER" \
   --display-name "Cloud Storage Service Account" || true
 
+sleep 30
+
 gcloud projects add-iam-policy-binding $PROJECT_ID \
   --member="serviceAccount:service-$PROJECT_NUMBER@gs-project-accounts.iam.gserviceaccount.com" \
   --role="roles/pubsub.publisher"
