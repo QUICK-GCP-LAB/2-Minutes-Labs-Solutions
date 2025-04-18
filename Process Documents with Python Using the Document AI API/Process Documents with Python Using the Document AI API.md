@@ -12,7 +12,7 @@ sudo chmod +x gsp925-1.sh
 ./gsp925-1.sh
 ```
 
-* Go to **Vertex AI** from [here](https://console.cloud.google.com/vertex-ai?)
+* Go to **Vertex AI** from [here](https://console.cloud.google.com/vertex-ai/workbench?)
 
 * Run the following commands in **Jupyter Notebook Terminal**
 
