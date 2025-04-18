@@ -130,21 +130,50 @@ echo "${BOLD}${CYAN}Creating service account and assigning roles${RESET}"
 gcloud iam service-accounts create "service-$PROJECT_NUMBER" \
   --display-name "Cloud Storage Service Account" || true
 
-sleep 30
+# Step 12: Loop until all roles are assigned
+echo "${BOLD}${CYAN}Looping to ensure all required IAM roles are assigned${RESET}"
+check_and_assign_iam_roles() {
+  local SERVICE_ACCOUNT="service-${PROJECT_NUMBER}@gs-project-accounts.iam.gserviceaccount.com"
+  declare -a ROLES=("roles/pubsub.publisher" "roles/iam.serviceAccountTokenCreator")
+  local ALL_ASSIGNED=false
 
-gcloud projects add-iam-policy-binding $PROJECT_ID \
-  --member="serviceAccount:service-$PROJECT_NUMBER@gs-project-accounts.iam.gserviceaccount.com" \
-  --role="roles/pubsub.publisher"
-gcloud projects add-iam-policy-binding $PROJECT_ID \
-  --member="serviceAccount:service-$PROJECT_NUMBER@gs-project-accounts.iam.gserviceaccount.com" \
-  --role="roles/iam.serviceAccountTokenCreator"
+  while [ "$ALL_ASSIGNED" = false ]; do
+    ALL_ASSIGNED=true
 
-# Step 12: Change to scripts directory
+    for ROLE in "${ROLES[@]}"; do
+      echo "${BOLD}${BLUE}Checking role '$ROLE' for $SERVICE_ACCOUNT...${RESET}"
+
+      if gcloud projects get-iam-policy "$PROJECT_ID" \
+        --flatten="bindings[].members" \
+        --format="value(bindings.members)" \
+        --filter="bindings.role=$ROLE" | grep -q "$SERVICE_ACCOUNT"; then
+         echo "${BOLD}${GREEN}  -> Already has role: $ROLE${RESET}"
+      else
+       echo "${BOLD}${RED}  -> Assigning role: $ROLE${RESET}"
+        gcloud projects add-iam-policy-binding "$PROJECT_ID" \
+          --member="serviceAccount:$SERVICE_ACCOUNT" \
+          --role="$ROLE"
+        ALL_ASSIGNED=false
+      fi
+    done
+
+    if [ "$ALL_ASSIGNED" = false ]; then
+      echo "${BOLD}${MAGENTA}Waiting for IAM policy changes to propagate...${RESET}"
+      sleep 15  # wait a bit before retrying
+    fi
+  done
+
+  echo "${BOLD}${GREEN}✅ All required roles are successfully assigned to $SERVICE_ACCOUNT${RESET}"
+}
+
+check_and_assign_iam_roles
+
+# Step 13: Change to scripts directory
 echo "${BOLD}${RED}Changing to scripts directory${RESET}"
   cd ~/documentai-pipeline-demo/scripts
   export CLOUD_FUNCTION_LOCATION=$REGION
 
-# Step 13: Deploy `process-invoices` Cloud Function with retry
+# Step 14: Deploy `process-invoices` Cloud Function with retry
 echo "${BOLD}${GREEN}Deploying Cloud Function: process-invoices (retry loop)${RESET}"
 deploy_function_until_success() {
 while true; do
@@ -172,7 +201,7 @@ while true; do
 
 deploy_function_until_success
 
-# Step 14: Deploy `geocode-addresses` Cloud Function with retry
+# Step 15: Deploy `geocode-addresses` Cloud Function with retry
 echo "${BOLD}${MAGENTA}Deploying Cloud Function: geocode-addresses (retry loop)${RESET}"
 deploy_geocode_addresses_until_success() {
   while true; do
@@ -200,7 +229,7 @@ deploy_geocode_addresses_until_success() {
 
 deploy_geocode_addresses_until_success
 
-# Step 15: Get Document AI Processor ID
+# Step 16: Get Document AI Processor ID
 echo "${BOLD}${YELLOW}Getting Document AI Processor ID${RESET}"
 PROCESSOR_ID=$(curl -X GET \
   -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
@@ -211,7 +240,7 @@ PROCESSOR_ID=$(curl -X GET \
 
 export PROCESSOR_ID
 
-# Step 16: Re-deploy `process-invoices` with updated env vars
+# Step 17: Re-deploy `process-invoices` with updated env vars
 echo "${BOLD}${BLUE}Re-deploying process-invoices with updated environment variables${RESET}"
 gcloud functions deploy process-invoices \
       --no-gen2 \
@@ -224,7 +253,7 @@ gcloud functions deploy process-invoices \
       --trigger-resource=gs://${PROJECT_ID}-input-invoices \
       --trigger-event=google.storage.object.finalize
 
-# Step 17: Re-deploy `geocode-addresses` with updated env vars
+# Step 18: Re-deploy `geocode-addresses` with updated env vars
 echo "${BOLD}${MAGENTA}Re-deploying geocode-addresses with updated environment variables${RESET}"
 gcloud functions deploy geocode-addresses \
       --no-gen2 \
@@ -236,7 +265,7 @@ gcloud functions deploy geocode-addresses \
       --update-env-vars=API_key=${API_KEY} \
       --trigger-topic=${GEO_CODE_REQUEST_PUBSUB_TOPIC}
 
-# Step 18: Upload sample files to bucket
+# Step 19: Upload sample files to bucket
 echo "${BOLD}${CYAN}Uploading sample files to input bucket${RESET}"
 gsutil cp gs://spls/gsp927/documentai-pipeline-demo/sample-files/* gs://${PROJECT_ID}-input-invoices/
 
