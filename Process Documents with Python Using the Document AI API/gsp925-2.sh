@@ -25,14 +25,14 @@ RESET=`tput sgr0`
 
 echo "${BG_MAGENTA}${BOLD}Starting Execution${RESET}"
 
-gsutil cp gs://cloud-training/gsp925/*.ipynb .
-python -m pip install --upgrade google-cloud-core google-cloud-documentai google-cloud-storage prettytable --user
-gsutil cp gs://cloud-training/gsp925/health-intake-form.pdf form.pdf
-
 export PROJECT_ID="$(gcloud config get-value core/project)"
+gsutil cp gs://$PROJECT_ID-labconfig-bucket/notebooks/*.ipynb .
+python -m pip install --upgrade google-cloud-core google-cloud-documentai google-cloud-storage prettytable 
+gsutil cp gs://$PROJECT_ID-labconfig-bucket/health-intake-form.pdf form.pdf
+
 export BUCKET="${PROJECT_ID}"_doc_ai_async
 gsutil mb gs://${BUCKET}
-gsutil -m cp gs://cloud-training/gsp925/async/*.* gs://${BUCKET}/input
+gsutil -m cp gs://$PROJECT_ID-labconfig-bucket/async/*.* gs://${BUCKET}/input
 
 echo "${YELLOW}${BOLD}NOW${RESET}" "${WHITE}${BOLD}FOLLOW${RESET}" "${GREEN}${BOLD}VIDEO'S INSTRUCTIONS${RESET}"
 
