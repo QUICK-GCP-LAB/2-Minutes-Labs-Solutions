@@ -23,6 +23,13 @@ BOLD=`tput bold`
 RESET=`tput sgr0`
 #----------------------------------------------------start--------------------------------------------------#
 
+if [ -z "$REGION" ]; then
+  echo -n "Please enter the REGION (e.g., us-east1):"
+  read REGION
+fi
+
+echo "Using REGION: $REGION"
+
 echo "${BG_MAGENTA}${BOLD}Starting Execution${RESET}"
 
 gcloud spanner databases execute-sql banking-db --instance=banking-instance \
@@ -85,7 +92,12 @@ gcloud services enable dataflow.googleapis.com
 
 sleep 80
 
-gcloud dataflow jobs run spanner-load --gcs-location gs://dataflow-templates-us-west1/latest/GCS_Text_to_Cloud_Spanner --region us-west1 --staging-location gs://$DEVSHELL_PROJECT_ID/tmp/ --parameters instanceId=banking-instance,databaseId=banking-db,importManifest=gs://cloud-training/OCBL372/manifest.json
+gcloud dataflow jobs run spanner-load \
+  --gcs-location gs://dataflow-templates-$REGION/latest/GCS_Text_to_Cloud_Spanner \
+  --region ${REGION} \
+  --worker-machine-type e2-medium \
+  --staging-location gs://$DEVSHELL_PROJECT_ID/tmp/ \
+  --parameters instanceId=banking-instance,databaseId=banking-db,spannerHost=https://batch-spanner.googleapis.com,importManifest=gs://cloud-training/OCBL372/manifest.json,columnDelimiter=,fieldQualifier=",trailingDelimiter=true,handleNewLine=false"
 
 echo "${BG_RED}${BOLD}Congratulations For Completing The Lab !!!${RESET}"
 
