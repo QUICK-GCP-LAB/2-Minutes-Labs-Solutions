@@ -34,52 +34,29 @@ RANDOM_BG_COLOR=${BG_COLORS[$RANDOM % ${#BG_COLORS[@]}]}
 
 #----------------------------------------------------start--------------------------------------------------#
 
-# Step 1: Display starting message with random colors
 echo "${RANDOM_BG_COLOR}${RANDOM_TEXT_COLOR}${BOLD}Starting Execution${RESET}"
 
-# Step 2: Set the default compute zone
-echo "${GREEN}${BOLD}Setting Default Compute Zone${RESET}"
-export ZONE=$(gcloud compute project-info describe --format="value(commonInstanceMetadata.items[google-compute-default-zone])")
+export ZONE=$(gcloud compute project-info describe \
+--format="value(commonInstanceMetadata.items[google-compute-default-zone])")
 
-# Step 3: Create a Kubernetes cluster with Managed Prometheus
-echo "${CYAN}${BOLD}Creating Kubernetes Cluster with Managed Prometheus${RESET}"
-gcloud beta container clusters create gmp-cluster --num-nodes=1 --zone $ZONE --enable-managed-prometheus
+gcloud beta container clusters create gmp-cluster --num-nodes=1 --zone $ZONE --enable-managed-Prometheus
 
-# Step 4: Get cluster credentials
-echo "${YELLOW}${BOLD}Fetching Cluster Credentials${RESET}"
 gcloud container clusters get-credentials gmp-cluster --zone $ZONE
 
-# Step 5: Create a namespace for testing
-echo "${BLUE}${BOLD}Creating Namespace 'gmp-test'${RESET}"
 kubectl create ns gmp-test
 
-# Step 6: Deploy the Flask application
-echo "${MAGENTA}${BOLD}Deploying Flask Application${RESET}"
 kubectl -n gmp-test apply -f https://raw.githubusercontent.com/kyleabenson/flask_telemetry/master/gmp_prom_setup/flask_deployment.yaml
 
-# Step 7: Deploy the Flask service
-echo "${GREEN}${BOLD}Deploying Flask Service${RESET}"
 kubectl -n gmp-test apply -f https://raw.githubusercontent.com/kyleabenson/flask_telemetry/master/gmp_prom_setup/flask_service.yaml
-
-# Step 8: Monitor metrics output for the keyword
-echo "${YELLOW}${BOLD}Monitoring Metrics for 'flask_exporter_info' Keyword${RESET}"
-
-sleep 120
 
 url=$(kubectl get services -n gmp-test -o jsonpath='{.items[*].status.loadBalancer.ingress[0].ip}')
 
 curl $url/metrics
 
-# Step 9: Deploy Prometheus configuration
-echo "${BLUE}${BOLD}Deploying Prometheus Configuration${RESET}"
 kubectl -n gmp-test apply -f https://raw.githubusercontent.com/kyleabenson/flask_telemetry/master/gmp_prom_setup/prom_deploy.yaml
 
-# Step 10: Generate traffic to the Flask application
-echo "${MAGENTA}${BOLD}Generating Traffic to Flask Application${RESET}"
-timeout 120 bash -c -- 'while true; do curl $(kubectl get services -n gmp-test -o jsonpath="{.items[*].status.loadBalancer.ingress[0].ip}"); sleep $((RANDOM % 4)) ; done'
+timeout 120 bash -c -- 'while true; do curl $(kubectl get services -n gmp-test -o jsonpath='{.items[*].status.loadBalancer.ingress[0].ip}'); sleep $((RANDOM % 4)) ; done'
 
-# Step 11: Create a Cloud Monitoring dashboard
-echo "${CYAN}${BOLD}Creating Cloud Monitoring Dashboard${RESET}"
 gcloud monitoring dashboards create --config='''
 {
   "category": "CUSTOM",
