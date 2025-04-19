@@ -1,60 +1,38 @@
 # Configuring IAM Permissions with gcloud || [GSP647](https://www.cloudskillsboost.google/focuses/7678?parent=catalog) ||
 
-## Solution [here](https://youtu.be/_6phqXHz-9I)
+## 🔑 Solution [here]()
 
-### Run the following Commands in CloudShell
-
-### Assign Veriables
+### ⚙️ Execute the Following Commands in Cloud Shell
 
 ```
-export PROJECT_2=
-export ZONE=
-```
-```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Configuring%20IAM%20Permissions%20with%20gcloud/gsp647-1.sh
-sudo chmod +x gsp647-1.sh
-./gsp647-1.sh
-```
+export ZONE=$(gcloud compute project-info describe \
+--format="value(commonInstanceMetadata.items[google-compute-default-zone])")
 
-### Run again the following Commands in CloudShell
+export REGION=$(gcloud compute project-info describe \
+--format="value(commonInstanceMetadata.items[google-compute-default-region])")
 
-### Assign Veriables
-
-```
-export ZONE=
-```
-```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Configuring%20IAM%20Permissions%20with%20gcloud/gsp647-2.sh
-sudo chmod +x gsp647-2.sh
-./gsp647-2.sh
-```
-
-* Now Check Your Progress for `TASK 1` & `TASK 2` and then Follow [Video's](https://youtu.be/_6phqXHz-9I) Instructions.
-
-```
-user2
-```
-
-### Run again the following Commands in CloudShell
-
-### Assign Veriables
-
-```
-export USER2=
-export PROJECT2=
+gcloud compute ssh centos-clean --zone=$ZONE --quiet
 ```
 ```
 curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Configuring%20IAM%20Permissions%20with%20gcloud/gsp647-3.sh
-sudo chmod +x gsp647-3.sh
-./gsp647-3.sh
+sudo chmod +x gsp647.sh
+
+sudo chmod +x *.sh
+
+./*.sh
 ```
 
-### Congratulations 🎉 for completing the Lab !
+# 🎉 Woohoo! You Did It! 🎉
 
-##### *You Have Successfully Demonstrated Your Skills And Determination.*
+Your hard work and determination paid off! 💻
+You've successfully completed the lab. **Way to go!** 🚀
 
-#### *Well done!*
+### 💬 Stay Connected with Our Community!
 
-#### Don't Forget to Join the [Telegram Channel](https://t.me/quickgcplab) & [Discussion group](https://t.me/quickgcplabchats)
+👉 Join the conversation and never miss an update:
+
+💚 [𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 𝗖𝗼𝗺𝗺𝘂𝗻𝗶𝘁𝘆](https://chat.whatsapp.com/ECJ9h8GA3CA1ksaI9m5NrX)
+📢 [Telegram Channel](https://t.me/quickgcplab)
+👥 [Discussion Group](https://t.me/quickgcplabchats)
 
 # [QUICK GCP LAB](https://www.youtube.com/@quickgcplab)
