@@ -1,6 +1,6 @@
 # Configuring IAM Permissions with gcloud || [GSP647](https://www.cloudskillsboost.google/focuses/7678?parent=catalog) ||
 
-## 🔑 Solution [here]()
+## 🔑 Solution [here](https://youtu.be/e5uGvyCrFTw)
 
 ### ⚙️ Execute the Following Commands in Cloud Shell
 
