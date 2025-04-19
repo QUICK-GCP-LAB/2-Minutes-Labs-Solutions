@@ -111,18 +111,26 @@ echo "${BOLD}${RED}Installing epel-release and jq${RESET}"
 sudo yum -y install epel-release
 sudo yum -y install jq
 
+echo
+
 # Step 11: Prompt for input values and export
 echo "${BOLD}${CYAN}Prompting for PROJECTID2, USERID2, and ZONE2${RESET}"
+echo
 get_and_export_values() {
-    echo
   # Prompt user for PROJECTID2
-  read -p "Enter the PROJECTID2: " PROJECTID2
-    echo
-  # Prompt user for USERID2
-  read -p "Enter the USERID2: " USERID2
-    echo
-  # Prompt user for ZONE2
-  read -p "Enter the ZONE2: " ZONE2
+echo -n "${BOLD}${BLUE}Enter the PROJECTID2: ${RESET}"
+read PROJECTID2
+echo
+
+# Prompt user for USERID2
+echo -n "${BOLD}${MAGENTA}Enter the USERID2: ${RESET}"
+read USERID2
+echo
+
+# Prompt user for ZONE2
+echo -n "${BOLD}${CYAN}Enter the ZONE2: ${RESET}"
+read ZONE2
+echo
 
   # Export the values in the current session
   export PROJECTID2
