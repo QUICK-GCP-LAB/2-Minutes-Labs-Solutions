@@ -8,9 +8,6 @@
 export ZONE=$(gcloud compute project-info describe \
 --format="value(commonInstanceMetadata.items[google-compute-default-zone])")
 
-export REGION=$(gcloud compute project-info describe \
---format="value(commonInstanceMetadata.items[google-compute-default-region])")
-
 gcloud compute ssh centos-clean --zone=$ZONE --quiet
 ```
 ```
