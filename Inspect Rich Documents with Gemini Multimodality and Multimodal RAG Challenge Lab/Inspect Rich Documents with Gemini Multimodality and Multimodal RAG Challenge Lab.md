@@ -1,6 +1,6 @@
 # Inspect Rich Documents with Gemini Multimodality and Multimodal RAG: Challenge Lab || [GSP520](https://www.cloudskillsboost.google/focuses/87625?parent=catalog) ||
 
-## 🔑 Solution [here]()
+## 🔑 Solution [here](https://youtu.be/wl3ZQ7XK2Fw)
 
 ### ⚙️ Execute the Following Commands in Jupyter Terminal
 
