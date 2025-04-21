@@ -5,7 +5,7 @@
 ### ⚙️ Execute the Following Commands in Cloud Shell
 
 ```
-curl -LO 
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Bigtable%20Qwik%20Start%20-%20Command%20Line/gsp099.sh
 
 sudo chmod +x *.sh
 
