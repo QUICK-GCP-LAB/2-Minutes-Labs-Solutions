@@ -1,6 +1,6 @@
 # Bigtable: Qwik Start - Command Line || [GSP099](https://www.cloudskillsboost.google/focuses/579?parent=catalog) ||
 
-## 🔑 Solution [here]()
+## 🔑 Solution [here](https://youtu.be/xUlKJkb68OY)
 
 ### ⚙️ Execute the Following Commands in Cloud Shell
 
