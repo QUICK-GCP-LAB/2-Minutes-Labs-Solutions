@@ -1,6 +1,6 @@
 # Using Prometheus for Monitoring on Google Cloud: Qwik Start || [GSP1024](https://www.cloudskillsboost.google/focuses/31103?parent=catalog) ||
 
-## 🔑 Solution [here]()
+## 🔑 Solution [here](https://youtu.be/6i4scVFHVps)
 
 ### ⚙️ Execute the Following Commands in Cloud Shell
 
