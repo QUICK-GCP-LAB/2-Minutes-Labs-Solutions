@@ -1,6 +1,6 @@
 # SingleStore on Google Cloud || [GSP1096](https://www.cloudskillsboost.google/focuses/56622?parent=catalog) ||
 
-## 🔑 Solution [here]()
+## 🔑 Solution [here](https://youtu.be/IUKCWqH2-MU)
 
 ### ⚙️ Execute the Following Commands in Cloud Shell
 
