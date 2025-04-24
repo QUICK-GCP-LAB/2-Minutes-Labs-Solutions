@@ -1,6 +1,6 @@
 # Create ML Models with BigQuery ML: Challenge Lab || [GSP341](https://www.cloudskillsboost.google/focuses/14294?parent=catalog) ||
 
-## 🔑 Solution [here]()
+## 🔑 Solution [here](https://youtu.be/Dq2UdKtSAHc)
 
 ### ⚙️ Execute the Following Commands in Cloud Shell
 
