@@ -175,6 +175,8 @@ gcloud logging metrics create hello-app-error \
 resource.labels.container_name="hello-app"
 textPayload: "ERROR: 404 Error page not found"'
 
+sleep 30
+
 # Step 19: Create Alert Policy for hello-app Errors
 echo "${BOLD}${MAGENTA}Creating alert policy for hello-app errors${RESET}"
 cat > awesome.json <<'EOF_END'
