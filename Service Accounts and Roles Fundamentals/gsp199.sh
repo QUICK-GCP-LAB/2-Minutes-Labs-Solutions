@@ -41,12 +41,16 @@ export ZONE=$(gcloud compute project-info describe \
 
 gcloud iam service-accounts create my-sa-123 --display-name "my service account"
 
+sleep 10
+
 gcloud projects add-iam-policy-binding $DEVSHELL_PROJECT_ID \
     --member serviceAccount:my-sa-123@$DEVSHELL_PROJECT_ID.iam.gserviceaccount.com --role roles/editor
 
 gcloud iam service-accounts create bigquery-qwiklab \
   --description="Service account for BigQuery Qwiklabs" \
   --display-name="bigquery-qwiklab"
+
+sleep 10
 
 gcloud projects add-iam-policy-binding $DEVSHELL_PROJECT_ID \
   --member="serviceAccount:bigquery-qwiklab@$DEVSHELL_PROJECT_ID.iam.gserviceaccount.com" \
@@ -56,10 +60,26 @@ gcloud projects add-iam-policy-binding $DEVSHELL_PROJECT_ID \
   --member="serviceAccount:bigquery-qwiklab@$DEVSHELL_PROJECT_ID.iam.gserviceaccount.com" \
   --role="roles/bigquery.user"
 
-gcloud compute instances create bigquery-instance --project=$DEVSHELL_PROJECT_ID --zone=$ZONE --machine-type=e2-medium --network-interface=network-tier=PREMIUM,stack-type=IPV4_ONLY,subnet=default --metadata=enable-oslogin=true --maintenance-policy=MIGRATE --provisioning-model=STANDARD --service-account=bigquery-qwiklab@$DEVSHELL_PROJECT_ID.iam.gserviceaccount.com --scopes=https://www.googleapis.com/auth/cloud-platform --create-disk=auto-delete=yes,boot=yes,device-name=bigquery-instance,image=projects/debian-cloud/global/images/debian-11-bullseye-v20231010,mode=rw,size=10,type=projects/$DEVSHELL_PROJECT_ID/zones/$ZONE/diskTypes/pd-balanced --no-shielded-secure-boot --shielded-vtpm --shielded-integrity-monitoring --labels=goog-ec-src=vm_add-gcloud --reservation-affinity=any
+gcloud compute instances create bigquery-instance \
+  --project=$DEVSHELL_PROJECT_ID \
+  --zone=$ZONE \
+  --machine-type=e2-medium \
+  --network-interface=network-tier=PREMIUM,stack-type=IPV4_ONLY,subnet=default \
+  --metadata=enable-oslogin=true \
+  --maintenance-policy=MIGRATE \
+  --provisioning-model=STANDARD \
+  --service-account=bigquery-qwiklab@$DEVSHELL_PROJECT_ID.iam.gserviceaccount.com \
+  --scopes=https://www.googleapis.com/auth/cloud-platform \
+  --create-disk=auto-delete=yes,boot=yes,device-name=bigquery-instance,\
+image=projects/debian-cloud/global/images/debian-11-bullseye-v20231010,\
+mode=rw,size=10,type=pd-balanced \
+  --no-shielded-secure-boot \
+  --shielded-vtpm \
+  --shielded-integrity-monitoring \
+  --labels=goog-ec-src=vm_add-gcloud \
+  --reservation-affinity=any
 
 cat > prepare_disk.sh <<'EOF_END'
-
 export PROJECT_ID=$(gcloud config get-value project)
 
 sudo apt-get update
@@ -91,14 +111,12 @@ client = bigquery.Client(
     credentials=credentials)
 print(client.query(query).to_dataframe())
 " > query.py
-
-python3 query.py
-
 EOF_END
 
-gcloud compute scp ./prepare_disk.sh bigquery-instance:~/tmp --project=$DEVSHELL_PROJECT_ID --zone=$ZONE --quiet
 
-gcloud compute ssh bigquery-instance --project=$DEVSHELL_PROJECT_ID --zone=$ZONE --quiet --command="bash /tmp/prepare_disk.sh"
+gcloud compute scp prepare_disk.sh bigquery-instance:/tmp/prepare_disk.sh --zone=$ZONE
+
+gcloud compute ssh bigquery-instance --zone=$ZONE --command="bash /tmp/prepare_disk.sh"
 
 echo
 
