@@ -34,52 +34,88 @@ RANDOM_BG_COLOR=${BG_COLORS[$RANDOM % ${#BG_COLORS[@]}]}
 
 #----------------------------------------------------start--------------------------------------------------#
 
-# Step 1: Display starting message with random colors
 echo "${RANDOM_BG_COLOR}${RANDOM_TEXT_COLOR}${BOLD}Starting Execution${RESET}"
 
-# Step 2: Set the default compute zone
-echo "${GREEN}${BOLD}Setting Default Compute Zone${RESET}"
-export ZONE=$(gcloud compute project-info describe --format="value(commonInstanceMetadata.items[google-compute-default-zone])")
+# Step 1: Set Compute Zone & Region
+echo "${BOLD}${BLUE}Setting Compute Zone & Region${RESET}"
+export ZONE=$(gcloud compute project-info describe \
+--format="value(commonInstanceMetadata.items[google-compute-default-zone])")
 
-# Step 3: Create a Kubernetes cluster with Managed Prometheus
-echo "${CYAN}${BOLD}Creating Kubernetes Cluster with Managed Prometheus${RESET}"
+export REGION=$(gcloud compute project-info describe \
+--format="value(commonInstanceMetadata.items[google-compute-default-region])")
+
+# Step 2: Create Docker Artifact Registry
+echo "${BOLD}${GREEN}Creating Docker Artifact Registry${RESET}"
+gcloud artifacts repositories create docker-repo --repository-format=docker \
+    --location=$REGION --description="Docker repository" \
+    --project=$DEVSHELL_PROJECT_ID
+
+# Step 3: Download Flask Telemetry App
+echo "${BOLD}${CYAN}Step 3: Downloading Flask Telemetry App${RESET}"
+ wget https://storage.googleapis.com/spls/gsp1024/flask_telemetry.zip
+ unzip flask_telemetry.zip
+
+# Step 4: Load Docker Image
+echo "${BOLD}${YELLOW}Loading Docker Image${RESET}"
+ docker load -i flask_telemetry.tar
+
+# Step 5: Tag Docker Image
+echo "${BOLD}${MAGENTA}Tagging Docker Image${RESET}"
+docker tag gcr.io/ops-demo-330920/flask_telemetry:61a2a7aabc7077ef474eb24f4b69faeab47deed9 \
+$REGION-docker.pkg.dev/$DEVSHELL_PROJECT_ID/docker-repo/flask-telemetry:v1
+
+# Step 6: Push Docker Image to Artifact Registry
+echo "${BOLD}${RED}Pushing Docker Image to Artifact Registry${RESET}"
+docker push $REGION-docker.pkg.dev/$DEVSHELL_PROJECT_ID/docker-repo/flask-telemetry:v1
+
+# Step 7: Create GKE Cluster with Prometheus Monitoring
+echo "${BOLD}${GREEN}Creating GKE Cluster with Prometheus Monitoring${RESET}"
 gcloud beta container clusters create gmp-cluster --num-nodes=1 --zone $ZONE --enable-managed-prometheus
 
-# Step 4: Get cluster credentials
-echo "${YELLOW}${BOLD}Fetching Cluster Credentials${RESET}"
+# Step 8: Get GKE Credentials
+echo "${BOLD}${CYAN}Getting GKE Credentials${RESET}"
 gcloud container clusters get-credentials gmp-cluster --zone $ZONE
 
-# Step 5: Create a namespace for testing
-echo "${BLUE}${BOLD}Creating Namespace 'gmp-test'${RESET}"
+# Step 9: Create Namespace
+echo "${BOLD}${YELLOW}Creating Kubernetes Namespace${RESET}"
 kubectl create ns gmp-test
 
-# Step 6: Deploy the Flask application
-echo "${MAGENTA}${BOLD}Deploying Flask Application${RESET}"
-kubectl -n gmp-test apply -f https://raw.githubusercontent.com/kyleabenson/flask_telemetry/master/gmp_prom_setup/flask_deployment.yaml
+# Step 10: Download Prometheus Setup Files
+echo "${BOLD}${MAGENTA}Downloading Prometheus Setup Files${RESET}"
+wget https://storage.googleapis.com/spls/gsp1024/gmp_prom_setup.zip
+unzip gmp_prom_setup.zip
+cd gmp_prom_setup
 
-# Step 7: Deploy the Flask service
-echo "${GREEN}${BOLD}Deploying Flask Service${RESET}"
-kubectl -n gmp-test apply -f https://raw.githubusercontent.com/kyleabenson/flask_telemetry/master/gmp_prom_setup/flask_service.yaml
+# Step 11: Replace Placeholder in Deployment YAML
+echo "${BOLD}${BLUE}Replacing Placeholder in Deployment YAML${RESET}"
+sed -i "s|<ARTIFACT REGISTRY IMAGE NAME>|$REGION-docker.pkg.dev/$DEVSHELL_PROJECT_ID/docker-repo/flask-telemetry:v1|g" flask_deployment.yaml
 
-# Step 8: Monitor metrics output for the keyword
-echo "${YELLOW}${BOLD}Monitoring Metrics for 'flask_exporter_info' Keyword${RESET}"
+# Step 12: Apply Flask Deployment
+echo "${BOLD}${GREEN}Applying Flask Deployment${RESET}"
+kubectl -n gmp-test apply -f flask_deployment.yaml
 
-sleep 120
+# Step 13: Apply Flask Service
+echo "${BOLD}${CYAN}Applying Flask Service${RESET}"
+kubectl -n gmp-test apply -f flask_service.yaml
 
+# Step 14: Retrieve LoadBalancer IP
+echo "${BOLD}${YELLOW}Retrieving LoadBalancer IP${RESET}"
 url=$(kubectl get services -n gmp-test -o jsonpath='{.items[*].status.loadBalancer.ingress[0].ip}')
 
+# Step 15: Curl Metrics Endpoint
+echo "${BOLD}${MAGENTA}Curling /metrics Endpoint${RESET}"
 curl $url/metrics
 
-# Step 9: Deploy Prometheus configuration
-echo "${BLUE}${BOLD}Deploying Prometheus Configuration${RESET}"
-kubectl -n gmp-test apply -f https://raw.githubusercontent.com/kyleabenson/flask_telemetry/master/gmp_prom_setup/prom_deploy.yaml
+# Step 16: Deploy Prometheus Configuration
+echo "${BOLD}${RED}Deploying Prometheus Configuration${RESET}"
+kubectl -n gmp-test apply -f prom_deploy.yaml
 
-# Step 10: Generate traffic to the Flask application
-echo "${MAGENTA}${BOLD}Generating Traffic to Flask Application${RESET}"
-timeout 120 bash -c -- 'while true; do curl $(kubectl get services -n gmp-test -o jsonpath="{.items[*].status.loadBalancer.ingress[0].ip}"); sleep $((RANDOM % 4)) ; done'
+# Step 17: Generate Random Traffic for 2 Minutes
+echo "${BOLD}${BLUE}Generating Random Traffic for 2 Minutes${RESET}"
+timeout 120 bash -c -- 'while true; do curl $(kubectl get services -n gmp-test -o jsonpath='{.items[*].status.loadBalancer.ingress[0].ip}'); sleep $((RANDOM % 4)) ; done'
 
-# Step 11: Create a Cloud Monitoring dashboard
-echo "${CYAN}${BOLD}Creating Cloud Monitoring Dashboard${RESET}"
+# Step 18: Create Monitoring Dashboard
+echo "${BOLD}${GREEN}Creating Monitoring Dashboard${RESET}"
 gcloud monitoring dashboards create --config='''
 {
   "category": "CUSTOM",

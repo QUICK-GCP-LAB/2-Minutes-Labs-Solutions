@@ -1,18 +1,11 @@
-# Configuring IAM Permissions with gcloud || [GSP647](https://www.cloudskillsboost.google/focuses/7678?parent=catalog) ||
+# Bigtable: Qwik Start - Command Line || [GSP099](https://www.cloudskillsboost.google/focuses/579?parent=catalog) ||
 
-## 🔑 Solution [here](https://youtu.be/e5uGvyCrFTw)
+## 🔑 Solution [here](https://youtu.be/xUlKJkb68OY)
 
 ### ⚙️ Execute the Following Commands in Cloud Shell
 
 ```
-export ZONE=$(gcloud compute project-info describe \
---format="value(commonInstanceMetadata.items[google-compute-default-zone])")
-
-gcloud compute ssh centos-clean --zone=$ZONE --quiet
-```
-```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Configuring%20IAM%20Permissions%20with%20gcloud/gsp647.sh
-sudo chmod +x gsp647.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Bigtable%20Qwik%20Start%20-%20Command%20Line/gsp099.sh
 
 sudo chmod +x *.sh
 

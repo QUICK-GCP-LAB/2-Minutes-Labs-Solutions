@@ -1,18 +1,11 @@
-# Configuring IAM Permissions with gcloud || [GSP647](https://www.cloudskillsboost.google/focuses/7678?parent=catalog) ||
+# SingleStore on Google Cloud || [GSP1096](https://www.cloudskillsboost.google/focuses/56622?parent=catalog) ||
 
-## 🔑 Solution [here](https://youtu.be/e5uGvyCrFTw)
+## 🔑 Solution [here](https://youtu.be/IUKCWqH2-MU)
 
 ### ⚙️ Execute the Following Commands in Cloud Shell
 
 ```
-export ZONE=$(gcloud compute project-info describe \
---format="value(commonInstanceMetadata.items[google-compute-default-zone])")
-
-gcloud compute ssh centos-clean --zone=$ZONE --quiet
-```
-```
-curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Configuring%20IAM%20Permissions%20with%20gcloud/gsp647.sh
-sudo chmod +x gsp647.sh
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/SingleStore%20on%20Google%20Cloud/gsp1096.sh
 
 sudo chmod +x *.sh
 

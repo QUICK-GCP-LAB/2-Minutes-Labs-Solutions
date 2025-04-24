@@ -96,7 +96,7 @@ async function publishPubSubMessage(labReport) {
 EOF_CP
 
 cat > Dockerfile <<EOF_CP
-FROM node:10
+FROM node:18
 WORKDIR /usr/src/app
 COPY package.json package*.json ./
 RUN npm install --only=production
@@ -164,7 +164,7 @@ function sendEmail() {
 EOF_CP
 
 cat > Dockerfile <<EOF_CP
-FROM node:10
+FROM node:18
 WORKDIR /usr/src/app
 COPY package.json package*.json ./
 RUN npm install --only=production
@@ -254,7 +254,7 @@ function sendSms() {
 EOF_CP
 
 cat > Dockerfile <<EOF_CP
-FROM node:10
+FROM node:18
 WORKDIR /usr/src/app
 COPY package.json package*.json ./
 RUN npm install --only=production

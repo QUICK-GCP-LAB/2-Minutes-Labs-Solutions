@@ -36,34 +36,50 @@ RANDOM_BG_COLOR=${BG_COLORS[$RANDOM % ${#BG_COLORS[@]}]}
 
 echo "${RANDOM_BG_COLOR}${RANDOM_TEXT_COLOR}${BOLD}Starting Execution${RESET}"
 
-export ZONE=$(gcloud compute project-info describe \
---format="value(commonInstanceMetadata.items[google-compute-default-zone])")
-
+# Step 1: Set REGION environment variable
+echo "${BOLD}${BLUE}Setting the default Compute REGION from metadata${RESET}"
 export REGION=$(gcloud compute project-info describe \
 --format="value(commonInstanceMetadata.items[google-compute-default-region])")
 
-export PROJECT_NUMBER="$(gcloud projects describe $DEVSHELL_PROJECT_ID --format='get(projectNumber)')"
+# Step 2: Create GCS bucket
+echo "${BOLD}${MAGENTA}Creating Google Cloud Storage bucket${RESET}"
+gcloud storage buckets create gs://$GOOGLE_CLOUD_PROJECT --location=$REGION
 
-gcloud projects add-iam-policy-binding $DEVSHELL_PROJECT_ID \
-    --member serviceAccount:$PROJECT_NUMBER-compute@developer.gserviceaccount.com \
-    --role roles/storage.objectAdmin
+# Step 3: Copy 'drivers' folder from public GCS to your GCS bucket
+echo "${BOLD}${GREEN}Copying 'drivers' folder to your GCS bucket${RESET}"
+gcloud storage cp -r gs://configuring-singlestore-on-gcp/drivers gs://$GOOGLE_CLOUD_PROJECT
 
-gcloud projects add-iam-policy-binding $DEVSHELL_PROJECT_ID \
-    --member serviceAccount:$PROJECT_NUMBER-compute@developer.gserviceaccount.com \
-    --role roles/dataproc.worker
+# Step 4: Copy 'trips' folder from public GCS to your GCS bucket
+echo "${BOLD}${YELLOW}Copying 'trips' folder to your GCS bucket${RESET}"
+gcloud storage cp -r gs://configuring-singlestore-on-gcp/trips gs://$GOOGLE_CLOUD_PROJECT
 
-gcloud dataproc clusters create example-cluster --region $REGION --zone $ZONE --master-machine-type e2-standard-2 --master-boot-disk-type pd-balanced --master-boot-disk-size 30 --num-workers 2 --worker-machine-type e2-standard-2 --worker-boot-disk-type pd-balanced --worker-boot-disk-size 30 --image-version 2.2-debian12 --project $DEVSHELL_PROJECT_ID
+# Step 5: Copy 'neighborhoods.csv' to your GCS bucket
+echo "${BOLD}${RED}Copying 'neighborhoods.csv' file to your GCS bucket${RESET}"
+gcloud storage cp gs://configuring-singlestore-on-gcp/neighborhoods.csv gs://$GOOGLE_CLOUD_PROJECT
 
-gcloud dataproc jobs submit spark \
-    --cluster example-cluster \
-    --region $REGION \
-    --class org.apache.spark.examples.SparkPi \
-    --jars file:///usr/lib/spark/examples/jars/spark-examples.jar \
-    -- 1000
+# Step 6: Run Dataflow job to stream GCS JSON to Pub/Sub
+echo "${BOLD}${BLUE}Running Dataflow job to stream JSON files from GCS to Pub/Sub${RESET}"
+gcloud dataflow jobs run "GCStoPS-clone" \
+  --gcs-location=gs://dataflow-templates-$REGION/latest/Stream_GCS_Text_to_Cloud_PubSub \
+  --region=$REGION \
+  --parameters \
+inputFilePattern=gs://$DEVSHELL_PROJECT_ID-dataflow/input/*.json,\
+outputTopic=projects/$(gcloud config get-value project)/topics/Taxi
 
-gcloud dataproc clusters update example-cluster \
-    --region $REGION \
-    --num-workers 4
+# Step 7: Pull messages from Pub/Sub subscription
+echo "${BOLD}${GREEN}Pulling messages from 'Taxi-sub' Pub/Sub subscription${RESET}"
+gcloud pubsub subscriptions pull projects/$(gcloud config get-value project)/subscriptions/Taxi-sub \
+--limit=10 --auto-ack
+
+# Step 8: Run Dataflow Flex Template to stream Pub/Sub to GCS
+echo "${BOLD}${MAGENTA}Running Dataflow Flex Template to write Pub/Sub messages to GCS${RESET}"
+gcloud dataflow flex-template run pstogcs \
+  --template-file-gcs-location=gs://dataflow-templates-$REGION/latest/flex/Cloud_PubSub_to_GCS_Text_Flex \
+  --region=$REGION \
+  --parameters \
+inputSubscription=projects/$(gcloud config get-value project)/subscriptions/Taxi-sub,\
+outputDirectory=gs://$DEVSHELL_PROJECT_ID,\
+outputFilenamePrefix=output
 
 echo
 

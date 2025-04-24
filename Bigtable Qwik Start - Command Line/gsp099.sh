@@ -36,34 +36,55 @@ RANDOM_BG_COLOR=${BG_COLORS[$RANDOM % ${#BG_COLORS[@]}]}
 
 echo "${RANDOM_BG_COLOR}${RANDOM_TEXT_COLOR}${BOLD}Starting Execution${RESET}"
 
+# Step 1: Set Compute Zone
+echo "${BOLD}${BLUE}Setting Compute Zone${RESET}"
 export ZONE=$(gcloud compute project-info describe \
 --format="value(commonInstanceMetadata.items[google-compute-default-zone])")
 
-export REGION=$(gcloud compute project-info describe \
---format="value(commonInstanceMetadata.items[google-compute-default-region])")
+# Step 2: Create Bigtable instance
+echo "${BOLD}${MAGENTA}Creating Bigtable Instance${RESET}"
+gcloud bigtable instances create quickstart-instance \
+  --cluster=quickstart-instance-c1 \
+  --cluster-zone=$ZONE \
+  --cluster-num-nodes=1 \
+  --cluster-storage-type=SSD \
+  --display-name="quickstart-instance"
 
-export PROJECT_NUMBER="$(gcloud projects describe $DEVSHELL_PROJECT_ID --format='get(projectNumber)')"
+# Step 3: Write project config to .cbtrc
+echo "${BOLD}${CYAN}Writing project to .cbtrc${RESET}"
+echo project = $(gcloud config get-value project) > ~/.cbtrc
 
-gcloud projects add-iam-policy-binding $DEVSHELL_PROJECT_ID \
-    --member serviceAccount:$PROJECT_NUMBER-compute@developer.gserviceaccount.com \
-    --role roles/storage.objectAdmin
+# Step 4: Add instance to .cbtrc
+echo "${BOLD}${YELLOW}Adding instance to .cbtrc${RESET}"
+echo instance = quickstart-instance >> ~/.cbtrc
 
-gcloud projects add-iam-policy-binding $DEVSHELL_PROJECT_ID \
-    --member serviceAccount:$PROJECT_NUMBER-compute@developer.gserviceaccount.com \
-    --role roles/dataproc.worker
+# Step 5: Create table
+echo "${BOLD}${RED}Creating table: my-table${RESET}"
+cbt createtable my-table
 
-gcloud dataproc clusters create example-cluster --region $REGION --zone $ZONE --master-machine-type e2-standard-2 --master-boot-disk-type pd-balanced --master-boot-disk-size 30 --num-workers 2 --worker-machine-type e2-standard-2 --worker-boot-disk-type pd-balanced --worker-boot-disk-size 30 --image-version 2.2-debian12 --project $DEVSHELL_PROJECT_ID
+# Step 6: List tables
+echo "${BOLD}${GREEN}Listing tables${RESET}"
+cbt ls
 
-gcloud dataproc jobs submit spark \
-    --cluster example-cluster \
-    --region $REGION \
-    --class org.apache.spark.examples.SparkPi \
-    --jars file:///usr/lib/spark/examples/jars/spark-examples.jar \
-    -- 1000
+# Step 7: Create column family cf1
+echo "${BOLD}${BLUE}Creating column family: cf1${RESET}"
+cbt createfamily my-table cf1
 
-gcloud dataproc clusters update example-cluster \
-    --region $REGION \
-    --num-workers 4
+# Step 8: List column families in my-table
+echo "${BOLD}${MAGENTA}Listing column families in my-table${RESET}"
+cbt ls my-table
+
+# Step 9: Insert a value into the table
+echo "${BOLD}${CYAN}Inserting value into my-table${RESET}"
+cbt set my-table r1 cf1:c1=test-value
+
+# Step 10: Read table
+echo "${BOLD}${YELLOW}Reading data from my-table${RESET}"
+cbt read my-table
+
+# Step 11: Delete table
+echo "${BOLD}${RED}Deleting my-table${RESET}"
+cbt deletetable my-table
 
 echo
 
