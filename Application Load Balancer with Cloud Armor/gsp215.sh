@@ -41,9 +41,11 @@ get_user_input() {
   echo
   read -p "$(echo -e "${BOLD}${CYAN}Enter REGION2 (e.g., europe-west1): ${RESET}")" REGION2
   export REGION2
+  echo
   
   read -p "$(echo -e "${BOLD}${CYAN}Enter VM_ZONE (e.g., us-central1-c): ${RESET}")" VM_ZONE
   export VM_ZONE
+  echo
   
   echo "${BOLD}${YELLOW}Thank you for providing the input!${RESET}"
   echo
