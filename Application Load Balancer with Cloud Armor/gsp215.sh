@@ -45,6 +45,7 @@ get_user_input() {
   export VM_ZONE
   
   echo "${BOLD}${YELLOW}Thank you for providing the input!${RESET}"
+  echo
 }
 
 # Call the function to get user input
