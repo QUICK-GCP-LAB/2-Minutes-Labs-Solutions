@@ -1,6 +1,6 @@
 # Creating and Alerting on Logs-based Metrics || [GSP091](https://www.cloudskillsboost.google/focuses/619?parent=catalog) ||
 
-## 🔑 Solution [here]()
+## 🔑 Solution [here](https://youtu.be/9oYJ2xv4_F0)
 
 ### ⚙️ Execute the Following Commands in Cloud Shell
 
