@@ -1,6 +1,6 @@
 # Application Load Balancer with Cloud Armor || [GSP215](https://www.cloudskillsboost.google/focuses/1232?parent=catalog) ||
 
-## 🔑 Solution [here]()
+## 🔑 Solution [here](https://youtu.be/Y7ssd5eBjHQ)
 
 ### ⚙️ Execute the Following Commands in Cloud Shell
 
