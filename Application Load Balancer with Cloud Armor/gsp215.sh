@@ -38,6 +38,7 @@ echo "${RANDOM_BG_COLOR}${RANDOM_TEXT_COLOR}${BOLD}Starting Execution${RESET}"
 
 # Function to get user input and export variables
 get_user_input() {
+  echo
   read -p "$(echo -e "${BOLD}${CYAN}Enter REGION2 (e.g., europe-west1): ${RESET}")" REGION2
   export REGION2
   
