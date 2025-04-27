@@ -47,6 +47,7 @@ get_user_input() {
   echo "${BOLD}${YELLOW}Thank you for providing the input!${RESET}"
 }
 
+# Call the function to get user input
 get_user_input
 
 # Step 1: Set Region & Instance Names
