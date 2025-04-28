@@ -48,26 +48,22 @@ export REGION=$(gcloud compute project-info describe \
 
 export BUCKET_NAME="scc-export-bucket-$PROJECT_ID"
 
-# Step 2: Enable Security Command Center API
-echo "${BOLD}${RED}Enabling Security Command Center API${RESET}"
-gcloud services enable securitycenter.googleapis.com
-
-# Step 3: Create Pub/Sub Topic
+# Step 2: Create Pub/Sub Topic
 echo "${BOLD}${CYAN}Creating Pub/Sub Topic${RESET}"
 gcloud pubsub topics create projects/$DEVSHELL_PROJECT_ID/topics/export-findings-pubsub-topic
 
-# Step 4: Create Pub/Sub Subscription
+# Step 3: Create Pub/Sub Subscription
 echo "${BOLD}${MAGENTA}Creating Pub/Sub Subscription${RESET}"
 gcloud pubsub subscriptions create export-findings-pubsub-topic-sub --topic=projects/$DEVSHELL_PROJECT_ID/topics/export-findings-pubsub-topic
 
-# Step 5: Open Console URL for Manual Step
+# Step 4: Open Console URL for Manual Step
 echo "${BOLD}${YELLOW}Please open the URL to create export-findings-pubsub: ${RESET}""https://console.cloud.google.com/security/command-center/config/continuous-exports/pubsub?project=$DEVSHELL_PROJECT_ID"
 
 # Function to prompt user to check their progress
 function check_progress {
     while true; do
         echo
-        echo -n "${BOLD}${YELLOW}Have you created ${WHITE}export-findings-pubsub${YELLOW}? (Y/N): ${RESET}"
+        echo -n "${BOLD}${YELLOW}Have you created ${WHITE}export-findings-pubsub${YELLOW} ? (Y/N): ${RESET}"
         read -r user_input
         if [[ "$user_input" == "Y" || "$user_input" == "y" ]]; then
             echo
@@ -87,22 +83,22 @@ function check_progress {
 # Call function to check progress before proceeding
 check_progress
 
-# Step 6: Create Compute Instance
+# Step 5: Create Compute Instance
 echo "${BOLD}${BLUE}Creating Compute Instance${RESET}"
 gcloud compute instances create instance-1 --zone=$ZONE \
 --machine-type e2-micro \
 --scopes=https://www.googleapis.com/auth/cloud-platform
 
-# Step 7: Create BigQuery Dataset
+# Step 6: Create BigQuery Dataset
 echo "${BOLD}${CYAN}Creating BigQuery Dataset${RESET}"
 bq --location=$REGION --apilog=/dev/null mk --dataset \
 $PROJECT_ID:continuous_export_dataset
 
-# Step 8: Create SCC BigQuery Export
+# Step 7: Create SCC BigQuery Export
 echo "${BOLD}${MAGENTA}Creating SCC BigQuery Export${RESET}"
 gcloud scc bqexports create scc-bq-cont-export --dataset=projects/$PROJECT_ID/datasets/continuous_export_dataset --project=$PROJECT_ID
 
-# Step 9: Create Service Accounts and Keys
+# Step 8: Create Service Accounts and Keys
 echo "${BOLD}${YELLOW}Creating Service Accounts and Keys${RESET}"
 for i in {0..2}; do
 gcloud iam service-accounts create sccp-test-sa-$i;
@@ -130,26 +126,26 @@ function wait_for_findings() {
 
 wait_for_findings
 
-# Step 10: Create Storage Bucket
+# Step 9: Create Storage Bucket
 echo "${BOLD}${BLUE}Creating Storage Bucket${RESET}"
 gsutil mb -l us-east1 gs://$BUCKET_NAME/
 
-# Step 11: Enforce Public Access Prevention on Bucket
+# Step 10: Enforce Public Access Prevention on Bucket
 echo "${BOLD}${MAGENTA}Enforcing Public Access Prevention on Bucket${RESET}"
 gsutil pap set enforced gs://$BUCKET_NAME
 
-# Step 12: Export Findings to JSONL
+# Step 11: Export Findings to JSONL
 echo "${BOLD}${CYAN}Exporting Findings to JSONL${RESET}"
 gcloud scc findings list "projects/$PROJECT_ID" \
   --format=json \
   | jq -c '.[]' \
   > findings.jsonl
 
-# Step 13: Upload JSONL to Bucket
+# Step 12: Upload JSONL to Bucket
 echo "${BOLD}${YELLOW}Uploading findings.jsonl to Storage Bucket${RESET}"
 gsutil cp findings.jsonl gs://$BUCKET_NAME/
 
-# Step 14: Open BigQuery Console
+# Step 13: Open BigQuery Console
 echo "${BOLD}${GREEN}Open BigQuery Console to create old_findings table${RESET}" "https://console.cloud.google.com/bigquery?project=$DEVSHELL_PROJECT_ID"
 
 echo
