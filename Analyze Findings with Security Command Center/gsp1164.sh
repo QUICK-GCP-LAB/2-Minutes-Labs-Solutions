@@ -56,6 +56,8 @@ gcloud pubsub topics create projects/$DEVSHELL_PROJECT_ID/topics/export-findings
 echo "${BOLD}${MAGENTA}Creating Pub/Sub Subscription${RESET}"
 gcloud pubsub subscriptions create export-findings-pubsub-topic-sub --topic=projects/$DEVSHELL_PROJECT_ID/topics/export-findings-pubsub-topic
 
+echo
+
 # Step 4: Open Console URL for Manual Step
 echo "${BOLD}${YELLOW}Please open the URL to create export-findings-pubsub: ${RESET}""https://console.cloud.google.com/security/command-center/config/continuous-exports/pubsub?project=$DEVSHELL_PROJECT_ID"
 
@@ -144,6 +146,8 @@ gcloud scc findings list "projects/$PROJECT_ID" \
 # Step 12: Upload JSONL to Bucket
 echo "${BOLD}${YELLOW}Uploading findings.jsonl to Storage Bucket${RESET}"
 gsutil cp findings.jsonl gs://$BUCKET_NAME/
+
+echo
 
 # Step 13: Open BigQuery Console
 echo "${BOLD}${GREEN}Open BigQuery Console to create old_findings table${RESET}" "https://console.cloud.google.com/bigquery?project=$DEVSHELL_PROJECT_ID"
