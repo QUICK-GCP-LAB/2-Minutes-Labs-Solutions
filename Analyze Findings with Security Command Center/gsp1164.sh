@@ -59,7 +59,7 @@ gcloud pubsub subscriptions create export-findings-pubsub-topic-sub --topic=proj
 echo
 
 # Step 4: Open Console URL for Manual Step
-echo "${BOLD}${YELLOW}Please open the URL to create export-findings-pubsub: ${RESET}""https://console.cloud.google.com/security/command-center/config/continuous-exports/pubsub?project=$DEVSHELL_PROJECT_ID"
+echo "${BOLD}${BLUE}Please open the URL to create export-findings-pubsub: ${RESET}""https://console.cloud.google.com/security/command-center/config/continuous-exports/pubsub?project=$DEVSHELL_PROJECT_ID"
 
 # Function to prompt user to check their progress
 function check_progress {
