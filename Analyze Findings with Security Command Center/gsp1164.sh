@@ -151,7 +151,7 @@ gsutil cp findings.jsonl gs://$BUCKET_NAME/
 echo
 
 # Step 13: Open BigQuery Console
-echo "${BOLD}${GREEN}Open BigQuery Console to create old_findings table:${RESET}" "https://console.cloud.google.com/bigquery?project=$DEVSHELL_PROJECT_ID"
+echo "${BOLD}${GREEN}Open BigQuery Console to create ${WHITE}old_findings${GREEN} table:${RESET}" "https://console.cloud.google.com/bigquery?project=$DEVSHELL_PROJECT_ID"
 
 echo
 
