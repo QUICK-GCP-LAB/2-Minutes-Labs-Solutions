@@ -131,7 +131,7 @@ wait_for_findings
 
 # Step 9: Create Storage Bucket
 echo "${BOLD}${BLUE}Creating Storage Bucket${RESET}"
-gsutil mb -l us-east1 gs://$BUCKET_NAME/
+gsutil mb -l $REGION gs://$BUCKET_NAME/
 
 # Step 10: Enforce Public Access Prevention on Bucket
 echo "${BOLD}${MAGENTA}Enforcing Public Access Prevention on Bucket${RESET}"
