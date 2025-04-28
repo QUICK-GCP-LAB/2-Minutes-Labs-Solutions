@@ -96,9 +96,36 @@ echo "${BOLD}${CYAN}Creating BigQuery Dataset${RESET}"
 bq --location=$REGION --apilog=/dev/null mk --dataset \
 $PROJECT_ID:continuous_export_dataset
 
+check_and_enable_securitycenter() {
+  echo "${BOLD}${BLUE}Checking if Security Center API is already enabled...${RESET}"
+  is_enabled=$(gcloud services list --enabled --filter="securitycenter.googleapis.com" --format="value(NAME)" 2>/dev/null)
+
+  if [ "$is_enabled" == "securitycenter.googleapis.com" ]; then
+    # If the API is enabled, do nothing and suppress output
+    echo "${BOLD}${CYAN}Security Center API is already enabled.${RESET}"
+  else
+    # Enabling Security Center API quietly
+    echo "${BOLD}${RED}Security Center API is not enabled. Enabling now...${RESET}"
+    gcloud services enable securitycenter.googleapis.com --quiet >/dev/null 2>&1
+
+    # Wait until the API is enabled
+    echo "${BOLD}${MAGENTA}Waiting for Security Center API to be enabled...${RESET}"
+    while true; do
+      is_enabled=$(gcloud services list --enabled --filter="securitycenter.googleapis.com" --format="value(NAME)" 2>/dev/null)
+      if [ "$is_enabled" == "securitycenter.googleapis.com" ]; then
+        echo "${BOLD}${GREEN}Security Center API has been enabled successfully.${RESET}"
+        break
+      fi
+      # Wait before checking again
+      echo "${BOLD}${RED}Still waiting for API to be enabled... checking again in 5 seconds.${RESET}"
+    done
+  fi
+}
+
+check_and_enable_securitycenter
+
 # Step 7: Create SCC BigQuery Export
 echo "${BOLD}${MAGENTA}Creating SCC BigQuery Export${RESET}"
-gcloud services enable securitycenter.googleapis.com --quiet
 gcloud scc bqexports create scc-bq-cont-export --dataset=projects/$PROJECT_ID/datasets/continuous_export_dataset --project=$PROJECT_ID --quiet
 
 # Step 8: Create Service Accounts and Keys
