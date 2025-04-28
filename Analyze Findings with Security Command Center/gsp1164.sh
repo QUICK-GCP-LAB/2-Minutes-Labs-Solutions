@@ -98,6 +98,7 @@ $PROJECT_ID:continuous_export_dataset
 
 # Step 7: Create SCC BigQuery Export
 echo "${BOLD}${MAGENTA}Creating SCC BigQuery Export${RESET}"
+gcloud services enable securitycenter.googleapis.com --quiet
 gcloud scc bqexports create scc-bq-cont-export --dataset=projects/$PROJECT_ID/datasets/continuous_export_dataset --project=$PROJECT_ID --quiet
 
 # Step 8: Create Service Accounts and Keys
