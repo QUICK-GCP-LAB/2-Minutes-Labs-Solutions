@@ -49,7 +49,7 @@ export REGION=$(gcloud compute project-info describe \
 export BUCKET_NAME="scc-export-bucket-$PROJECT_ID"
 
 # Step 2: Create Pub/Sub Topic
-echo "${BOLD}${CYAN}Creating Pub/Sub Topic${RESET}"
+echo "${BOLD}${YELLOW}Creating Pub/Sub Topic${RESET}"
 gcloud pubsub topics create projects/$DEVSHELL_PROJECT_ID/topics/export-findings-pubsub-topic
 
 # Step 3: Create Pub/Sub Subscription
