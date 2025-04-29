@@ -11,6 +11,21 @@ sudo chmod +x *.sh
 
 ./*.sh
 ```
+* Paste in the following schema:
+```
+[   
+  {
+    "mode": "NULLABLE",
+    "name": "resource",
+    "type": "JSON"
+  },   
+  {
+    "mode": "NULLABLE",
+    "name": "finding",
+    "type": "JSON"
+  }
+]
+```
 
 # 🎉 Woohoo! You Did It! 🎉
 
