@@ -164,12 +164,16 @@ gsutil mb -l $REGION gs://$BUCKET_NAME/
 echo "${BOLD}${MAGENTA}Enforcing Public Access Prevention on Bucket${RESET}"
 gsutil pap set enforced gs://$BUCKET_NAME
 
+sleep 15
+
 # Step 11: Export Findings to JSONL
 echo "${BOLD}${CYAN}Exporting Findings to JSONL${RESET}"
 gcloud scc findings list "projects/$PROJECT_ID" \
   --format=json \
   | jq -c '.[]' \
   > findings.jsonl
+
+sleep 15
 
 # Step 12: Upload JSONL to Bucket
 echo "${BOLD}${YELLOW}Uploading findings.jsonl to Storage Bucket${RESET}"
