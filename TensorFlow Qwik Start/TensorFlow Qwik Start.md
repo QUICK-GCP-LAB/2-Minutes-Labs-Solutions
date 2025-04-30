@@ -5,11 +5,7 @@
 ### ⚙️ Execute the Following Commands in Jupyter notebook terminal
 
 ```
-curl -LO 
-
-sudo chmod +x *.sh
-
-./*.sh
+curl -LO https://raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/TensorFlow%20Qwik%20Start/model.ipynb
 ```
 
 # 🎉 Woohoo! You Did It! 🎉
