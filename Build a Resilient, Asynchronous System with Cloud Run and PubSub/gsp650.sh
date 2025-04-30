@@ -1,3 +1,5 @@
+clear
+
 #!/bin/bash
 # Define color variables
 
@@ -21,9 +23,18 @@ BG_WHITE=`tput setab 7`
 
 BOLD=`tput bold`
 RESET=`tput sgr0`
+
+# Array of color codes excluding black and white
+TEXT_COLORS=($RED $GREEN $YELLOW $BLUE $MAGENTA $CYAN)
+BG_COLORS=($BG_RED $BG_GREEN $BG_YELLOW $BG_BLUE $BG_MAGENTA $BG_CYAN)
+
+# Pick random colors
+RANDOM_TEXT_COLOR=${TEXT_COLORS[$RANDOM % ${#TEXT_COLORS[@]}]}
+RANDOM_BG_COLOR=${BG_COLORS[$RANDOM % ${#BG_COLORS[@]}]}
+
 #----------------------------------------------------start--------------------------------------------------#
 
-echo "${BG_MAGENTA}${BOLD}Starting Execution${RESET}"
+echo "${RANDOM_BG_COLOR}${RANDOM_TEXT_COLOR}${BOLD}Starting Execution${RESET}"
 
 export PROJECT_ID=$(gcloud config get-value project)
 
@@ -46,131 +57,44 @@ npm install express
 npm install body-parser
 npm install @google-cloud/pubsub
 
-cat > package.json <<EOF_CP
-{
-  "name": "lab05",
-  "version": "1.0.0",
-  "description": "This is lab05 of the Pet Theory labs",
-  "main": "index.js",
-  "scripts": {
-    "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "Patrick - IT",
-  "license": "ISC",
-  "dependencies": {
-    "@google-cloud/pubsub": "^4.0.0",
-    "body-parser": "^1.20.2",
-    "express": "^4.18.2"
-  }
-}
-EOF_CP
+rm package.json
 
-cat > index.js <<EOF_CP
-const {PubSub} = require('@google-cloud/pubsub');
-const pubsub = new PubSub();
-const express = require('express');
-const app = express();
-const bodyParser = require('body-parser');
-app.use(bodyParser.json());
-const port = process.env.PORT || 8080;
-app.listen(port, () => {
-  console.log('Listening on port', port);
-});
-app.post('/', async (req, res) => {
-  try {
-    const labReport = req.body;
-    await publishPubSubMessage(labReport);
-    res.status(204).send();
-  }
-  catch (ex) {
-    console.log(ex);
-    res.status(500).send(ex);
-  }
-})
-async function publishPubSubMessage(labReport) {
-  const buffer = Buffer.from(JSON.stringify(labReport));
-  await pubsub.topic('new-lab-report').publish(buffer);
-}
-EOF_CP
+Curl package.json
 
-cat > Dockerfile <<EOF_CP
-FROM node:18
-WORKDIR /usr/src/app
-COPY package.json package*.json ./
-RUN npm install --only=production
-COPY . .
-CMD [ "npm", "start" ]
-EOF_CP
+Curl index.js
+
+Curl Dockerfile
+
+Curl deploy.sh
+
+Curl post-reports.sh
+
+chmod u+x deploy.sh
+
+./deploy.sh
+
+chmod u+x post-reports.sh
+
+./post-reports.sh
 
 cd ~/pet-theory/lab05/email-service
 
 npm install express
 npm install body-parser
 
-cat > package.json <<EOF_CP
-{
-    "name": "lab05",
-    "version": "1.0.0",
-    "description": "This is lab05 of the Pet Theory labs",
-    "main": "index.js",
-    "scripts": {
-      "start": "node index.js",
-      "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "keywords": [],
-    "author": "Patrick - IT",
-    "license": "ISC",
-    "dependencies": {
-      "body-parser": "^1.20.2",
-      "express": "^4.18.2"
-    }
-  }
-EOF_CP
+rm package.json
 
-cat > index.js <<EOF_CP
-const express = require('express');
-const app = express();
-const bodyParser = require('body-parser');
-app.use(bodyParser.json());
+Curl package.json
 
-const port = process.env.PORT || 8080;
-app.listen(port, () => {
-  console.log('Listening on port', port);
-});
+Curl index.js
 
-app.post('/', async (req, res) => {
-  const labReport = decodeBase64Json(req.body.message.data);
-  try {
-    console.log(`Email Service: Report ${labReport.id} trying...`);
-    sendEmail();
-    console.log(`Email Service: Report ${labReport.id} success :-)`);
-    res.status(204).send();
-  }
-  catch (ex) {
-    console.log(`Email Service: Report ${labReport.id} failure: ${ex}`);
-    res.status(500).send();
-  }
-})
+Curl Dockerfile
 
-function decodeBase64Json(data) {
-  return JSON.parse(Buffer.from(data, 'base64').toString());
-}
+Curl deploy.sh
 
-function sendEmail() {
-  console.log('Sending email');
-}
-EOF_CP
+chmod u+x deploy.sh
 
-cat > Dockerfile <<EOF_CP
-FROM node:18
-WORKDIR /usr/src/app
-COPY package.json package*.json ./
-RUN npm install --only=production
-COPY . .
-CMD [ "npm", "start" ]
-EOF_CP
+./deploy.sh
 
 gcloud iam service-accounts create pubsub-cloud-run-invoker --display-name "PubSub Cloud Run Invoker"
 
@@ -196,166 +120,111 @@ cd ~/pet-theory/lab05/sms-service
 npm install express
 npm install body-parser
 
-cat > package.json <<EOF_CP
-{
-    "name": "lab05",
-    "version": "1.0.0",
-    "description": "This is lab05 of the Pet Theory labs",
-    "main": "index.js",
-    "scripts": {
-      "start": "node index.js",
-      "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "keywords": [],
-    "author": "Patrick - IT",
-    "license": "ISC",
-    "dependencies": {
-      "body-parser": "^1.20.2",
-      "express": "^4.18.2"
-    }
-  }
-EOF_CP
+rm package.json
 
+Curl package.json
 
+Curl index.js
 
-cat > index.js <<EOF_CP
-const express = require('express');
-const app = express();
-const bodyParser = require('body-parser');
-app.use(bodyParser.json());
+Curl Dockerfile
 
-const port = process.env.PORT || 8080;
-app.listen(port, () => {
-  console.log('Listening on port', port);
-});
+Curl deploy.sh
 
-app.post('/', async (req, res) => {
-  const labReport = decodeBase64Json(req.body.message.data);
-  try {
-    console.log(`SMS Service: Report ${labReport.id} trying...`);
-    sendSms();
+chmod u+x deploy.sh
 
-    console.log(`SMS Service: Report ${labReport.id} success :-)`);    
-    res.status(204).send();
-  }
-  catch (ex) {
-    console.log(`SMS Service: Report ${labReport.id} failure: ${ex}`);
-    res.status(500).send();
-  }
-})
+./deploy.sh
 
-function decodeBase64Json(data) {
-  return JSON.parse(Buffer.from(data, 'base64').toString());
+echo
+
+# Function to display a random congratulatory message
+function random_congrats() {
+    MESSAGES=(
+        "${GREEN}Congratulations For Completing The Lab! Keep up the great work!${RESET}"
+        "${CYAN}Well done! Your hard work and effort have paid off!${RESET}"
+        "${YELLOW}Amazing job! You’ve successfully completed the lab!${RESET}"
+        "${BLUE}Outstanding! Your dedication has brought you success!${RESET}"
+        "${MAGENTA}Great work! You’re one step closer to mastering this!${RESET}"
+        "${RED}Fantastic effort! You’ve earned this achievement!${RESET}"
+        "${CYAN}Congratulations! Your persistence has paid off brilliantly!${RESET}"
+        "${GREEN}Bravo! You’ve completed the lab with flying colors!${RESET}"
+        "${YELLOW}Excellent job! Your commitment is inspiring!${RESET}"
+        "${BLUE}You did it! Keep striving for more successes like this!${RESET}"
+        "${MAGENTA}Kudos! Your hard work has turned into a great accomplishment!${RESET}"
+        "${RED}You’ve smashed it! Completing this lab shows your dedication!${RESET}"
+        "${CYAN}Impressive work! You’re making great strides!${RESET}"
+        "${GREEN}Well done! This is a big step towards mastering the topic!${RESET}"
+        "${YELLOW}You nailed it! Every step you took led you to success!${RESET}"
+        "${BLUE}Exceptional work! Keep this momentum going!${RESET}"
+        "${MAGENTA}Fantastic! You’ve achieved something great today!${RESET}"
+        "${RED}Incredible job! Your determination is truly inspiring!${RESET}"
+        "${CYAN}Well deserved! Your effort has truly paid off!${RESET}"
+        "${GREEN}You’ve got this! Every step was a success!${RESET}"
+        "${YELLOW}Nice work! Your focus and effort are shining through!${RESET}"
+        "${BLUE}Superb performance! You’re truly making progress!${RESET}"
+        "${MAGENTA}Top-notch! Your skill and dedication are paying off!${RESET}"
+        "${RED}Mission accomplished! This success is a reflection of your hard work!${RESET}"
+        "${CYAN}You crushed it! Keep pushing towards your goals!${RESET}"
+        "${GREEN}You did a great job! Stay motivated and keep learning!${RESET}"
+        "${YELLOW}Well executed! You’ve made excellent progress today!${RESET}"
+        "${BLUE}Remarkable! You’re on your way to becoming an expert!${RESET}"
+        "${MAGENTA}Keep it up! Your persistence is showing impressive results!${RESET}"
+        "${RED}This is just the beginning! Your hard work will take you far!${RESET}"
+        "${CYAN}Terrific work! Your efforts are paying off in a big way!${RESET}"
+        "${GREEN}You’ve made it! This achievement is a testament to your effort!${RESET}"
+        "${YELLOW}Excellent execution! You’re well on your way to mastering the subject!${RESET}"
+        "${BLUE}Wonderful job! Your hard work has definitely paid off!${RESET}"
+        "${MAGENTA}You’re amazing! Keep up the awesome work!${RESET}"
+        "${RED}What an achievement! Your perseverance is truly admirable!${RESET}"
+        "${CYAN}Incredible effort! This is a huge milestone for you!${RESET}"
+        "${GREEN}Awesome! You’ve done something incredible today!${RESET}"
+        "${YELLOW}Great job! Keep up the excellent work and aim higher!${RESET}"
+        "${BLUE}You’ve succeeded! Your dedication is your superpower!${RESET}"
+        "${MAGENTA}Congratulations! Your hard work has brought great results!${RESET}"
+        "${RED}Fantastic work! You’ve taken a huge leap forward today!${RESET}"
+        "${CYAN}You’re on fire! Keep up the great work!${RESET}"
+        "${GREEN}Well deserved! Your efforts have led to success!${RESET}"
+        "${YELLOW}Incredible! You’ve achieved something special!${RESET}"
+        "${BLUE}Outstanding performance! You’re truly excelling!${RESET}"
+        "${MAGENTA}Terrific achievement! Keep building on this success!${RESET}"
+        "${RED}Bravo! You’ve completed the lab with excellence!${RESET}"
+        "${CYAN}Superb job! You’ve shown remarkable focus and effort!${RESET}"
+        "${GREEN}Amazing work! You’re making impressive progress!${RESET}"
+        "${YELLOW}You nailed it again! Your consistency is paying off!${RESET}"
+        "${BLUE}Incredible dedication! Keep pushing forward!${RESET}"
+        "${MAGENTA}Excellent work! Your success today is well earned!${RESET}"
+        "${RED}You’ve made it! This is a well-deserved victory!${RESET}"
+        "${CYAN}Wonderful job! Your passion and hard work are shining through!${RESET}"
+        "${GREEN}You’ve done it! Keep up the hard work and success will follow!${RESET}"
+        "${YELLOW}Great execution! You’re truly mastering this!${RESET}"
+        "${BLUE}Impressive! This is just the beginning of your journey!${RESET}"
+        "${MAGENTA}You’ve achieved something great today! Keep it up!${RESET}"
+        "${RED}You’ve made remarkable progress! This is just the start!${RESET}"
+    )
+
+    RANDOM_INDEX=$((RANDOM % ${#MESSAGES[@]}))
+    echo -e "${BOLD}${MESSAGES[$RANDOM_INDEX]}"
 }
 
-function sendSms() {
-  console.log('Sending SMS');
-}
-EOF_CP
+# Display a random congratulatory message
+random_congrats
 
-cat > Dockerfile <<EOF_CP
-FROM node:18
-WORKDIR /usr/src/app
-COPY package.json package*.json ./
-RUN npm install --only=production
-COPY . .
-CMD [ "npm", "start" ]
-EOF_CP
+echo -e "\n"  # Adding one blank line
 
-deploy_function() {
-gcloud builds submit \
-  --tag gcr.io/$GOOGLE_CLOUD_PROJECT/lab-report-service
-gcloud run deploy lab-report-service \
-  --image gcr.io/$GOOGLE_CLOUD_PROJECT/lab-report-service \
-  --platform managed \
-  --region $REGION \
-  --allow-unauthenticated \
-  --max-instances=1
+cd
+
+remove_files() {
+    # Loop through all files in the current directory
+    for file in *; do
+        # Check if the file name starts with "gsp", "arc", or "shell"
+        if [[ "$file" == gsp* || "$file" == arc* || "$file" == shell* ]]; then
+            # Check if it's a regular file (not a directory)
+            if [[ -f "$file" ]]; then
+                # Remove the file and echo the file name
+                rm "$file"
+                echo "File removed: $file"
+            fi
+        fi
+    done
 }
 
-deploy_success=false
-
-while [ "$deploy_success" = false ]; do
-  if deploy_function; then
-    echo "Function deployed successfully!"
-    deploy_success=true
-  else
-    echo "Retrying, please wait..."
-    sleep 10
-  fi
-done
-
-export LAB_REPORT_SERVICE_URL=$(gcloud run services describe lab-report-service --platform managed --region=$REGION --format="value(status.address.url)")
-
-echo $LAB_REPORT_SERVICE_URL
-
-cat > post-reports.sh <<EOF_CP
-curl -X POST \
-  -H "Content-Type: application/json" \
-  -d "{\"id\": 12}" \
-  $LAB_REPORT_SERVICE_URL &
-curl -X POST \
-  -H "Content-Type: application/json" \
-  -d "{\"id\": 34}" \
-  $LAB_REPORT_SERVICE_URL &
-curl -X POST \
-  -H "Content-Type: application/json" \
-  -d "{\"id\": 56}" \
-  $LAB_REPORT_SERVICE_URL &
-EOF_CP
-
-chmod u+x post-reports.sh
-
-./post-reports.sh
-
-deploy_function() {
-gcloud builds submit \
-  --tag gcr.io/$GOOGLE_CLOUD_PROJECT/email-service
-
-gcloud run deploy email-service \
-  --image gcr.io/$GOOGLE_CLOUD_PROJECT/email-service \
-  --platform managed \
-  --region $REGION \
-  --no-allow-unauthenticated \
-  --max-instances=1
-}
-
-deploy_success=false
-
-while [ "$deploy_success" = false ]; do
-  if deploy_function; then
-    echo "Function deployed successfully!"
-    deploy_success=true
-  else
-    echo "Retrying, please wait..."
-    sleep 10
-  fi
-done
-
-deploy_function() {
-gcloud builds submit \
-  --tag gcr.io/$GOOGLE_CLOUD_PROJECT/sms-service
-
-gcloud run deploy sms-service \
-  --image gcr.io/$GOOGLE_CLOUD_PROJECT/sms-service \
-  --platform managed \
-  --region $REGION \
-  --no-allow-unauthenticated \
-  --max-instances=1
-}
-
-deploy_success=false
-
-while [ "$deploy_success" = false ]; do
-  if deploy_function; then
-    echo "Function deployed successfully!"
-    deploy_success=true
-  else
-    echo "Retrying, please wait..."
-    sleep 10
-  fi
-done
-
-echo "${BG_RED}${BOLD}Congratulations For Completing The Lab !!!${RESET}"
-
-#-----------------------------------------------------end----------------------------------------------------------#
+remove_files

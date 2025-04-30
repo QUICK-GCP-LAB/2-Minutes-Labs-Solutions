@@ -1,0 +1,17 @@
+{
+  "name": "lab05",
+  "version": "1.0.0",
+  "description": "This is lab05 of the Pet Theory labs",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Patrick - IT",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^2.2.0",
+    "express": "^5.1.0"
+  }
+}
