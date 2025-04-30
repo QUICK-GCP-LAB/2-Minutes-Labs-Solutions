@@ -4,6 +4,6 @@ gcloud builds submit \
 gcloud run deploy sms-service \
   --image gcr.io/$GOOGLE_CLOUD_PROJECT/sms-service \
   --platform managed \
-  --region us-east1 \
+  --region $REGION \
   --no-allow-unauthenticated \
   --max-instances=1

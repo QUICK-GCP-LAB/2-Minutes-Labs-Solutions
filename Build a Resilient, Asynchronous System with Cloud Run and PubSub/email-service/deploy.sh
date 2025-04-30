@@ -4,6 +4,6 @@ gcloud builds submit \
 gcloud run deploy email-service \
   --image gcr.io/$GOOGLE_CLOUD_PROJECT/email-service \
   --platform managed \
-  --region us-east1 \
+  --region $REGION \
   --no-allow-unauthenticated \
   --max-instances=1

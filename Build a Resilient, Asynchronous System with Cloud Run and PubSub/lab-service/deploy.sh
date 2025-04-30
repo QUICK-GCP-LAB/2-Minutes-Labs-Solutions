@@ -3,6 +3,6 @@ gcloud builds submit \
 gcloud run deploy lab-report-service \
   --image gcr.io/$GOOGLE_CLOUD_PROJECT/lab-report-service \
   --platform managed \
-  --region us-east1 \
+  --region $REGION \
   --allow-unauthenticated \
   --max-instances=1
