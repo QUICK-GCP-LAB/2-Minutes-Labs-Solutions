@@ -92,6 +92,7 @@ chmod u+x deploy.sh
 
 # Step 9: Post Reports
 echo "${BOLD}${YELLOW}Running post-reports.sh${RESET}"
+export LAB_REPORT_SERVICE_URL=$(gcloud run services describe lab-report-service --platform managed --region "$REGION" --format="value(status.address.url)")
 chmod u+x post-reports.sh
 
 ./post-reports.sh
