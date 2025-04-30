@@ -36,6 +36,8 @@ RANDOM_BG_COLOR=${BG_COLORS[$RANDOM % ${#BG_COLORS[@]}]}
 
 echo "${RANDOM_BG_COLOR}${RANDOM_TEXT_COLOR}${BOLD}Starting Execution${RESET}"
 
+# Step 1: Set Compute Zone & Region
+echo "${BOLD}${BLUE}Setting Compute Zone & Region${RESET}"
 export ZONE=$(gcloud compute project-info describe \
 --format="value(commonInstanceMetadata.items[google-compute-default-zone])")
 
@@ -46,18 +48,30 @@ gcloud config set compute/zone $ZONE
 
 gcloud config set compute/region $REGION
 
+# Step 2: Create Pub/Sub Topic
+echo "${BOLD}${GREEN}Creating Pub/Sub topic 'new-lab-report'${RESET}"
 gcloud pubsub topics create new-lab-report
 
+# Step 3: Enable Cloud Run API
+echo "${BOLD}${YELLOW}Enabling Cloud Run API${RESET}"
 gcloud services enable run.googleapis.com
 
+# Step 4: Clone Pet Theory Repository
+echo "${BOLD}${MAGENTA}Cloning the pet-theory repository${RESET}"
 git clone https://github.com/rosera/pet-theory.git
 
+# Step 5: Navigate to lab-service Directory
+echo "${BOLD}${CYAN}Navigating to lab-service directory${RESET}"
 cd pet-theory/lab05/lab-service
 
+# Step 6: Install Node Dependencies
+echo "${BOLD}${RED}Installing npm dependencies${RESET}"
 npm install express
 npm install body-parser
 npm install @google-cloud/pubsub
 
+# Step 7: Replace Files with Lab Versions
+echo "${BOLD}${GREEN}Replacing default files with lab-specific files${RESET}"
 rm package.json
 
 curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Build%20a%20Resilient%2C%20Asynchronous%20System%20with%20Cloud%20Run%20and%20PubSub/lab-service/package.json
@@ -70,19 +84,29 @@ curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/h
 
 curl -LO https://raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Build%20a%20Resilient%2C%20Asynchronous%20System%20with%20Cloud%20Run%20and%20PubSub/lab-service/post-reports.sh
 
+# Step 8: Deploy Lab Service
+echo "${BOLD}${BLUE}Deploying lab-service${RESET}"
 chmod u+x deploy.sh
 
 ./deploy.sh
 
+# Step 9: Post Reports
+echo "${BOLD}${YELLOW}Running post-reports.sh${RESET}"
 chmod u+x post-reports.sh
 
 ./post-reports.sh
 
+# Step 10: Navigate to email-service Directory
+echo "${BOLD}${MAGENTA}Navigating to email-service directory${RESET}"
 cd ~/pet-theory/lab05/email-service
 
+# Step 11: Install Email Service Dependencies
+echo "${BOLD}${CYAN}Installing npm dependencies for email-service${RESET}"
 npm install express
 npm install body-parser
 
+# Step 12: Replace Email Service Files
+echo "${BOLD}${RED}Replacing email-service files with lab versions${RESET}"
 rm package.json
 
 curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Build%20a%20Resilient%2C%20Asynchronous%20System%20with%20Cloud%20Run%20and%20PubSub/email-service/package.json
@@ -93,29 +117,47 @@ curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/h
 
 curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Build%20a%20Resilient%2C%20Asynchronous%20System%20with%20Cloud%20Run%20and%20PubSub/email-service/deploy.sh
 
+# Step 13: Deploy Email Service
+echo "${BOLD}${GREEN}Deploying email-service${RESET}"
 chmod u+x deploy.sh
 
 ./deploy.sh
 
+# Step 14: Create Service Account for Invoker
+echo "${BOLD}${BLUE}Creating service account for Pub/Sub Cloud Run invoker${RESET}"
 gcloud iam service-accounts create pubsub-cloud-run-invoker --display-name "PubSub Cloud Run Invoker"
 
+# Step 15: Add IAM Policy Binding to Email Service
+echo "${BOLD}${YELLOW}Adding IAM policy binding for email-service${RESET}"
 gcloud run services add-iam-policy-binding email-service --member=serviceAccount:pubsub-cloud-run-invoker@$GOOGLE_CLOUD_PROJECT.iam.gserviceaccount.com --role=roles/run.invoker --region $REGION --project=$DEVSHELL_PROJECT_ID --platform managed
 
+# Step 16: Grant Token Creator Role to Pub/Sub SA
+echo "${BOLD}${MAGENTA}Granting IAM role to Pub/Sub SA${RESET}"
 PROJECT_NUMBER=$(gcloud projects list --filter="qwiklabs-gcp" --format='value(PROJECT_NUMBER)')
 
 gcloud projects add-iam-policy-binding $GOOGLE_CLOUD_PROJECT --member=serviceAccount:service-$PROJECT_NUMBER@gcp-sa-pubsub.iam.gserviceaccount.com --role=roles/iam.serviceAccountTokenCreator
 
+# Step 17: Create Push Subscription
+echo "${BOLD}${CYAN}Creating push subscription to email-service${RESET}"
 EMAIL_SERVICE_URL=$(gcloud run services describe email-service --platform managed --region=$REGION --format="value(status.address.url)")
 
 gcloud pubsub subscriptions create email-service-sub --topic new-lab-report --push-endpoint=$EMAIL_SERVICE_URL --push-auth-service-account=pubsub-cloud-run-invoker@$GOOGLE_CLOUD_PROJECT.iam.gserviceaccount.com
 
+# Step 18: Post Reports Again
+echo "${BOLD}${RED}Re-running post-reports.sh for verification${RESET}"
 ~/pet-theory/lab05/lab-service/post-reports.sh
 
+# Step 19: Navigate to SMS Service
+echo "${BOLD}${GREEN}Navigating to sms-service directory${RESET}"
 cd ~/pet-theory/lab05/sms-service
 
+# Step 20: Install SMS Service Dependencies
+echo "${BOLD}${BLUE}Installing npm dependencies for sms-service${RESET}"
 npm install express
 npm install body-parser
 
+# Step 21: Replace SMS Service Files
+echo "${BOLD}${YELLOW}Replacing sms-service files with lab versions${RESET}"
 rm package.json
 
 curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Build%20a%20Resilient%2C%20Asynchronous%20System%20with%20Cloud%20Run%20and%20PubSub/sms-service/package.json
@@ -126,6 +168,8 @@ curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/h
 
 curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Build%20a%20Resilient%2C%20Asynchronous%20System%20with%20Cloud%20Run%20and%20PubSub/sms-service/deploy.sh
 
+# Step 22: Deploy SMS Service
+echo "${BOLD}${MAGENTA}Deploying sms-service${RESET}"
 chmod u+x deploy.sh
 
 ./deploy.sh
