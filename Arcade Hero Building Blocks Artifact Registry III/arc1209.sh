@@ -52,7 +52,7 @@ gcloud artifacts repositories create container-registry \
   --location=$REGION \
   --description="Docker repo with cleanup policy"
 
-# Step 4: Create Go module repository in Artifact Registry
+# Step 4: Create maven repository in Artifact Registry
 echo -e "${BOLD}${MAGENTA}Creating maven repository in region $REGION${RESET}"
 gcloud artifacts repositories create maven-registry \
   --repository-format=maven \
