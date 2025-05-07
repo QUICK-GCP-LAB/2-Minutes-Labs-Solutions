@@ -1,4 +1,4 @@
-# Exploring Your Ecommerce Dataset with SQL in Google BigQuery || [GSP407](https://www.cloudskillsboost.google/focuses/3618?parent=catalog) ||
+# Explore an Ecommerce Dataset with SQL in BigQuery || [GSP407](https://www.cloudskillsboost.google/focuses/3618?parent=catalog) ||
 
 ## Solution [here](https://youtu.be/zhsrYJPaU3Y)
 
