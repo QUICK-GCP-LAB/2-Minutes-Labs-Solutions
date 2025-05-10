@@ -52,20 +52,20 @@ explore: flights {
 }
 
 explore: +flights {
-  query: task_1 {
-    dimensions: [flights.depart_week]
-    measures: [flights.cancelled_count]
-    filters: [flights.depart_date: ""]
+    query: task_1 {
+      dimensions: [depart_week]
+      measures: [cancelled_count]
+      filters: [flights.depart_date: "2004"]
+    }
   }
-}
 
 explore: +flights {
   query: task_2 {
     dimensions: [carriers.name]
     measures: [count_long_flight, total_distance]
     filters: [flights.percentage_long_flights: ""]
+    }
   }
-}
 ```
 
 * Title the 1st Look as
