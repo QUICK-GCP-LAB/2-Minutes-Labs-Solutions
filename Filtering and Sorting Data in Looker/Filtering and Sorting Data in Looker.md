@@ -55,7 +55,7 @@ explore: +flights {
   query: task_1 {
     dimensions: [flights.depart_week]
     measures: [flights.cancelled_count]
-    filters: [flights.depart_date: "2004"]
+    filters: [flights.depart_date: ""]
   }
 }
 
