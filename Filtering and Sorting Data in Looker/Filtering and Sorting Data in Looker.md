@@ -68,6 +68,15 @@ explore: +flights {
 }
 ```
 
+* Title the 1st Look as
+```
+Cancelled Flight Count by Week in 2004
+```
+* Title the 2nd Look as
+```
+Total Distance and Long Flight Count by Carrier
+```
+
 # 🎉 Woohoo! You Did It! 🎉
 
 Your hard work and determination paid off! 💻
