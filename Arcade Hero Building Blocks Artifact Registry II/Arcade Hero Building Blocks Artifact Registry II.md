@@ -1,6 +1,6 @@
 # Arcade Hero: Building Blocks Artifact Registry II || [arc1208](https://www.cloudskillsboost.google/focuses/124583?parent=catalog) ||
 
-## 🔑 Solution [here]()
+## 🔑 Solution [here](https://youtu.be/pW20u5pI3uk)
 
 ### ⚙️ Execute the Following Commands in Cloud Shell
 
