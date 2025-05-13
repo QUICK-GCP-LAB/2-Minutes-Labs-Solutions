@@ -21,7 +21,7 @@ You've successfully completed the lab. Way to go! 🚀
 
 👉 Join the conversation and never miss an update:  
 
-💚 [𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 𝗖𝗼𝗺𝗺𝘂𝗻𝗶𝘁𝘆](https://chat.whatsapp.com/ECJ9h8GA3CA1ksaI9m5NrX)  
+💚 [WhatsApp Community](https://chat.whatsapp.com/ECJ9h8GA3CA1ksaI9m5NrX)  
 📢 [Telegram Channel](https://t.me/quickgcplab)  
 👥 [Discussion Group](https://t.me/quickgcplabchats)  
 
