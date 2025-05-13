@@ -1,6 +1,6 @@
 # Fundamentals of Cloud Logging || [GSP610](https://www.cloudskillsboost.google/focuses/10911?parent=catalog) ||
 
-## 🔑 Solution [here]()
+## 🔑 Solution [here](https://youtu.be/xHnsCP8dPZU)
 
 ### ⚙️ Execute the Following Commands in Cloud Shell
 
