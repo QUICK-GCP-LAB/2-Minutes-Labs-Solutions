@@ -36,43 +36,43 @@ RANDOM_BG_COLOR=${BG_COLORS[$RANDOM % ${#BG_COLORS[@]}]}
 
 echo "${RANDOM_BG_COLOR}${RANDOM_TEXT_COLOR}${BOLD}Starting Execution${RESET}"
 
-# Step 1: Authenticate GCP Account
-echo "${BOLD}${RED}Authenticating GCP Account...${RESET}"
+# Step 1: Authenticate Account
+echo "${BOLD}${RED}Authenticating Account...${RESET}"
 gcloud auth application-default login --quiet
 
 # Step 2: Set Project ID
-echo "${BOLD}${GREEN}Step 2: Setting Project ID...${RESET}"
+echo "${BOLD}${GREEN}Setting Project ID...${RESET}"
 export PROJECT_ID=$(gcloud config get-value project)
 
 # Step 3: Set Project Number
-echo "${BOLD}${YELLOW}Step 3: Setting Project Number...${RESET}"
+echo "${BOLD}${YELLOW}Setting Project Number...${RESET}"
 export PROJECT_NUMBER=$(gcloud projects describe ${PROJECT_ID} \
     --format="value(projectNumber)")
 
 # Step 4: Set Compute Zone
-echo "${BOLD}${BLUE}Step 4: Setting Compute Zone...${RESET}"
+echo "${BOLD}${BLUE}Setting Compute Zone...${RESET}"
 export ZONE=$(gcloud compute project-info describe \
 --format="value(commonInstanceMetadata.items[google-compute-default-zone])")
 
 # Step 5: Set Compute Region
-echo "${BOLD}${MAGENTA}Step 5: Setting Compute Region...${RESET}"
+echo "${BOLD}${MAGENTA}Setting Compute Region...${RESET}"
 export REGION=$(gcloud compute project-info describe \
 --format="value(commonInstanceMetadata.items[google-compute-default-region])")
 
 # Step 6: Enable OS Config API
-echo "${BOLD}${CYAN}Step 6: Enabling OS Config API...${RESET}"
+echo "${BOLD}${CYAN}Enabling OS Config API...${RESET}"
 gcloud services enable osconfig.googleapis.com
 
 # Step 7: Configure Compute Zone
-echo "${BOLD}${RED}Step 7: Configuring Compute Zone...${RESET}"
+echo "${BOLD}${RED}Configuring Compute Zone...${RESET}"
 gcloud config set compute/zone $ZONE
 
 # Step 8: Configure Compute Region
-echo "${BOLD}${GREEN}Step 8: Configuring Compute Region...${RESET}"
+echo "${BOLD}${GREEN}Configuring Compute Region...${RESET}"
 gcloud config set compute/region $REGION
 
 # Step 9: Create Logging Metric
-echo "${BOLD}${YELLOW}Step 9: Creating Logging Metric...${RESET}"
+echo "${BOLD}${YELLOW}Creating Logging Metric...${RESET}"
 gcloud logging metrics create 200responses \
 --description="Counts successful HTTP 200 responses from the default GAE service" \
 --log-filter='resource.type="gae_app"
@@ -80,7 +80,7 @@ resource.labels.module_id="default"
 (protoPayload.status=200 OR httpRequest.status=200)'
 
 # Step 10: Create Latency Metric
-echo "${BOLD}${BLUE}Step 10: Creating Latency Metric...${RESET}"
+echo "${BOLD}${BLUE}Creating Latency Metric...${RESET}"
 cat > metric.json <<EOF
 {
   "name": "latency_metric",
@@ -108,7 +108,7 @@ curl -X POST \
   "https://logging.googleapis.com/v2/projects/${PROJECT_ID}/metrics"
 
 # Step 11: Create VM Instance
-echo "${BOLD}${MAGENTA}Step 11: Creating VM Instance...${RESET}"
+echo "${BOLD}${MAGENTA}Creating VM Instance...${RESET}"
 gcloud compute instances create quickgcplab \
     --project=$DEVSHELL_PROJECT_ID \
     --zone=$ZONE \
@@ -148,18 +148,18 @@ gcloud compute disks add-resource-policies quickgcplab \
     --resource-policies=projects/$DEVSHELL_PROJECT_ID/regions/$REGION/resourcePolicies/default-schedule-1
 
 # Step 12: Create BigQuery Dataset
-echo "${BOLD}${CYAN}Step 12: Creating BigQuery Dataset...${RESET}"
+echo "${BOLD}${CYAN}Creating BigQuery Dataset...${RESET}"
 bq --location=US mk --dataset ${PROJECT_ID}:AuditLogs
 
 # Step 13: Create Logging Sink
-echo "${BOLD}${RED}Step 13: Creating Logging Sink...${RESET}"
+echo "${BOLD}${RED}Creating Logging Sink...${RESET}"
 gcloud logging sinks create AuditLogs \
   bigquery.googleapis.com/projects/$PROJECT_ID/datasets/AuditLogs \
   --log-filter='resource.type="gce_instance"' \
   --project=$PROJECT_ID
 
 # Step 14: Open Application
-echo "${BOLD}${GREEN}Step 14: Opening Application...${RESET}"
+echo "${BOLD}${GREEN}Opening Application...${RESET}"
 URL=$(gcloud app browse --no-launch-browser --format="value(url)")
 
 echo
