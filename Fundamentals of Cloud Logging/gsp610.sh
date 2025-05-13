@@ -164,7 +164,7 @@ URL=$(gcloud app browse --no-launch-browser --format="value(url)")
 
 echo
 
-echo "${BOLD}${BLUE}Step 14: Check out your app by clicking here: ${RESET}"$URL
+echo "${BOLD}${BLUE}Check out your app by clicking here: ${RESET}"$URL
 
 echo
 
