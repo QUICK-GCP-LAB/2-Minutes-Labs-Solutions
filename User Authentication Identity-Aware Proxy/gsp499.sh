@@ -60,35 +60,35 @@ RANDOM_BG_COLOR=${BG_COLORS[$RANDOM % ${#BG_COLORS[@]}]}
 echo "${RANDOM_BG_COLOR}${RANDOM_TEXT_COLOR}${BOLD}Starting Execution${RESET}"
 
 # Step 1: Enable IAP API
-echo "${BOLD}${RED}Step 1: Enabling IAP API...${RESET}"
+echo "${BOLD}${RED}Enabling IAP API...${RESET}"
 gcloud services enable iap.googleapis.com
 
 # Step 2: Download sample application
-echo "${BOLD}${GREEN}Step 2: Downloading sample application...${RESET}"
+echo "${BOLD}${GREEN}Downloading sample application...${RESET}"
 gsutil cp gs://spls/gsp499/user-authentication-with-iap.zip .
 
 # Step 3: Unzip the downloaded file
-echo "${BOLD}${YELLOW}Step 3: Unzipping the application package...${RESET}"
+echo "${BOLD}${YELLOW}Unzipping the application package...${RESET}"
 unzip user-authentication-with-iap.zip
 
 # Step 4: Navigate to HelloWorld directory
-echo "${BOLD}${BLUE}Step 4: Navigating to 1-HelloWorld directory...${RESET}"
+echo "${BOLD}${BLUE}Navigating to 1-HelloWorld directory...${RESET}"
 cd user-authentication-with-iap/1-HelloWorld
 
 # Step 5: Disable Flex API
 echo "${BOLD}${RED}Disabling Flex API...${RESET}"
 gcloud services enable appengineflex.googleapis.com
 
-# Step 3: Modify app.yaml for Python 3.9
-echo "${BOLD}${GREEN}Step 3: Updating app.yaml to Python 3.9...${RESET}"
+# Step 6: Modify app.yaml for Python 3.9
+echo "${BOLD}${GREEN}Updating app.yaml to Python 3.9...${RESET}"
 sed -i 's/python37/python39/g' app.yaml
 
-# Step 4: Create App Engine app
-echo "${BOLD}${MAGENTA}Step 4: Creating App Engine application...${RESET}"
+# Step 7: Create App Engine app
+echo "${BOLD}${MAGENTA}Creating App Engine application...${RESET}"
 gcloud app create --region=$REGION
 
-# Step 5: Deploy HelloWorld application with retry
-echo "${BOLD}${RED}Step 5: Deploying HelloWorld application...${RESET}"
+# Step 8: Deploy HelloWorld application with retry
+echo "${BOLD}${RED}Deploying HelloWorld application...${RESET}"
 deploy_function() {
   yes | gcloud app deploy
 }
@@ -105,11 +105,16 @@ while [ "$deploy_success" = false ]; do
   fi
 done
 
-echo "${BOLD}${MAGENTA}Navigating to 2-HelloUser and deploying...${RESET}"
+# Step 9: Navigate to 2-HelloUser
+echo "${BOLD}${MAGENTA}Navigating to 2-HelloUser...${RESET}"
 cd ~/user-authentication-with-iap/2-HelloUser
 
+# Step 10: Modify app.yaml for Python 3.9
+echo "${BOLD}${GREEN}Updating app.yaml to Python 3.9...${RESET}"
 sed -i 's/python37/python39/g' app.yaml
 
+# Step 11: Deploy 2-HelloUser application with retry
+echo "${BOLD}${RED}Deploying 2-HelloUser application...${RESET}"
 deploy_function() {
   yes | gcloud app deploy
 }
@@ -126,11 +131,16 @@ while [ "$deploy_success" = false ]; do
   fi
 done
 
-echo "${BOLD}${MAGENTA}Navigating to 3-HelloVerifiedUser and deploying...${RESET}"
+# Step 12: Navigate to 3-HelloUser
+echo "${BOLD}${MAGENTA}Navigating to 3-HelloVerifiedUser...${RESET}"
 cd ~/user-authentication-with-iap/3-HelloVerifiedUser
 
+# Step 13: Modify app.yaml for Python 3.9
+echo "${BOLD}${GREEN}Updating app.yaml to Python 3.9...${RESET}"
 sed -i 's/python37/python39/g' app.yaml
 
+# Step 14: Deploy 3-HelloUser application with retry
+echo "${BOLD}${RED}Deploying 3-HelloUser application...${RESET}"
 deploy_function() {
   yes | gcloud app deploy
 }
@@ -147,8 +157,8 @@ while [ "$deploy_success" = false ]; do
   fi
 done
 
-# Step 7: Generate application details JSON
-echo "${BOLD}${BLUE}Step 7: Generating application details JSON...${RESET}"
+# Step 15: Generate application details JSON
+echo "${BOLD}${BLUE}Generating application details JSON...${RESET}"
 EMAIL="$(gcloud config get-value core/account 2>/dev/null)"
 LINK=$(gcloud app browse 2>/dev/null | grep -o 'https://.*')
 LINKU=${LINK#https://}
