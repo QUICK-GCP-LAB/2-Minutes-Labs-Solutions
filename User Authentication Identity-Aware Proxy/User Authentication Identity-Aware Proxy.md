@@ -1,6 +1,6 @@
 # User Authentication: Identity-Aware Proxy || [GSP499](https://www.cloudskillsboost.google/focuses/5562?parent=catalog) ||
 
-## 🔑 Solution [here]()
+## 🔑 Solution [here](https://youtu.be/m3lgM8YXHPA)
 
 ### ⚙️ Execute the Following Commands in Cloud Shell
 
