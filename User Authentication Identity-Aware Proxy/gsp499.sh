@@ -190,7 +190,7 @@ done
 echo
 RANDOM_MSG1=${CREATE_MESSAGES[$RANDOM % ${#CREATE_MESSAGES[@]}]}
 COLOR1=${COLORS[$RANDOM % ${#COLORS[@]}]}
-echo "${BOLD}${COLOR1}${RANDOM_MSG1}${RESET}""https://console.cloud.google.com/auth/clients/create?project=$DEVSHELL_PROJECT_ID"
+echo "${BOLD}${COLOR1}${RANDOM_MSG1}${RESET}""https://console.cloud.google.com/auth/branding?project=$DEVSHELL_PROJECT_ID"
 
 # IAP configuration
 echo
