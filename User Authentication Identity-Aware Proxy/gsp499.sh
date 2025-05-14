@@ -59,6 +59,11 @@ RANDOM_BG_COLOR=${BG_COLORS[$RANDOM % ${#BG_COLORS[@]}]}
 
 echo "${RANDOM_BG_COLOR}${RANDOM_TEXT_COLOR}${BOLD}Starting Execution${RESET}"
 
+# Step 0: set compute region
+echo "${BOLD}${GREEN}Setting compute region...${RESET}"
+export REGION=$(gcloud compute project-info describe \
+--format="value(commonInstanceMetadata.items[google-compute-default-region])")
+
 # Step 1: Enable IAP API
 echo "${BOLD}${RED}Enabling IAP API...${RESET}"
 gcloud services enable iap.googleapis.com
