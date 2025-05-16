@@ -187,6 +187,7 @@ PG_EMAIL=$(gcloud config get-value account)
 
 # Step 9: Execute create.sh with arguments
 echo "${BOLD}${CYAN}Executing create.sh script${RESET}"
+chmod +x create.sh
 ./create.sh dbadmin $PG_EMAIL awesome
 
 # Step 10: Get Pod ID and expose via LoadBalancer
