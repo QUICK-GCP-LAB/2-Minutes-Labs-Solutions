@@ -37,9 +37,12 @@ RANDOM_BG_COLOR=${BG_COLORS[$RANDOM % ${#BG_COLORS[@]}]}
 echo "${RANDOM_BG_COLOR}${RANDOM_TEXT_COLOR}${BOLD}Starting Execution${RESET}"
 
 # Step 1: Set Compute Region
-echo "${BOLD}${YELLOW}Setting Compute Region${RESET}"
+echo "${BOLD}${YELLOW}Setting Compute Region & Zone${RESET}"
 export REGION=$(gcloud compute project-info describe \
 --format="value(commonInstanceMetadata.items[google-compute-default-region])")
+
+export ZONE=$(gcloud compute project-info describe \
+--format="value(commonInstanceMetadata.items[google-compute-default-zone])")
 
 # Step 2: Get Project ID
 echo "${BOLD}${MAGENTA}Getting Project ID${RESET}"
@@ -60,9 +63,9 @@ clouddeploy.googleapis.com
 
 # Step 5: Create Clusters
 echo "${BOLD}${GREEN}Creating GKE Clusters (test, staging, prod)${RESET}"
-gcloud container clusters create test --node-locations=us-west1-a --num-nodes=1  --async
-gcloud container clusters create staging --node-locations=us-west1-a --num-nodes=1  --async
-gcloud container clusters create prod --node-locations=us-west1-a --num-nodes=1  --async
+gcloud container clusters create test --node-locations=$ZONE --num-nodes=1  --async
+gcloud container clusters create staging --node-locations=$ZONE --num-nodes=1  --async
+gcloud container clusters create prod --node-locations=$ZONE --num-nodes=1  --async
 
 # Step 6: Create Artifact Registry
 echo "${BOLD}${YELLOW}Creating Artifact Registry${RESET}"
