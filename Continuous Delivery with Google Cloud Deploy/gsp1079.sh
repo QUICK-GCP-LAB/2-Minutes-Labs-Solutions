@@ -92,10 +92,10 @@ echo "${BOLD}${BLUE}Creating Cloud Build Bucket${RESET}"
 BUCKET_NAME="${PROJECT_ID}_cloudbuild"
 
 if ! gsutil ls -b "gs://${BUCKET_NAME}" >/dev/null 2>&1; then
-  echo "Bucket doesn't exist, Creating bucket"
+  echo "${BOLD}${RED}Bucket gs://${BUCKET_NAME} does not exist. Creating it...${RESET}"
   gsutil mb -p "$PROJECT_ID" -l "$REGION" "gs://${BUCKET_NAME}"
 else
-  echo "Bucket gs://${BUCKET_NAME} already exists"
+  echo "${BOLD}${GREEN}Bucket gs://${BUCKET_NAME} already exists. Skipping creation.${RESET}"
 fi
 
 # Step 10: Build Container Images
@@ -106,14 +106,9 @@ skaffold build --interactive=false \
 --file-output artifacts.json
 cd ..
 
-# Step 11: Deploy Pipeline
-echo "${BOLD}${YELLOW}Deploying Pipeline${RESET}"
-gcloud artifacts docker images list \
-$REGION-docker.pkg.dev/$PROJECT_ID/web-app \
---include-tags \
---format yaml
+sleep 30
 
-# Step 12: Deploy Pipeline
+# Step 11: Deploy Pipeline
 echo "${BOLD}${YELLOW}Deploying Pipeline${RESET}"
 gcloud config set deploy/region $REGION
 cp clouddeploy-config/delivery-pipeline.yaml.template clouddeploy-config/delivery-pipeline.yaml
@@ -148,7 +143,7 @@ wait_for_all_clusters_running() {
 
 wait_for_all_clusters_running
 
-# Step 13: Configure Kubernetes Contexts
+# Step 12: Configure Kubernetes Contexts
 echo "${BOLD}${CYAN}Configuring Kubernetes Contexts${RESET}"
 CONTEXTS=("test" "staging" "prod")
 for CONTEXT in ${CONTEXTS[@]}
@@ -157,14 +152,14 @@ do
     kubectl config rename-context gke_${PROJECT_ID}_${REGION}_${CONTEXT} ${CONTEXT}
 done
 
-# Step 14: Apply Kubernetes Configurations
+# Step 13: Apply Kubernetes Configurations
 echo "${BOLD}${BLUE}Applying Kubernetes Configurations${RESET}"
 for CONTEXT in ${CONTEXTS[@]}
 do
     kubectl --context ${CONTEXT} apply -f kubernetes-config/web-app-namespace.yaml
 done
 
-# Step 15: Apply Cloud Deploy Targets
+# Step 14: Apply Cloud Deploy Targets
 echo "${BOLD}${GREEN}Applying Cloud Deploy Targets${RESET}"
 for CONTEXT in ${CONTEXTS[@]}
 do
@@ -172,27 +167,23 @@ do
     gcloud beta deploy apply --file clouddeploy-config/target-$CONTEXT.yaml
 done
 
-# Step 16: Create Release
+# Step 15: Create Release
 echo "${BOLD}${YELLOW}Creating Release${RESET}"
 gcloud beta deploy releases create web-app-001 \
 --delivery-pipeline web-app \
 --build-artifacts web/artifacts.json \
 --source web/
 
-# Step 17: List Rollouts
-echo "${BOLD}${MAGENTA}Listing Rollouts${RESET}"
-gcloud beta deploy rollouts list \
---delivery-pipeline web-app \
---release web-app-001
+sleep 30
 
-# Step 18: Promote to Staging
+# Step 17: Promote to Staging
 echo "${BOLD}${CYAN}Promoting to Staging${RESET}"
 gcloud beta deploy releases promote \
   --delivery-pipeline web-app \
   --release web-app-001 \
   --quiet
 
-# Step 19: Wait for rollout of release 'web-app-001' to target 'staging' to reach state 'SUCCEEDED'...
+# Step 18: Wait for rollout of release 'web-app-001' to target 'staging' to reach state 'SUCCEEDED'...
 echo "${BOLD}${BLUE}Waiting for rollout of release 'web-app-001' to target 'staging' to reach state 'SUCCEEDED'...${RESET}"
 wait_for_rollout_success() {
   while true; do
@@ -216,14 +207,14 @@ wait_for_rollout_success() {
 
 wait_for_rollout_success
 
-# Step 20: Promote to Production
+# Step 19: Promote to Production
 echo "${BOLD}${GREEN}Promoting to Production${RESET}"
 gcloud beta deploy releases promote \
 --delivery-pipeline web-app \
 --release web-app-001 \
 --quiet
 
-# Step 21: rollout approve
+# Step 20: rollout approve
 echo "${BOLD}${YELLOW}Approving Rollout${RESET}"
 gcloud beta deploy rollouts approve web-app-001-to-prod-0001 \
 --delivery-pipeline web-app \
