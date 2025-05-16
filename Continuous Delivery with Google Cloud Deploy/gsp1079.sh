@@ -174,7 +174,7 @@ gcloud beta deploy releases create web-app-001 \
 --build-artifacts web/artifacts.json \
 --source web/
 
-sleep 30
+sleep 60
 
 # Step 17: Promote to Staging
 echo "${BOLD}${CYAN}Promoting to Staging${RESET}"
