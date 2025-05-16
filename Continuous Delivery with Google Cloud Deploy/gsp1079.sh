@@ -129,7 +129,7 @@ wait_for_all_clusters_running() {
     echo "${BOLD}${CYAN}Checking cluster statuses...${RESET}"
     echo "$CLUSTERS" | while IFS=',' read -r NAME STATUS; do
       if [ "$STATUS" != "RUNNING" ]; then
-        echo "{BOLD}${BLUE}Cluster $NAME is $STATUS${RESET}"
+        echo "${BOLD}${BLUE}Cluster $NAME is $STATUS${RESET}"
         NOT_RUNNING=true
       fi
     done
@@ -141,8 +141,8 @@ wait_for_all_clusters_running() {
       break
     fi
 
-    echo "${BOLD}${RED}Not all clusters are running. Retrying in 30 seconds...${RESET}"
-    sleep 30
+    echo "${BOLD}${RED}Not all clusters are running. Retrying in 1 minute...${RESET}"
+    sleep 60
   done
 }
 
