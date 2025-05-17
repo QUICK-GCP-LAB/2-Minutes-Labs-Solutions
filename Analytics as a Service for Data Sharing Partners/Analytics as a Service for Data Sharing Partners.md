@@ -5,7 +5,27 @@
 ### ⚙️ Execute the Following Commands in Cloud Shell
 
 ```
-curl -LO 
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Analytics%20as%20a%20Service%20for%20Data%20Sharing%20Partners/gsp1042-1.sh
+
+sudo chmod +x *.sh
+
+./*.sh
+```
+
+### ⚙️ Execute the Following Commands in Customer A Cloud Shell
+
+```
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Analytics%20as%20a%20Service%20for%20Data%20Sharing%20Partners/gsp1042-2.sh
+
+sudo chmod +x *.sh
+
+./*.sh
+```
+
+### ⚙️ Execute the Following Commands in Customer b Cloud Shell
+
+```
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Analytics%20as%20a%20Service%20for%20Data%20Sharing%20Partners/gsp1042-3.sh
 
 sudo chmod +x *.sh
 

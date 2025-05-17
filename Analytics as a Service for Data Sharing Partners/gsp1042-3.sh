@@ -38,7 +38,9 @@ echo "${RANDOM_BG_COLOR}${RANDOM_TEXT_COLOR}${BOLD}Starting Execution${RESET}"
 
 # Step 1: Prompt for project environment variables
 echo "${BOLD}${CYAN}Setting Project Environment Variables${RESET}"
+echo
 read -p "Enter PROJECT_ID value: " PROJECT_ID
+echo
 export PROJECT_ID
 
 # Step 2: Creating customer B view
