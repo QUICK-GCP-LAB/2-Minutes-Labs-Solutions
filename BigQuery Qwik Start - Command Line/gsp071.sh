@@ -45,7 +45,7 @@ bq query --use_legacy_sql=false \
 
 bq mk babynames
 
-curl -LO http://www.ssa.gov/OACT/babynames/names.zip
+wget http://www.ssa.gov/OACT/babynames/names.zip
 
 unzip names.zip
 
