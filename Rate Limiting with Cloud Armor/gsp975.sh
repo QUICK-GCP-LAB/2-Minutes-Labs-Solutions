@@ -260,7 +260,8 @@ curl -X POST \
 # Step 17: Wait for backend service to be ready
 echo "${BOLD}${MAGENTA}Waiting 60 seconds for backend service propagation${RESET}"
 for ((i=60; i>=0; i--)); do
-  echo -ne "\r${BOLD}${CYAN}Time remaining $i seconds${RESET}"
+  echo
+  echo -ne "\r${BOLD}${CYAN}Time remaining${RESET} $i ${BOLD}${CYAN}seconds${RESET}"
   sleep 1
 done
 echo -e "\n${BOLD}${GREEN}Done!${RESET}"
@@ -278,9 +279,10 @@ curl -X POST \
   "https://compute.googleapis.com/compute/v1/projects/$PROJECT_ID/global/urlMaps"
 
 # Step 19: Wait for url map to be ready
-echo "${BOLD}${MAGENTA}Waiting 30 seconds for URL map propagation${RESET}"
+echo "${BOLD}${MAGENTA}Waiting 30 seconds for URL map to be ready${RESET}"
 for ((i=30; i>=0; i--)); do
-  echo -ne "\r${BOLD}${CYAN}Time remaining $i seconds${RESET}"
+  echo
+  echo -ne "\r${BOLD}${CYAN}Time remaining${RESET} $i ${BOLD}${CYAN}seconds${RESET}"
   sleep 1
 done
 echo -e "\n${BOLD}${GREEN}Done!${RESET}"
@@ -296,6 +298,15 @@ curl -X POST \
     "urlMap": "projects/'$PROJECT_ID'/global/urlMaps/http-lb"
   }' \
   "https://compute.googleapis.com/compute/v1/projects/$PROJECT_ID/global/targetHttpProxies"
+
+echo "${BOLD}${MAGENTA}Waiting 30 seconds for target HTTP proxy to be ready${RESET}"
+for ((i=30; i>=0; i--)); do
+  echo
+  echo -ne "\r${BOLD}${CYAN}Time remaining${RESET} $i ${BOLD}${CYAN}seconds${RESET}"
+  sleep 1
+done
+echo -e "\n${BOLD}${GREEN}Done!${RESET}"
+echo
 
 # Step 20: Create IPv4 forwarding rule
 echo "${BOLD}${RED}Creating IPv4 forwarding rule${RESET}"
@@ -409,7 +420,8 @@ gcloud compute disks add-resource-policies siege-vm \
 # Step 29: Wait for siege-vm to be ready
 echo "${BOLD}${MAGENTA}Waiting 30 seconds before SSH into siege-vm${RESET}"
 for ((i=30; i>=0; i--)); do
-  echo -ne "\r${BOLD}${CYAN}Time remaining $i seconds${RESET}"
+  echo
+  echo -ne "\r${BOLD}${CYAN}Time remaining${RESET} $i ${BOLD}${CYAN}seconds${RESET}"
   sleep 1
 done
 echo -e "\n${BOLD}${GREEN}Done!${RESET}"
