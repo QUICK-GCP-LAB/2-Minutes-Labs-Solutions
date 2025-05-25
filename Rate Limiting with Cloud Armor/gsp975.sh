@@ -277,6 +277,15 @@ curl -X POST \
   }' \
   "https://compute.googleapis.com/compute/v1/projects/$PROJECT_ID/global/urlMaps"
 
+# Step 19: Wait for url map to be ready
+echo "${BOLD}${MAGENTA}Waiting 30 seconds for URL map propagation${RESET}"
+for ((i=30; i>=0; i--)); do
+  echo -ne "\r${BOLD}${CYAN}Time remaining $i seconds${RESET}"
+  sleep 1
+done
+echo -e "\n${BOLD}${GREEN}Done!${RESET}"
+echo
+
 # Step 19: Create target HTTP proxy
 echo "${BOLD}${BLUE}Creating target HTTP proxy${RESET}"
 curl -X POST \
@@ -287,14 +296,6 @@ curl -X POST \
     "urlMap": "projects/'$PROJECT_ID'/global/urlMaps/http-lb"
   }' \
   "https://compute.googleapis.com/compute/v1/projects/$PROJECT_ID/global/targetHttpProxies"
-
-echo "${BOLD}${MAGENTA}Waiting 30 seconds for target HTTP proxy ready${RESET}"
-for ((i=30; i>=0; i--)); do
-  echo -ne "\r${BOLD}${CYAN}Time remaining $i seconds${RESET}"
-  sleep 1
-done
-echo -e "\n${BOLD}${GREEN}Done!${RESET}"
-echo
 
 # Step 20: Create IPv4 forwarding rule
 echo "${BOLD}${RED}Creating IPv4 forwarding rule${RESET}"
