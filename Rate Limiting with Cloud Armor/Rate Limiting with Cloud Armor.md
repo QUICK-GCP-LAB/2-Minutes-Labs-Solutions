@@ -1,6 +1,6 @@
 # Rate Limiting with Cloud Armor || [GSP975](https://www.cloudskillsboost.google/focuses/21571?parent=catalog) ||
 
-## 🔑 Solution [here]()
+## 🔑 Solution [here](https://youtu.be/B1Qcze6PBg8)
 
 ### ⚙️ Execute the Following Commands in Cloud Shell
 
