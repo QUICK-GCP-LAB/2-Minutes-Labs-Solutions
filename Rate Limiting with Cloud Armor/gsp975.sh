@@ -259,8 +259,8 @@ curl -X POST \
 
 # Step 17: Wait for backend service to be ready
 echo "${BOLD}${MAGENTA}Waiting 60 seconds for backend service propagation${RESET}"
+echo
 for ((i=60; i>=0; i--)); do
-  echo
   echo -ne "\r${BOLD}${CYAN}Time remaining${RESET} $i ${BOLD}${CYAN}seconds${RESET}"
   sleep 1
 done
@@ -280,8 +280,8 @@ curl -X POST \
 
 # Step 19: Wait for url map to be ready
 echo "${BOLD}${MAGENTA}Waiting 30 seconds for URL map to be ready${RESET}"
+echo
 for ((i=30; i>=0; i--)); do
-  echo
   echo -ne "\r${BOLD}${CYAN}Time remaining${RESET} $i ${BOLD}${CYAN}seconds${RESET}"
   sleep 1
 done
@@ -300,8 +300,8 @@ curl -X POST \
   "https://compute.googleapis.com/compute/v1/projects/$PROJECT_ID/global/targetHttpProxies"
 
 echo "${BOLD}${MAGENTA}Waiting 30 seconds for target HTTP proxy to be ready${RESET}"
+echo
 for ((i=30; i>=0; i--)); do
-  echo
   echo -ne "\r${BOLD}${CYAN}Time remaining${RESET} $i ${BOLD}${CYAN}seconds${RESET}"
   sleep 1
 done
@@ -419,8 +419,8 @@ gcloud compute disks add-resource-policies siege-vm \
 
 # Step 29: Wait for siege-vm to be ready
 echo "${BOLD}${MAGENTA}Waiting 30 seconds before SSH into siege-vm${RESET}"
+echo
 for ((i=30; i>=0; i--)); do
-  echo
   echo -ne "\r${BOLD}${CYAN}Time remaining${RESET} $i ${BOLD}${CYAN}seconds${RESET}"
   sleep 1
 done
