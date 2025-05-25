@@ -1,6 +1,6 @@
 # Create a Virtual Machine || [GSP001](https://www.cloudskillsboost.google/focuses/3563?parent=catalog) ||
 
-## 🔑 Solution [here]()
+## 🔑 Solution [here](https://youtu.be/VVCadu58wxk)
 
 ### ⚙️ Execute the Following Commands in Cloud Shell
 
