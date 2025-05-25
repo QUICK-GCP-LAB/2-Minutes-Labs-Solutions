@@ -49,7 +49,8 @@ set_region_and_zone() {
   export ZONE="$zone_input"
   export REGION_3=$(echo "$ZONE" | cut -d '-' -f 1-2)
 
-  echo "${BOLD}${GREEN}✅ REGION_2 & ZONE set successfully${RESET}"
+  echo "${BOLD}${GREEN}$REGION_2 & $ZONE set successfully${RESET}"
+  echo
 }
 
 set_region_and_zone
@@ -72,7 +73,7 @@ echo "${BOLD}${CYAN}Enabling OS Config API${RESET}"
 gcloud services enable osconfig.googleapis.com
 
 # Step 5: Create firewall rule to allow HTTP
-echo "${BOLD}${BLUE}Creating firewall rule: allow HTTP${RESET}"
+echo "${BOLD}${BLUE}Creating firewall rule allow HTTP${RESET}"
 gcloud compute --project=$PROJECT_ID firewall-rules create default-allow-http \
   --direction=INGRESS \
   --priority=1000 \
@@ -83,7 +84,7 @@ gcloud compute --project=$PROJECT_ID firewall-rules create default-allow-http \
   --target-tags=http-server
 
 # Step 6: Create firewall rule to allow Health Checks
-echo "${BOLD}${RED}Creating firewall rule: allow health checks${RESET}"
+echo "${BOLD}${RED}Creating firewall rule allow health checks${RESET}"
 gcloud compute --project=$PROJECT_ID firewall-rules create default-allow-health-check \
   --direction=INGRESS \
   --priority=1000 \
@@ -259,10 +260,11 @@ curl -X POST \
 # Step 17: Wait for backend service to be ready
 echo "${BOLD}${MAGENTA}Waiting 60 seconds for backend service propagation${RESET}"
 for ((i=60; i>=0; i--)); do
-  echo -ne "\rTime remaining $i seconds   "
+  echo -ne "\r${BOLD}${CYAN}Time remaining $i seconds${RESET}"
   sleep 1
 done
-echo -e "\nDone!"
+echo -e "\n${BOLD}${GREEN}Done!${RESET}"
+echo
 
 # Step 18: Create URL map
 echo "${BOLD}${CYAN}Creating URL map for the load balancer${RESET}"
@@ -285,6 +287,14 @@ curl -X POST \
     "urlMap": "projects/'$PROJECT_ID'/global/urlMaps/http-lb"
   }' \
   "https://compute.googleapis.com/compute/v1/projects/$PROJECT_ID/global/targetHttpProxies"
+
+echo "${BOLD}${MAGENTA}Waiting 30 seconds for target HTTP proxy ready${RESET}"
+for ((i=30; i>=0; i--)); do
+  echo -ne "\r${BOLD}${CYAN}Time remaining $i seconds${RESET}"
+  sleep 1
+done
+echo -e "\n${BOLD}${GREEN}Done!${RESET}"
+echo
 
 # Step 20: Create IPv4 forwarding rule
 echo "${BOLD}${RED}Creating IPv4 forwarding rule${RESET}"
@@ -319,7 +329,7 @@ curl -X POST \
   "https://compute.googleapis.com/compute/beta/projects/$PROJECT_ID/global/forwardingRules"
 
 # Step 22: Set named port on REGION_1 MIG
-echo "${BOLD}${YELLOW}Setting named port on REGION_1 MIG${RESET}"
+echo "${BOLD}${YELLOW}Setting named port on $REGION_1-mig${RESET}"
 curl -X POST \
   -H "Authorization: Bearer $ACCESS_TOKEN" \
   -H "Content-Type: application/json" \
@@ -334,7 +344,7 @@ curl -X POST \
   "https://compute.googleapis.com/compute/beta/projects/$PROJECT_ID/regions/$REGION_1/instanceGroups/$REGION_1-mig/setNamedPorts"
 
 # Step 23: Set named port on REGION_2 MIG
-echo "${BOLD}${MAGENTA}Setting named port on REGION_2 MIG${RESET}"
+echo "${BOLD}${MAGENTA}Setting named port on $REGION_2-mig${RESET}"
 curl -X POST \
   -H "Authorization: Bearer $ACCESS_TOKEN" \
   -H "Content-Type: application/json" \
@@ -398,10 +408,11 @@ gcloud compute disks add-resource-policies siege-vm \
 # Step 29: Wait for siege-vm to be ready
 echo "${BOLD}${MAGENTA}Waiting 30 seconds before SSH into siege-vm${RESET}"
 for ((i=30; i>=0; i--)); do
-  echo -ne "\rTime remaining $i seconds   "
+  echo -ne "\r${BOLD}${CYAN}Time remaining $i seconds${RESET}"
   sleep 1
 done
-echo -e "\nDone!"
+echo -e "\n${BOLD}${GREEN}Done!${RESET}"
+echo
 
 # Step 30: SSH into siege-vm and install Siege tool
 echo "${BOLD}${CYAN}Installing Siege tool on siege-vm${RESET}"
@@ -412,7 +423,7 @@ gcloud compute ssh siege-vm \
   --command="sudo apt-get update -qq && sudo apt-get -y install siege -qq"
 
 # Step 31: Create rate-limiting security policy
-echo "${BOLD}${BLUE}Creating security policy: rate-limit-siege${RESET}"
+echo "${BOLD}${BLUE}Creating security policy rate-limit-siege${RESET}"
 gcloud compute security-policies create rate-limit-siege \
     --description "policy for rate limiting"
 
