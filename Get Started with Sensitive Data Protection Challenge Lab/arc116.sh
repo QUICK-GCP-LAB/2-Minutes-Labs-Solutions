@@ -479,9 +479,9 @@ https://dlp.googleapis.com/v2/projects/$DEVSHELL_PROJECT_ID/locations/us/jobTrig
 -d @job-configuration.json
 
 # Step 10: Wait for 15 seconds to ensure the job trigger is ready
-echo "${BOLD}${CYAN}Waiting 15 seconds to ensure job trigger is ready...${RESET}"
+echo "${BOLD}${MAGENTA}Waiting 60 seconds to ensure job trigger is ready${RESET}"
 echo
-for ((i=15; i>=0; i--)); do
+for ((i=60; i>=0; i--)); do
   echo -ne "\r${BOLD}${CYAN}Time remaining${RESET} $i ${BOLD}${CYAN}seconds${RESET}"
   sleep 1
 done

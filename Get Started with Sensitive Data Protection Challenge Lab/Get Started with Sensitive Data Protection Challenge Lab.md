@@ -1,6 +1,6 @@
 # Get Started with Sensitive Data Protection: Challenge Lab || [ARC116](https://www.cloudskillsboost.google/focuses/64782?parent=catalog) ||
 
-## 🔑 Solution [here]()
+## 🔑 Solution [here](https://youtu.be/GP-3t4aJuIQ)
 
 ### ⚙️ Execute the Following Commands in Cloud Shell
 
