@@ -4,6 +4,7 @@
 
 ### Run the following Commands in CloudShell
 ```
+export PROJECT_ID=
 export ZONE=
 ```
 ```

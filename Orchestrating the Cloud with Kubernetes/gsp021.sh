@@ -22,9 +22,11 @@ RESET=`tput sgr0`
 
 echo "${YELLOW}${BOLD}Starting${RESET}" "${GREEN}${BOLD}Execution${RESET}"
 
+gcloud config set project $PROJECT_ID
+
 gcloud config set compute/zone $ZONE
 
-gcloud container clusters create io
+gcloud container clusters create io --zone $ZONE
 
 gsutil cp -r gs://spls/gsp021/* .
 
