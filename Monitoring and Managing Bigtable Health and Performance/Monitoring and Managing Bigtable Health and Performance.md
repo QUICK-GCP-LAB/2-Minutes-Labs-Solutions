@@ -1,4 +1,4 @@
-# Monitoring and Managing Bigtable Health and Performance || [GSP1056](https://www.cloudskillsboost.google/focuses/58498?parent=catalog) ||
+# Monitoring and Managing Bigtable Health and Performance || [GSP1056](https://www.cloudskillsboost.google/focuses/92499?parent=catalog) ||
 
 ## Solution [here](https://youtu.be/oLt36Nuvuvk)
 
