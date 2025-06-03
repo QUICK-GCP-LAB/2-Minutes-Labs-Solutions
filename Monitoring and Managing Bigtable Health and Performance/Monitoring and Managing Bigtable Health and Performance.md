@@ -1,26 +1,28 @@
-# Monitoring and Managing Bigtable Health and Performance || [GSP1056](https://www.cloudskillsboost.google/focuses/92499?parent=catalog) ||
+# Monitoring and Managing Bigtable Health and Performance || [GSP1056](https://www.cloudskillsboost.google/focuses/58498?parent=catalog) ||
 
-## Solution [here](https://youtu.be/oLt36Nuvuvk)
+## 🔑 Solution [here]()
 
-### Run the following Commands in CloudShell
-```
-export ZONE=
-```
-Check [here](https://console.cloud.google.com/bigtable/instances/sandiego?) and use another `ZONE` for `sandiego-traffic-sensors-c2` 
+### ⚙️ Execute the Following Commands in Cloud Shell
+
 ```
 curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/main/Monitoring%20and%20Managing%20Bigtable%20Health%20and%20Performance/gsp1056.sh
 
-sudo chmod +x gsp1056.sh
+sudo chmod +x *.sh
 
-./gsp1056.sh
+./*.sh
 ```
 
-### Congratulations 🎉 for Completing the Lab !
+# 🎉 Woohoo! You Did It! 🎉
 
-##### *You Have Successfully Demonstrated Your Skills And Determination.*
+Your hard work and determination paid off! 💻  
+You've successfully completed the lab. Way to go! 🚀  
 
-#### *Well done!*
+### 💬 Stay Connected with Our Community!
 
-#### Don't Forget to Join the [Telegram Channel](https://t.me/quickgcplab) & [Discussion group](https://t.me/quickgcplabchats)
+👉 Join the conversation and never miss an update:  
+
+💚 [WhatsApp Community](https://chat.whatsapp.com/ECJ9h8GA3CA1ksaI9m5NrX)  
+📢 [Telegram Channel](https://t.me/quickgcplab)  
+👥 [Discussion Group](https://t.me/quickgcplabchats)  
 
 # [QUICK GCP LAB](https://www.youtube.com/@quickgcplab)
