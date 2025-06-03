@@ -1,6 +1,6 @@
-# [Creating Virtual Machines](https://www.cloudskillsboost.google/course_templates/50/labs/341220)
+# [Creating Virtual Machines](https://www.cloudskillsboost.google/paths/11/course_templates/50/labs/485532)
 
-## 🔑 Solution [here]()
+## 🔑 Solution [here](https://youtu.be/FzJSHiZ3JeM)
 
 ### ⚙️ Execute the Following Commands in Cloud Shell
 
