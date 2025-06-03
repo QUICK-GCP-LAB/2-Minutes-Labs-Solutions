@@ -2,7 +2,7 @@
 
 ## 🔑 Solution [here]()
 
-### ⚙️ Execute the Following Commands in Cloud Shell
+### ⚙️ Execute the Following Commands in in Notebook Terminal
 
 ```
 rm CLS_Vertex_AI_CNN_horse_or_human-v1.0.0.ipynb
