@@ -36,24 +36,48 @@ RANDOM_BG_COLOR=${BG_COLORS[$RANDOM % ${#BG_COLORS[@]}]}
 
 echo "${RANDOM_BG_COLOR}${RANDOM_TEXT_COLOR}${BOLD}Starting Execution${RESET}"
 
+# Step 1: Set Compute Zone
+echo "${BOLD}${BLUE}Setting Compute Zone${RESET}"
 export ZONE=$(gcloud compute project-info describe \
 --format="value(commonInstanceMetadata.items[google-compute-default-zone])")
 
+# Step 2: Set Compute Region
+echo "${BOLD}${GREEN}Setting Compute Region${RESET}"
 export REGION=$(gcloud compute project-info describe \
 --format="value(commonInstanceMetadata.items[google-compute-default-region])")
 
+# Step 3: Get Project Number
+echo "${BOLD}${YELLOW}Getting Project Number${RESET}"
 export PROJECT_NUMBER="$(gcloud projects describe $DEVSHELL_PROJECT_ID --format='get(projectNumber)')"
 
+# Step 4: Grant Storage Admin Role
+echo "${BOLD}${MAGENTA}Granting Storage Admin Role to Compute Service Account${RESET}"
 gcloud projects add-iam-policy-binding $DEVSHELL_PROJECT_ID \
     --member serviceAccount:$PROJECT_NUMBER-compute@developer.gserviceaccount.com \
     --role roles/storage.objectAdmin
 
+# Step 5: Grant Dataproc Worker Role
+echo "${BOLD}${CYAN}Granting Dataproc Worker Role to Compute Service Account${RESET}"
 gcloud projects add-iam-policy-binding $DEVSHELL_PROJECT_ID \
     --member serviceAccount:$PROJECT_NUMBER-compute@developer.gserviceaccount.com \
     --role roles/dataproc.worker
 
-gcloud dataproc clusters create example-cluster --region $REGION --zone $ZONE --master-machine-type e2-standard-2 --master-boot-disk-type pd-balanced --master-boot-disk-size 30 --num-workers 2 --worker-machine-type e2-standard-2 --worker-boot-disk-type pd-balanced --worker-boot-disk-size 30 --image-version 2.2-debian12 --project $DEVSHELL_PROJECT_ID
+# Step 6: Create Dataproc Cluster
+echo "${BOLD}${RED}Creating Dataproc Cluster${RESET}"
+gcloud dataproc clusters create example-cluster \
+    --enable-component-gateway \
+    --region $REGION \
+    --zone $ZONE \
+    --master-machine-type e2-standard-2 \
+    --master-boot-disk-size 30 \
+    --num-workers 2 \
+    --worker-machine-type e2-standard-2 \
+    --worker-boot-disk-size 30 \
+    --image-version 2.2-debian12 \
+    --project $DEVSHELL_PROJECT_ID
 
+# Step 7: Submit Spark Job
+echo "${BOLD}${BLUE}Submitting Spark Job to Cluster${RESET}"
 gcloud dataproc jobs submit spark \
     --cluster example-cluster \
     --region $REGION \
@@ -61,6 +85,8 @@ gcloud dataproc jobs submit spark \
     --jars file:///usr/lib/spark/examples/jars/spark-examples.jar \
     -- 1000
 
+# Step 8: Update Cluster Worker Count
+echo "${BOLD}${GREEN}Updating Cluster to Increase Number of Workers${RESET}"
 gcloud dataproc clusters update example-cluster \
     --region $REGION \
     --num-workers 4
