@@ -1,6 +1,6 @@
 # Identify Horses or Humans with TensorFlow and Vertex AI || [GSP634](https://www.cloudskillsboost.google/focuses/53699?parent=catalog) ||
 
-## 🔑 Solution [here]()
+## 🔑 Solution [here](https://youtu.be/2VQrkUBTpqo)
 
 ### ⚙️ Execute the Following Commands in in Notebook Terminal
 
