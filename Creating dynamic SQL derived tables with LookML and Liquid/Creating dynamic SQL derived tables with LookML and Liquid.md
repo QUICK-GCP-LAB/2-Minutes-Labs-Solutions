@@ -2,7 +2,7 @@
 
 ## 🔑 Solution [here]()
 
-* Create a view for name, type: **user_facts** & replace the following
+* Create a view for name, type: **user_facts.view** & replace the following
 
 ```
 view: user_facts {
@@ -145,7 +145,7 @@ explore: events {
 
 **Now Check the score for task 1 & 2** then process next
 
-* Replace the following with user_facts file
+* Replace the following with **user_facts.view** file
 
 ```
 view: user_facts {
