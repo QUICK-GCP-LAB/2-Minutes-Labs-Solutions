@@ -1,6 +1,6 @@
 # APIs Explorer: Create and Update a Cluster || [GSP288](https://www.cloudskillsboost.google/focuses/3332?parent=catalog) ||
 
-## 🔑 Solution [here]()
+## 🔑 Solution [here](https://youtu.be/fhIH9A2abTo)
 
 ### ⚙️ Execute the Following Commands in Cloud Shell
 
