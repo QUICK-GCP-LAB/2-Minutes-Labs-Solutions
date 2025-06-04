@@ -70,7 +70,33 @@ curl -X POST \
   -d "$REQUEST_BODY" \
   "https://dataproc.googleapis.com/v1/projects/$DEVSHELL_PROJECT_ID/regions/$REGION/clusters"
 
-# Step 4: Submit SparkPi Job to the Cluster
+# Step 4: Wait for the cluster to be created
+echo "${BOLD}${CYAN}Waiting for Cluster Creation to Complete...${RESET}"
+check_cluster_status() {
+
+  while true; do
+    status=$(gcloud dataproc clusters describe "mydataproccluster" \
+      --region "$REGION" \
+      --project "$DEVSHELL_PROJECT_ID" \
+      --format="get(status.state)")
+
+    echo "${BOLD}${BLUE}Current Cluster Status: $status${RESET}"
+
+    if [[ "$status" == "RUNNING" ]]; then
+      echo "${BOLD}${GREEN}Cluster is now RUNNING.${RESET}"
+      break
+    elif [[ "$status" == "ERROR" || "$status" == "DELETING" || "$status" == "UNKNOWN" ]]; then
+      echo "${BOLD}${RED}Cluster entered terminal state: $status${RESET}"
+      break
+    fi
+
+    sleep 10
+  done
+}
+
+check_cluster_status
+
+# Step 5: Submit SparkPi Job to the Cluster
 echo "${BOLD}${MAGENTA}Submitting SparkPi Job to Dataproc Cluster${RESET}"
 read -r -d '' REQUEST_BODY <<EOF
 {
@@ -93,7 +119,7 @@ curl -X POST \
   -d "$REQUEST_BODY" \
   "https://dataproc.googleapis.com/v1/projects/$DEVSHELL_PROJECT_ID/regions/$REGION/jobs:submit"
 
-# Step 5: Scale Cluster Workers to 3
+# Step 6: Scale Cluster Workers to 3
 echo "${BOLD}${CYAN}Scaling Cluster to 3 Worker Instances${RESET}"
 read -r -d '' PATCH_BODY <<EOF
 {
