@@ -61,7 +61,32 @@ curl -X POST \
   -d "$REQUEST_BODY" \
   "https://sqladmin.googleapis.com/sql/v1beta4/projects/$DEVSHELL_PROJECT_ID/instances"
 
-# Step 4: Create MySQL Database in the Instance
+check_sql_instance_status() {
+
+  while true; do
+    status=$(gcloud sql instances describe "my-instance" \
+      --project "$DEVSHELL_PROJECT_ID" \
+      --format="get(state)")
+
+    echo "${BOLD}${BLUE}Current status: $status${RESET}"
+
+    if [[ "$status" == "RUNNABLE" ]]; then
+      echo "${BOLD}${GREEN}Instance is RUNNABLE!${RESET}"
+      break
+    elif [[ "$status" == "FAILED" || "$status" == "SUSPENDED" ]]; then
+      echo "${BOLD}${RED}Instance creation failed or suspended. Status: $status${RESET}"
+      break
+    fi
+
+    sleep 30
+  done
+}
+
+# Step 4: Wait for the SQL instance to be RUNNABLE
+echo "${BOLD}${CYAN}Waiting for SQL instance to be RUNNABLE...${RESET}"
+check_sql_instance_status
+
+# Step 5: Create MySQL Database in the Instance
 echo "${BOLD}${MAGENTA}Creating MySQL database 'mysql-db'${RESET}"
 curl -X POST \
   -H "Authorization: Bearer $(gcloud auth print-access-token)" \
@@ -71,11 +96,11 @@ curl -X POST \
       }' \
   "https://sqladmin.googleapis.com/sql/v1beta4/projects/$DEVSHELL_PROJECT_ID/instances/my-instance/databases"
 
-# Step 5: Generate unique Cloud Storage bucket name
+# Step 6: Generate unique Cloud Storage bucket name
 echo "${BOLD}${CYAN}Generating unique Cloud Storage bucket name${RESET}"
 BUCKET_NAME="bucket-$(date +%s)"  # unique name
 
-# Step 6: Get Public IP Address of SQL Instance
+# Step 7: Get Public IP Address of SQL Instance
 echo "${BOLD}${RED}Getting public IP address of SQL Instance${RESET}"
 IP_ADDRESS=$(gcloud sql instances describe "my-instance" \
   --format="value(ipAddresses[0].ipAddress)")
@@ -85,16 +110,16 @@ if [[ -z "$IP_ADDRESS" ]]; then
   exit 1
 fi
 
-# Step 7: Get your current public IP for authorized networks
+# Step 8: Get your current public IP for authorized networks
 echo "${BOLD}${GREEN}Getting current public IP address for authorized networks${RESET}"
 MY_IP=$(curl -s ifconfig.me)
 
-# Step 8: Authorize your IP on SQL Instance
+# Step 9: Authorize your IP on SQL Instance
 echo "${BOLD}${YELLOW}Authorizing IP $MY_IP on SQL Instance${RESET}"
 gcloud sql instances patch "my-instance" \
   --authorized-networks="$MY_IP/32" --quiet
 
-# Step 9: Create table in the MySQL database
+# Step 10: Create table in the MySQL database
 echo "${BOLD}${BLUE}Creating 'info' table in 'mysql-db' database${RESET}"
 mysql -h "$IP_ADDRESS" -u root "mysql-db" <<EOF
 CREATE TABLE IF NOT EXISTS info (
@@ -104,7 +129,7 @@ CREATE TABLE IF NOT EXISTS info (
 );
 EOF
 
-# Step 10: Create CSV file with employee information
+# Step 11: Create CSV file with employee information
 echo "${BOLD}${MAGENTA}Creating employee_info.csv file${RESET}"
 cat > employee_info.csv <<EOF
 "Sean", 23, "Content Creator"
@@ -115,15 +140,15 @@ cat > employee_info.csv <<EOF
 "Jennifer", 32, "Web Developer"
 EOF
 
-# Step 11: Create Cloud Storage bucket
+# Step 12: Create Cloud Storage bucket
 echo "${BOLD}${CYAN}Creating Cloud Storage bucket $BUCKET_NAME${RESET}"
 gsutil mb -l "$REGION" -p "$DEVSHELL_PROJECT_ID" gs://"$BUCKET_NAME"
 
-# Step 12: Upload CSV file to the bucket
+# Step 13: Upload CSV file to the bucket
 echo "${BOLD}${RED}Uploading employee_info.csv to gs://$BUCKET_NAME/${RESET}"
 gsutil cp employee_info.csv gs://"$BUCKET_NAME"/
 
-# Step 13: Get service account email for the SQL instance
+# Step 14: Get service account email for the SQL instance
 echo "${BOLD}${GREEN}Retrieving service account email for SQL Instance${RESET}"
 SERVICE_ACCOUNT=$(gcloud sql instances describe "$INSTANCE_NAME" \
   --project="$PROJECT_ID" \
@@ -134,7 +159,7 @@ if [[ -z "$SERVICE_ACCOUNT" ]]; then
   exit 1
 fi
 
-# Step 14: Grant Storage Admin role to SQL instance service account on the bucket
+# Step 15: Grant Storage Admin role to SQL instance service account on the bucket
 echo "${BOLD}${YELLOW}Granting Storage Admin role to $SERVICE_ACCOUNT on bucket $BUCKET_NAME${RESET}"
 gsutil iam ch "serviceAccount:$SERVICE_ACCOUNT:roles/storage.admin" gs://"$BUCKET_NAME"
 
