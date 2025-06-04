@@ -150,8 +150,8 @@ gsutil cp employee_info.csv gs://"$BUCKET_NAME"/
 
 # Step 14: Get service account email for the SQL instance
 echo "${BOLD}${GREEN}Retrieving service account email for SQL Instance${RESET}"
-SERVICE_ACCOUNT=$(gcloud sql instances describe "$INSTANCE_NAME" \
-  --project="$PROJECT_ID" \
+SERVICE_ACCOUNT=$(gcloud sql instances describe "my-instance" \
+  --project="$DEVSHELL_PROJECT_ID" \
   --format="value(serviceAccountEmailAddress)")
 
 if [[ -z "$SERVICE_ACCOUNT" ]]; then
