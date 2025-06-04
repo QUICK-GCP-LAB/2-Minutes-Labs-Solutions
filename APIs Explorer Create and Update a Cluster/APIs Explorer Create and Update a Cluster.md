@@ -5,7 +5,7 @@
 ### ⚙️ Execute the Following Commands in Cloud Shell
 
 ```
-curl -LO 
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/APIs%20Explorer%20Create%20and%20Update%20a%20Cluster/gsp288.sh
 
 sudo chmod +x *.sh
 
