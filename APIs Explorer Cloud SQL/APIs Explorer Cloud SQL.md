@@ -1,6 +1,6 @@
 # APIs Explorer: Cloud SQL || [GSP423](https://www.cloudskillsboost.google/focuses/3685?parent=catalog) ||
 
-## 🔑 Solution [here]()
+## 🔑 Solution [here](https://youtu.be/xZT8R2RrZUA)
 
 ### ⚙️ Execute the Following Commands in Cloud Shell
 
