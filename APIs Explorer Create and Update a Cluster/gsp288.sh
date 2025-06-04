@@ -90,7 +90,7 @@ check_cluster_status() {
       break
     fi
 
-    sleep 10
+    sleep 30
   done
 }
 
