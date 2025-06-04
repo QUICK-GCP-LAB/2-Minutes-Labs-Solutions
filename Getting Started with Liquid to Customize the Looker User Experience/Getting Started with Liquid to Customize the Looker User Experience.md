@@ -1,6 +1,6 @@
 # Getting Started with Liquid to Customize the Looker User Experience || [GSP933](https://www.cloudskillsboost.google/focuses/21217?parent=catalog) ||
 
-## 🔑 Solution [here]()
+## 🔑 Solution [here](https://youtu.be/4uoX3GKMQLY)
 
 * Replace the following with **users.view** file
 
