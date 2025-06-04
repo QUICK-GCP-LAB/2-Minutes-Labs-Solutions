@@ -2,7 +2,7 @@
 
 ## 🔑 Solution [here]()
 
-* Create a view for name, type: **user_facts.view** & replace the following
+* Create a view for name, type: **user_facts** & replace the following
 
 ```
 view: user_facts {
