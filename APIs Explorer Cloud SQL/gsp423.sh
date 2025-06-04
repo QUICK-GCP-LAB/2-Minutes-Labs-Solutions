@@ -78,7 +78,7 @@ check_sql_instance_status() {
       break
     fi
 
-    sleep 30
+    sleep 60
   done
 }
 
