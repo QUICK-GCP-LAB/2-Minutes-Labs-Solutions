@@ -1,6 +1,6 @@
 # Monitoring and Managing Bigtable Health and Performance || [GSP1056](https://www.cloudskillsboost.google/focuses/92499?parent=catalog) ||
 
-## 🔑 Solution [here]()
+## 🔑 Solution [here](https://youtu.be/OfU4Iz83jmk)
 
 ### ⚙️ Execute the Following Commands in Cloud Shell
 
