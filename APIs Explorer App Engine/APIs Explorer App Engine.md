@@ -1,6 +1,6 @@
 # APIs Explorer: App Engine || [GSP422](https://www.cloudskillsboost.google/focuses/3662?parent=catalog) ||
 
-## 🔑 Solution [here]()
+## 🔑 Solution [here](https://youtu.be/ZlNmGfbjNQ4)
 
 ### ⚙️ Execute the Following Commands in Cloud Shell
 
