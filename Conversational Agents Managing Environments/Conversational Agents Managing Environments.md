@@ -2,13 +2,20 @@
 
 ## 🔑 Solution [here]()
 
-1. In a new incognito window, go to the [Conversational Agents](https://conversational-agents.cloud.google.com/projects) page.
+> 🚀 **Step-by-step Instructions:**
 
-2. Name your agent **Flight Booker - Env Mgt**
+1. Open a new **Incognito window** in your browser.
 
-3. Download the .blob file from [here](https://drive.google.com/uc?export=download&id=1E4OSHgPQSG2zAg6ONexMSbQAaIdNifyb)
+2. Navigate to the [Conversational Agents Console](https://conversational-agents.cloud.google.com/projects).
 
-4. In the Talk to agent box, type **i want to book a flight**
+3. Create a new agent named:  
+   **`Flight Booker - Env Mgt`**
+
+4. Download the `.blob` file from the following link and import it into your agent:  
+   [Download .blob File](https://drive.google.com/uc?export=download&id=1E4OSHgPQSG2zAg6ONexMSbQAaIdNifyb)
+
+5. In the **"Talk to agent"** box, type:  
+   **`I want to book a flight`**
 
 # 🎉 Woohoo! You Did It! 🎉
 
