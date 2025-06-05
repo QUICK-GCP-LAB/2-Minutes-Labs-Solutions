@@ -1,6 +1,6 @@
 # Conversational Agents: Managing Environments || [GSP929](https://www.cloudskillsboost.google/focuses/21708?parent=catalog) ||
 
-## 🔑 Solution [here]()
+## 🔑 Solution [here](https://youtu.be/dGcMk8zbmcw)
 
 > 🚀 **Step-by-step Instructions:**
 
