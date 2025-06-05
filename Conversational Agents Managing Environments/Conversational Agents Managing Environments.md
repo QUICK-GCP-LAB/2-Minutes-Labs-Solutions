@@ -14,7 +14,10 @@
 4. Download the `.blob` file from the following link and import it into your agent:  
    [Download .blob File](https://drive.google.com/uc?export=download&id=1E4OSHgPQSG2zAg6ONexMSbQAaIdNifyb)
 
-5. In the **"Talk to agent"** box, type:  
+5. For the **Display name** field, enter:  
+   **`Flight booker main v1 chat bot`**
+
+6. In the **"Talk to agent"** box, type:  
    **`I want to book a flight`**
 
 # 🎉 Woohoo! You Did It! 🎉
