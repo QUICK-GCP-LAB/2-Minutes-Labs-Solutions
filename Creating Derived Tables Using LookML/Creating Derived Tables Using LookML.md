@@ -2,9 +2,7 @@
 
 ## 🔑 Solution [here]()
 
-## 📁 Step 1: Create the `order_details.view` File
-
-1. **Create a new view file** named `order_details`.  
+1. **Create a new view file** named `order_details`  
 2. **Remove** the default code.  
 3. **Paste** the following LookML:  
 
@@ -55,9 +53,7 @@ view: order_details {
 
 ---
 
-## 📁 Step 2: Create the `order_details_summary.view` File
-
-1. **Create a new view file** named `order_details_summary`.  
+1. **Create a new view file** named `order_details_summary`  
 2. **Remove** the default code.  
 3. **Paste** the following LookML:  
 
@@ -100,9 +96,7 @@ view: add_a_unique_name_1718592811 {
 
 ---
 
-## 🧭 Step 3: Modify the `training_ecommerce.model` File
-
-1. Open the file named: **`training_ecommerce.model`**  
+1. Open the file named: `training_ecommerce.model`  
 
 2. Replace the content:  
 
