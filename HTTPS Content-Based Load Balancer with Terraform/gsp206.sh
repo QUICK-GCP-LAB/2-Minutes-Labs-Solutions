@@ -39,8 +39,8 @@ echo "${RANDOM_BG_COLOR}${RANDOM_TEXT_COLOR}${BOLD}Starting Execution${RESET}"
 # Step 1: Set up the environment
 echo "${CYAN}${BOLD}Setting up the environment...${RESET}"
 update_regions() {
-  read -p "${YELLOW}Enter value for REGION2: ${RESET}" REGION2
-  read -p "${BLUE}Enter value for REGION3: ${RESET}" REGION3
+  read -p "${YELLOW}${BOLD}Enter value for REGION2: ${RESET}" REGION2
+  read -p "${BLUE}${BOLD}Enter value for REGION3: ${RESET}" REGION3
 
   export REGION1=$(gcloud compute project-info describe \
 --format="value(commonInstanceMetadata.items[google-compute-default-region])")
