@@ -5,7 +5,7 @@
 ### ⚙️ Execute the Following Commands in Cloud Shell
 
 ```
-curl -LO 
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Autoscaling%20TensorFlow%20Model%20Deployments%20with%20TF%20Serving%20and%20Kubernetes/gsp777.sh
 
 sudo chmod +x *.sh
 
