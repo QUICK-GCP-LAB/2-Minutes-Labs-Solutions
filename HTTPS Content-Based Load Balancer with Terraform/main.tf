@@ -114,7 +114,7 @@ locals {
 # [START cloudloadbalancing_ext_http_gce_plus_bucket]
 module "gce-lb-https" {
   source  = "terraform-google-modules/lb-http/google"
-  version = "~> 10.0"
+  version = "~> 12.0"
   name    = var.network_name
   project = var.project
   target_tags = [
@@ -133,7 +133,6 @@ module "gce-lb-https" {
   managed_ssl_certificate_domains = ["example.com"]
   private_key       = tls_private_key.example.private_key_pem
   certificate       = tls_self_signed_cert.example.cert_pem
-  
 
   backends = {
     default = {
