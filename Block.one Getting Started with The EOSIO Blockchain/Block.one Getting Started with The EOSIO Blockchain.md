@@ -5,7 +5,7 @@
 ### ⚙️ Execute the Following Commands in Cloud Shell
 
 ```
-curl -LO 
+curl -LO raw.githubusercontent.com/QUICK-GCP-LAB/2-Minutes-Labs-Solutions/refs/heads/main/Block.one%20Getting%20Started%20with%20The%20EOSIO%20Blockchain/gsp873.sh
 
 sudo chmod +x *.sh
 
