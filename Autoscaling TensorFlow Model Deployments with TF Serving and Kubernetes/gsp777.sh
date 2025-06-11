@@ -93,33 +93,64 @@ kubectl apply -f tf-serving/configmap.yaml
 echo "${BOLD}${BLUE}Applying Kubernetes deployment${RESET}"
 kubectl apply -f tf-serving/deployment.yaml
 
-# Step 12: Check deployments
-echo "${BOLD}${GREEN}Checking deployment status${RESET}"
-kubectl get deployments
-
-wait_for_deployment_ready() {
-  DEPLOYMENT_NAME=$1
-  NAMESPACE=${2:-default}
-
-  echo "${BOLD}${CYAN}Waiting for deployment '$DEPLOYMENT_NAME' to become ready...${RESET}"
+# Step 12: Function to wait for deployments to be ready
+echo "${BOLD}${CYAN}Waiting for deployments to be ready...${RESET}"
+wait_for_deployments_ready() {
+  local timeout=120
+  local elapsed=0
 
   while true; do
-    READY=$(kubectl get deployment $DEPLOYMENT_NAME -n $NAMESPACE -o jsonpath='{.status.readyReplicas}')
-    TOTAL=$(kubectl get deployment $DEPLOYMENT_NAME -n $NAMESPACE -o jsonpath='{.status.replicas}')
+    not_ready_count=0
 
-    if [[ "$READY" == "$TOTAL" && "$READY" != "" ]]; then
-      echo "${BOLD}${GREEN}Deployment '$DEPLOYMENT_NAME' is ready with $READY/$TOTAL replicas.${RESET}"
-      break
+    # Get READY field for image-classifier
+    line=$(kubectl get deployment image-classifier --no-headers 2>/dev/null)
+    
+    if [[ -z "$line" ]]; then
+      echo "${BOLD}${RED}Deployment 'image-classifier' not found.${RESET}"
+      return 1
+    fi
+
+    name=$(echo "$line" | awk '{print $1}')
+    ready=$(echo "$line" | awk '{print $2}')
+    ready_pods=$(echo "$ready" | cut -d'/' -f1)
+    total_pods=$(echo "$ready" | cut -d'/' -f2)
+
+    if [[ "$ready_pods" != "$total_pods" ]]; then
+      echo "${BOLD}${RED}Deployment '$name' is NOT ready: ${RESET}$ready"
+      ((not_ready_count++))
     else
-      echo "${BOLD}${RED}Still waiting... Current ready: ${READY:-0}/${TOTAL:-0}${RESET}"
-      sleep 5
+      echo "${BOLD}${GREEN}Deployment '$name' is ready: ${RESET}$ready"
+    fi
+
+    if [[ "$not_ready_count" -eq 0 ]]; then
+      echo "${BOLD}${YELLOW}image-classifier is READY!${RESET}"
+      break
+    elif [[ "$elapsed" -ge "$timeout" ]]; then
+      echo "${BOLD}${RED}image-classifier not ready after $timeout seconds. Recreating...${RESET}"
+      kubectl delete deployment image-classifier
+      kubectl apply -f tf-serving/deployment.yaml
+      elapsed=0  # Reset timer after reapply
+      echo "${BOLD}${GREEN}Re-applied image-classifier. Waiting again...${RESET}"
+    else
+      echo "${BOLD}${MAGENTA}Waiting 60 seconds before checking again...${RESET}"
+
+      for ((i=60; i>=0; i--)); do
+        remaining=$((timeout - elapsed - (60 - i)))
+        [[ "$remaining" -lt 0 ]] && remaining=0
+        echo -ne "\r${BOLD}${CYAN}Time remaining until recreate: ${RESET}"$remaining "${BOLD}${CYAN}seconds...${RESET} "
+        sleep 1
+      done
+      echo
+      ((elapsed+=60))
+      echo -e "\n${BOLD}${GREEN}Checking again...${RESET}\n"
     fi
   done
 }
 
 # Step 13: Wait for deployment to be ready
-echo "${BOLD}${YELLOW}Waiting for image-classifier deployment to be ready${RESET}"
-wait_for_deployment_ready image-classifier
+echo "${BOLD}${YELLOW}Waiting for image-classifier deployment to be ready...${RESET}"
+wait_for_deployments_ready
+
 
 # Step 14: Apply Kubernetes service
 echo "${BOLD}${MAGENTA}Applying Kubernetes service${RESET}"
