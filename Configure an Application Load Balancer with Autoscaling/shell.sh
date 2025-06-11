@@ -251,6 +251,14 @@ gcloud compute instance-groups managed set-autoscaling notus-1-mig \
   --mode=on \
   --quiet
 
+echo
+for ((i=120; i>=0; i--)); do
+  echo -ne "\r${BOLD}${CYAN}Time remaining${RESET} $i ${BOLD}${CYAN}seconds${RESET}"
+  sleep 1
+done
+echo -e "\n${BOLD}${GREEN}Done!${RESET}"
+echo
+
 # Step 17: Configure security policy
 echo "${BOLD}${BLUE}Configuring security policy${RESET}"
 ACCESS_TOKEN=$(gcloud auth print-access-token)
