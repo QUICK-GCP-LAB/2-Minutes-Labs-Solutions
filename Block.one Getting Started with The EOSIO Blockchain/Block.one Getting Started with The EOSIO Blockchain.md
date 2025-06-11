@@ -1,6 +1,6 @@
 # Block.one: Getting Started with The EOSIO Blockchain || [GSP873](https://www.cloudskillsboost.google/focuses/18269?parent=catalog) ||
 
-## 🔑 Solution [here]()
+## 🔑 Solution [here](https://youtu.be/RJ_1Ye9Fmak)
 
 ### ⚙️ Execute the Following Commands in Cloud Shell
 
