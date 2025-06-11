@@ -147,12 +147,10 @@ wait_for_deployments_ready() {
   done
 }
 
-# Step 13: Wait for deployment to be ready
-echo "${BOLD}${YELLOW}Waiting for image-classifier deployment to be ready...${RESET}"
 wait_for_deployments_ready
 
 
-# Step 14: Apply Kubernetes service
+# Step 13: Apply Kubernetes service
 echo "${BOLD}${MAGENTA}Applying Kubernetes service${RESET}"
 kubectl apply -f tf-serving/service.yaml
 
@@ -190,39 +188,39 @@ function wait_for_loadbalancer_ip() {
     done
 }
 
-# Step 15: Wait for load balancer IP
+# Step 14: Wait for load balancer IP
 echo "${BOLD}${BLUE}Waiting for load balancer IP to be assigned${RESET}"
 wait_for_loadbalancer_ip "image-classifier"
 
-# Step 16: Configure autoscaling for deployment
+# Step 15: Configure autoscaling for deployment
 echo "${BOLD}${YELLOW}Configuring autoscaling for image-classifier deployment${RESET}"
 kubectl autoscale deployment image-classifier \
 --cpu-percent=60 \
 --min=1 \
---max=4 
+--max=4
 
-# Step 17: Get external IP
+# Step 16: Get external IP
 echo "${BOLD}${MAGENTA}Getting external IP for the service${RESET}"
 EXTERNAL_IP=$(kubectl get svc image-classifier -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
 
-# Step 18: Test prediction endpoint
+# Step 17: Test prediction endpoint
 echo "${BOLD}${CYAN}Testing prediction endpoint${RESET}"
 curl -d @locust/request-body.json -H "Content-Type: application/json" \
      -X POST http://${EXTERNAL_IP}:8501/v1/models/image_classifier:predict
 
-# Step 19: Install Locust
+# Step 18: Install Locust
 echo "${BOLD}${BLUE}Installing Locust for load testing${RESET}"
 pip3 install locust==1.4.1
 
-# Step 20: Update PATH
+# Step 19: Update PATH
 echo "${BOLD}${GREEN}Updating PATH for Locust${RESET}"
 export PATH=~/.local/bin:$PATH
 
-# Step 21: Verify Locust version
+# Step 20: Verify Locust version
 echo "${BOLD}${YELLOW}Verifying Locust version${RESET}"
 locust -V
 
-# Step 22: Run Locust load test
+# Step 21: Run Locust load test
 echo "${BOLD}${MAGENTA}Running Locust load test${RESET}"
 cd locust
 locust -f tasks.py \
