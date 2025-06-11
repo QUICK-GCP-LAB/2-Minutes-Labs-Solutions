@@ -1,6 +1,6 @@
 # HTTPS Content-Based Load Balancer with Terraform || [GSP206](https://www.cloudskillsboost.google/focuses/1206?parent=catalog) ||
 
-## 🔑 Solution [here]()
+## 🔑 Solution [here](https://youtu.be/pI4SVs7pZGg)
 
 ### ⚙️ Execute the Following Commands in Cloud Shell
 
