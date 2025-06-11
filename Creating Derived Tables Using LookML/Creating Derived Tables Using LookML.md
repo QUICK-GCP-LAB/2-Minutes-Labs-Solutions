@@ -1,6 +1,6 @@
 # Creating Derived Tables Using LookML || [GSP858](https://www.cloudskillsboost.google/focuses/18475?parent=catalog) ||
 
-## 🔑 Solution [here]()
+## 🔑 Solution [here](https://youtu.be/w1Mdo-xUgU4)
 
 1. **Create a new view file** named `order_details`  
 2. **Remove** the default code.  
